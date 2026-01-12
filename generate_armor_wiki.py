@@ -199,6 +199,15 @@ def get_material_display_name(item_key, string_map):
         item_name = item_key[5:]  # Remove "Item." prefix
         string_key = f"Items.Items.{item_name}.Name"
         return string_map.get(string_key, item_name)
+    # Ore.MoonStone -> Items.Ores.MoonStone.Name
+    if item_key.startswith("Ore."):
+        ore_name = item_key[4:]  # Remove "Ore." prefix
+        string_key = f"Items.Ores.{ore_name}.Name"
+        return string_map.get(string_key, ore_name)
+    # Consumable.EveningAle -> Consumable.EveningAle.Name
+    if item_key.startswith("Consumable."):
+        string_key = f"{item_key}.Name"
+        return string_map.get(string_key, item_key)
     return item_key
 
 
