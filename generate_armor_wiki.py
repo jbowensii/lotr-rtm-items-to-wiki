@@ -23,6 +23,10 @@ DLC_TITLE_MAP = {
     "RohanPack": "The Rohan Pack",
 }
 
+# Tinted armor variant suffixes - these unlock when a complete set of original armor is crafted
+TINTED_ARMOR_SUFFIXES = ["Amzul", "Masharuz", "Shayar"]
+TINTED_ARMOR_UNLOCK_TEXT = "This cosmetic varient unlocks when a complete set of the original armor is crafted"
+
 # Mapping for items with "Manual" unlock type - these are purchased from traders
 # Maps DisplayName to the unlock text
 MANUAL_UNLOCK_MAP = {
@@ -79,6 +83,14 @@ STATION_KEY_MAP = {
     "CraftingStation_PurificationStation": "Constructions.PurificationStation.Name",
     "CraftingStation_TintingStation": "Constructions.TintingStation.Name",
 }
+
+
+def is_tinted_armor_variant(display_name):
+    """Check if the display name is a tinted armor variant (Amzul, Masharuz, or Shayar)."""
+    for suffix in TINTED_ARMOR_SUFFIXES:
+        if suffix in display_name:
+            return True
+    return False
 
 
 def load_string_table(filepath):
@@ -257,6 +269,11 @@ def get_material_display_name(item_key, string_map):
             return result
         # Fallback: try Items.X.Name
         string_key = f"Items.{item_name}.Name"
+        result = string_map.get(string_key)
+        if result:
+            return result
+        # Fallback: try Item.X.Name (original key format, e.g., Item.Wool.Name)
+        string_key = f"{item_key}.Name"
         result = string_map.get(string_key)
         if result:
             return result
@@ -548,6 +565,9 @@ def generate_wiki_template(model):
     elif model["CampaignUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
         # Manual unlock items are purchased from traders
         campaign_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
+    elif model["CampaignUnlockType"] == "Manual" and is_tinted_armor_variant(model["DisplayName"]):
+        # Tinted armor variants unlock when a complete set of original armor is crafted
+        campaign_unlock = TINTED_ARMOR_UNLOCK_TEXT
     elif model["CampaignUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         campaign_unlock = f"Purchase {model['DLCTitle']}"
@@ -560,6 +580,9 @@ def generate_wiki_template(model):
     elif model["SandboxUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
         # Manual unlock items are purchased from traders
         sandbox_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
+    elif model["SandboxUnlockType"] == "Manual" and is_tinted_armor_variant(model["DisplayName"]):
+        # Tinted armor variants unlock when a complete set of original armor is crafted
+        sandbox_unlock = TINTED_ARMOR_UNLOCK_TEXT
     elif model["SandboxUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         sandbox_unlock = f"Purchase {model['DLCTitle']}"
