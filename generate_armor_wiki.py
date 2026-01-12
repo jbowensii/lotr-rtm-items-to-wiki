@@ -637,6 +637,12 @@ def generate_wiki_template(model):
     elif model["SandboxUnlockType"]:
         sandbox_unlock = model["SandboxUnlockType"]
 
+    # Final fallback - if still ???, default to Return to Moria base game
+    if campaign_unlock == "???":
+        campaign_unlock = "{{LI|Return to Moria}}"
+    if sandbox_unlock == "???":
+        sandbox_unlock = "{{LI|Return to Moria}}"
+
     # Build stats and crafting/cosmetic sections based on Cosmetic flag
     if model["Cosmetic"]:
         # Cosmetic items don't have stats or crafting info
