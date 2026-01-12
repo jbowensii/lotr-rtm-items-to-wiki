@@ -4,13 +4,32 @@ import re
 
 # Paths
 SOURCE_DIR = "source"
-STRINGS_FILE = os.path.join(SOURCE_DIR, "strings", "items.json")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
 ARMOR_FILE = os.path.join(SOURCE_DIR, "DT_Armor.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
 OUTPUT_DIR = os.path.join("output", "armor")
+
+# Mapping from CraftingStation keys to Constructions string keys
+# This handles inconsistent naming between recipe data and string tables
+STATION_KEY_MAP = {
+    "CraftingStation_FloodedForge": "Constructions.FloodedForge",
+    "CraftingStation_AdvancedForge": "Constructions.ForgeAdvanced",
+    "CraftingStation_BasicForge": "Constructions.BasicForge",
+    "CraftingStation_DurinForge": "Constructions.DurinForge",
+    "CraftingStation_MithrilForge": "Constructions.MithrilForge",
+    "CraftingStation_NogrodForge": "Constructions.NogrodForge",
+    "CraftingStation_ElvishForge": "Constructions.LegendayElvishForge",
+    "CraftingStation_BasicFurnace": "Constructions.BasicFurnace",
+    "CraftingStation_AdvancedFurnace": "Constructions.FurnaceAdvanced",
+    "CraftingStation_FloodedFurnace": "Constructions.FloodedFurnace.Name",
+    "CraftingStation_Workbench": "Constructions.Workbench",
+    "CraftingStation_Campfire": "Constructions.Campfire",
+    "CraftingStation_MealTable": "Constructions.MealTable",
+}
 
 
 def load_string_table(filepath):
-    """Load the items.json string table and return a key->value dictionary."""
+    """Load a single string table file and return a key->value dictionary."""
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -29,6 +48,22 @@ def load_string_table(filepath):
     return string_map
 
 
+def load_all_string_tables(strings_dir):
+    """Load all string table files from the strings directory into a single map."""
+    combined_map = {}
+
+    # Find all JSON files in the strings directory
+    for filename in os.listdir(strings_dir):
+        if filename.endswith('.json'):
+            filepath = os.path.join(strings_dir, filename)
+            print(f"  Loading {filename}...")
+            file_map = load_string_table(filepath)
+            combined_map.update(file_map)
+            print(f"    Found {len(file_map)} strings")
+
+    return combined_map
+
+
 def load_armor_data(filepath):
     """Load DT_Armor.json and return the list of armor entries."""
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -45,6 +80,159 @@ def load_armor_data(filepath):
     return armor_list
 
 
+def load_recipe_data(filepath):
+    """Load DT_ItemRecipes.json and return a dictionary keyed by result item handle."""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    recipe_map = {}
+    exports = data.get("Exports", [])
+    for export in exports:
+        if export.get("$type") == "UAssetAPI.ExportTypes.DataTableExport, UAssetAPI":
+            table = export.get("Table", {})
+            recipe_entries = table.get("Data", [])
+            for entry in recipe_entries:
+                recipe = extract_recipe(entry)
+                if recipe and recipe.get("ResultItemHandle"):
+                    recipe_map[recipe["ResultItemHandle"]] = recipe
+
+    return recipe_map
+
+
+def extract_recipe(recipe_entry):
+    """Extract recipe data from a recipe entry."""
+    properties = recipe_entry.get("Value", [])
+
+    recipe = {
+        "RecipeName": recipe_entry.get("Name", ""),
+        "ResultItemHandle": "",
+        "ResultItemCount": 1,
+        "CraftTimeSeconds": 0.0,
+        "CraftingStations": [],
+        "Materials": [],  # List of {"Item": key, "Count": n}
+        "CampaignUnlockType": "",
+        "CampaignUnlockFragments": 0,
+        "SandboxUnlockType": "",
+        "SandboxUnlockFragments": 0
+    }
+
+    for prop in properties:
+        prop_name = prop.get("Name", "")
+        prop_value = prop.get("Value")
+
+        if prop_name == "ResultItemHandle":
+            # Extract RowName from nested structure
+            if isinstance(prop_value, list):
+                for inner in prop_value:
+                    if inner.get("Name") == "RowName":
+                        recipe["ResultItemHandle"] = inner.get("Value", "")
+
+        elif prop_name == "ResultItemCount":
+            recipe["ResultItemCount"] = prop_value
+
+        elif prop_name == "CraftTimeSeconds":
+            recipe["CraftTimeSeconds"] = prop_value
+
+        elif prop_name == "CraftingStations":
+            # Extract station RowNames
+            stations = []
+            if isinstance(prop_value, list):
+                for station in prop_value:
+                    station_values = station.get("Value", [])
+                    for inner in station_values:
+                        if inner.get("Name") == "RowName":
+                            stations.append(inner.get("Value", ""))
+            recipe["CraftingStations"] = stations
+
+        elif prop_name == "DefaultRequiredMaterials":
+            # Extract materials with counts
+            materials = []
+            if isinstance(prop_value, list):
+                for mat in prop_value:
+                    mat_values = mat.get("Value", [])
+                    item_key = ""
+                    count = 0
+                    for inner in mat_values:
+                        if inner.get("Name") == "MaterialHandle":
+                            handle_values = inner.get("Value", [])
+                            for h in handle_values:
+                                if h.get("Name") == "RowName":
+                                    item_key = h.get("Value", "")
+                        elif inner.get("Name") == "Count":
+                            count = inner.get("Value", 0)
+                    if item_key:
+                        materials.append({"Item": item_key, "Count": count})
+            recipe["Materials"] = materials
+
+        elif prop_name == "DefaultUnlocks":
+            # Extract campaign unlock info
+            if isinstance(prop_value, list):
+                for inner in prop_value:
+                    if inner.get("Name") == "UnlockType":
+                        # Strip enum prefix
+                        unlock_type = inner.get("Value", "")
+                        if "::" in unlock_type:
+                            unlock_type = unlock_type.split("::")[-1]
+                        recipe["CampaignUnlockType"] = unlock_type
+                    elif inner.get("Name") == "NumFragments":
+                        recipe["CampaignUnlockFragments"] = inner.get("Value", 0)
+
+        elif prop_name == "SandboxUnlocks":
+            # Extract sandbox unlock info
+            if isinstance(prop_value, list):
+                for inner in prop_value:
+                    if inner.get("Name") == "UnlockType":
+                        unlock_type = inner.get("Value", "")
+                        if "::" in unlock_type:
+                            unlock_type = unlock_type.split("::")[-1]
+                        recipe["SandboxUnlockType"] = unlock_type
+                    elif inner.get("Name") == "NumFragments":
+                        recipe["SandboxUnlockFragments"] = inner.get("Value", 0)
+
+    return recipe
+
+
+def get_material_display_name(item_key, string_map):
+    """Convert item key like 'Item.GunMetalIngot' to display name via string lookup."""
+    # Item.GunMetalIngot -> Items.Items.GunMetalIngot.Name
+    if item_key.startswith("Item."):
+        item_name = item_key[5:]  # Remove "Item." prefix
+        string_key = f"Items.Items.{item_name}.Name"
+        return string_map.get(string_key, item_name)
+    return item_key
+
+
+def get_repair_material_display_name(item_key, string_map):
+    """Convert repair material key like 'Item.Scrap' to display name via Category lookup."""
+    # Item.Scrap -> Category.Item.Scrap
+    if item_key.startswith("Item."):
+        string_key = f"Category.{item_key}"
+        return string_map.get(string_key, item_key)
+    return item_key
+
+
+def get_damage_modifier_display_name(modifier_key, string_map):
+    """Convert damage modifier key like 'CorrosiveDamage' to display name via Stat lookup."""
+    # CorrosiveDamage -> strip "Damage" -> Corrosive -> Stat.DamageResist.Corrosive
+    if modifier_key.endswith("Damage"):
+        damage_type = modifier_key[:-6]  # Remove "Damage" suffix
+        string_key = f"Stat.DamageResist.{damage_type}"
+        return string_map.get(string_key, modifier_key)
+    return modifier_key
+
+
+def get_station_display_name(station_key, string_map):
+    """Convert crafting station key to display name via string lookup."""
+    # Use the mapping to find the string key
+    string_key = STATION_KEY_MAP.get(station_key)
+    if string_key:
+        return string_map.get(string_key, station_key)
+    # Fallback: try to derive a readable name
+    name = station_key.replace("CraftingStation_", "")
+    name = re.sub(r'([a-z])([A-Z])', r'\1 \2', name)
+    return name
+
+
 def get_property_value(properties, prop_name):
     """Get a property value from a list of property objects."""
     for prop in properties:
@@ -53,7 +241,7 @@ def get_property_value(properties, prop_name):
     return None
 
 
-def extract_armor_model(armor_entry, string_map):
+def extract_armor_model(armor_entry, string_map, recipe_map):
     """Extract our data model from an armor entry."""
     game_name = armor_entry.get("Name", "")
     properties = armor_entry.get("Value", [])
@@ -74,7 +262,17 @@ def extract_armor_model(armor_entry, string_map):
         "SubType": "",
         "Tier": "",
         "Icon": "",
-        "RepairCost": 0
+        "MaxRepairCost": 0,
+        "RepairMaterialKey": "",
+        "RepairMaterial": "",
+        # Recipe data
+        "CraftTime": 0.0,
+        "CraftingStations": [],
+        "Materials": [],  # List of {"Name": display_name, "Count": n}
+        "CampaignUnlockType": "",
+        "CampaignUnlockFragments": 0,
+        "SandboxUnlockType": "",
+        "SandboxUnlockFragments": 0
     }
 
     for prop in properties:
@@ -99,14 +297,18 @@ def extract_armor_model(armor_entry, string_map):
             model["Description"] = string_map.get(prop_value, prop_value)
 
         elif prop_name == "DamageModifiers":
-            # Extract RowName values from the array
+            # Extract RowName values from the array and resolve display names
             modifiers = []
             if isinstance(prop_value, list):
                 for item in prop_value:
                     inner_values = item.get("Value", [])
                     for inner in inner_values:
                         if inner.get("Name") == "RowName":
-                            modifiers.append(inner.get("Value", ""))
+                            modifier_key = inner.get("Value", "")
+                            display_name = get_damage_modifier_display_name(
+                                modifier_key, string_map
+                            )
+                            modifiers.append(display_name)
             model["DamageModifiers"] = ", ".join(modifiers)
 
         elif prop_name == "SkillsGranted":
@@ -152,13 +354,47 @@ def extract_armor_model(armor_entry, string_map):
                 model["Icon"] = asset_path.get("AssetName", "")
 
         elif prop_name == "InitialRepairCost":
-            # Extract Count from the nested structure
+            # Extract Count and MaterialHandle from the nested structure
             if isinstance(prop_value, list):
                 for item in prop_value:
                     inner_values = item.get("Value", [])
                     for inner in inner_values:
                         if inner.get("Name") == "Count":
-                            model["RepairCost"] = inner.get("Value", 0)
+                            model["MaxRepairCost"] = inner.get("Value", 0)
+                        elif inner.get("Name") == "MaterialHandle":
+                            # Extract RowName from MaterialHandle
+                            handle_values = inner.get("Value", [])
+                            for h in handle_values:
+                                if h.get("Name") == "RowName":
+                                    material_key = h.get("Value", "")
+                                    model["RepairMaterialKey"] = material_key
+                                    model["RepairMaterial"] = get_repair_material_display_name(
+                                        material_key, string_map
+                                    )
+
+    # Look up recipe data using "Armor.{GameName}" as the key
+    recipe_key = f"Armor.{game_name}"
+    recipe = recipe_map.get(recipe_key)
+    if recipe:
+        model["CraftTime"] = recipe.get("CraftTimeSeconds", 0.0)
+        model["CampaignUnlockType"] = recipe.get("CampaignUnlockType", "")
+        model["CampaignUnlockFragments"] = recipe.get("CampaignUnlockFragments", 0)
+        model["SandboxUnlockType"] = recipe.get("SandboxUnlockType", "")
+        model["SandboxUnlockFragments"] = recipe.get("SandboxUnlockFragments", 0)
+
+        # Convert crafting station keys to display names
+        stations = []
+        for station_key in recipe.get("CraftingStations", []):
+            display_name = get_station_display_name(station_key, string_map)
+            stations.append(display_name)
+        model["CraftingStations"] = stations
+
+        # Convert material keys to display names
+        materials = []
+        for mat in recipe.get("Materials", []):
+            display_name = get_material_display_name(mat["Item"], string_map)
+            materials.append({"Name": display_name, "Count": mat["Count"]})
+        model["Materials"] = materials
 
     return model
 
@@ -192,6 +428,39 @@ def generate_wiki_template(model):
     if model["DamageModifiers"]:
         damage_modifiers_line = f"\nDamage Modifiers: {model['DamageModifiers']}\n"
 
+    # Build unlock lines
+    campaign_unlock = "???"
+    if model["CampaignUnlockType"] == "CollectFragments":
+        campaign_unlock = f"Collect {model['CampaignUnlockFragments']} fragments"
+    elif model["CampaignUnlockType"]:
+        campaign_unlock = model["CampaignUnlockType"]
+
+    sandbox_unlock = "???"
+    if model["SandboxUnlockType"] == "CollectFragments":
+        sandbox_unlock = f"Collect {model['SandboxUnlockFragments']} fragments"
+    elif model["SandboxUnlockType"]:
+        sandbox_unlock = model["SandboxUnlockType"]
+
+    # Build craft time
+    craft_time = model.get("CraftTime", 0)
+    craft_time_str = f"{int(craft_time)}" if craft_time else "???"
+
+    # Build stations list (already resolved to display names)
+    stations_lines = ""
+    if model["CraftingStations"]:
+        for station_name in model["CraftingStations"]:
+            stations_lines += f"* {{{{LI|{station_name}}}}}\n"
+    else:
+        stations_lines = "* {{LI|???}}\n"
+
+    # Build materials list
+    materials_lines = ""
+    if model["Materials"]:
+        for mat in model["Materials"]:
+            materials_lines += f"* ({mat['Count']}) {{{{LI|{mat['Name']}}}}}\n"
+    else:
+        materials_lines = "* {{LI|???}}\n"
+
     template = f"""{{{{Item
  | title         = {{{{PAGENAME}}}}
  | image         = {{{{PAGENAME}}}}.webp
@@ -208,8 +477,8 @@ In-game: ''{description}''
 
 == Unlocks ==
 
-* Campaign {{{{spoiler|???}}}}
-* Sandbox  {{{{spoiler|???}}}}
+* Campaign {{{{spoiler|{campaign_unlock}}}}}
+* Sandbox  {{{{spoiler|{sandbox_unlock}}}}}
 
 == Stats ==
 
@@ -219,20 +488,18 @@ Armor Protection: {model['DamageProtection']}
 
 Armor Effectiveness: {model['DamageReduction']}
 {damage_modifiers_line}
-Max Repair Cost: {model['RepairCost']} {{{{LI|Scrap}}}}
+Max Repair Cost: {model['MaxRepairCost']} {{{{LI|{model['RepairMaterial']}}}}}
 
 == Crafting ==
 
-Time: ??? seconds
+Time: {craft_time_str} seconds
 
 Station:
 
-* {{{{LI|???}}}}
-
+{stations_lines}
 Materials:
 
-* {{{{LI|???}}}}
-
+{materials_lines}
 {{{{Navbox items}}}}
 [[Category:Tier {tier} Items]]
 [[Category:{model['SubType']}s]]
@@ -270,20 +537,24 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # Load data
-    print("Loading string table...")
-    string_map = load_string_table(STRINGS_FILE)
-    print(f"Loaded {len(string_map)} strings")
+    print("Loading all string tables...")
+    string_map = load_all_string_tables(STRINGS_DIR)
+    print(f"Loaded {len(string_map)} total strings")
 
     print("Loading armor data...")
     armor_list = load_armor_data(ARMOR_FILE)
     print(f"Loaded {len(armor_list)} armor entries")
+
+    print("Loading recipe data...")
+    recipe_map = load_recipe_data(RECIPES_FILE)
+    print(f"Loaded {len(recipe_map)} recipes")
 
     # Process each armor entry
     count = 0
     excluded = []
 
     for armor_entry in armor_list:
-        model = extract_armor_model(armor_entry, string_map)
+        model = extract_armor_model(armor_entry, string_map, recipe_map)
 
         # Check exclusion rules
         exclude, reason = should_exclude(model)

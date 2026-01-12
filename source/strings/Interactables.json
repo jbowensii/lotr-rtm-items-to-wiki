@@ -1,0 +1,2234 @@
+{
+  "$type": "UAssetAPI.UAsset, UAssetAPI",
+  "Info": "Serialized with UAssetAPI 1.0.2.0 (39a20ea)",
+  "NameMap": [
+    "/Game/Tech/Data/StringTables/Interactables",
+    "/Script/CoreUObject",
+    "/Script/Engine",
+    "Class",
+    "Context",
+    "Default__StringTable",
+    "Interactables",
+    "None",
+    "Package",
+    "Status",
+    "StringTable"
+  ],
+  "CustomSerializationFlags": "None",
+  "UseSeparateBulkDataFiles": true,
+  "IsUnversioned": true,
+  "FileVersionLicenseeUE": 0,
+  "ObjectVersion": "VER_UE4_CORRECT_LICENSEE_FLAG",
+  "ObjectVersionUE5": "UNKNOWN",
+  "CustomVersionContainer": [
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{375EC13C-06E4-48FB-B500-84F0262A717E}",
+      "FriendlyName": "FCoreObjectVersion",
+      "Version": 4,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{E4B068ED-F494-42E9-A231-DA0B2E46BB41}",
+      "FriendlyName": "FEditorObjectVersion",
+      "Version": 40,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{CFFC743F-43B0-4480-9391-14DF171D2073}",
+      "FriendlyName": "FFrameworkObjectVersion",
+      "Version": 37,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{7B5AE74C-D270-4C10-A958-57980B212A5A}",
+      "FriendlyName": "FSequencerObjectVersion",
+      "Version": 13,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{29E575DD-E0A3-4627-9D10-D276232CDCEA}",
+      "FriendlyName": "FAnimPhysObjectVersion",
+      "Version": 17,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{601D1886-AC64-4F84-AA16-D3DE0DEAC7D6}",
+      "FriendlyName": "FFortniteMainBranchObjectVersion",
+      "Version": 47,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC}",
+      "FriendlyName": "FNiagaraObjectVersion",
+      "Version": 1,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{717F9EE7-E9B0-493A-88B3-91321B388107}",
+      "FriendlyName": "FAssetRegistryVersion",
+      "Version": 17,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{9C54D522-A826-4FBE-9421-074661B482D0}",
+      "FriendlyName": "FReleaseObjectVersion",
+      "Version": 43,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{E7086368-6B23-4C58-8439-1B7016265E91}",
+      "FriendlyName": "FFortniteReleaseBranchCustomObjectVersion",
+      "Version": 1,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{D89B5E42-24BD-4D46-8412-ACA8DF641779}",
+      "FriendlyName": "FUE5ReleaseStreamObjectVersion",
+      "Version": 0,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{FCF57AFA-5076-4283-B9A9-E658FFA02D32}",
+      "FriendlyName": "FNiagaraCustomVersion",
+      "Version": 68,
+      "IsSerialized": false
+    }
+  ],
+  "SoftObjectPathList": null,
+  "GatherableTextData": null,
+  "Exports": [
+    {
+      "$type": "UAssetAPI.ExportTypes.StringTableExport, UAssetAPI",
+      "Table": {
+        "TableNamespace": "Interactables",
+        "Value": [
+          [
+            "Constructions.BasicForge",
+            "Forge"
+          ],
+          [
+            "Constructions.BasicForge.Description",
+            "Forge weapons, armor and any metalsmithed items."
+          ],
+          [
+            "Constructions.BasicFurnace",
+            "Furnace"
+          ],
+          [
+            "Constructions.BasicFurnace.Description",
+            "Smelt raw ore into ingots for use at a forge."
+          ],
+          [
+            "Constructions.Bed",
+            "Mansion Bed"
+          ],
+          [
+            "Constructions.Bed.Description",
+            "Sleep here to recover energy and feel well rested."
+          ],
+          [
+            "Constructions.Bedroll",
+            "Bedroll"
+          ],
+          [
+            "Constructions.Bedroll.Description",
+            "Simple place to sleep and recover energy."
+          ],
+          [
+            "Constructions.BedSmall",
+            "Bed"
+          ],
+          [
+            "Constructions.BedSmall.Description",
+            "Sleep here to recover energy and feel rested."
+          ],
+          [
+            "Constructions.Bellows.Description",
+            "Upgrades a nearby furnace to smelt advanced metals and alloys."
+          ],
+          [
+            "Constructions.Bellows.Name",
+            "Bellows"
+          ],
+          [
+            "Constructions.BreweryUpgradeStation.Description",
+            "Upgrades a nearby tank to brew advanced ales."
+          ],
+          [
+            "Constructions.BreweryUpgradeStation.Name",
+            "Alchemical Still"
+          ],
+          [
+            "Constructions.Campfire",
+            "Camp Hearth"
+          ],
+          [
+            "Constructions.Campfire.Description",
+            "Small fire that allows building a small encampment. Can cook a limited menu."
+          ],
+          [
+            "Constructions.CrystalLamp.Description",
+            "This Sun-stone apparatus provides light and warmth to grow plants underground."
+          ],
+          [
+            "Constructions.CrystalLamp.Name",
+            "Afhan Lamp"
+          ],
+          [
+            "Constructions.DurinForge",
+            "Great Forge of Durin"
+          ],
+          [
+            "Constructions.DurinsLamp.Description",
+            "Uses True-quartz and runes of power to light to the darkness and push away the Shadow."
+          ],
+          [
+            "Constructions.DurinsLamp.Name",
+            "Durin’s Lamp"
+          ],
+          [
+            "Constructions.FabricStation_Upgrade.Description",
+            "Upgrades a nearby Loom to craft better cloth."
+          ],
+          [
+            "Constructions.FabricStation_Upgrade.Name",
+            "Spinning Wheel"
+          ],
+          [
+            "Constructions.FabricStation.Description",
+            "Combine scraps and raw material into cloth needed for armor and weapons. "
+          ],
+          [
+            "Constructions.FabricStation.Name",
+            "Loom"
+          ],
+          [
+            "Constructions.Farm1x1",
+            "Farm Patch"
+          ],
+          [
+            "Constructions.Farm1x1.Description",
+            "More durable patch of tilled soil. Ready to grow one plant."
+          ],
+          [
+            "Constructions.Farm2x2",
+            "Farm Box"
+          ],
+          [
+            "Constructions.Farm2x2.Description",
+            "Raised container of soil, ready to grow three plants."
+          ],
+          [
+            "Constructions.FloodedForge",
+            "Great Belegost Forge"
+          ],
+          [
+            "Constructions.FloodedFurnace.Name",
+            "Great Belegost Furnace"
+          ],
+          [
+            "Constructions.FloorTorch",
+            "Standing Torch"
+          ],
+          [
+            "Constructions.FloorTorch.Description",
+            "A small burning light, useful for paths, rooms and caverns. "
+          ],
+          [
+            "Constructions.ForgeAdvanced",
+            "Khuzdul Forge"
+          ],
+          [
+            "Constructions.ForgeAdvanced.Description",
+            "Use ancient craft to forge powerful weapons, armor and any metalsmithed items."
+          ],
+          [
+            "Constructions.ForgeUpgrade",
+            "Gem Cutter"
+          ],
+          [
+            "Constructions.ForgeUpgrade.Description",
+            "Upgrades a nearby Forge to craft metalworks that use precious gems."
+          ],
+          [
+            "Constructions.FurnaceAdvanced",
+            "Ufûhan Furnace"
+          ],
+          [
+            "Constructions.FurnaceAdvanced.Description",
+            "This \"hottest\" Furnace can smelt delicate and powerful ore."
+          ],
+          [
+            "Constructions.Hearth_LargeHearth.Description",
+            "A massive fire that allows for a large building footprint, provides warmth and can cook better meals."
+          ],
+          [
+            "Constructions.Hearth_LargeHearth.Name",
+            "Grand Hearth"
+          ],
+          [
+            "Constructions.Hearth_MediumFireplace.Description",
+            "A larger fire that allows nearby building, provides warmth and can cook better meals."
+          ],
+          [
+            "Constructions.Hearth_MediumFireplace.Name",
+            "Tiled Hearth"
+          ],
+          [
+            "Constructions.Hearth_Small.Description",
+            "The traditional center of a Dwarf home. Allows some nearby building, provides warmth and can cook meals."
+          ],
+          [
+            "Constructions.Hearth_Small.name",
+            "Stone Hearth"
+          ],
+          [
+            "Constructions.Kitchen_Oven.Description",
+            "Uses dry heat to bake rations that can be taken on adventures. "
+          ],
+          [
+            "Constructions.Kitchen_Oven.Name",
+            "Oven"
+          ],
+          [
+            "Constructions.Kitchen_PitBBQ.Description",
+            "Slow cooks meals over an open fire."
+          ],
+          [
+            "Constructions.Kitchen_PitBBQ.Name",
+            "Roasting Pit"
+          ],
+          [
+            "Constructions.Kitchen_Stove.Description",
+            "Advanced cooking station for meals and rations."
+          ],
+          [
+            "Constructions.Kitchen_Stove.Name",
+            "Stove"
+          ],
+          [
+            "Constructions.Ladder",
+            "Ladder"
+          ],
+          [
+            "Constructions.LegendayElvishForge",
+            "Great Forge of Narvi"
+          ],
+          [
+            "Constructions.LegendayElvishFurnace",
+            "Great Furnace of Narvi"
+          ],
+          [
+            "Constructions.Mapstone.Description",
+            "Marks a location under the mountain and indicates the way to other locations. Use to fast travel."
+          ],
+          [
+            "Constructions.MapStone.NameFormat",
+            "{Zone} {Mapstone} {Number}"
+          ],
+          [
+            "Constructions.MealTable",
+            "Meal Table"
+          ],
+          [
+            "Constructions.MealTable.Clear",
+            "Clear"
+          ],
+          [
+            "Constructions.MealTable.Description",
+            "Table to serve meals as they come off a hearth or station. Required to cook meals."
+          ],
+          [
+            "Constructions.MealTable.Eat",
+            "Eat"
+          ],
+          [
+            "Constructions.Memorial.Description",
+            "A tribute to remember the fallen Dwarves who came before. "
+          ],
+          [
+            "Constructions.Memorial.Name",
+            "Memorial Flame"
+          ],
+          [
+            "Constructions.Mill.Description",
+            "Grinds grains into cooking ingredients. "
+          ],
+          [
+            "Constructions.Mill.Name",
+            "Gristmill"
+          ],
+          [
+            "Constructions.MithrilForge",
+            "Great Mithril Forge"
+          ],
+          [
+            "Constructions.NogrodForge",
+            "Great Nogrod Forge"
+          ],
+          [
+            "Constructions.PublicForge.Description",
+            "Throughout Khazad-dûm these small forges were available for any Dwarf for when inspiration strikes."
+          ],
+          [
+            "Constructions.PublicForge.Name",
+            "Open Forge"
+          ],
+          [
+            "Constructions.PublicFurnace",
+            "Open Furnace"
+          ],
+          [
+            "Constructions.PublicFurnace.Description",
+            "In many common buildings, Dwarves can use the nearby heat source to smelt whatever raw ore they have in their pockets before going about their other tasks."
+          ],
+          [
+            "Constructions.PurificationStation.Description",
+            "Uses heat, Salt and Dwarfcraft to purify recovered Gundabad Slag into Luthun Durinul."
+          ],
+          [
+            "Constructions.PurificationStation.Name",
+            "Salt Bath"
+          ],
+          [
+            "Constructions.QuickPlatform",
+            "Platform"
+          ],
+          [
+            "Constructions.RepairStation.Description",
+            "Repair damaged weapons and armor. "
+          ],
+          [
+            "Constructions.RepairStation.Name",
+            "Repair Smithy"
+          ],
+          [
+            "Constructions.RopeLadder.Description",
+            "Simplest way to climb up or down."
+          ],
+          [
+            "Constructions.RopeLadder.Name",
+            "Rope Ladder"
+          ],
+          [
+            "Constructions.SmallStoneBlock",
+            "Small Block"
+          ],
+          [
+            "Constructions.Stairs",
+            "Stairs"
+          ],
+          [
+            "Constructions.Statue",
+            "Statue"
+          ],
+          [
+            "Constructions.StorageChest.Description",
+            "Tidy place to store any items. When near a hearth, all crafting can use the contents without them being removed. "
+          ],
+          [
+            "Constructions.StorageChest.Name",
+            "Wood Chest"
+          ],
+          [
+            "Constructions.TintingStation.Description",
+            "Tints armor by grinding semi-precious gems into colored ink."
+          ],
+          [
+            "Constructions.TintingStation.Name",
+            "Ink Grinder"
+          ],
+          [
+            "Constructions.WallTorch",
+            "Wall Torch"
+          ],
+          [
+            "Constructions.WallTorch.Description",
+            "Affix this to walls or any vertical surface to add light to an area."
+          ],
+          [
+            "Constructions.Workbench",
+            "Workbench"
+          ],
+          [
+            "Constructions.Workbench.Description",
+            "Used to craft bows, arrows, hats and other items made of cloth, leather or wood. "
+          ],
+          [
+            "Container.IronWoodPallet.Description",
+            "Stores a large amount of Ironwood."
+          ],
+          [
+            "Container.ResourcePallet.DepositFormat",
+            "Deposit {0} x{1}"
+          ],
+          [
+            "Container.ResourcePallet.DisabledDepositFormat",
+            "Deposit {0} x{1}{2}"
+          ],
+          [
+            "Containers.AdamantPallet.Description",
+            "Stores large amount of Adamant rock."
+          ],
+          [
+            "Containers.AdamantPallet.Name",
+            "Adamant Pallet"
+          ],
+          [
+            "Containers.AncientWoodPallet.Description",
+            "Stores a large amount of Ubâsam Wood."
+          ],
+          [
+            "Containers.AncientWoodPallet.Name",
+            "Ubâsam Wood Pallet"
+          ],
+          [
+            "Containers.Barrel.Name",
+            "Barrel"
+          ],
+          [
+            "Containers.BronzeIngotPallet.Description",
+            "Stores a large amount of Bronze Ingots."
+          ],
+          [
+            "Containers.BronzeIngotPallet.Name",
+            "Bronze Ingot Pallet"
+          ],
+          [
+            "Containers.Chest.Name",
+            "Chest"
+          ],
+          [
+            "Containers.CoalPallet.Description",
+            "Stores a large amount of Coal."
+          ],
+          [
+            "Containers.CoalPallet.Name",
+            "Coal Pallet"
+          ],
+          [
+            "Containers.CopperIngotPallet.Description",
+            "Stores a large amount of Copper Ingots."
+          ],
+          [
+            "Containers.CopperIngotPallet.Name",
+            "Copper Ingot Pallet"
+          ],
+          [
+            "Containers.CopperOrePallet.Description",
+            "Stores a large amount of Copper Ore."
+          ],
+          [
+            "Containers.CopperOrePallet.Name",
+            "Copper Ore Pallet"
+          ],
+          [
+            "Containers.DebugReceptacle.Name",
+            "Box"
+          ],
+          [
+            "Containers.GoldIngotPallet.Description",
+            "Stores a large amount of Gold Ingots."
+          ],
+          [
+            "Containers.GoldIngotPallet.Name",
+            "Gold Ingot pallet"
+          ],
+          [
+            "Containers.GoldOrePallet.Description",
+            "Stores a large amount of Gold Ore"
+          ],
+          [
+            "Containers.GoldOrePallet.Name",
+            "Gold Ore Pallet"
+          ],
+          [
+            "Containers.GranitePallet.Description",
+            "Stores a large amount of Granite rock."
+          ],
+          [
+            "Containers.GranitePallet.Name",
+            "Granite Pallet"
+          ],
+          [
+            "Containers.GunmetalIngotPallet.Description",
+            "Stores a large amount of Shanôr Ingots."
+          ],
+          [
+            "Containers.GunmetalIngotPallet.Name",
+            "Shanôr Ingot Pallet"
+          ],
+          [
+            "Containers.IronIngotPallet.Description",
+            "Stores a large amount of Iron Ingots"
+          ],
+          [
+            "Containers.IronIngotPallet.Name",
+            "Iron Ingot Pallet"
+          ],
+          [
+            "Containers.IronOrePallet.Description",
+            "Stores a large amount of Iron Ore"
+          ],
+          [
+            "Containers.IronOrePallet.Name",
+            "Iron Ore Pallet"
+          ],
+          [
+            "Containers.IronWoodPallet.Name",
+            "Ironwood Pallet"
+          ],
+          [
+            "Containers.KhazadIngotPallet.Description",
+            "Stores a large amount of Khazâd Steel ingots."
+          ],
+          [
+            "Containers.KhazadIngotPallet.Name",
+            "Khazâd Steel Pallet"
+          ],
+          [
+            "Containers.MithrilIngotPallet.Description",
+            "Stores a large amount of Mithril Ingots."
+          ],
+          [
+            "Containers.MithrilIngotPallet.Name",
+            "Mithril Ingot Pallet"
+          ],
+          [
+            "Containers.MithrilOrePallet.Description",
+            "Stores a large amount of Mithril Ore."
+          ],
+          [
+            "Containers.MithrilOrePallet.Name",
+            "Mithril Ore Pallet"
+          ],
+          [
+            "Containers.NogrodIngotPallet.Description",
+            "Stores a large amount of Nogrod Steel Ingots."
+          ],
+          [
+            "Containers.NogrodIngotPallet.Name",
+            "Nogrod Steel Pallet"
+          ],
+          [
+            "Containers.ProcReceptacle.Name",
+            "Box"
+          ],
+          [
+            "Containers.PurifiedDarkIngotPallet.Description",
+            "Stores a large amount of Durinul Iron Ingots."
+          ],
+          [
+            "Containers.PurifiedDarkIngotPallet.Name",
+            "Durinul Iron Pallet"
+          ],
+          [
+            "Containers.QualityWoodPallet.Description",
+            "Stores a large amount of Elven Wood."
+          ],
+          [
+            "Containers.QualityWoodPallet.Name",
+            "Elven Wood Pallet"
+          ],
+          [
+            "Containers.ResourcePallet.DisabledGetFormat",
+            "Get {0} x{1}{2}"
+          ],
+          [
+            "Containers.ResourcePallet.GetFormat",
+            "Get {0} x{1}"
+          ],
+          [
+            "Containers.ResourcePallet.InventoryFull",
+            " (Inventory Full)"
+          ],
+          [
+            "Containers.ResourcePallet.Name",
+            "Resource Pallet"
+          ],
+          [
+            "Containers.ResourcePallet.PalletFull",
+            " (Pallet Full)"
+          ],
+          [
+            "Containers.SilverIngotPallet.Description",
+            "Stores a large amount of Silver Ingots."
+          ],
+          [
+            "Containers.SilverIngotPallet.Name",
+            "Silver Ingot Pallet"
+          ],
+          [
+            "Containers.SilverOrePallet.Description",
+            "Stores a large amount of Silver Ore."
+          ],
+          [
+            "Containers.SilverOrePallet.Name",
+            "Silver Ore pallet"
+          ],
+          [
+            "Containers.StarAlloyIngotPallet.Description",
+            "Stores a large amount of Star-metal Ingots."
+          ],
+          [
+            "Containers.StarAlloyIngotPallet.Name",
+            "Star-metal Pallet"
+          ],
+          [
+            "Containers.StarMetalOrePallet.Description",
+            "Stores a large amount of Star-metal Ore."
+          ],
+          [
+            "Containers.StarMetalOrePallet.Name",
+            "Star-metal Ore Pallet"
+          ],
+          [
+            "Containers.SteelIngotPallet.Description",
+            "Stores a large amount of Steel Ingots."
+          ],
+          [
+            "Containers.SteelIngotPallet.Name",
+            "Steel Ingot Pallet"
+          ],
+          [
+            "Containers.SterlingIngotPallet.Description",
+            "Stores a large amount of Sterling Ingots."
+          ],
+          [
+            "Containers.SterlingIngotPallet.Name",
+            "Sterling Ingot Pallet"
+          ],
+          [
+            "Containers.StonePallet.Description",
+            "Stores a large amount of Stone."
+          ],
+          [
+            "Containers.StonePallet.Name",
+            "Stone Pallet"
+          ],
+          [
+            "Containers.TinOrePallet.Description",
+            "Stores a large amount of Tin Ore."
+          ],
+          [
+            "Containers.TinOrePallet.Name",
+            "Tin Ore Pallet"
+          ],
+          [
+            "Containers.WoodPallet.Description",
+            "Stores a large amount of Wood Scraps."
+          ],
+          [
+            "Containers.WoodPallet.Name",
+            "Wood Pallet"
+          ],
+          [
+            "Interactables.BalinsGrave.Name",
+            "Balin’s Tomb"
+          ],
+          [
+            "Interactables.Bed.Action.Unclaimed",
+            "Claim"
+          ],
+          [
+            "Interactables.Bed.Action.Your",
+            "Sleep"
+          ],
+          [
+            "Interactables.Bed.Name",
+            "Bed"
+          ],
+          [
+            "Interactables.Bed.Name.Others",
+            "{0}’s Bed"
+          ],
+          [
+            "Interactables.Bed.Name.Unclaimed",
+            "Available Bed"
+          ],
+          [
+            "Interactables.Bed.Name.Your",
+            "Your Bed"
+          ],
+          [
+            "Interactables.Bedroll.Action.Others",
+            "Already Claimed"
+          ],
+          [
+            "Interactables.Bedroll.Action.Unclaimed",
+            "Claim"
+          ],
+          [
+            "Interactables.Bedroll.Action.Your",
+            "Rest"
+          ],
+          [
+            "Interactables.Bedroll.Name",
+            "Bedroll"
+          ],
+          [
+            "Interactables.Bedroll.Name.Others",
+            "{0}’s bedroll"
+          ],
+          [
+            "Interactables.Bedroll.Name.Unclaimed",
+            "Available bedroll"
+          ],
+          [
+            "Interactables.Bedroll.Name.Your",
+            "Your bedroll"
+          ],
+          [
+            "Interactables.Braziar.Interact",
+            "Light"
+          ],
+          [
+            "Interactables.Braziar.Name",
+            "Brazier"
+          ],
+          [
+            "Interactables.Brewery.AlreadyHaveMug",
+            "Take Mug (Already have one)"
+          ],
+          [
+            "Interactables.Brewery.Description",
+            "Dwarven-made tank capable of brewing and storing up to large quantities of ale."
+          ],
+          [
+            "Interactables.Brewery.DisabledDrain",
+            "Nothing to drain"
+          ],
+          [
+            "Interactables.Brewery.DisabledFillBrewskin",
+            "You have no brewskins"
+          ],
+          [
+            "Interactables.Brewery.DisabledFillKeg",
+            "You have no keg"
+          ],
+          [
+            "Interactables.Brewery.DisabledTake",
+            "{0}"
+          ],
+          [
+            "Interactables.Brewery.Drain",
+            "Drain {1}"
+          ],
+          [
+            "Interactables.Brewery.Empty",
+            "Take Mug (No brew)"
+          ],
+          [
+            "Interactables.Brewery.FillBrewskin",
+            "Fill Brewskin"
+          ],
+          [
+            "Interactables.Brewery.FillKeg",
+            "Fill Keg"
+          ],
+          [
+            "Interactables.Brewery.Ladder.Climb",
+            "Climb"
+          ],
+          [
+            "Interactables.Brewery.Ladder.Name",
+            "Ladder"
+          ],
+          [
+            "Interactables.Brewery.Massive.Name",
+            "King’s Brew Tank"
+          ],
+          [
+            "Interactables.Brewery.Name",
+            "Brew Tank"
+          ],
+          [
+            "Interactables.Brewery.Small.Name",
+            "Brew Kettle"
+          ],
+          [
+            "Interactables.Brewery.Take",
+            "Take Mug of {1} ({0} left)"
+          ],
+          [
+            "Interactables.Brewery.Tap.Name",
+            "Tap"
+          ],
+          [
+            "Interactables.Challenge.RequiresPrefix",
+            "Requires {0}, {1}"
+          ],
+          [
+            "Interactables.Collect.Multiple",
+            "Collect Items ({1})"
+          ],
+          [
+            "Interactables.Collect.Single",
+            "Collect {0} x{1}"
+          ],
+          [
+            "Interactables.Craft",
+            "Craft"
+          ],
+          [
+            "Interactables.CueSpot",
+            "Replay Conversation"
+          ],
+          [
+            "Interactables.CueSpot.Name",
+            "Memory"
+          ],
+          [
+            "Interactables.Disabled.CraftingInProgress",
+            "Craft (In Progress)"
+          ],
+          [
+            "Interactables.Door.Base.Name",
+            "Door"
+          ],
+          [
+            "Interactables.Door.Close",
+            "Close"
+          ],
+          [
+            "Interactables.Door.Crude.Name",
+            "Door"
+          ],
+          [
+            "Interactables.Door.Open",
+            "Open"
+          ],
+          [
+            "Interactables.DoorsOfDurin.Name",
+            "Doors of Durin"
+          ],
+          [
+            "Interactables.DurinsAxeFragment.Name",
+            "Durin’s Axe Fragment"
+          ],
+          [
+            "Interactables.DurinsGrave.Writings",
+            "Ancient Runes"
+          ],
+          [
+            "Interactables.DurinsLamp.DisabledStartSong",
+            "Sing (In Progress)"
+          ],
+          [
+            "Interactables.DurinsLamp.JoinSong",
+            "Join Song"
+          ],
+          [
+            "Interactables.DurinsLamp.StartSong",
+            "Sing to Light"
+          ],
+          [
+            "Interactables.DurinsLamp.StopSong",
+            "Stop Singing"
+          ],
+          [
+            "Interactables.DwarfDeathContainer.DisplayNameFormatOthers",
+            "{0}’s Chest"
+          ],
+          [
+            "Interactables.DwarfDeathContainer.DisplayNameFormatYours",
+            "Your Chest"
+          ],
+          [
+            "Interactables.FallenDwarf",
+            "Fallen Dwarf"
+          ],
+          [
+            "Interactables.Farming.DisplayName",
+            "Farm Plot"
+          ],
+          [
+            "Interactables.Farming.NoPlantableFlora",
+            "Nothing to Plant"
+          ],
+          [
+            "Interactables.Farming.NotEnoughLight",
+            "Pick {0} (Needs Light)"
+          ],
+          [
+            "Interactables.Farming.PlantFlora",
+            "Plant"
+          ],
+          [
+            "Interactables.Farming.PlowSoil",
+            "Uproot {0}"
+          ],
+          [
+            "Interactables.Farming.ReachedMaxGrowth",
+            "Pick {0} x{1}"
+          ],
+          [
+            "Interactables.Farming.ReachedMaxGrowthDisabled",
+            "Pick {0} x{1}"
+          ],
+          [
+            "Interactables.Farming.StillGrowing",
+            "Pick {0} (Growing)"
+          ],
+          [
+            "Interactables.Farming.TakeAll",
+            "Pick {0} x{1}"
+          ],
+          [
+            "Interactables.Farming.TakeAllInventoryFull",
+            "Pick {0} x{1} (Inventory Full)"
+          ],
+          [
+            "Interactables.Farming.TooMuchLight",
+            "Pick {0} (Too Much Light)"
+          ],
+          [
+            "Interactables.Farming.UnplantFlora",
+            "Uproot {0}"
+          ],
+          [
+            "Interactables.Flora.BeeHive.Name",
+            "Bee Hive"
+          ],
+          [
+            "Interactables.Flora.RopeVine.Name",
+            "Rope Vines"
+          ],
+          [
+            "Interactables.Fuel",
+            "Fuel"
+          ],
+          [
+            "Interactables.Fuel.AddFuel",
+            "Add Fuel"
+          ],
+          [
+            "Interactables.Fuel.FullQueue",
+            "Adding fuel..."
+          ],
+          [
+            "Interactables.Fuel.NoFuels",
+            "No Fuel Available"
+          ],
+          [
+            "Interactables.Fuel.NoRequiredFuels",
+            "No Fuel Available ({0})."
+          ],
+          [
+            "Interactables.ItemRack.BowRack.Description",
+            "Stores and displays Bows."
+          ],
+          [
+            "Interactables.ItemRack.BowRack.Name",
+            "Bow Rack"
+          ],
+          [
+            "Interactables.ItemRack.CrossbowRack.Description",
+            "Stores and displays Crossbows."
+          ],
+          [
+            "Interactables.ItemRack.CrossbowRack.Name",
+            "Crossbow Rack"
+          ],
+          [
+            "Interactables.ItemRack.EpicItem.Rack.Tip",
+            "Masterwork items only"
+          ],
+          [
+            "Interactables.ItemRack.EpicItemRack.Name",
+            "Masterwork Rack"
+          ],
+          [
+            "Interactables.ItemRack.Gem.Description",
+            "Store and display gems."
+          ],
+          [
+            "Interactables.ItemRack.Gem.Name",
+            "Gem Pedestal"
+          ],
+          [
+            "Interactables.ItemRack.Mannequin.Name",
+            "Armor Stand"
+          ],
+          [
+            "Interactables.ItemRack.Mannequin.Tip",
+            "Stores and displays one set of armor. "
+          ],
+          [
+            "Interactables.ItemRack.Place",
+            "Add {0}"
+          ],
+          [
+            "Interactables.ItemRack.ShieldHook.Description",
+            "Hangs a shield, weapon or pack on the wall. "
+          ],
+          [
+            "Interactables.ItemRack.ShieldHook.Name",
+            "Wall Display"
+          ],
+          [
+            "Interactables.ItemRack.Take",
+            "Take"
+          ],
+          [
+            "Interactables.ItemRack.Take.NoItems",
+            "Take (Empty)"
+          ],
+          [
+            "Interactables.ItemRack.Take.NoItemsAlternative",
+            "(Empty)"
+          ],
+          [
+            "Interactables.ItemRack.Take.NothingToSee",
+            "Empty"
+          ],
+          [
+            "Interactables.ItemRack.TakeOneOfMany",
+            "Item"
+          ],
+          [
+            "Interactables.ItemRack.WeaponRack",
+            "Weapon Rack"
+          ],
+          [
+            "Interactables.ItemRack.WeaponRack.Description",
+            "Stores and displays up to four weapons. "
+          ],
+          [
+            "Interactables.Khazadspot.Inspect",
+            "Empty Niche"
+          ],
+          [
+            "Interactables.Ladder.Climb",
+            "Climb"
+          ],
+          [
+            "Interactables.Library.Monument",
+            "Library of Kibil-nâla"
+          ],
+          [
+            "Interactables.MapStone.Action",
+            "Activate"
+          ],
+          [
+            "Interactables.MapStone.OpenMap",
+            "Travel"
+          ],
+          [
+            "Interactables.MiningSong.Name",
+            "... Inspiration strikes!"
+          ],
+          [
+            "Interactables.MiningSong.Sing",
+            "Start Singing"
+          ],
+          [
+            "Interactables.MiningSong.StopSinging",
+            "Stop Singing"
+          ],
+          [
+            "Interactables.NainsGrave.Name",
+            "King Náin’s Grave"
+          ],
+          [
+            "Interactables.RepairStation",
+            "Repair Smithy"
+          ],
+          [
+            "Interactables.RepairStation.Repair",
+            "Repair"
+          ],
+          [
+            "Interactables.Rope.Climb",
+            "Climb"
+          ],
+          [
+            "Interactables.RuneCraftingStation.CraftRune",
+            "Inscribe Runes"
+          ],
+          [
+            "Interactables.RuneCraftingStation.Description",
+            "Inscribes Runes to make weapons and tools more powerful. "
+          ],
+          [
+            "Interactables.RuneCraftingStation.Name",
+            "Rune Table"
+          ],
+          [
+            "Interactables.StriderJournal",
+            "Ranger’s Journal"
+          ],
+          [
+            "Interactables.StriderJournal.Mines",
+            "Ranger’s Journal, Mines"
+          ],
+          [
+            "Interactables.StriderJournal.Grottos",
+            "Ranger’s Journal, Deeps"
+          ],
+          [
+            "Interactables.StriderJournal.Dwarrowdelf",
+            "Ranger’s Journal, City"
+          ],
+          [
+            "Interactables.StriderJournal.Crossroads",
+            "Ranger’s Journal, Crossroads"
+          ],
+          [
+            "Interactables.StriderJournal.Bridge",
+            "Ranger’s Journal, Bridge"
+          ],
+          [
+            "Interactables.TavernSong.Name",
+            "... Inspiration flows!"
+          ],
+          [
+            "Interactables.TavernSong.StartSinging",
+            "Start Singing"
+          ],
+          [
+            "Interactables.TintingStation.TintItem",
+            "Ink Grinder"
+          ],
+          [
+            "Interactables.VenerationSong.Name",
+            "... Inspiration surges!"
+          ],
+          [
+            "Pickups.BalinCampJournal.B",
+            "Frár’s Notes"
+          ],
+          [
+            "Pickups.BalinCampJournal.B.Description",
+            "Pages in an envelope, written by one of Balin’s company."
+          ],
+          [
+            "Pickups.BalinCampJournal.C",
+            "Óin’s Journal"
+          ],
+          [
+            "Pickups.BalinCampJournal.C.Description",
+            "A journal belonging to Óin, one of Balin’s company."
+          ],
+          [
+            "Pickups.BalinCampJournal.D",
+            "Flói’s Orders"
+          ],
+          [
+            "Pickups.BalinCampJournal.D.Description",
+            "A formally written set of orders for one of Balin’s company."
+          ],
+          [
+            "Pickups.BalinCampJournal.E",
+            "Balin’s Letter"
+          ],
+          [
+            "Pickups.BalinCampJournal.E.Description",
+            "A loosely wrapped scroll with an excitedly written note."
+          ],
+          [
+            "Pickups.BalinCampJournal.OrisJournal",
+            "Ori’s Journal"
+          ],
+          [
+            "Pickups.BalinCampJournal.OrisJournal.Description",
+            "A journal belonging to Ori, one of Balin’s company."
+          ],
+          [
+            "Pickups.BalinCamps",
+            "Pages from the Book of Mazarbul"
+          ],
+          [
+            "Pickups.Carry",
+            "Carry"
+          ],
+          [
+            "Pickups.EquipDisabled",
+            "Equip {0} (Inventory Full)"
+          ],
+          [
+            "Pickups.EquipEnabled",
+            "Equip {0}"
+          ],
+          [
+            "Pickups.EquipSwap",
+            "Equip {0} (Swap)"
+          ],
+          [
+            "Pickups.EquipSwapEpicItem",
+            "Equip Masterwork Item"
+          ],
+          [
+            "Pickups.KhazadstoneBookInfo",
+            "Account of Durin VI’s Last Days"
+          ],
+          [
+            "Pickups.MoreThanThreeItemsFormat",
+            "{0} x{1}, {2} x{3}, {4} x{5}, and more"
+          ],
+          [
+            "Pickups.PickUpDisabled",
+            "Get {0} (Inventory Full)"
+          ],
+          [
+            "Pickups.PickUpEnabled",
+            "Get {0}"
+          ],
+          [
+            "Pickups.PickUpSwap",
+            "Swap {0}"
+          ],
+          [
+            "Pickups.PickUpSwapEpicItem",
+            "Swap Masterwork Item"
+          ],
+          [
+            "Pickups.PickupSwapEpicPack",
+            "Swap Pack"
+          ],
+          [
+            "Pickups.ThreeItemsFormat",
+            "{0} x{1}, {2} x{3}, {4} x{5}"
+          ],
+          [
+            "Pickups.TwoItemsFormat",
+            "{0} x{1}, {2} x{3}"
+          ],
+          [
+            "Placables.DropItem.Name",
+            "Pick up"
+          ],
+          [
+            "Placables.DwarfFigurine.Action",
+            "Collect"
+          ],
+          [
+            "Placables.DwarfFigurine.Name",
+            "Muznakan Figurine"
+          ],
+          [
+            "Placables.FoodPickup.Name",
+            "Pick up"
+          ],
+          [
+            "Placables.Ladder.Name",
+            "Ladder"
+          ],
+          [
+            "Placables.MapStone.Name",
+            "Mapstone"
+          ],
+          [
+            "Raven.DisplayName",
+            "Aric, Raven of Erebor"
+          ],
+          [
+            "Raven.DisplayName.FirstRaven",
+            "Raven of Erebor"
+          ],
+          [
+            "Raven.Interact",
+            "Talk"
+          ],
+          [
+            "Receptacles.EmptyContainer",
+            " (Empty)"
+          ],
+          [
+            "Receptacles.InventoryFull",
+            " (Inventory Full)"
+          ],
+          [
+            "Receptacles.TakeAll",
+            "Take All"
+          ],
+          [
+            "Receptacles.TakeAllOneType",
+            "Take {0} x{1}"
+          ],
+          [
+            "Receptacles.TakeItemsDisabled",
+            "Take Items{0}"
+          ],
+          [
+            "Receptacles.TakeMax",
+            "Take Items ({0}/{1})"
+          ],
+          [
+            "Receptacles.ViewContents",
+            "Open"
+          ],
+          [
+            "TreasurePile.Admire",
+            "Admire"
+          ],
+          [
+            "TreasurePile.Coin.Large.Description",
+            "Flaunt a large amount of treasure. The more in the trove, the fiercer Dwarves feel after admiring it."
+          ],
+          [
+            "TreasurePile.Coin.Large.Name",
+            "Treasure Trove"
+          ],
+          [
+            "TreasurePile.Coin.Medium.Description",
+            "Displays and stores treasure. The more in the pile, the fiercer Dwarves feel after admiring it."
+          ],
+          [
+            "TreasurePile.Coin.Medium.Name",
+            "Treasure Pile"
+          ],
+          [
+            "TreasurePile.Coin.Small.Description",
+            "Show off a small amount of treasure. The more in the cache, the fiercer Dwarves feel after admiring it."
+          ],
+          [
+            "TreasurePile.Coin.Small.Name",
+            "Treasure Cache"
+          ],
+          [
+            "TreasurePile.Deposit",
+            "Add Treasure"
+          ],
+          [
+            "TreasurePile.DisabledAdmire",
+            "Admire (Recently Admired)"
+          ],
+          [
+            "TreasurePile.DisabledDeposit",
+            "Add {2}"
+          ],
+          [
+            "TreasurePile.DisabledTakeTreasure",
+            "Take Treasure {2}"
+          ],
+          [
+            "TreasurePile.InventoryFull",
+            "(Inventory Full)"
+          ],
+          [
+            "TreasurePile.ReceptacleFull",
+            "(Full)"
+          ],
+          [
+            "TreasurePile.TakeTreasure",
+            "Take Treasure"
+          ],
+          [
+            "TreasurePile.DisplayNameFormat",
+            "{0} (Capacity: {1} / {2})"
+          ],
+          [
+            "Pickups.OneItemFormat",
+            "{0} x{1}"
+          ],
+          [
+            "Interactables.Fuel.AddFuelType",
+            "Add {FuelName}"
+          ],
+          [
+            "Interactables.DimrillGate.ExitMoria",
+            "Exit"
+          ],
+          [
+            "Containers.ResourceCache.Name",
+            "Resource Cache"
+          ],
+          [
+            "Interactables.Brewery.Small.Description",
+            "Dwarven-made tank capable of brewing and storing ale."
+          ],
+          [
+            "Interactables.Brewery.Massive.Description",
+            "Dwarven-made tank capable of brewing and storing incredible quantities of ale."
+          ],
+          [
+            "Constructions.StorageChest.Advanced.Name",
+            "Elven Wood Chest"
+          ],
+          [
+            "Constructions.StorageChest.Advanced.Description",
+            "A larger chest made from Elven Wood. When near a hearth, all crafting can use the contents without them being removed."
+          ],
+          [
+            "Constructions.StorageChest.Ornate.Name",
+            "Ornate Chest"
+          ],
+          [
+            "Constructions.StorageChest.Ornate.Description",
+            "An impressive chest reinforced with bronze. When near a hearth, all crafting can use the contents without them being removed. "
+          ],
+          [
+            "Containers.ResinOrePallet.Name",
+            "Resin Ore Pallet"
+          ],
+          [
+            "Containers.SaltOrePallet.Description",
+            "Stores a large amount of Salt Ore."
+          ],
+          [
+            "Containers.SaltOrePallet.Name",
+            "Salt Ore Pallet"
+          ],
+          [
+            "Containers.ResinOrePallet.Description",
+            "Stores a large amount of Resin Ore."
+          ],
+          [
+            "Interactables.BalrogsEmergence.Name",
+            "Balrog's Emergence"
+          ],
+          [
+            "Interactables.Farming.UnplantFloraInventoryFull",
+            "Uproot {0} (Inventory Full)"
+          ],
+          [
+            "Container.ResourcePallet.DepositAllFormat",
+            "Deposit All {0}"
+          ],
+          [
+            "Interactables.DimrillGate.ReplayExitMoria",
+            "Replay"
+          ],
+          [
+            "Constructions.MealTable_Camp",
+            "Camp Meal Table"
+          ],
+          [
+            "Constructions.MealTable_Camp.Description",
+            "Small table to serve meals as they come off the camp hearth. Required for camp meals."
+          ],
+          [
+            "Constructions.Hearth_Mini.Name",
+            "Small Hearth"
+          ],
+          [
+            "Constructions.Hearth_Mini.Description",
+            "A small fire that allows nearby building, provides warmth and can cook meals"
+          ],
+          [
+            "Interactables.AncientSarcophagus",
+            "First Age Tomb"
+          ],
+          [
+            "Containers.KnowledgeShelf.Books",
+            "Build-lore Case"
+          ],
+          [
+            "Containers.KnowledgeShelf.Scrolls",
+            "Build-lore Shelves"
+          ],
+          [
+            "Containers.KnowledgeShelf.Books.Description",
+            "A collection of tomes with ancient knowledge of build-lore. Study this collection for a chance to build without spending resources."
+          ],
+          [
+            "Containers.KnowledgeShelf.Scrolls.Description",
+            "A collection of scrolls with ancient knowledge of build-lore. Study this collection for a chance to build without spending resources."
+          ],
+          [
+            "Containers.KnowledgeShelf.Books.Deposit",
+            "Add Tomes"
+          ],
+          [
+            "Containers.KnowledgeShelf.Scrolls.Deposit",
+            "Add Scrolls"
+          ],
+          [
+            "Containers.KnowledgeShelf.Books.TakeBooks",
+            "Take Tomes"
+          ],
+          [
+            "Containers.KnowledgeShelf.Books.DisabledTakeBooks",
+            "Take Tomes  {2}"
+          ],
+          [
+            "Containers.KnowledgeShelf.Scrolls.TakeSscrolls",
+            "Take Scrolls"
+          ],
+          [
+            "Containers.KnowledgeShelf.Scrolls.DisabledTakeScrolls",
+            "Take Scrolls {2}"
+          ],
+          [
+            "Containers.KnowledgeShelf.Study",
+            "Study"
+          ],
+          [
+            "Containers.KnowledgeShelf.Study.Disabled",
+            "Study (Recently Studied)"
+          ],
+          [
+            "TreasurePile.Coin.Huge.Name",
+            "Treasure Hoard"
+          ],
+          [
+            "TreasurePile.Coin.Huge.Description",
+            "A truly magnificent pile of treasure. The more in the hoard, the fiercer Dwarves feel after admiring it."
+          ],
+          [
+            "TreasurePile.ViewContents",
+            "Open Stash"
+          ],
+          [
+            "Interactables.Rename",
+            "Edit Name"
+          ],
+          [
+            "Constructions.HolidayPack.PresentPile.Name",
+            "Present Pile"
+          ],
+          [
+            "Constructions.HolidayPack.PresentPile.Description",
+            "What better treasure than presents? A Yule-tide cosmetic alternative to the Treasure Trove, part of the Yule-tide Pack."
+          ],
+          [
+            "Constructions.HolidayPack.MealTable.Name",
+            "Celebration Table"
+          ],
+          [
+            "Constructions.HolidayPack.MealTable.Description",
+            "Break out the fancy tableware and decorate for Yule-tide or any other celebration. A cosmetic alternative to the Meal Table, part of the Yule-tide Pack."
+          ],
+          [
+            "Constructions.HolidayPack.MediumHearth.Name",
+            "Yule-tide Hearth"
+          ],
+          [
+            "Constructions.HolidayPack.MediumHearth.Description",
+            "Decorated mantle upon a roaring fire, perfect for the darkest nights of the year. A cosmetic alternative to the Tiled Hearth, part of the Yule-tide Pack."
+          ],
+          [
+            "Constructions.Hearth_Farm.Name",
+            "Fieldpost"
+          ],
+          [
+            "Constructions.Hearth_Farm.Description",
+            "A hearth-like marker for building farm areas. The Dwarves borrowed the concept of a scarecrow from the Hobbits, unaware of its true purpose."
+          ],
+          [
+            "Constructios.Farm1x1_Stone.Name",
+            "Crude Farm Patch"
+          ],
+          [
+            "Constructios.Farm1x1_Stone.Description",
+            "Tilled soil ready to grow one plant."
+          ],
+          [
+            "Beorn_Hearth_Medium.Name",
+            "*Beorn Medium Hearth"
+          ],
+          [
+            "Beorn_Hearth_Large.Name",
+            "Lodge Hearth"
+          ],
+          [
+            "Beorn_Cave_Honey_Hive.Name",
+            "Makeshift Bee Hive"
+          ],
+          [
+            "Beorn_Hearth_Medium.Description",
+            "*Beorn Medium Hearth Description"
+          ],
+          [
+            "Beorn_Hearth_Large.Description",
+            "A large hearth inspired by the roaring fire of Beorn's Lodge. Allows for a large building footprint and provides warmth."
+          ],
+          [
+            "Beorn_Cave_Honey_Hive.Description",
+            "A simple way to house bees and collect Cave Honey."
+          ],
+          [
+            "Interactables.Farming.DisplayName_Sprout",
+            "Farm Plot (Sprouting)"
+          ],
+          [
+            "Interactables.Farming.DisplayName_Growing",
+            "Farm Plot (Growing)"
+          ],
+          [
+            "Interactables.Farming.DisplayName_Ready",
+            "Farm Plot (Ready)"
+          ],
+          [
+            "Interactables.Farming.DisplayName_Spoiled",
+            "Farm Plot (Spoiled)"
+          ],
+          [
+            "Constructions.Farm1x1_Large.Description",
+            "Bed of tilled soil. Plant a cutting to grow a tree. "
+          ],
+          [
+            "Constructions.Farm1x1_Large.Name",
+            "Tree Bed"
+          ],
+          [
+            "EntPack.Everspring.Name",
+            "Wellingspring"
+          ],
+          [
+            "EntPack.Everspring.Description",
+            "An Entish fountain that grows Entwood, useful in Ent-craft and brewing."
+          ],
+          [
+            "Interactables.Farming.NeedsLight",
+            "Needs Light"
+          ],
+          [
+            "Interactables.Farming.NeedsDarkness",
+            "Too Much Light"
+          ],
+          [
+            "Interactables.Farming.GrowthRate.Slow",
+            "Grows Slow"
+          ],
+          [
+            "Interactables.Farming.GrowthRate.Moderate",
+            "Average Grow Time"
+          ],
+          [
+            "Interactables.Farming.GrowthRate.Fast",
+            "Grows Fast"
+          ],
+          [
+            "Interactables.Farming.GrowthRateFormat",
+            "{0} ({1})"
+          ],
+          [
+            "Interactables.Farming.GrowthRateAndLightConditionFormat",
+            "{floraName} ({growthRate}, {lightRequirements})"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_Sprout",
+            "Tree Bed (Sprouting)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_Growing",
+            "Tree Bed (Growing)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_Ready",
+            "Tree Bed (Ready)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_Spoiled",
+            "Tree Bed (Spoiled)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree",
+            "Tree Bed"
+          ],
+          [
+            "Interactables.Farming.DisplayName_NeedsLight",
+            "Farm Plot (Needs Light)"
+          ],
+          [
+            "Interactables.Farming.DisplayName_TooMuchLight",
+            "Farm Plot (Too Much Light)"
+          ],
+          [
+            "Interactables.Farming.DisplayName_GrowthBlocked",
+            "Farm Plot (Growth Blocked)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_NeedsLight",
+            "Tree Bed (Needs Light)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_TooMuchLight",
+            "Tree Bed (Too Much Light)"
+          ],
+          [
+            "Interactables.Farming.DisplayNameTree_GrowthBlocked",
+            "Tree Bed (Growth Blocked)"
+          ],
+          [
+            "Interactables.SettlementStone.Activate",
+            "Establish Delving"
+          ],
+          [
+            "Interactables.SettlementStone.Interact",
+            "Manage Delving"
+          ],
+          [
+            "Interactables.SettlementStone.Name",
+            "Delvestone"
+          ],
+          [
+            "Interactables.SettlementStone.LevelUp",
+            "Raise Delving"
+          ],
+          [
+            "Interactables.Monument.StartBuild",
+            "Rally the Builders"
+          ],
+          [
+            "Interactables.Monument.Reveal",
+            "Unveil Monument"
+          ],
+          [
+            "Constructions.StorageChest.Pantry.Name",
+            "Cook's Pantry"
+          ],
+          [
+            "Constructions.StorageChest.Pantry.Description",
+            "Rune-cooled shelves for meal ingredients. Stores a Cook’s herbs, meat, and mountain fare. Cooks will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Constructions.StorageChest.OreBin.Name",
+            "Metalworker's Ore Bin"
+          ],
+          [
+            "Constructions.StorageChest.OreBin.Description",
+            "Iron-bound bin piled with raw ore and fuel. Feeds the Furnace for the Metalworker’s hand. Metalworkers will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Constructions.StorageChest.BrewSack.Name",
+            "Brewmaster's Grain Sack"
+          ],
+          [
+            "Constructions.StorageChest.BrewSack.Description",
+            "Heavy sack of barley, oats and spices. A Brewmaster’s store for the ale to come. Brewmasters will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Constructions.GuardPost.Name",
+            "Guard Post"
+          ],
+          [
+            "Constructions.GuardPost.Description",
+            "A small structure marking a key point to keep watch from. Guards will stand watch here if nearby."
+          ],
+          [
+            "Constructions.MapTable.Name",
+            "Expedition Map"
+          ],
+          [
+            "Constructions.MapTable.Description",
+            "A carved relief of the Misty Mountains used to plan expeditions for resources."
+          ],
+          [
+            "Constructions.MiningMarker.Name",
+            "Vein Marker"
+          ],
+          [
+            "Constructions.MiningMarker.Description",
+            "A traditional Dwarven claim marker. Set near rich rock seams to designate where the Company should work. Miners will only work on veins near this."
+          ],
+          [
+            "Constructions.Brewery.TavernKeg.Name",
+            "Tavern Keg"
+          ],
+          [
+            "Constructions.Brewery.TavernKeg.Description",
+            "A stout wooden keg that can filled by a Brewmaster. Holds fresh ale for the Delving. Any Dwarf at merrymaking may draw a hearty mug."
+          ],
+          [
+            "Constructions.JunkPile.Name",
+            "Tinker's Junk Pile"
+          ],
+          [
+            "Constructions.JunkPile.Description",
+            "A more-or-less organized pile of items the Delving no longer needs. A Tinker will spend time breaking items into their raw materials. Any contents can be permanently destroyed by the player. "
+          ],
+          [
+            "Constructions.Monument.1st.Name",
+            "Zagal of Wealth"
+          ],
+          [
+            "Constructions.Monument.1st.Description",
+            "A massive geode split open to reveal crystalline beauty within, displaying the vast natural wealth of Moria. Building this will spread word of the abundance to be had here and will unlock the Trading Camp outside the Westgate."
+          ],
+          [
+            "Constructions.Monument.2nd.Name",
+            "Flame of Dashûn"
+          ],
+          [
+            "Constructions.Monument.2nd.Description",
+            "A metal spire of Dashun, or pride, houses an eternal vertical flame that burns without fuel or tending. "
+          ],
+          [
+            "Constructions.Monument.3rd.Name",
+            "Pillar of Unukh-âhîn"
+          ],
+          [
+            "Constructions.Monument.3rd.Description",
+            "A towering cylinder carved with the likenesses of the Unukh-âhîn, the Seven Fathers of the Dwarven clans. Modelled after a long ruined second-age monument in Dwarrowdelf, completing this sends word that the Company is here to stay."
+          ],
+          [
+            "Constructions.Monument.4th.Name",
+            "Archive of Umrad-ukhfur"
+          ],
+          [
+            "Constructions.Monument.4th.Description",
+            "A hollow pillar containing Umrad-ukhfur, scrolls and books of forgotten lore. "
+          ],
+          [
+            "Constructions.Monument.5th.Name",
+            "Vault of Khafrûn-unshi"
+          ],
+          [
+            "Constructions.Monument.5th.Description",
+            "An impregnable vault built to contain that which must never see light. This khafrûn-unshi, or sealed evil, is dangerous to wield, yet too precious to destroy. "
+          ],
+          [
+            "Constructions.Monument.6th.Name",
+            "*6th MonumentCUTSTRING"
+          ],
+          [
+            "Constructions.Monument.6th.Description",
+            "*6th Monument DescriptionCUTSTRING"
+          ],
+          [
+            "Constructions.RavenConstruction.Name",
+            "Aric's Perch"
+          ],
+          [
+            "Constructions.RavenConstruction.Description",
+            "A sturdy wooden stand built for the great raven Aric. Building this perch welcomes the wise corvid to roost and share his sage counsel with the Company."
+          ],
+          [
+            "Constructions.MealTable_Feasting.Name",
+            "Feast Table"
+          ],
+          [
+            "Constructions.MealTable_Feasting.Description",
+            "Meal table with seats that allow Dwarves to sit and enjoy their meal. "
+          ],
+          [
+            "Constructions.Monument.Beacon.Name",
+            "Beacon of Tahbûn"
+          ],
+          [
+            "Constructions.Monument.Beacon.Description",
+            "This crystal beacon crowns Zirak-zigil, its light visible across all Middle-earth. As its name, Tahbûn, infers it is a rallying call to all scattered Dwarves that Moria welcomes them home. Restoring the Beacon unlocks the Recruiting Camp outside the Dimrill Gate."
+          ],
+          [
+            "Constructions.Monument.OathCircle.Name",
+            "Circle of Zabad-Durinul"
+          ],
+          [
+            "Constructions.Monument.OathCircle.Description",
+            "A ring of stone circles surrounding a central pedestal. Its use is unknown but resembles crude oath circles used in Dwarven family inheritance and marriage rituals. There is no greater place to cement an oath than on this peak. "
+          ],
+          [
+            "Constructions.StorageChest.BlacksmithStorage.Name",
+            "Blacksmith's Billet Rack"
+          ],
+          [
+            "Constructions.StorageChest.BlacksmithStorage.Description",
+            "A stout frame stacked with forged metal bars. Holds the Blacksmith’s stock close to the Forge. Blacksmiths will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Constructions.StorageChest.ArtisanStorage.Name",
+            "Artisan's Jeweled Akhfur"
+          ],
+          [
+            "Constructions.StorageChest.ArtisanStorage.Description",
+            "A rune-locked chest for gems, wires, and gold. Keeps an Artisan’s finest craft safe from theft or fire. Artisans will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Constructions.StorageChest.TailorStorage.Name",
+            "Tailor's Fabric Hutch"
+          ],
+          [
+            "Constructions.StorageChest.TailorStorage.Description",
+            "Wooden hutch with shelves for cloth bolts. Keeps a Tailor’s wool, linen, and silk dry and ready. Tailors will only use crafting ingredients placed in this container."
+          ],
+          [
+            "Interactables.SettlementStone.MoveHere",
+            "Re-establish Delving"
+          ],
+          [
+            "World.Travel.Teleporter.Title",
+            "Travel"
+          ],
+          [
+            "Trading.MerchantInteractEnabled",
+            "Trade"
+          ],
+          [
+            "Trading.MerchantInteractDisabled",
+            "Preparing to Leave"
+          ],
+          [
+            "Interactables.Settlement.Rename",
+            "Name This Delving"
+          ],
+          [
+            "Construction.StorageChest.NPC.Name",
+            "Delving Chest"
+          ],
+          [
+            "Construction.STorageChest.NPC.Description",
+            "A large storage chest designated as the only place company Dwarves and crafters will automatically deposit their inventories."
+          ],
+          [
+            "Interactables.ReturnStone",
+            "Return"
+          ],
+          [
+            "Constructions.Rivendell.Bed.Name",
+            "Imladris Bed"
+          ],
+          [
+            "Constructions.Rivendell.Bed.Description",
+            "An Elven style Mansion Bed. Sleep here to recover energy and feel well rested."
+          ],
+          [
+            "Construction.StorageChest.RivendellDeco.Name",
+            "Imladris Chest"
+          ],
+          [
+            "Construction.StorageChest.RivendellDeco.Description",
+            "An impressive chest in a Noldorian style. When near a hearth, all crafting can use the contents without them being removed. "
+          ],
+          [
+            "Interactables.Bed.Assign",
+            "Assign"
+          ],
+          [
+            "Interactables.Door.Inspect",
+            "Inspect"
+          ],
+          [
+            "Rites.InteractableName",
+            "Circle of Zabad-Durinul"
+          ],
+          [
+            "Rites.EnabledText",
+            "Begin"
+          ],
+          [
+            "Rites.Disabled.PartyNotGathered",
+            "Begin (All Players Must Be Near)"
+          ],
+          [
+            "Rites.Disabled.HordeActive",
+            "Must Defeat Horde"
+          ],
+          [
+            "Rites.Disabled.SiegeActive",
+            "Must Defeat Siege"
+          ],
+          [
+            "Rites.Disabled.CannotSummon",
+            "Begin (Waiting on Others)"
+          ],
+          [
+            "Holiday2025.SnowPresentPile.A.Name",
+            "Snowy Present Pile"
+          ],
+          [
+            "Holiday2025.SnowPresentPile.A.Description",
+            "A Yule-tide cosmetic alternative to the Treasure Trove, part of the Yule-tide Pack."
+          ],
+          [
+            "Holiday2025.SnowPresentPile.B.Name",
+            "Snowy Present Pile II"
+          ],
+          [
+            "Holiday2025.SnowPresentPile.B.Description",
+            "A Yule-tide cosmetic alternative to the Treasure Trove, part of the Yule-tide Pack."
+          ],
+          [
+            "Holiday2025.SnowPresentPile.C.Name",
+            "Snowy Present Pile III"
+          ],
+          [
+            "Holiday2025.SnowPresentPile.C.Description",
+            "A Yule-tide cosmetic alternative to the Treasure Pile, part of the Yule-tide Pack."
+          ],
+          [
+            "Holiday2025.DwarvenPuzzleChest.Name",
+            "Puzzle Box"
+          ],
+          [
+            "Holiday2025.DwarvenPuzzleChest.Description",
+            "A container that Kabrûn uses to leave gifts. A cosmetic alternative to the Ornate Chest, part of the Yule-tide Pack."
+          ],
+          [
+            "Holiday2025.FestiveTable.Name",
+            "Holly-Adorned Table"
+          ],
+          [
+            "Holiday2025.FestiveTable.Description",
+            "A colorful, lit-up cosmetic alternative to the Meal Table, part of the Yule-tide Pack."
+          ],
+          [
+            "Containers.Sandstone.Name",
+            "Red Sandstone Pallet"
+          ],
+          [
+            "Containers.Sandstone.Description",
+            "Stores a large amount of Red Sandstone"
+          ],
+          [
+            "Containers.WhiteMarble.Name",
+            "Coastal Marble Pallet"
+          ],
+          [
+            "Containers.WhiteMarble.Description",
+            "Stores a large amount of Coastal Marble"
+          ],
+          [
+            "Interactables.NPC.Wanderer.ExpeditionBuff.Disabled",
+            "Hear Mountain-lore (already heard)"
+          ],
+          [
+            "Interactables.NPC.Wanderer.ExpeditionBuff",
+            "Hear Mountain-lore"
+          ],
+          [
+            "Interactables.ReturnStone.Disabled",
+            "Return (All Dwarves must be present)"
+          ]
+        ]
+      },
+      "Data": [],
+      "ObjectGuid": null,
+      "SerializationControl": "NoExtension",
+      "Operation": "None",
+      "ObjectName": "Interactables",
+      "OuterIndex": 0,
+      "ClassIndex": -1,
+      "SuperIndex": 0,
+      "TemplateIndex": -3,
+      "ObjectFlags": "RF_Public, RF_Standalone, RF_Transactional",
+      "SerialSize": 88465,
+      "SerialOffset": 682,
+      "ScriptSerializationStartOffset": 0,
+      "ScriptSerializationEndOffset": 0,
+      "bForcedExport": false,
+      "bNotForClient": false,
+      "bNotForServer": false,
+      "PackageGuid": "{00000000-0000-0000-0000-000000000000}",
+      "IsInheritedInstance": false,
+      "PackageFlags": "PKG_None",
+      "bNotAlwaysLoadedForEditorGame": false,
+      "bIsAsset": true,
+      "GeneratePublicHash": false,
+      "SerializationBeforeSerializationDependencies": [],
+      "CreateBeforeSerializationDependencies": [],
+      "SerializationBeforeCreateDependencies": [
+        -1,
+        -3
+      ],
+      "CreateBeforeCreateDependencies": [],
+      "Extras": "7wEAABkAAABDb25zdHJ1Y3Rpb25zLkJhc2ljRm9yZ2UAAgAAAAQAAAAAAAAALAAAAEZpcnN0IEZvcmdlIHBsYXllciByZXN0b3JlcywgdGhlbiBjYW4gQnVpbGQACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnN0cnVjdGlvbnMuQmFzaWNGb3JnZS5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAsAAAARmlyc3QgRm9yZ2UgcGxheWVyIHJlc3RvcmVzLCB0aGVuIGNhbiBCdWlsZAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAQ29uc3RydWN0aW9ucy5CYXNpY0Z1cm5hY2UAAgAAAAQAAAAAAAAALgAAAEZpcnN0IEZ1cm5hY2UgcGxheWVyIHJlc3RvcmVzLCB0aGVuIGNhbiBCdWlsZAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5CYXNpY0Z1cm5hY2UuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAALgAAAEZpcnN0IEZ1cm5hY2UgcGxheWVyIHJlc3RvcmVzLCB0aGVuIGNhbiBCdWlsZAAJAAAAAAAAAAkAAABBcHByb3ZlZAASAAAAQ29uc3RydWN0aW9ucy5CZWQAAgAAAAQAAAAAAAAAIwAAAEJlc3QgU2xlZXBpbmcgYW5kIHJlc3QgYnVmZnMgKDMvMykACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAENvbnN0cnVjdGlvbnMuQmVkLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAACMAAABCZXN0IFNsZWVwaW5nIGFuZCByZXN0IGJ1ZmZzICgzLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkABYAAABDb25zdHJ1Y3Rpb25zLkJlZHJvbGwAAgAAAAQAAAAAAAAAKgAAAExvd2VzdCBxdWFsaXR5IHNsZWVwIGFuZCByZXN0IGJ1ZmZzICgxLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb25zdHJ1Y3Rpb25zLkJlZHJvbGwuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAKgAAAExvd2VzdCBxdWFsaXR5IHNsZWVwIGFuZCByZXN0IGJ1ZmZzICgxLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkABcAAABDb25zdHJ1Y3Rpb25zLkJlZFNtYWxsAAIAAAAEAAAAAAAAACoAAABCZXR0ZXIgcXVhbGl0eSBzbGVlcCBhbmQgcmVzdCBidWZmcyAoMi8zKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAQ29uc3RydWN0aW9ucy5CZWRTbWFsbC5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAqAAAAQmV0dGVyIHF1YWxpdHkgc2xlZXAgYW5kIHJlc3QgYnVmZnMgKDIvMykACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnN0cnVjdGlvbnMuQmVsbG93cy5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAQAAAARnVybmFjZSBVcGdyYWRlAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABDb25zdHJ1Y3Rpb25zLkJlbGxvd3MuTmFtZQACAAAABAAAAAAAAAAQAAAARnVybmFjZSBVcGdyYWRlAAkAAAAAAAAACQAAAEFwcHJvdmVkADAAAABDb25zdHJ1Y3Rpb25zLkJyZXdlcnlVcGdyYWRlU3RhdGlvbi5EZXNjcmlwdGlvbgACAAAABAAAAAAAAABOAAAAQWxjaGVteSBTdGlsbCB0aGF0IGF0dGFjaGVzIHRvIGEgYnJld2VyeSBzbyB0aGF0IHNwZWNpYWwgYnJld3MgY2FuIGJlIGNyYWZ0ZWQACQAAAAAAAAAJAAAAQXBwcm92ZWQAKQAAAENvbnN0cnVjdGlvbnMuQnJld2VyeVVwZ3JhZGVTdGF0aW9uLk5hbWUAAgAAAAQAAAAAAAAATgAAAEFsY2hlbXkgU3RpbGwgdGhhdCBhdHRhY2hlcyB0byBhIGJyZXdlcnkgc28gdGhhdCBzcGVjaWFsIGJyZXdzIGNhbiBiZSBjcmFmdGVkAAkAAAAAAAAACQAAAEFwcHJvdmVkABcAAABDb25zdHJ1Y3Rpb25zLkNhbXBmaXJlAAIAAAAEAAAAAAAAAGkAAABTbWFsbGVzdCBzdGF0aW9ucyB3aXRoIGZpcmUgb25seSBmb3IgY29va2luZyBiYXNpYyBtZWFscyBpbiB0aGUgZmlsZWQgYW5kIHNldCBtb3N0IGJhc2ljIGNvbnN0cnVjdGlvbnMgIAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAQ29uc3RydWN0aW9ucy5DYW1wZmlyZS5EZXNjcmlwdGlvbgACAAAABAAAAAAAAABkAAAAU21hbGxlc3Qgc3RhdGlvbnMgd2l0aCBmaXJlIG9ubHkgZm9yIGNvb2tpbmcgYmFzaWMgbWVhbHMgaW4gdGhlIGZpbGVkIGFuZCBzZXQgYmFzaWMgY29uc3RydWN0aW9ucyAgAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABDb25zdHJ1Y3Rpb25zLkNyeXN0YWxMYW1wLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAACQAAABBcnRpZmljaWFsIGxpZ2h0IHNvdXJjZSBmb3IgZmFybWluZwAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAAQ29uc3RydWN0aW9ucy5DcnlzdGFsTGFtcC5OYW1lAAIAAAAEAAAAAAAAACQAAABBcnRpZmljaWFsIGxpZ2h0IHNvdXJjZSBmb3IgZmFybWluZwAJAAAAAAAAAAkAAABBcHByb3ZlZAAZAAAAQ29uc3RydWN0aW9ucy5EdXJpbkZvcmdlAAIAAAAEAAAAAAAAACYAAABQbGF5ZXIgZm91bmQgRm9yZ2UgLSBTdGFyIE1ldGFsIEluZ290AAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABDb25zdHJ1Y3Rpb25zLkR1cmluc0xhbXAuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAKgAAAFBsYXllciBSZXN0b3JlZCBzdHJ1Y3R1cmUsIHJlbW92ZXMgc2hhZG93AAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABDb25zdHJ1Y3Rpb25zLkR1cmluc0xhbXAuTmFtZQACAAAABAAAAAAAAAAqAAAAUGxheWVyIFJlc3RvcmVkIHN0cnVjdHVyZSwgcmVtb3ZlcyBzaGFkb3cACQAAAAAAAAAJAAAAQXBwcm92ZWQAMAAAAENvbnN0cnVjdGlvbnMuRmFicmljU3RhdGlvbl9VcGdyYWRlLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAACoAAABUdXJuIGJldHRlciBmYWJyaWMgaW50byBhZHZhbmNlZCBmYWJyaWNzIAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29uc3RydWN0aW9ucy5GYWJyaWNTdGF0aW9uX1VwZ3JhZGUuTmFtZQACAAAABAAAAAAAAAAqAAAAVHVybiBiZXR0ZXIgZmFicmljIGludG8gYWR2YW5jZWQgZmFicmljcyAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKAAAAENvbnN0cnVjdGlvbnMuRmFicmljU3RhdGlvbi5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAtAAAAVHVybiBiYXNpYyBmYWJyaWMgc3JhcHMgaW50byBiZXR0ZXIgZmFicmljcyAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIQAAAENvbnN0cnVjdGlvbnMuRmFicmljU3RhdGlvbi5OYW1lAAIAAAAEAAAAAAAAAC0AAABUdXJuIGJhc2ljIGZhYnJpYyBzcmFwcyBpbnRvIGJldHRlciBmYWJyaWNzIAAJAAAAAAAAAAkAAABBcHByb3ZlZAAWAAAAQ29uc3RydWN0aW9ucy5GYXJtMXgxAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAAQ29uc3RydWN0aW9ucy5GYXJtMXgxLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAWAAAAQ29uc3RydWN0aW9ucy5GYXJtMngyAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAAQ29uc3RydWN0aW9ucy5GYXJtMngyLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAQ29uc3RydWN0aW9ucy5GbG9vZGVkRm9yZ2UAAgAAAAQAAAAAAAAARAAAAFBsYXllciBmb3VuZCBGb3JnZSAtIEd1biBNZXRhbCBJbmdvdCAoaW5nb3QgbmFtZSBub3QgcGxheWVyIGZhY2luZykACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnN0cnVjdGlvbnMuRmxvb2RlZEZ1cm5hY2UuTmFtZQACAAAABAAAAAAAAAAaAAAAUGxheWVyIGZvdW5kIEVwaWMgRnVybmFjZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAZAAAAQ29uc3RydWN0aW9ucy5GbG9vclRvcmNoAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAAQ29uc3RydWN0aW9ucy5GbG9vclRvcmNoLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAQ29uc3RydWN0aW9ucy5Gb3JnZUFkdmFuY2VkAAIAAAAEAAAAAAAAACYAAABVcGdyYWRlIGFmdGVyIEJhc2ljIGZvcmdlICsgR2VtY3V0dGVyAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABDb25zdHJ1Y3Rpb25zLkZvcmdlQWR2YW5jZWQuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAJgAAAFVwZ3JhZGUgYWZ0ZXIgQmFzaWMgZm9yZ2UgKyBHZW1jdXR0ZXIACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAENvbnN0cnVjdGlvbnMuRm9yZ2VVcGdyYWRlAAIAAAAEAAAAAAAAABsAAABVcGdyYWRlIHRvIHRoZSBCYXNpYyBGb3JnZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5Gb3JnZVVwZ3JhZGUuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAGwAAAFVwZ3JhZGUgdG8gdGhlIEJhc2ljIEZvcmdlAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABDb25zdHJ1Y3Rpb25zLkZ1cm5hY2VBZHZhbmNlZAACAAAABAAAAAAAAAAmAAAAVXBncmFkZSBhZnRlciBCYXNpYyBGdXJuYWNlICsgVXBncmFkZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAAQ29uc3RydWN0aW9ucy5GdXJuYWNlQWR2YW5jZWQuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAJgAAAFVwZ3JhZGUgYWZ0ZXIgQmFzaWMgRnVybmFjZSArIFVwZ3JhZGUACQAAAAAAAAAJAAAAQXBwcm92ZWQALQAAAENvbnN0cnVjdGlvbnMuSGVhcnRoX0xhcmdlSGVhcnRoLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAAC8AAABCYXNlIGNlbnRlciBhbmQgY29va2luZyBzdGF0aW9uLCBsYXJnZXN0ICgzLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABDb25zdHJ1Y3Rpb25zLkhlYXJ0aF9MYXJnZUhlYXJ0aC5OYW1lAAIAAAAEAAAAAAAAAC8AAABCYXNlIGNlbnRlciBhbmQgY29va2luZyBzdGF0aW9uLCBsYXJnZXN0ICgzLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkADEAAABDb25zdHJ1Y3Rpb25zLkhlYXJ0aF9NZWRpdW1GaXJlcGxhY2UuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAALgAAAEJhc2UgY2VudGVyIGFuZCBjb29raW5nIHN0YXRpb24sIG1lZGl1bSAoMi8zKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAAQ29uc3RydWN0aW9ucy5IZWFydGhfTWVkaXVtRmlyZXBsYWNlLk5hbWUAAgAAAAQAAAAAAAAALgAAAEJhc2UgY2VudGVyIGFuZCBjb29raW5nIHN0YXRpb24sIG1lZGl1bSAoMi8zKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5IZWFydGhfU21hbGwuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAMAAAAEJhc2UgY2VudGVyIGFuZCBjb29raW5nIHN0YXRpb24sIHNtYWxsZXN0ICgxLzMpAAkAAAAAAAAACQAAAEFwcHJvdmVkACAAAABDb25zdHJ1Y3Rpb25zLkhlYXJ0aF9TbWFsbC5uYW1lAAIAAAAEAAAAAAAAADAAAABCYXNlIGNlbnRlciBhbmQgY29va2luZyBzdGF0aW9uLCBzbWFsbGVzdCAoMS8zKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5LaXRjaGVuX092ZW4uRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAEAAAAENvb2tpbmcgc3RhdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5LaXRjaGVuX092ZW4uTmFtZQACAAAABAAAAAAAAAAQAAAAQ29va2luZyBzdGF0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACkAAABDb25zdHJ1Y3Rpb25zLktpdGNoZW5fUGl0QkJRLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAABAAAABDb29raW5nIHN0YXRpb24ACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnN0cnVjdGlvbnMuS2l0Y2hlbl9QaXRCQlEuTmFtZQACAAAABAAAAAAAAAAQAAAAQ29va2luZyBzdGF0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABDb25zdHJ1Y3Rpb25zLktpdGNoZW5fU3RvdmUuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAEAAAAENvb2tpbmcgc3RhdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAQ29uc3RydWN0aW9ucy5LaXRjaGVuX1N0b3ZlLk5hbWUAAgAAAAQAAAAAAAAAEAAAAENvb2tpbmcgc3RhdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAVAAAAQ29uc3RydWN0aW9ucy5MYWRkZXIAAgAAAAQAAAAAAAAALgAAAG5hbWUgc2hvd24gaW4gaW50ZXJhY3QgcHJvbXB0IHRvIGNsaW1iIGxhZGRlcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAAQ29uc3RydWN0aW9ucy5MZWdlbmRheUVsdmlzaEZvcmdlAAIAAAAEAAAAAAAAABgAAABQbGF5ZXIgZm91bmQgRXBpYyBGb3JnZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAAQ29uc3RydWN0aW9ucy5MZWdlbmRheUVsdmlzaEZ1cm5hY2UAAgAAAAQAAAAAAAAAGgAAAFBsYXllciBmb3VuZCBFcGljIEZ1cm5hY2UACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAENvbnN0cnVjdGlvbnMuTWFwc3RvbmUuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb25zdHJ1Y3Rpb25zLk1hcFN0b25lLk5hbWVGb3JtYXQAAgAAAAQAAAAAAAAA/QAAAFRoZSBmb3JtYXQgdGhlIHRleHQgd2lsbCBhcHBlYXIgaW4uIHtNYXBzdG9uZX0gaXMgdGhlIGxvY2FsaXplZCB3b3JkIGZvciBtYXBzdG9uZSwgem9uZSBpcyB0aGUgbmFtZSBvZiB0aGUgYXJlYSBhbmQgbnVtYmVyIGlzIHRoZSBudW1iZXIgb2YgbWFwc3RvbmVzIGFscmVhZHkgaW4gdGhlIHpvbmUuIEluIEVuZ2xpc2gsIHRoaXMgd291bGQgd29yayBvdXQgdG8gIk1hcHN0b25lIChBZnRlcm1hdGgpIDEiIGluIHRoZSBzdGFydGluZyB6b25lLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAAQ29uc3RydWN0aW9ucy5NZWFsVGFibGUAAgAAAAQAAAAAAAAAHgAAAExhYmVsIGZvciBuYW1lIG9mIG1lYWwgdGFibGVzAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABDb25zdHJ1Y3Rpb25zLk1lYWxUYWJsZS5DbGVhcgACAAAABAAAAAAAAAAZAAAATWVhbCBUYWJsZSBQbGF5ZXIgYWN0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABDb25zdHJ1Y3Rpb25zLk1lYWxUYWJsZS5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAhAAAARGVzY3JpcHRpb24gdXNlZCBmb3IgbWVhbCB0YWJsZXMACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAENvbnN0cnVjdGlvbnMuTWVhbFRhYmxlLkVhdAACAAAABAAAAAAAAAAZAAAATWVhbCBUYWJsZSBQbGF5ZXIgYWN0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABDb25zdHJ1Y3Rpb25zLk1lbW9yaWFsLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAQ29uc3RydWN0aW9ucy5NZW1vcmlhbC5OYW1lAAIAAAAEAAAAAAAAAGYAAABUaGUgbmFtZSBvZiB0aGUgc3RydWN0dXJlIHBsYXllcnMgY2FuIGJ1aWxkIHVzaW5nIE1lbW9yaWFsIHBpZWNlcyBnYWluZWQgZnJvbSBob25vcmluZyBmYWxsZW4gRHdhcnZlcwAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAAQ29uc3RydWN0aW9ucy5NaWxsLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAADMAAABDb252ZXJ0cyByYXcgZm9vZCBpbmdlZGllbnQgaW50byBpbnRlcm1lZGlhdGUgZm9ybQAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAAQ29uc3RydWN0aW9ucy5NaWxsLk5hbWUAAgAAAAQAAAAAAAAAMwAAAENvbnZlcnRzIHJhdyBmb29kIGluZ2VkaWVudCBpbnRvIGludGVybWVkaWF0ZSBmb3JtAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABDb25zdHJ1Y3Rpb25zLk1pdGhyaWxGb3JnZQACAAAABAAAAAAAAAAYAAAAUGxheWVyIGZvdW5kIEVwaWMgRm9yZ2UACQAAAAAAAAAJAAAAQXBwcm92ZWQAGgAAAENvbnN0cnVjdGlvbnMuTm9ncm9kRm9yZ2UAAgAAAAQAAAAAAAAAGAAAAFBsYXllciBmb3VuZCBFcGljIEZvcmdlAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABDb25zdHJ1Y3Rpb25zLlB1YmxpY0ZvcmdlLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAAFkAAABTbWFsbCBmb3JnZSB0aGF0IGNhbiBiZSBmb3VuZCBpbiB0aGUgd29ybGQgYW5kIHJlcGFpcmVkIHRvIGNyYWZ0IGJhc2ljIHdlYXBvbnMgYW5kIGFybW9yAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABDb25zdHJ1Y3Rpb25zLlB1YmxpY0ZvcmdlLk5hbWUAAgAAAAQAAAAAAAAAWQAAAFNtYWxsIGZvcmdlIHRoYXQgY2FuIGJlIGZvdW5kIGluIHRoZSB3b3JsZCBhbmQgcmVwYWlyZWQgdG8gY3JhZnQgYmFzaWMgd2VhcG9ucyBhbmQgYXJtb3IACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAENvbnN0cnVjdGlvbnMuUHVibGljRnVybmFjZQACAAAABAAAAAAAAABQAAAAU21hbGwgZnVybmFjZSB0aGF0IGNhbiBiZSBmb3VuZCBpbiB0aGUgd29ybGQgYW5kIHJlcGFpcmVkIHRvIHNtZWx0IGJhc2ljIG1ldGFscwAJAAAAAAAAAAkAAABBcHByb3ZlZAAoAAAAQ29uc3RydWN0aW9ucy5QdWJsaWNGdXJuYWNlLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAAFAAAABTbWFsbCBmdXJuYWNlIHRoYXQgY2FuIGJlIGZvdW5kIGluIHRoZSB3b3JsZCBhbmQgcmVwYWlyZWQgdG8gc21lbHQgYmFzaWMgbWV0YWxzAAkAAAAAAAAACQAAAEFwcHJvdmVkAC4AAABDb25zdHJ1Y3Rpb25zLlB1cmlmaWNhdGlvblN0YXRpb24uRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAALQAAAFB1cmlmaWVzIEd1bmRhYmFkIHNsYWcgaW50byBwdXJpZmllZCBtZXRhbHMgAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb25zdHJ1Y3Rpb25zLlB1cmlmaWNhdGlvblN0YXRpb24uTmFtZQACAAAABAAAAAAAAAAtAAAAUHVyaWZpZXMgR3VuZGFiYWQgc2xhZyBpbnRvIHB1cmlmaWVkIG1ldGFscyAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAENvbnN0cnVjdGlvbnMuUXVpY2tQbGF0Zm9ybQACAAAABAAAAAAAAAA9AAAAUGxhdGZvcm0gdXNlZCBmb3IgUXVpY2sgQnVpbGQ7IE5vbiBpbnRlcmFjdGFibGUgY29uc3RydWN0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABDb25zdHJ1Y3Rpb25zLlJlcGFpclN0YXRpb24uRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAJwAAAFVzZWQgdG8gcmVwYWlyIGR1cmFiaWxpdHkgb24gZXF1aXBtZW50AAkAAAAAAAAACQAAAEFwcHJvdmVkACEAAABDb25zdHJ1Y3Rpb25zLlJlcGFpclN0YXRpb24uTmFtZQACAAAABAAAAAAAAAAnAAAAVXNlZCB0byByZXBhaXIgZHVyYWJpbGl0eSBvbiBlcXVpcG1lbnQACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnN0cnVjdGlvbnMuUm9wZUxhZGRlci5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAApAAAAUGxheWVyIHBsYWNlZCBsYWRkZXIgdGhhdCBjYW4gYmUgY2xpbWJlZAAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAAQ29uc3RydWN0aW9ucy5Sb3BlTGFkZGVyLk5hbWUAAgAAAAQAAAAAAAAAKQAAAFBsYXllciBwbGFjZWQgbGFkZGVyIHRoYXQgY2FuIGJlIGNsaW1iZWQACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAENvbnN0cnVjdGlvbnMuU21hbGxTdG9uZUJsb2NrAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAVAAAAQ29uc3RydWN0aW9ucy5TdGFpcnMAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABUAAABDb25zdHJ1Y3Rpb25zLlN0YXR1ZQACAAAABAAAAAAAAAA1AAAAIENhbid0IGJlIGNvbnN0cnVjdGVkLiBOb24gaW50ZXJhY3RhYmxlIGNvbnN0cnVjdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAJgAAAFN0b3JlcyBhbGwgaW52ZW50b3J5IGNvbXBhdGlibGUgaXRlbXMACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0Lk5hbWUAAgAAAAQAAAAAAAAAJwAAAFN0b3JlcyAgYWxsIGludmVudG9yeSBjb21wYXRpYmxlIGl0ZW1zAAkAAAAAAAAACQAAAEFwcHJvdmVkACkAAABDb25zdHJ1Y3Rpb25zLlRpbnRpbmdTdGF0aW9uLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAABgAAABDaGFuZ2VzIGVxdWlwbWVudCBjb2xvcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAAQ29uc3RydWN0aW9ucy5UaW50aW5nU3RhdGlvbi5OYW1lAAIAAAAEAAAAAAAAABgAAABDaGFuZ2VzIGVxdWlwbWVudCBjb2xvcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAAQ29uc3RydWN0aW9ucy5XYWxsVG9yY2gAAgAAAAQAAAAAAAAALgAAAFBsYXllckJ1aWxkIGRlY29yYXRpdmUgbGlnaHQsIG1pZ2h0IHRha2UgZnVlbAAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAAQ29uc3RydWN0aW9ucy5XYWxsVG9yY2guRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAALgAAAFBsYXllckJ1aWxkIGRlY29yYXRpdmUgbGlnaHQsIG1pZ2h0IHRha2UgZnVlbAAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAAQ29uc3RydWN0aW9ucy5Xb3JrYmVuY2gAAgAAAAQAAAAAAAAAEQAAAENyYWZ0aW5nIHN0YXRpb24ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAENvbnN0cnVjdGlvbnMuV29ya2JlbmNoLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAABEAAABDcmFmdGluZyBzdGF0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABDb250YWluZXIuSXJvbldvb2RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb250YWluZXIuUmVzb3VyY2VQYWxsZXQuRGVwb3NpdEZvcm1hdAACAAAABAAAAAAAAAAcAAAARGVwb3NpdCBbSXRlbU5hbWVdIHhbQ291bnRdAAkAAAAAAAAACQAAAEFwcHJvdmVkAC8AAABDb250YWluZXIuUmVzb3VyY2VQYWxsZXQuRGlzYWJsZWREZXBvc2l0Rm9ybWF0AAIAAAAEAAAAAAAAAC4AAABEZXBvc2l0IFtJdGVtTmFtZV0geFtDb3VudF0gW0Rpc2FibGVkIFJlYXNvbl0ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnRhaW5lcnMuQWRhbWFudFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAENvbnRhaW5lcnMuQWRhbWFudFBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29udGFpbmVycy5BbmNpZW50V29vZFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuQW5jaWVudFdvb2RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFwAAAENvbnRhaW5lcnMuQmFycmVsLk5hbWUAAgAAAAQAAAAAAAAAHAAAAEl0ZW0gc3RvcmFnZSBmb3VuZCBpbiB3b3JsZAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29udGFpbmVycy5Ccm9uemVJbmdvdFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuQnJvbnplSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFgAAAENvbnRhaW5lcnMuQ2hlc3QuTmFtZQACAAAABAAAAAAAAAAcAAAASXRlbSBzdG9yYWdlIGZvdW5kIGluIHdvcmxkAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb250YWluZXJzLkNvYWxQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABDb250YWluZXJzLkNvYWxQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKQAAAENvbnRhaW5lcnMuQ29wcGVySW5nb3RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb250YWluZXJzLkNvcHBlckluZ290UGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb250YWluZXJzLkNvcHBlck9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAENvbnRhaW5lcnMuQ29wcGVyT3JlUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACAAAABDb250YWluZXJzLkRlYnVnUmVjZXB0YWNsZS5OYW1lAAIAAAAEAAAAAAAAABYAAAB3YXMgUmVjZXB0aWNsZSAoZGV2PykACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnRhaW5lcnMuR29sZEluZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29udGFpbmVycy5Hb2xkSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnRhaW5lcnMuR29sZE9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAENvbnRhaW5lcnMuR29sZE9yZVBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAAQ29udGFpbmVycy5HcmFuaXRlUGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAAQ29udGFpbmVycy5HcmFuaXRlUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABDb250YWluZXJzLkd1bm1ldGFsSW5nb3RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABDb250YWluZXJzLkd1bm1ldGFsSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnRhaW5lcnMuSXJvbkluZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29udGFpbmVycy5Jcm9uSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnRhaW5lcnMuSXJvbk9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAENvbnRhaW5lcnMuSXJvbk9yZVBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAAQ29udGFpbmVycy5Jcm9uV29vZFBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29udGFpbmVycy5LaGF6YWRJbmdvdFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuS2hhemFkSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAENvbnRhaW5lcnMuTWl0aHJpbEluZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAQ29udGFpbmVycy5NaXRocmlsSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKAAAAENvbnRhaW5lcnMuTWl0aHJpbE9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIQAAAENvbnRhaW5lcnMuTWl0aHJpbE9yZVBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29udGFpbmVycy5Ob2dyb2RJbmdvdFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuTm9ncm9kSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAENvbnRhaW5lcnMuUHJvY1JlY2VwdGFjbGUuTmFtZQACAAAABAAAAAAAAAAWAAAAd2FzIFJlY2VwdGljbGUgKGRldj8pAAkAAAAAAAAACQAAAEFwcHJvdmVkAC8AAABDb250YWluZXJzLlB1cmlmaWVkRGFya0luZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAoAAAAQ29udGFpbmVycy5QdXJpZmllZERhcmtJbmdvdFBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29udGFpbmVycy5RdWFsaXR5V29vZFBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuUXVhbGl0eVdvb2RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALAAAAENvbnRhaW5lcnMuUmVzb3VyY2VQYWxsZXQuRGlzYWJsZWRHZXRGb3JtYXQAAgAAAAQAAAAAAAAAKgAAAEdldCBbSXRlbU5hbWVdIHhbQ291bnRdIFtEaXNhYmxlZCBSZWFzb25dAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABDb250YWluZXJzLlJlc291cmNlUGFsbGV0LkdldEZvcm1hdAACAAAABAAAAAAAAAAYAAAAR2V0IFtJdGVtTmFtZV0geFtDb3VudF0ACQAAAAAAAAAJAAAAQXBwcm92ZWQAKAAAAENvbnRhaW5lcnMuUmVzb3VyY2VQYWxsZXQuSW52ZW50b3J5RnVsbAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAENvbnRhaW5lcnMuUmVzb3VyY2VQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnRhaW5lcnMuUmVzb3VyY2VQYWxsZXQuUGFsbGV0RnVsbAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKQAAAENvbnRhaW5lcnMuU2lsdmVySW5nb3RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb250YWluZXJzLlNpbHZlckluZ290UGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb250YWluZXJzLlNpbHZlck9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAENvbnRhaW5lcnMuU2lsdmVyT3JlUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACwAAABDb250YWluZXJzLlN0YXJBbGxveUluZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAAQ29udGFpbmVycy5TdGFyQWxsb3lJbmdvdFBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAAQ29udGFpbmVycy5TdGFyTWV0YWxPcmVQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABDb250YWluZXJzLlN0YXJNZXRhbE9yZVBhbGxldC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAoAAAAQ29udGFpbmVycy5TdGVlbEluZ290UGFsbGV0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAQ29udGFpbmVycy5TdGVlbEluZ290UGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABDb250YWluZXJzLlN0ZXJsaW5nSW5nb3RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABDb250YWluZXJzLlN0ZXJsaW5nSW5nb3RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAENvbnRhaW5lcnMuU3RvbmVQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABwAAABDb250YWluZXJzLlN0b25lUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABDb250YWluZXJzLlRpbk9yZVBhbGxldC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHQAAAENvbnRhaW5lcnMuVGluT3JlUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABDb250YWluZXJzLldvb2RQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABDb250YWluZXJzLldvb2RQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAEludGVyYWN0YWJsZXMuQmFsaW5zR3JhdmUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAEludGVyYWN0YWJsZXMuQmVkLkFjdGlvbi5VbmNsYWltZWQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABJbnRlcmFjdGFibGVzLkJlZC5BY3Rpb24uWW91cgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFwAAAEludGVyYWN0YWJsZXMuQmVkLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABJbnRlcmFjdGFibGVzLkJlZC5OYW1lLk90aGVycwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIQAAAEludGVyYWN0YWJsZXMuQmVkLk5hbWUuVW5jbGFpbWVkAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAASW50ZXJhY3RhYmxlcy5CZWQuTmFtZS5Zb3VyAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAASW50ZXJhY3RhYmxlcy5CZWRyb2xsLkFjdGlvbi5PdGhlcnMAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABJbnRlcmFjdGFibGVzLkJlZHJvbGwuQWN0aW9uLlVuY2xhaW1lZAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAEludGVyYWN0YWJsZXMuQmVkcm9sbC5BY3Rpb24uWW91cgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAEludGVyYWN0YWJsZXMuQmVkcm9sbC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5CZWRyb2xsLk5hbWUuT3RoZXJzAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAASW50ZXJhY3RhYmxlcy5CZWRyb2xsLk5hbWUuVW5jbGFpbWVkAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAASW50ZXJhY3RhYmxlcy5CZWRyb2xsLk5hbWUuWW91cgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAEludGVyYWN0YWJsZXMuQnJhemlhci5JbnRlcmFjdAACAAAABAAAAAAAAAA0AAAAcHJvbXB0IHRvIGlnbml0ZSBidXJuaW5nIGxpZ2h0IHNvdXJjZXMgaW4gdGhlIHdvcmxkAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkJyYXppYXIuTmFtZQACAAAABAAAAAAAAAAcAAAAQSBsaWdodCBzb3VyY2UgaW4gdGhlIHdvcmxkAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABJbnRlcmFjdGFibGVzLkJyZXdlcnkuQWxyZWFkeUhhdmVNdWcAAgAAAAQAAAAAAAAAQAAAAHdoZW4geW91IGNhbnQgdGFrZSBhbnkgYnJldyBmcm9tIGEgdGFwIGJlY2F1c2UgeW91ciBtdWcgaXMgZnVsbAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAAEkAAABUZXh0IHRoYXQgYXBwZWFycyB0aGF0IGRlc2NyaWJlcyB3aGF0IHRoZSBicmV3ZXJ5IGRvZXMgd2hlbiBidWlsZGluZyBpdC4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5EaXNhYmxlZERyYWluAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAArAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkRpc2FibGVkRmlsbEJyZXdza2luAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkRpc2FibGVkRmlsbEtlZwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5EaXNhYmxlZFRha2UAAgAAAAQAAAAAAAAAIwAAAGZvcm1hdCB0byBiZSBmaWxsZWQgd2l0aCBpdGVtIG5hbWUACQAAAAAAAAAEAAAARE5UABwAAABJbnRlcmFjdGFibGVzLkJyZXdlcnkuRHJhaW4AAgAAAAQAAAAAAAAATwAAAEZvciBkcmFpbmluZyBhIGZlcm1lbnRlciBvciBrZWcgb2YgYWxsIG9mIGl0cyBjb250ZW50cy4gezF9IGlzIHRoZSBicmV3J3MgbmFtZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkVtcHR5AAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkZpbGxCcmV3c2tpbgACAAAABAAAAAAAAABOAAAAVGV4dCBmb3IgZmlsbGluZyBhIGJyZXdza2luIHdpdGggYnJldyBmcm9tIGEgZmVybWVudGVyL2JyZXdlcnkgb3IgZnJvbSBhIGtlZy4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5GaWxsS2VnAAIAAAAEAAAAAAAAADsAAABUZXh0IGZvciBmaWxsaW5nIGEga2VnIHdpdGggYnJldyBmcm9tIGEgZmVybWVudGVyL2JyZXdlcnkuAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLkJyZXdlcnkuTGFkZGVyLkNsaW1iAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LkxhZGRlci5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5Lk1hc3NpdmUuTmFtZQACAAAABAAAAAAAAAB5AAAATmFtZSBvZiB0aGUgYXBwYXJhdHVzIHRoYXQgbGV0cyB5b3UgY3JlYXRlIGJyZXdzLiBTaG93cyB1cCB3aGVuIHlvdSdyZSBidWlsZGluZyBpdC4gbXVjaCBsYXJnZXIgdGhhbiB0aGUgb3RoZXIgYnJld2VyaWVzAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkJyZXdlcnkuTmFtZQACAAAABAAAAAAAAABUAAAATmFtZSBvZiB0aGUgYXBwYXJhdHVzIHRoYXQgbGV0cyB5b3UgY3JlYXRlIGJyZXdzLiBTaG93cyB1cCB3aGVuIHlvdSdyZSBidWlsZGluZyBpdC4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAIQAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5TbWFsbC5OYW1lAAIAAAAEAAAAAAAAAHoAAABOYW1lIG9mIHRoZSBhcHBhcmF0dXMgdGhhdCBsZXRzIHlvdSBjcmVhdGUgYnJld3MuIFNob3dzIHVwIHdoZW4geW91J3JlIGJ1aWxkaW5nIGl0LiBUaGUgc21hbGwgZmlyc3QgYnJld2VyeSB5b3UgY2FuIGJ1aWxkAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkJyZXdlcnkuVGFrZQACAAAABAAAAAAAAABiAAAARm9yIHRha2luZyBicmV3IGZyb20gYSBmZXJtZW50ZXIgb3Iga2VnIHRhcC4gezF9IGlzIHRoZSBicmV3J3MgbmFtZSwgezB9IGlzIHRoZSBudW1iZXIgcmVtYWluaW5nLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAASW50ZXJhY3RhYmxlcy5CcmV3ZXJ5LlRhcC5OYW1lAAIAAAAEAAAAAAAAADEAAABOYW1lIG9mIHRoZSBvYmplY3QgdG8gaW50ZXJhY3Qgd2l0aCB0byBnZXQgYnJldy4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuQ2hhbGxlbmdlLlJlcXVpcmVzUHJlZml4AAIAAAAEAAAAAAAAANcAAABVc2VkIGZvciB3aGVuIGNvbXBsZXRpbmcgYSBDQlAgcmVxdWlyZXMgb25lIG9yIG1vcmUgdG9vbHMgaW4gdGhlIGludmVudG9yeS4gezB9IGlzIHJlcGxhY2VkIHdpdGggYSBjb21tYS1kZWxpbWl0ZWQgbGlzdCBvZiBsb2NhbGl6ZWQgdG9vbCBuYW1lcyBuZWVkZWQgdG8gcGVyZm9ybSBQYXlDb3N0LCB7MX0gaXMgcmVwbGFjZWQgd2l0aCB0aGUgcmVxdWlyZWQgcmVzb3VyY2VzAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABJbnRlcmFjdGFibGVzLkNvbGxlY3QuTXVsdGlwbGUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB0AAABJbnRlcmFjdGFibGVzLkNvbGxlY3QuU2luZ2xlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAUAAAASW50ZXJhY3RhYmxlcy5DcmFmdAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFgAAAEludGVyYWN0YWJsZXMuQ3VlU3BvdAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAEludGVyYWN0YWJsZXMuQ3VlU3BvdC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAASW50ZXJhY3RhYmxlcy5EaXNhYmxlZC5DcmFmdGluZ0luUHJvZ3Jlc3MAAgAAAAQAAAAAAAAAbQAAAFRleHQgaW5mb3JtaW5nIHRoZSBwbGF5ZXIgdGhhdCB0aGUgY3JhZnQgYnV0dG9uIGlzIGN1cnJlbnRseSBkaXNhYmxlZCBiZWNhdXNlIGEgY3JhZnQgaXMgYWxyZWFkeSBpbiBwcm9ncmVzcwAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAASW50ZXJhY3RhYmxlcy5Eb29yLkJhc2UuTmFtZQACAAAABAAAAAAAAAA+AAAATmFtZSBzaG93biB3aGVuIHBsYXllciBpcyBzaG93biBhbiBpbnRlcmFjdCBwcm9tcHQgZm9yIGEgZG9vcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAZAAAASW50ZXJhY3RhYmxlcy5Eb29yLkNsb3NlAAIAAAAEAAAAAAAAACcAAABJbnRlcmFjdCB2ZXJiIHNob3duIGZvciBjbG9zaW5nIGEgZG9vcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAASW50ZXJhY3RhYmxlcy5Eb29yLkNydWRlLk5hbWUAAgAAAAQAAAAAAAAARAAAAE5hbWUgc2hvd24gd2hlbiBwbGF5ZXIgaXMgc2hvd24gYW4gaW50ZXJhY3QgcHJvbXB0IGZvciBhIGNydWRlIGRvb3IACQAAAAAAAAAJAAAAQXBwcm92ZWQAGAAAAEludGVyYWN0YWJsZXMuRG9vci5PcGVuAAIAAAAEAAAAAAAAACcAAABJbnRlcmFjdCB2ZXJiIHNob3duIGZvciBvcGVuaW5nIGEgZG9vcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAASW50ZXJhY3RhYmxlcy5Eb29yc09mRHVyaW4uTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEludGVyYWN0YWJsZXMuRHVyaW5zQXhlRnJhZ21lbnQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAEludGVyYWN0YWJsZXMuRHVyaW5zR3JhdmUuV3JpdGluZ3MAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABJbnRlcmFjdGFibGVzLkR1cmluc0xhbXAuRGlzYWJsZWRTdGFydFNvbmcAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABJbnRlcmFjdGFibGVzLkR1cmluc0xhbXAuSm9pblNvbmcAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLkR1cmluc0xhbXAuU3RhcnRTb25nAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5EdXJpbnNMYW1wLlN0b3BTb25nAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAA6AAAASW50ZXJhY3RhYmxlcy5Ed2FyZkRlYXRoQ29udGFpbmVyLkRpc3BsYXlOYW1lRm9ybWF0T3RoZXJzAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAA5AAAASW50ZXJhY3RhYmxlcy5Ed2FyZkRlYXRoQ29udGFpbmVyLkRpc3BsYXlOYW1lRm9ybWF0WW91cnMAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABoAAABJbnRlcmFjdGFibGVzLkZhbGxlbkR3YXJmAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkRpc3BsYXlOYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLk5vUGxhbnRhYmxlRmxvcmEAAgAAAAQAAAAAAAAAXgAAAEludGVyYWN0aW9uIHRleHQgb24gdGhlIGZhcm1pbmcgc2xvdC4gV2hlbiB0aGVyZSdzIG5vIHBsYW50YWJsZSBpdGVtcyBmb3VuZCBpbiB0aGUgaW52ZW50b3J5LgAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLk5vdEVub3VnaExpZ2h0AAIAAAAEAAAAAAAAAJYAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIHRoZSBmYXJtaW5nIHNsb3Qgd2hlbiB0aGVyZSdzIHNvbWV0aGluZyBwbGFudGVkIHRvIGdyb3cgYnV0IG5vdCBhY3R1YWxseSBncm93aW5nIHNpbmNlIHRoZXJlJ3Mgbm90IGVub3VnaCBsaWdodCBmb3IgZmxvcmEgdG8gZ3JvdwAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLlBsYW50RmxvcmEAAgAAAAQAAAAAAAAAQAAAAEludGVyYWN0aW9uIG1lbnUgdGV4dCBvbiB0aGUgZmFybWluZyBzbG90LiAiUGxhbnQiIGFjdGlvbiB0ZXh0LgAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLlBsb3dTb2lsAAIAAAAEAAAAAAAAAHsAAABJbnRlcmFjdGlvbiBtZW51IHRleHQgb24gdGhlIGZhcm1pbmcgc2xvdCB3aGVuIHBsYW50ZWQgc2VlZCBpcyBubyBsb25nZXIgcmV0dXJuYWJsZSBidXQgY2FuIGJlIHBsb3dlZCBmb3Igb3RoZXIgcGxhbnRhYmxlcwAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLlJlYWNoZWRNYXhHcm93dGgAAgAAAAQAAAAAAAAAugAAAEludGVyYWN0aW9uIHRleHQgb24gdGhlIGZhcm1pbmcgc2xvdCB3aGVuIHBsYW50ZWQgc2VlZCBoYXMgcmVhY2hlZCBpdHMgbWF4IGdyb3d0aCBwb3RlbnRpYWwgdGhhdCBpdCdzIG5vdCBnb2luZyB0byBncm93IGFueW1vcmUuIFRoZXJlIGFyZSBpdGVtcyB0byB0YWtlOiB7MH0gaXMgY291bnQuIHsxfSBpcyBmbG9yYSBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkAC8AAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuUmVhY2hlZE1heEdyb3d0aERpc2FibGVkAAIAAAAEAAAAAAAAAIEAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIHRoZSBmYXJtaW5nIHNsb3Qgd2hlbiBwbGFudGVkIHNlZWQgaGFzIHJlYWNoZWQgaXRzIG1heCBncm93dGggcG90ZW50aWFsIHRoYXQgaXQncyBub3QgZ29pbmcgdG8gZ3JvdyBhbnltb3JlLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLlN0aWxsR3Jvd2luZwACAAAABAAAAAAAAACIAAAASW50ZXJhY3Rpb24gdGV4dCBvbiB0aGUgZmFybWluZyBzbG90IHdoZW4gdGhlcmUncyBzb21ldGhpbmcgcGxhbnRlZCB0byBncm93LiBEaXNhYmxlZCBhY3Rpb24gdGV4dCBzaW5jZSB0aGVyZSdzIG5vdGhpbmcgdG8gaGFydmVzdCB5ZXQgAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuVGFrZUFsbAACAAAABAAAAAAAAACIAAAASW50ZXJhY3Rpb24gdGV4dCBvbiB0aGUgZmFybWluZyBzbG90IHdoZW4gdGhlcmUncyBzb21ldGhpbmcgcGxhbnRlZCB0byBncm93LiAiSGFydmVzdCBBbGwiIGFjdGlvbiB0ZXh0LiB7MH0gaXMgY291bnQuIHsxfSBpcyBmbG9yYSBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuVGFrZUFsbEludmVudG9yeUZ1bGwAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuVG9vTXVjaExpZ2h0AAIAAAAEAAAAAAAAAHsAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIHRoZSBmYXJtaW5nIHNsb3Qgd2hlbiB0aGVyZSdzIHNvbWV0aGluZyBwbGFudGVkIHRvIGdyb3cgYnV0IHRoZXJlIGlzIHRvbyBtdWNoIGxpZ2h0IHNvIGl0IGNhbm5vdCBncm93LgAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLlVucGxhbnRGbG9yYQACAAAABAAAAAAAAAB2AAAASW50ZXJhY3Rpb24gdGV4dCBvbiB0aGUgZmFybWluZyBzbG90IHdoZW4gdGhlcmUncyBzb21ldGhpbmcgcGxhbnRlZCB0byBncm93LiAiVW5wbGFudCIgYWN0aW9uIHRleHQuIHswfSBpcyBmbG9yYSBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkACEAAABJbnRlcmFjdGFibGVzLkZsb3JhLkJlZUhpdmUuTmFtZQACAAAABAAAAAAAAACPAAAAVW5saWtlIG1vc3Qgb3RoZXIgZmxvcmEsIHRoZSBpbnRlcmFjdGFibGUgbmFtZSBpcyBub3QgdGhlIHNhbWUgYXMgdGhlIHJlc291cmNlIGl0c2VsZiAoaS5lLiBTdW5pb24gPT0gU3VuaW9uLCB3aGVyZWFzIEJlZSBIaXZlICE9IENhdmUgSG9uZXkpLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5GbG9yYS5Sb3BlVmluZS5OYW1lAAIAAAAEAAAAAAAAAKcAAABJbnRlcmFjdGlvbiB0ZXh0IHdoZW4gcGlja2luZyB1cCB2aW5lcyB3aGljaCBjYW4gYmUgdXNlZCB0byBjcmFmdCByb3BlcywgdGhpcyBpbnRlcmFjdGFibGUgZ3JhbnRzIE5hdHVyYWwgRmliZXJzLCBzbyBuZWVkcyBhIGRpZmZlcmVudCBlbnRyeSBmb3IgdGhlIGludGVyYWN0YWJsZSBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkABMAAABJbnRlcmFjdGFibGVzLkZ1ZWwAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkZ1ZWwuQWRkRnVlbAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHQAAAEludGVyYWN0YWJsZXMuRnVlbC5GdWxsUXVldWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkZ1ZWwuTm9GdWVscwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAEludGVyYWN0YWJsZXMuRnVlbC5Ob1JlcXVpcmVkRnVlbHMAAgAAAAQAAAAAAAAAwgAAAFVzZWQgd2hlbiB0aGUgRnVlbEJ1cm5pbmdDb21wb25lbnQgcmVxdWlyZXMgYSBwYXJ0aWN1bGFyIGZ1ZWwgdHlwZSBhbmQgdGhlIHBsYXllciBkb2VzIG5vdCBoYXZlIGl0IChldmVuIHRob3VnaCB0aGV5IGhhdmUgb3RoZXIgZnVlbHMgaW4gdGhlaXIgaW52ZW50b3J5KS4gezB9IGlzIHVzZWQgdG8gbGlzdCBvdXQgYWxsb3dlZCBmdWVscy4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAKwAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suQm93UmFjay5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suQm93UmFjay5OYW1lAAIAAAAEAAAAAAAAACAAAABJdGVtIHJhY2sgbmFtZSBmb3IgaG9sZGluZyBib3dzAAkAAAAAAAAACQAAAEFwcHJvdmVkADAAAABJbnRlcmFjdGFibGVzLkl0ZW1SYWNrLkNyb3NzYm93UmFjay5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKQAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suQ3Jvc3Nib3dSYWNrLk5hbWUAAgAAAAQAAAAAAAAAJQAAAEl0ZW0gcmFjayBuYW1lIGZvciBob2xkaW5nIGNyb3NzYm93cwAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5FcGljSXRlbS5SYWNrLlRpcAACAAAABAAAAAAAAAAsAAAAVGlwIHRoYXQgYXBwZWFycyBmb3IgdGhpcyBvYmplY3QgaW4gdGhlIFVJLgAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5FcGljSXRlbVJhY2suTmFtZQACAAAABAAAAAAAAAA7AAAAVGhlIG5hbWUgb2YgdGhlIG9iamVjdCB0aGF0IGhvbGRzICJFcGljIEl0ZW1zIiBvbiBkaXNwbGF5LgAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5HZW0uRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACAAAABJbnRlcmFjdGFibGVzLkl0ZW1SYWNrLkdlbS5OYW1lAAIAAAAEAAAAAAAAADkAAABQbGFjZSB0byBwdXQgZ2Vtc3RvbmVzIG9uIGRpc3BsYXksIHR5cGljYWxseSBhIHBlZGVzdGFsLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5NYW5uZXF1aW4uTmFtZQACAAAABAAAAAAAAABFAAAATmFtZSBvZiB0aGUgaHVtYW5vaWQgZmlndXJlIHRoYXQgaG9sZHMgYXJtb3Igb3IgY2xvdGhlcyBmb3IgZGlzcGxheS4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suTWFubmVxdWluLlRpcAACAAAABAAAAAAAAAAsAAAAVGlwIHRoYXQgYXBwZWFycyBmb3IgdGhpcyBvYmplY3QgaW4gdGhlIFVJLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5QbGFjZQACAAAABAAAAAAAAABmAAAAQW4gaXRlbSBpcyBiZWluZyBwbGFjZWQgaW50byBhbiBpdGVtIHJhY2sgb2Ygc29tZWtpbmQsIHdoZXJlIHswfSBpcyB0aGUgbmFtZSBvZiB0aGUgaXRlbSBiZWluZyBwbGFjZWQACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suU2hpZWxkSG9vay5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAA/AAAARGVzY3JpcHRpb24gZm9yIHRoZSBpdGVtIGhvb2suIFVzZWQgdG8gYmUgc3BlY2lmaWMgdG8gc2hpZWxkcy4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suU2hpZWxkSG9vay5OYW1lAAIAAAAEAAAAAAAAAGYAAABUaGUgbmFtZSBvZiB0aGUgb2JqZWN0IHRoYXQgaG9sZHMgYSBzaGllbGQsIGFuIGVwaWMgcGFjayBvciBhIHRyb3BoeSBvbiBhIHdhbGwsIHByb2JhYmx5IHdpdGggYSBob29rLgAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5UYWtlAAIAAAAEAAAAAAAAAF4AAABEZXNjcmliaW5nIGdyYWJiaW5nIGFuIGl0ZW0gb2ZmIG9mIGEgaXRlbSByYWNrIG9yIGVxdWl2YWxlbnQgc3VjaCBhcyBhIHBlZGVzdGFsIG9yIHdhbGwgbW91bnQACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suVGFrZS5Ob0l0ZW1zAAIAAAAEAAAAAAAAAEMAAABUZXh0IHRvIHNob3cgd2hlbiB0aGVyZSBhcmUgbm8gaXRlbXMgbGVmdCBpbiBhbiBpdGVtIHJhY2sgdG8gdGFrZS4ACQAAAAAAAAAJAAAAQXBwcm92ZWQALwAAAEludGVyYWN0YWJsZXMuSXRlbVJhY2suVGFrZS5Ob0l0ZW1zQWx0ZXJuYXRpdmUAAgAAAAQAAAAAAAAAIQAAAFVzZWQgaW4gdGhlIGZvcm1hdCBvZiAiR3JhYiB7MH0iAAkAAAAAAAAACQAAAEFwcHJvdmVkACkAAABJbnRlcmFjdGFibGVzLkl0ZW1SYWNrLlRha2UuTm90aGluZ1RvU2VlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5UYWtlT25lT2ZNYW55AAIAAAAEAAAAAAAAACEAAABVc2VkIGluIHRoZSBmb3JtYXQgb2YgIkdyYWIgezB9IgAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5XZWFwb25SYWNrAAIAAAAEAAAAAAAAACoAAABOYW1lIG9mIHRoZSBvYmplY3QgdGhhdCBzdG9yZXMgYW55IHdlYXBvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAASW50ZXJhY3RhYmxlcy5JdGVtUmFjay5XZWFwb25SYWNrLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAASW50ZXJhY3RhYmxlcy5LaGF6YWRzcG90Lkluc3BlY3QAAgAAAAQAAAAAAAAAGwAAAFVzZWQgZm9yIEtoYXphZHN0b25lIFNwb3QuAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABJbnRlcmFjdGFibGVzLkxhZGRlci5DbGltYgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAEludGVyYWN0YWJsZXMuTGlicmFyeS5Nb251bWVudAACAAAABAAAAAAAAABcAAAAVGhlIGxhcmdlIHN0b25lIG1vbnVtZW50IGluIHRoZSBsaWJyYXJ5IHdpdGggbG90cyBvZiBEd2FydmVuIHJ1bmljIGtub3dsZWRnZSBjYXJ2ZWQgaW50byBpdAAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAASW50ZXJhY3RhYmxlcy5NYXBTdG9uZS5BY3Rpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABJbnRlcmFjdGFibGVzLk1hcFN0b25lLk9wZW5NYXAAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABJbnRlcmFjdGFibGVzLk1pbmluZ1NvbmcuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAEludGVyYWN0YWJsZXMuTWluaW5nU29uZy5TaW5nAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAASW50ZXJhY3RhYmxlcy5NaW5pbmdTb25nLlN0b3BTaW5naW5nAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAASW50ZXJhY3RhYmxlcy5OYWluc0dyYXZlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABwAAABJbnRlcmFjdGFibGVzLlJlcGFpclN0YXRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLlJlcGFpclN0YXRpb24uUmVwYWlyAAIAAAAEAAAAAAAAABgAAABJbnRlcmFjdCBVSSBkZXNjcmlwdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAZAAAASW50ZXJhY3RhYmxlcy5Sb3BlLkNsaW1iAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAsAAAASW50ZXJhY3RhYmxlcy5SdW5lQ3JhZnRpbmdTdGF0aW9uLkNyYWZ0UnVuZQACAAAABAAAAAAAAAAYAAAASW50ZXJhY3QgVUkgZGVzY3JpcHRpb24ACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAEludGVyYWN0YWJsZXMuUnVuZUNyYWZ0aW5nU3RhdGlvbi5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuUnVuZUNyYWZ0aW5nU3RhdGlvbi5OYW1lAAIAAAAEAAAAAAAAABsAAABSdW5lIGNyYWZ0aW5nIHN0YXRpb24gbmFtZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAASW50ZXJhY3RhYmxlcy5TdHJpZGVySm91cm5hbAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAEludGVyYWN0YWJsZXMuU3RyaWRlckpvdXJuYWwuTWluZXMAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABJbnRlcmFjdGFibGVzLlN0cmlkZXJKb3VybmFsLkdyb3R0b3MAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACkAAABJbnRlcmFjdGFibGVzLlN0cmlkZXJKb3VybmFsLkR3YXJyb3dkZWxmAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAoAAAASW50ZXJhY3RhYmxlcy5TdHJpZGVySm91cm5hbC5Dcm9zc3JvYWRzAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAASW50ZXJhY3RhYmxlcy5TdHJpZGVySm91cm5hbC5CcmlkZ2UAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABJbnRlcmFjdGFibGVzLlRhdmVyblNvbmcuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJgAAAEludGVyYWN0YWJsZXMuVGF2ZXJuU29uZy5TdGFydFNpbmdpbmcAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABJbnRlcmFjdGFibGVzLlRpbnRpbmdTdGF0aW9uLlRpbnRJdGVtAAIAAAAEAAAAAAAAACQAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIHRpbnRpbmcgc3RhdGlvbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAASW50ZXJhY3RhYmxlcy5WZW5lcmF0aW9uU29uZy5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAUGlja3Vwcy5CYWxpbkNhbXBKb3VybmFsLkIAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABQaWNrdXBzLkJhbGluQ2FtcEpvdXJuYWwuQi5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAFBpY2t1cHMuQmFsaW5DYW1wSm91cm5hbC5DAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAUGlja3Vwcy5CYWxpbkNhbXBKb3VybmFsLkMuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABQaWNrdXBzLkJhbGluQ2FtcEpvdXJuYWwuRAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAFBpY2t1cHMuQmFsaW5DYW1wSm91cm5hbC5ELkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAUGlja3Vwcy5CYWxpbkNhbXBKb3VybmFsLkUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABQaWNrdXBzLkJhbGluQ2FtcEpvdXJuYWwuRS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAFBpY2t1cHMuQmFsaW5DYW1wSm91cm5hbC5PcmlzSm91cm5hbAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMQAAAFBpY2t1cHMuQmFsaW5DYW1wSm91cm5hbC5PcmlzSm91cm5hbC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAEwAAAFBpY2t1cHMuQmFsaW5DYW1wcwACAAAABAAAAAAAAAAgAAAAUXVlc3QgUGljayB1cCB0byBhbGwgQmFsaW4gQ2FtcAAJAAAAAAAAAAkAAABBcHByb3ZlZAAOAAAAUGlja3Vwcy5DYXJyeQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFgAAAFBpY2t1cHMuRXF1aXBEaXNhYmxlZAACAAAABAAAAAAAAADHAAAAVGV4dCBzaG93biBvbiB0aGUgSW50ZXJhY3Rpb24gTWVudSB0byAiUGljayBVcCBhbmQgRXF1aXAiIGFuIGl0ZW0gd2hlbiB0aGUgcGxheWVyIGNhbm5vdCBwaWNrIGl0IHVwIGJlY2F1c2UgdGhlaXIgaW52ZW50b3J5IGlzIGZ1bGwuIHswfSBpcyB1c2VkIHRvIGluc2VydCB0aGUgaXRlbSBuYW1lKHMpIGFuZCBxdWFudGl0aWVzIGF0IHJ1bnRpbWUuAAkAAAAAAAAACQAAAEFwcHJvdmVkABUAAABQaWNrdXBzLkVxdWlwRW5hYmxlZAACAAAABAAAAAAAAACFAAAAVGV4dCBzaG93biBvbiB0aGUgSW50ZXJhY3Rpb24gTWVudSB0byAiUGljayBVcCBhbmQgRXF1aXAiIGFuIGl0ZW0uIHswfSBpcyB1c2VkIHRvIGluc2VydCB0aGUgaXRlbSBuYW1lKHMpIGFuZCBxdWFudGl0aWVzIGF0IHJ1bnRpbWUuAAkAAAAAAAAACQAAAEFwcHJvdmVkABIAAABQaWNrdXBzLkVxdWlwU3dhcAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGgAAAFBpY2t1cHMuRXF1aXBTd2FwRXBpY0l0ZW0AAgAAAAQAAAAAAAAApwAAAFRleHQgc2hvd24gb24gdGhlIEludGVyYWN0aW9uIE1lbnUgdG8gIlBpY2sgVXAgYW5kIEVxdWlwIiBhbiBlcGljIGl0ZW0gd2hlbiBwbGF5ZXIgYWxyZWFkeSBoYXMgb25lLCByZXN1bHRpbmcgaW4gZXhjaGFuZ2luZyB0aGUgaXRlbXMgYW5kIHRoZSBuZXcgaXRlbSBiZWluZyBlcXVpcHBlZC4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAFBpY2t1cHMuS2hhemFkc3RvbmVCb29rSW5mbwACAAAABAAAAAAAAAAzAAAAUXVlc3QgUGljayB1cCB0aGF0IGdpdmVzIGNvbnRleHQgYWJvdXQgS2hhemFkc3RvbmUACQAAAAAAAAAJAAAAQXBwcm92ZWQAIQAAAFBpY2t1cHMuTW9yZVRoYW5UaHJlZUl0ZW1zRm9ybWF0AAIAAAAEAAAAAAAAAGkAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIFBpY2t1cHMgd2hlbiB0aGVyZSBhcmUgbW9yZSB0aGFuIG9uZSB0eXBlIG9mIGl0ZW1zIChlLmcuICJJdGVtMSB4MSwgSXRlbTIgeDIsIGV0Yy4iKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAXAAAAUGlja3Vwcy5QaWNrVXBEaXNhYmxlZAACAAAABAAAAAAAAAC+AAAAVGV4dCBzaG93biBvbiB0aGUgSW50ZXJhY3Rpb24gTWVudSB0byAiUGljayBVcCIgd2hlbiB0aGUgcGxheWVyIGNhbm5vdCBwaWNrIHVwIHRoZSBpdGVtKHMpIGJlY2F1c2UgdGhlaXIgaW52ZW50b3J5IGlzIGZ1bGwuIHswfSBpcyB1c2VkIHRvIGluc2VydCB0aGUgaXRlbSBuYW1lKHMpIGFuZCBxdWFudGl0aWVzIGF0IHJ1bnRpbWUuAAkAAAAAAAAACQAAAEFwcHJvdmVkABYAAABQaWNrdXBzLlBpY2tVcEVuYWJsZWQAAgAAAAQAAAAAAAAAhQAAAFRleHQgc2hvd24gb24gdGhlIEludGVyYWN0aW9uIE1lbnUgdG8gIlBpY2sgVXAiIG9uZSBvciBtb3JlIGl0ZW1zLiB7MH0gaXMgdXNlZCB0byBpbnNlcnQgdGhlIGl0ZW0gbmFtZShzKSBhbmQgcXVhbnRpdGllcyBhdCBydW50aW1lLgAJAAAAAAAAAAkAAABBcHByb3ZlZAATAAAAUGlja3Vwcy5QaWNrVXBTd2FwAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAUGlja3Vwcy5QaWNrVXBTd2FwRXBpY0l0ZW0AAgAAAAQAAAAAAAAAfQAAAFRleHQgc2hvd24gb24gdGhlIEludGVyYWN0aW9uIE1lbnUgdG8gIlBpY2sgVXAiIGFuIGVwaWMgaXRlbSB3aGVuIHBsYXllciBhbHJlYWR5IGhhcyBvbmUsIHJlc3VsdGluZyBpbiBleGNoYW5naW5nIHRoZSBpdGVtcy4ACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAFBpY2t1cHMuUGlja3VwU3dhcEVwaWNQYWNrAAIAAAAEAAAAAAAAAH0AAABUZXh0IHNob3duIG9uIHRoZSBJbnRlcmFjdGlvbiBNZW51IHRvICJQaWNrIFVwIiBhbiBlcGljIHBhY2sgd2hlbiBwbGF5ZXIgYWxyZWFkeSBoYXMgb25lLCByZXN1bHRpbmcgaW4gZXhjaGFuZ2luZyB0aGUgaXRlbXMuAAkAAAAAAAAACQAAAEFwcHJvdmVkABkAAABQaWNrdXBzLlRocmVlSXRlbXNGb3JtYXQAAgAAAAQAAAAAAAAAaQAAAEludGVyYWN0aW9uIHRleHQgb24gUGlja3VwcyB3aGVuIHRoZXJlIGFyZSBtb3JlIHRoYW4gb25lIHR5cGUgb2YgaXRlbXMgKGUuZy4gIkl0ZW0xIHgxLCBJdGVtMiB4MiwgZXRjLiIpAAkAAAAAAAAACQAAAEFwcHJvdmVkABcAAABQaWNrdXBzLlR3b0l0ZW1zRm9ybWF0AAIAAAAEAAAAAAAAAGkAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIFBpY2t1cHMgd2hlbiB0aGVyZSBhcmUgbW9yZSB0aGFuIG9uZSB0eXBlIG9mIGl0ZW1zIChlLmcuICJJdGVtMSB4MSwgSXRlbTIgeDIsIGV0Yy4iKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAAUGxhY2FibGVzLkRyb3BJdGVtLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABQbGFjYWJsZXMuRHdhcmZGaWd1cmluZS5BY3Rpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB0AAABQbGFjYWJsZXMuRHdhcmZGaWd1cmluZS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAaAAAAUGxhY2FibGVzLkZvb2RQaWNrdXAuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFgAAAFBsYWNhYmxlcy5MYWRkZXIuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGAAAAFBsYWNhYmxlcy5NYXBTdG9uZS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAASAAAAUmF2ZW4uRGlzcGxheU5hbWUAAgAAAAQAAAAAAAAALgAAAFRoZSBuYW1lIHNob3duIG9uIHRoZSBSYXZlbidzIEludGVyYWN0aW9uTWVudQAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAUmF2ZW4uRGlzcGxheU5hbWUuRmlyc3RSYXZlbgACAAAABAAAAAAAAABNAAAAVGhlIG5hbWUgc2hvd24gb24gdGhlIGZpcnN0IFJhdmVuJ3MgSW50ZXJhY3Rpb25NZW51IGJlZm9yZSB5b3Uga25vdyBoaXMgbmFtZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAPAAAAUmF2ZW4uSW50ZXJhY3QAAgAAAAQAAAAAAAAAPgAAAFdoYXQgdGhlIGludGVyYWN0aW9uIHRleHQgc2F5cyBvbiB0aGUgUmF2ZW4ncyBJbnRlcmFjdGlvbk1lbnUACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAFJlY2VwdGFjbGVzLkVtcHR5Q29udGFpbmVyAAIAAAAEAAAAAAAAAGoAAABUaGUgcmVhc29uIHRleHQgc2hvd24gd2hlbiBhIHBsYXllciBjYW4ndCB0YWtlIGl0ZW1zIGZyb20gYSByZWNlcHRhY2xlIGJlY2F1c2UgdGhlcmUgYXJlIG5vIGl0ZW1zIHRvIHRha2UACQAAAAAAAAAJAAAAQXBwcm92ZWQAGgAAAFJlY2VwdGFjbGVzLkludmVudG9yeUZ1bGwAAgAAAAQAAAAAAAAAdQAAAFRoZSByZWFzb24gdGV4dCBzaG93biB3aGVuIGEgcGxheWVyIGNhbid0IHRha2UgaXRlbXMgZnJvbSBhIHJlY2VwdGFjbGUgYmVjYXVzZSB0aGV5IGhhdmUgbm8gc3BhY2UgaW4gdGhlaXIgaW52ZW50b3J5AAkAAAAAAAAACQAAAEFwcHJvdmVkABQAAABSZWNlcHRhY2xlcy5UYWtlQWxsAAIAAAAEAAAAAAAAAIEAAABUZXh0IHNob3duIHdoZW4gdGhlIHBsYXllciBjYW4gdGFrZSBhbGwgb2YgdGhlIGl0ZW1zIGZyb20gYSBjb250YWluZXIgKHswfSAtIG9wdGlvbmFsOyB0b3RhbCBudW1iZXIgb2YgaXRlbXMgdGhhdCB3aWxsIGJlIHRha2VuKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAAUmVjZXB0YWNsZXMuVGFrZUFsbE9uZVR5cGUAAgAAAAQAAAAAAAAAgAAAAFRleHQgc2hvd24gdG8gdGFrZSBpdGVtcyBmcm9tIGEgY29udGFpbmVyIHRoYXQgb25seSBoYXMgMSBpdGVtIHR5cGUuIHswfSBpcyBpdGVtIG5hbWUsIHsxfSBpcyBxdWFudGl0eS4gRS5nLiAiVGFrZSBNdXNocm9vbSB4MiIACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAFJlY2VwdGFjbGVzLlRha2VJdGVtc0Rpc2FibGVkAAIAAAAEAAAAAAAAAHEAAABUaGUgdGV4dCBzaG93biB3aGVuIHRoZSBwbGF5ZXIgY2Fubm90IHRha2UgYW55IGl0ZW1zIGZyb20gYSBjb250YWluZXIgKDAgLSB0aGUgcmVhc29uIHRoZXkgY2FuJ3QgdGFrZSBhbnkgaXRlbXMpAAkAAAAAAAAACQAAAEFwcHJvdmVkABQAAABSZWNlcHRhY2xlcy5UYWtlTWF4AAIAAAAEAAAAAAAAAJUAAABXaGVuIHRoZSBwbGF5ZXIgb25seSBoYXMgZW5vdWdoIHNwYWNlIGZvciBhIGNlcnRhaW4gbnVtYmVyIG9mIGl0ZW1zIGFuZCBjYW4ndCBUYWtlIEFsbCAoMCAtIG51bWJlciB0aGV5IGNhbiB0YWtlLCAxIC0gdG90YWwgbnVtYmVyIGluIHRoZSBjb250YWluZXIpAAkAAAAAAAAACQAAAEFwcHJvdmVkABkAAABSZWNlcHRhY2xlcy5WaWV3Q29udGVudHMAAgAAAAQAAAAAAAAARAAAAFVzZWQgdG8gb3BlbiB0aGUgSW52ZW50b3J5IFVJIHRvIGJyb3dzZSB0aGUgY29udGVudHMgb2YgYSBjb250YWluZXIACQAAAAAAAAAJAAAAQXBwcm92ZWQAFAAAAFRyZWFzdXJlUGlsZS5BZG1pcmUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABUcmVhc3VyZVBpbGUuQ29pbi5MYXJnZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHQAAAFRyZWFzdXJlUGlsZS5Db2luLkxhcmdlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABUcmVhc3VyZVBpbGUuQ29pbi5NZWRpdW0uRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABUcmVhc3VyZVBpbGUuQ29pbi5NZWRpdW0uTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAFRyZWFzdXJlUGlsZS5Db2luLlNtYWxsLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAVHJlYXN1cmVQaWxlLkNvaW4uU21hbGwuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAFQAAAFRyZWFzdXJlUGlsZS5EZXBvc2l0AAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAVHJlYXN1cmVQaWxlLkRpc2FibGVkQWRtaXJlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAVHJlYXN1cmVQaWxlLkRpc2FibGVkRGVwb3NpdAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAFRyZWFzdXJlUGlsZS5EaXNhYmxlZFRha2VUcmVhc3VyZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAFRyZWFzdXJlUGlsZS5JbnZlbnRvcnlGdWxsAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAVHJlYXN1cmVQaWxlLlJlY2VwdGFjbGVGdWxsAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAaAAAAVHJlYXN1cmVQaWxlLlRha2VUcmVhc3VyZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHwAAAFRyZWFzdXJlUGlsZS5EaXNwbGF5TmFtZUZvcm1hdAACAAAABAAAAAAAAACYAAAAVGhlIHRleHQgZm9ybWF0IHNob3duIGZvciBUcmVhc3VyZVBpbGVzLiB7MH0gaXMgVHJlYXN1cmVQaWxlIG5hbWUsIHsxfSBpcyBjdXJyZW50IHF1YW50aXR5LCB7Mn0gaXMgbWF4IGNhcGFjaXR5LiAoZS5nLiAiVHJlYXN1cmUgQ2FjaGUgKDEgLyAxNSkgU2xvdHMiKQAJAAAAAAAAAAkAAABBcHByb3ZlZAAWAAAAUGlja3Vwcy5PbmVJdGVtRm9ybWF0AAIAAAAEAAAAAAAAAEQAAABJbnRlcmFjdGlvbiB0ZXh0IG9uIFBpY2t1cHMgZm9yIG9uZSB0eXBlIG9mIGl0ZW1zIChlLmcuICJJdGVtMSB4MSIpAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABJbnRlcmFjdGFibGVzLkZ1ZWwuQWRkRnVlbFR5cGUAAgAAAAQAAAAAAAAAegAAAFVzZWQgb24gdGhlIGJ1dHRvbiBpbiB0aGUgY3JhZnRpbmcgc2NyZWVuIHdoZW4gdGhlIHBsYXllciBoYXMgYSB2YWxpZCBmdWVsIGl0ZW0gYW5kIHRoZSBzdGF0aW9uIG5lZWRzIGl0IHRvIGNyYWZ0IGEgdGhpbmcACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEludGVyYWN0YWJsZXMuRGltcmlsbEdhdGUuRXhpdE1vcmlhAAIAAAAEAAAAAAAAAFwAAABJbnRlcmFjdGlvbiB0byBwbGF5IGNpbmUzIChlbmQgZ2FtZSB2aWRlbywgRHdhcmYgbGVhdmluZyBNb3JpYSkgYWZ0ZXIgb3BlbmluZyBEaW1yaWxsIEdhdGVzAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABDb250YWluZXJzLlJlc291cmNlQ2FjaGUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKAAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5TbWFsbC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEludGVyYWN0YWJsZXMuQnJld2VyeS5NYXNzaXZlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuQWR2YW5jZWQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMAAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0LkFkdmFuY2VkLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuT3JuYXRlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAC4AAABDb25zdHJ1Y3Rpb25zLlN0b3JhZ2VDaGVzdC5Pcm5hdGUuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABDb250YWluZXJzLlJlc2luT3JlUGFsbGV0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABDb250YWluZXJzLlNhbHRPcmVQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABDb250YWluZXJzLlNhbHRPcmVQYWxsZXQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJgAAAENvbnRhaW5lcnMuUmVzaW5PcmVQYWxsZXQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABJbnRlcmFjdGFibGVzLkJhbHJvZ3NFbWVyZ2VuY2UuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMAAAAEludGVyYWN0YWJsZXMuRmFybWluZy5VbnBsYW50RmxvcmFJbnZlbnRvcnlGdWxsAAIAAAAEAAAAAAAAAGUAAABJbnRlcmFjdGlvbiB0ZXh0IHdoZW4gaW52ZW50b3J5IGZ1bGwgYnV0IHRyeWluZyB0byBwaWNrIGEgc3RpbGwtZ3Jvd2luZyBwbGFudC4gezB9IGlzIHRoZSBmbG9yYSBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkACoAAABDb250YWluZXIuUmVzb3VyY2VQYWxsZXQuRGVwb3NpdEFsbEZvcm1hdAACAAAABAAAAAAAAAAVAAAAezB9IGlzIHRoZSBpdGVtIG5hbWUACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEludGVyYWN0YWJsZXMuRGltcmlsbEdhdGUuUmVwbGF5RXhpdE1vcmlhAAIAAAAEAAAAAAAAAF0AAABJbnRlcmFjdGlvbiB0byByZXBsYXkgY2luZTMgKGVuZCBnYW1lIHZpZGVvLCBEd2FyZiBsZWF2aW5nIE1vcmlhKSBhZnRlciBvcGVuaW5nIERpbXJpbGwgR2F0ZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAQ29uc3RydWN0aW9ucy5NZWFsVGFibGVfQ2FtcAACAAAABAAAAAAAAABFAAAATGFiZWwgZm9yIG5hbWUgb2Ygc21hbGxlciBtZWFsIHRhYmxlcyBpbnRlbmRlZCB0byBnbyB3aXRoIGNhbXAgZmlyZXMACQAAAAAAAAAJAAAAQXBwcm92ZWQAKQAAAENvbnN0cnVjdGlvbnMuTWVhbFRhYmxlX0NhbXAuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAASAAAAERlc2NyaXB0aW9uIHVzZWQgZm9yIHNtYWxsZXIgbWVhbCB0YWJsZXMgaW50ZW5kZWQgdG8gZ28gd2l0aCBjYW1wIGZpcmVzAAkAAAAAAAAACQAAAEFwcHJvdmVkAB8AAABDb25zdHJ1Y3Rpb25zLkhlYXJ0aF9NaW5pLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABDb25zdHJ1Y3Rpb25zLkhlYXJ0aF9NaW5pLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAASW50ZXJhY3RhYmxlcy5BbmNpZW50U2FyY29waGFndXMAAgAAAAQAAAAAAAAAUgAAAEFuIGFuY2llbnQgc2FyY29waGFndXMgZm91bmQgaW4gYSByYXJlIGFuY2llbnQgdG9tYiBpbiBmZXcgcGxhY2VzIGluIHRoZSBtb3VudGFpbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29udGFpbmVycy5Lbm93bGVkZ2VTaGVsZi5Cb29rcwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIgAAAENvbnRhaW5lcnMuS25vd2xlZGdlU2hlbGYuU2Nyb2xscwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALAAAAENvbnRhaW5lcnMuS25vd2xlZGdlU2hlbGYuQm9va3MuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAC4AAABDb250YWluZXJzLktub3dsZWRnZVNoZWxmLlNjcm9sbHMuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABDb250YWluZXJzLktub3dsZWRnZVNoZWxmLkJvb2tzLkRlcG9zaXQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACoAAABDb250YWluZXJzLktub3dsZWRnZVNoZWxmLlNjcm9sbHMuRGVwb3NpdAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAENvbnRhaW5lcnMuS25vd2xlZGdlU2hlbGYuQm9va3MuVGFrZUJvb2tzAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAyAAAAQ29udGFpbmVycy5Lbm93bGVkZ2VTaGVsZi5Cb29rcy5EaXNhYmxlZFRha2VCb29rcwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALwAAAENvbnRhaW5lcnMuS25vd2xlZGdlU2hlbGYuU2Nyb2xscy5UYWtlU3Njcm9sbHMAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADYAAABDb250YWluZXJzLktub3dsZWRnZVNoZWxmLlNjcm9sbHMuRGlzYWJsZWRUYWtlU2Nyb2xscwABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAENvbnRhaW5lcnMuS25vd2xlZGdlU2hlbGYuU3R1ZHkAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACkAAABDb250YWluZXJzLktub3dsZWRnZVNoZWxmLlN0dWR5LkRpc2FibGVkAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAVHJlYXN1cmVQaWxlLkNvaW4uSHVnZS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAVHJlYXN1cmVQaWxlLkNvaW4uSHVnZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGgAAAFRyZWFzdXJlUGlsZS5WaWV3Q29udGVudHMAAgAAAAQAAAAAAAAATgAAAFRleHQgc2hvd24gdG8gb3BlbiB0aGUgc3RvcmFnZSBpbnZlbnRvcnkgdG8gbWFuYWdlIHRoZSB0cmVhc3VyZSBwaWxlIGNvbnRlbnRzAAkAAAAAAAAACQAAAEFwcHJvdmVkABUAAABJbnRlcmFjdGFibGVzLlJlbmFtZQACAAAABAAAAAAAAABhAAAASW50ZXJhY3Rpb24gdGV4dCB1c2VkIHRvIG9wZW4gZWRpdCBuYW1lIFVJIHRvIHJlbmFtZSBpbnRlcmFjdGlvbnMgdGhhdCBhbGxvdyB0aGlzIGZ1bmN0aW9uYWxpdHkuAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABDb25zdHJ1Y3Rpb25zLkhvbGlkYXlQYWNrLlByZXNlbnRQaWxlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADIAAABDb25zdHJ1Y3Rpb25zLkhvbGlkYXlQYWNrLlByZXNlbnRQaWxlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29uc3RydWN0aW9ucy5Ib2xpZGF5UGFjay5NZWFsVGFibGUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMAAAAENvbnN0cnVjdGlvbnMuSG9saWRheVBhY2suTWVhbFRhYmxlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAsAAAAQ29uc3RydWN0aW9ucy5Ib2xpZGF5UGFjay5NZWRpdW1IZWFydGguTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMwAAAENvbnN0cnVjdGlvbnMuSG9saWRheVBhY2suTWVkaXVtSGVhcnRoLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAAQ29uc3RydWN0aW9ucy5IZWFydGhfRmFybS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAAQ29uc3RydWN0aW9ucy5IZWFydGhfRmFybS5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAuAAAAYSBzY2FyZWNyb3cgZm9yIHNpZ25pZmluZyB3aGVyZSB0byBncm93IGNyb3BzAAkAAAAAAAAACQAAAEFwcHJvdmVkACAAAABDb25zdHJ1Y3Rpb3MuRmFybTF4MV9TdG9uZS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9zLkZhcm0xeDFfU3RvbmUuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABkAAABCZW9ybl9IZWFydGhfTWVkaXVtLk5hbWUAAQAAAAkAAAAAAAAABAAAAEN1dAAYAAAAQmVvcm5fSGVhcnRoX0xhcmdlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABCZW9ybl9DYXZlX0hvbmV5X0hpdmUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAEJlb3JuX0hlYXJ0aF9NZWRpdW0uRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAABAAAAEN1dAAfAAAAQmVvcm5fSGVhcnRoX0xhcmdlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAiAAAAQmVvcm5fQ2F2ZV9Ib25leV9IaXZlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkRpc3BsYXlOYW1lX1Nwcm91dAACAAAABAAAAAAAAABAAAAAdGhlIHBhcmVudGhldGljYWwgdGVsbHMgdGhlIHN0YXRlIG9mIHRoZSBjcm9wIGluIHRoZSBmYXJtIHBhdGNoAAkAAAAAAAAACQAAAEFwcHJvdmVkACoAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVfR3Jvd2luZwACAAAABAAAAAAAAABAAAAAdGhlIHBhcmVudGhldGljYWwgdGVsbHMgdGhlIHN0YXRlIG9mIHRoZSBjcm9wIGluIHRoZSBmYXJtIHBhdGNoAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVfUmVhZHkAAgAAAAQAAAAAAAAAQAAAAHRoZSBwYXJlbnRoZXRpY2FsIHRlbGxzIHRoZSBzdGF0ZSBvZiB0aGUgY3JvcCBpbiB0aGUgZmFybSBwYXRjaAAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkRpc3BsYXlOYW1lX1Nwb2lsZWQAAgAAAAQAAAAAAAAAQAAAAHRoZSBwYXJlbnRoZXRpY2FsIHRlbGxzIHRoZSBzdGF0ZSBvZiB0aGUgY3JvcCBpbiB0aGUgZmFybSBwYXRjaAAJAAAAAAAAAAkAAABBcHByb3ZlZAAoAAAAQ29uc3RydWN0aW9ucy5GYXJtMXgxX0xhcmdlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAQ29uc3RydWN0aW9ucy5GYXJtMXgxX0xhcmdlLk5hbWUAAgAAAAQAAAAAAAAALgAAAHBsYWNlIHRvIHBsYW50IGEgdHJlZSBjdXR0aW5nIGFuZCBncm93IGEgdHJlZQAJAAAAAAAAAAkAAABBcHByb3ZlZAAYAAAARW50UGFjay5FdmVyc3ByaW5nLk5hbWUAAgAAAAQAAAAAAAAAHwAAAGEgYnVpbGRhYmxlLCBlbnQtc3R5bGUgZm91bnRhbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAARW50UGFjay5FdmVyc3ByaW5nLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAACcAAABkZXNjcmlwdGlvbiBmb3IgdGhlIGVudC1zdHlsZSBmb3VudGFpbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLk5lZWRzTGlnaHQAAgAAAAQAAAAAAAAATgAAAEludGVyYWN0aW9uIHdoZW4gcGxhbnRpbmcgZmxvcmEgdGhhdCBuZWVkcyBsaWdodCBidXQgZmFybSBwbG90IGlzIGluIGRhcmtuZXNzAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuTmVlZHNEYXJrbmVzcwACAAAABAAAAAAAAABOAAAASW50ZXJhY3Rpb24gd2hlbiBwbGFudGluZyBmbG9yYSB0aGF0IG5lZWRzIGRhcmtuZXNzIGJ1dCBmYXJtIHBsb3QgaXMgaW4gbGlnaHQACQAAAAAAAAAJAAAAQXBwcm92ZWQAJgAAAEludGVyYWN0YWJsZXMuRmFybWluZy5Hcm93dGhSYXRlLlNsb3cAAgAAAAQAAAAAAAAAdQAAAFRleHQgZm9ybWF0IGFwcGVuZGVkIHRvIHBsYW50YWJsZSBvcHRpb24ncyBuYW1lIHRvIGluZGljYXRlIHNsb3cgZ3Jvd3RoIHJhdGUuIEZvciBleGFtcGxlOiAiTXVzaHJvb21zIChTbG93IEdyb3d0aCkiAAkAAAAAAAAACQAAAEFwcHJvdmVkACoAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuR3Jvd3RoUmF0ZS5Nb2RlcmF0ZQACAAAABAAAAAAAAAB9AAAAVGV4dCBmb3JtYXQgYXBwZW5kZWQgdG8gcGxhbnRhYmxlIG9wdGlvbidzIG5hbWUgdG8gaW5kaWNhdGUgbW9kZXJhdGUgZ3Jvd3RoIHJhdGUuIEZvciBleGFtcGxlOiAiTXVzaHJvb21zIChNb2RlcmF0ZSBHcm93dGgpIgAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkdyb3d0aFJhdGUuRmFzdAACAAAABAAAAAAAAAB1AAAAVGV4dCBmb3JtYXQgYXBwZW5kZWQgdG8gcGxhbnRhYmxlIG9wdGlvbidzIG5hbWUgdG8gaW5kaWNhdGUgZmFzdCBncm93dGggcmF0ZS4gRm9yIGV4YW1wbGU6ICJNdXNocm9vbXMgKEZhc3QgR3Jvd3RoKSIACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuRmFybWluZy5Hcm93dGhSYXRlRm9ybWF0AAIAAAAEAAAAAAAAAHwAAABGb3JtYXQgZm9yIGdyb3d0aCByYXRlIHdoZW4gcGxhbnRpbmcgZmxvcmEuIDAgaXMgdGhlIGZsb3JhLCBhbmQgMSBpcyB0aGUgZ3Jvd3RoIHJhdGUuIEZvciBleGFtcGxlICJNdXNocm9vbXMgKFNsb3cgR3Jvd3RoKSIACQAAAAAAAAAEAAAARE5UADgAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuR3Jvd3RoUmF0ZUFuZExpZ2h0Q29uZGl0aW9uRm9ybWF0AAIAAAAEAAAAAAAAAKIAAABGb3JtYXQgdG8gZGlzcGxheSB3aGVuIHBsYW50aW5nIGZsb3JhIHRoYXQgZGlzcGxheXMgYm90aCB0aGUgR3Jvd3RoIFJhdGUgYW5kIHRoZSBMaWdodGluZyBSZXF1aXJlbWVudHMgKE5lZWRzIExpZ2h0IG9yIE5lZWRzIERhcmtuZXNzKSBhcHBlbmRlZCB0byB0aGUgZmxvcmEgbmFtZQAJAAAAAAAAAAQAAABETlQALQAAAEludGVyYWN0YWJsZXMuRmFybWluZy5EaXNwbGF5TmFtZVRyZWVfU3Byb3V0AAIAAAAEAAAAAAAAAEAAAAB0aGUgcGFyZW50aGV0aWNhbCB0ZWxscyB0aGUgc3RhdGUgb2YgdGhlIGNyb3AgaW4gdGhlIGZhcm0gcGF0Y2gACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAEludGVyYWN0YWJsZXMuRmFybWluZy5EaXNwbGF5TmFtZVRyZWVfR3Jvd2luZwACAAAABAAAAAAAAABAAAAAdGhlIHBhcmVudGhldGljYWwgdGVsbHMgdGhlIHN0YXRlIG9mIHRoZSBjcm9wIGluIHRoZSBmYXJtIHBhdGNoAAkAAAAAAAAACQAAAEFwcHJvdmVkACwAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVUcmVlX1JlYWR5AAIAAAAEAAAAAAAAAEAAAAB0aGUgcGFyZW50aGV0aWNhbCB0ZWxscyB0aGUgc3RhdGUgb2YgdGhlIGNyb3AgaW4gdGhlIGZhcm0gcGF0Y2gACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAEludGVyYWN0YWJsZXMuRmFybWluZy5EaXNwbGF5TmFtZVRyZWVfU3BvaWxlZAACAAAABAAAAAAAAABAAAAAdGhlIHBhcmVudGhldGljYWwgdGVsbHMgdGhlIHN0YXRlIG9mIHRoZSBjcm9wIGluIHRoZSBmYXJtIHBhdGNoAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVUcmVlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAtAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkRpc3BsYXlOYW1lX05lZWRzTGlnaHQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAC8AAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVfVG9vTXVjaExpZ2h0AAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAwAAAASW50ZXJhY3RhYmxlcy5GYXJtaW5nLkRpc3BsYXlOYW1lX0dyb3d0aEJsb2NrZWQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADEAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVUcmVlX05lZWRzTGlnaHQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADMAAABJbnRlcmFjdGFibGVzLkZhcm1pbmcuRGlzcGxheU5hbWVUcmVlX1Rvb011Y2hMaWdodAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQANAAAAEludGVyYWN0YWJsZXMuRmFybWluZy5EaXNwbGF5TmFtZVRyZWVfR3Jvd3RoQmxvY2tlZAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuU2V0dGxlbWVudFN0b25lLkFjdGl2YXRlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAASW50ZXJhY3RhYmxlcy5TZXR0bGVtZW50U3RvbmUuSW50ZXJhY3QAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLlNldHRsZW1lbnRTdG9uZS5OYW1lAAIAAAAEAAAAAAAAAE0AAABOYW1lIG9mIHRoZSAgY29uc3RydWN0aW9uIHRoYXQgYWxsb3dzIHBsYXllcnMgdG8gdmlldyBhbmQgbWFuYWdlIHNldHRsZW1lbnRzAAkAAAAAAAAACQAAAEFwcHJvdmVkACYAAABJbnRlcmFjdGFibGVzLlNldHRsZW1lbnRTdG9uZS5MZXZlbFVwAAIAAAAEAAAAAAAAADgAAABJbnRlcmFjdGlvbiBmb3Igc3RhcnRpbmcgYSBzZXR0bGVtZW50IGxldmVsIHVwIHByb2Nlc3MgAAkAAAAAAAAACQAAAEFwcHJvdmVkACIAAABJbnRlcmFjdGFibGVzLk1vbnVtZW50LlN0YXJ0QnVpbGQAAgAAAAQAAAAAAAAAQAAAAEludGVyYWN0aW9uIHRvIHN0YXJ0IGJ1aWxkaW5nIHRoZSBjdXJyZW50IHN0YWdlIG9mIHRoZSBtb251bWVudAAJAAAAAAAAAAkAAABBcHByb3ZlZAAeAAAASW50ZXJhY3RhYmxlcy5Nb251bWVudC5SZXZlYWwAAgAAAAQAAAAAAAAAKgAAAGludGVyYWN0aW9uIGZvciBSZXZlYWxpbmcgYnVpbHQgbW9udW1lbnRzAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb25zdHJ1Y3Rpb25zLlN0b3JhZ2VDaGVzdC5QYW50cnkuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0LlBhbnRyeS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0Lk9yZUJpbi5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuT3JlQmluLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAApAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuQnJld1NhY2suTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMAAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0LkJyZXdTYWNrLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAQ29uc3RydWN0aW9ucy5HdWFyZFBvc3QuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAENvbnN0cnVjdGlvbnMuR3VhcmRQb3N0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAQ29uc3RydWN0aW9ucy5NYXBUYWJsZS5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAQ29uc3RydWN0aW9ucy5NYXBUYWJsZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAENvbnN0cnVjdGlvbnMuTWluaW5nTWFya2VyLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABDb25zdHJ1Y3Rpb25zLk1pbmluZ01hcmtlci5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAENvbnN0cnVjdGlvbnMuQnJld2VyeS5UYXZlcm5LZWcuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALAAAAENvbnN0cnVjdGlvbnMuQnJld2VyeS5UYXZlcm5LZWcuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABwAAABDb25zdHJ1Y3Rpb25zLkp1bmtQaWxlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABDb25zdHJ1Y3Rpb25zLkp1bmtQaWxlLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC4xc3QuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuMXN0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC4ybmQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuMm5kLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC4zcmQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuM3JkLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC40dGguTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuNHRoLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC41dGguTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuNXRoLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC42dGguTmFtZQABAAAACQAAAAAAAAAEAAAAQ3V0ACcAAABDb25zdHJ1Y3Rpb25zLk1vbnVtZW50LjZ0aC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAEAAAAQ3V0ACUAAABDb25zdHJ1Y3Rpb25zLlJhdmVuQ29uc3RydWN0aW9uLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACwAAABDb25zdHJ1Y3Rpb25zLlJhdmVuQ29uc3RydWN0aW9uLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAAQ29uc3RydWN0aW9ucy5NZWFsVGFibGVfRmVhc3RpbmcuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALQAAAENvbnN0cnVjdGlvbnMuTWVhbFRhYmxlX0ZlYXN0aW5nLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC5CZWFjb24uTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAENvbnN0cnVjdGlvbnMuTW9udW1lbnQuQmVhY29uLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAnAAAAQ29uc3RydWN0aW9ucy5Nb251bWVudC5PYXRoQ2lyY2xlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAC4AAABDb25zdHJ1Y3Rpb25zLk1vbnVtZW50Lk9hdGhDaXJjbGUuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADIAAABDb25zdHJ1Y3Rpb25zLlN0b3JhZ2VDaGVzdC5CbGFja3NtaXRoU3RvcmFnZS5OYW1lAAIAAAAEAAAAAAAAABwAAABSb2xlIFN0b3JhZ2UgZm9yIEJsYWNrc21pdGgACQAAAAAAAAAJAAAAQXBwcm92ZWQAOQAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0LkJsYWNrc21pdGhTdG9yYWdlLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAABwAAABSb2xlIFN0b3JhZ2UgZm9yIEJsYWNrc21pdGgACQAAAAAAAAAJAAAAQXBwcm92ZWQALwAAAENvbnN0cnVjdGlvbnMuU3RvcmFnZUNoZXN0LkFydGlzYW5TdG9yYWdlLk5hbWUAAgAAAAQAAAAAAAAAGQAAAFJvbGUgU3RvcmFnZSBmb3IgQXJ0aXNhbgAJAAAAAAAAAAkAAABBcHByb3ZlZAA2AAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuQXJ0aXNhblN0b3JhZ2UuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAGQAAAFJvbGUgU3RvcmFnZSBmb3IgQXJ0aXNhbgAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuVGFpbG9yU3RvcmFnZS5OYW1lAAIAAAAEAAAAAAAAABgAAABSb2xlIFN0b3JhZ2UgZm9yIFRhaWxvcgAJAAAAAAAAAAkAAABBcHByb3ZlZAA1AAAAQ29uc3RydWN0aW9ucy5TdG9yYWdlQ2hlc3QuVGFpbG9yU3RvcmFnZS5EZXNjcmlwdGlvbgACAAAABAAAAAAAAAAYAAAAUm9sZSBTdG9yYWdlIGZvciBUYWlsb3IACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEludGVyYWN0YWJsZXMuU2V0dGxlbWVudFN0b25lLk1vdmVIZXJlAAIAAAAEAAAAAAAAAFwAAABNb3ZlcyBhY3RpdmUgc2V0dGxlbWVudCBzdG9uZSB0byB0aGUgbG9jYXRpb24gb2YgdGhlIGN1cnJlbnRseSBpbnRlcmFjdGluZyBzZXR0bGVtZW50IHN0b25lAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABXb3JsZC5UcmF2ZWwuVGVsZXBvcnRlci5UaXRsZQACAAAABAAAAAAAAABqAAAAVGhlIGludGVyYWN0IHRpdGxlIGZvciB0aGUgdGVsZXBvcnRlcnMgdGhhdCB0YWtlIHlvdSB0byB0aGUgRGltcmlsbCBEYWxlLCBUcmFkaW5nIFBvc3QsIGFuZCBEdXJpbidzIFRvd2VyAAkAAAAAAAAACQAAAEFwcHJvdmVkACAAAABUcmFkaW5nLk1lcmNoYW50SW50ZXJhY3RFbmFibGVkAAIAAAAEAAAAAAAAACwAAABjb21tYW5kIHRvIGluaXRpYXRlIHRyYWRpbmcgd2l0aCBhIG1lcmNoYW50AAkAAAAAAAAACQAAAEFwcHJvdmVkACEAAABUcmFkaW5nLk1lcmNoYW50SW50ZXJhY3REaXNhYmxlZAACAAAABAAAAAAAAAA+AAAAVHJhZGUgaW50ZXJhY3Rpb24gaXMgZGlzYWJsZWQgYmVjYXVzZSB0aGUgbWVyY2hhbnQgaXMgbGVhdmluZwAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAASW50ZXJhY3RhYmxlcy5TZXR0bGVtZW50LlJlbmFtZQACAAAABAAAAAAAAABPAAAAdGV4dCBhdCB0aGUgdG9wIG9mIHRoZSBib3ggd2hlbiB5b3UgY3JlYXRlIGEgbmV3IHNldHRsZW1lbnQgY2FsbGVkIGEgZGVsdmluZy4gAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABDb25zdHJ1Y3Rpb24uU3RvcmFnZUNoZXN0Lk5QQy5OYW1lAAIAAAAEAAAAAAAAABkAAABOYW1lIGZvciBjb21tdW5pdHkgY2hlc3QACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAENvbnN0cnVjdGlvbi5TVG9yYWdlQ2hlc3QuTlBDLkRlc2NyaXB0aW9uAAIAAAAEAAAAAAAAACAAAABEZXNjcmlwdGlvbiBmb3IgY29tbXVuaXR5IGNoZXN0AAkAAAAAAAAACQAAAEFwcHJvdmVkABoAAABJbnRlcmFjdGFibGVzLlJldHVyblN0b25lAAIAAAAEAAAAAAAAAC0AAABJbnRlcmFjdCB0ZXh0IGZvciByZXR1cm5pbmcgZnJvbSBleHBlZGl0aW9ucwAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAQ29uc3RydWN0aW9ucy5SaXZlbmRlbGwuQmVkLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABDb25zdHJ1Y3Rpb25zLlJpdmVuZGVsbC5CZWQuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAC0AAABDb25zdHJ1Y3Rpb24uU3RvcmFnZUNoZXN0LlJpdmVuZGVsbERlY28uTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQANAAAAENvbnN0cnVjdGlvbi5TdG9yYWdlQ2hlc3QuUml2ZW5kZWxsRGVjby5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGQAAAEludGVyYWN0YWJsZXMuQmVkLkFzc2lnbgACAAAABAAAAAAAAABWAAAAT3BlbnMgYSBzY3JlZW4gdGhhdCBhbGxvd3MgdGhlIHBsYXllciB0byBhc3NpZ24gdGhlIGJlZCB0byBhbiBOUEMgZnJvbSB0aGUgc2V0dGxlbWVudAAJAAAAAAAAAAkAAABBcHByb3ZlZAAbAAAASW50ZXJhY3RhYmxlcy5Eb29yLkluc3BlY3QAAgAAAAQAAAAAAAAALwAAAFVzZWQgZm9yIGRvb3JfbG9yZXRvZCB3aGVuIGl0IGNhbm5vdCBiZSBvcGVuZWQACQAAAAAAAAAJAAAAQXBwcm92ZWQAFwAAAFJpdGVzLkludGVyYWN0YWJsZU5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABIAAABSaXRlcy5FbmFibGVkVGV4dAABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAFJpdGVzLkRpc2FibGVkLlBhcnR5Tm90R2F0aGVyZWQAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABSaXRlcy5EaXNhYmxlZC5Ib3JkZUFjdGl2ZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGwAAAFJpdGVzLkRpc2FibGVkLlNpZWdlQWN0aXZlAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAcAAAAUml0ZXMuRGlzYWJsZWQuQ2Fubm90U3VtbW9uAAIAAAAEAAAAAAAAAHsAAABUaGlzIGlzIHNob3duIGF0IHRoZSBpbnRlcmFjdGFibGUgYWN0aW9uIHdoZW4gdGhlIHBsYXllciBoYXMganVzdCBzdW1tb25lZCB0aGUgb3RoZXIgcGxheWVycyBhbmQgdGhlIHN1bW1vbiBpcyBvbiBjb29sZG93bgAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASG9saWRheTIwMjUuU25vd1ByZXNlbnRQaWxlLkEuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEhvbGlkYXkyMDI1LlNub3dQcmVzZW50UGlsZS5BLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASG9saWRheTIwMjUuU25vd1ByZXNlbnRQaWxlLkIuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEhvbGlkYXkyMDI1LlNub3dQcmVzZW50UGlsZS5CLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAASG9saWRheTIwMjUuU25vd1ByZXNlbnRQaWxlLkMuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEhvbGlkYXkyMDI1LlNub3dQcmVzZW50UGlsZS5DLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAAAAAAkAAAASG9saWRheTIwMjUuRHdhcnZlblB1enpsZUNoZXN0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABIb2xpZGF5MjAyNS5Ed2FydmVuUHV6emxlQ2hlc3QuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAB4AAABIb2xpZGF5MjAyNS5GZXN0aXZlVGFibGUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEhvbGlkYXkyMDI1LkZlc3RpdmVUYWJsZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAGgAAAENvbnRhaW5lcnMuU2FuZHN0b25lLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACEAAABDb250YWluZXJzLlNhbmRzdG9uZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAENvbnRhaW5lcnMuV2hpdGVNYXJibGUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIwAAAENvbnRhaW5lcnMuV2hpdGVNYXJibGUuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADMAAABJbnRlcmFjdGFibGVzLk5QQy5XYW5kZXJlci5FeHBlZGl0aW9uQnVmZi5EaXNhYmxlZAACAAAABAAAAAAAAABIAAAAVGV4dCBmb3Igd2hlbiBidXR0b24gaXMgZGlzYWJsZWQgc2luY2UgdGhlIE1vdW50YWluIGxvcmUgYnVmZiBpcyBhY3RpdmUACQAAAAAAAAAJAAAAQXBwcm92ZWQAKgAAAEludGVyYWN0YWJsZXMuTlBDLldhbmRlcmVyLkV4cGVkaXRpb25CdWZmAAIAAAAEAAAAAAAAADUAAABJbnRlcmFjdCB0byByZWNpZXZlIGJ1ZmYgZnJvbSBXYW5kZXJlciBpbiBFeHBlZGl0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABJbnRlcmFjdGFibGVzLlJldHVyblN0b25lLkRpc2FibGVkAAIAAAAEAAAAAAAAAGQAAABJbnRlcmFjdCB0ZXh0IGZvciByZXR1cm5pbmcgZnJvbSBleHBlZGl0aW9ucyB3aGVuIG5vdCBhbGwgcGxheWVycyBhcmUgcHJlc2VudCBuZWFyIHRoZSByZXR1cm4gc3RvbmUACQAAAAAAAAAIAAAAUGVuZGluZwA="
+    }
+  ],
+  "SearchableNames": null,
+  "Thumbnails": null,
+  "WorldTileInfo": null,
+  "AppendedNullBytes": 0,
+  "OtherAssetsFailedToAccess": [],
+  "LegacyFileVersion": -7,
+  "DataResourceVersion": "Invalid",
+  "DataResources": null,
+  "UsesEventDrivenLoader": true,
+  "WillSerializeNameHashes": true,
+  "Imports": [
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "StringTable",
+      "OuterIndex": -2,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Class",
+      "PackageName": null,
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "/Script/Engine",
+      "OuterIndex": 0,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Package",
+      "PackageName": null,
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "Default__StringTable",
+      "OuterIndex": -2,
+      "ClassPackage": "/Script/Engine",
+      "ClassName": "StringTable",
+      "PackageName": null,
+      "bImportOptional": false
+    }
+  ],
+  "DependsMap": [
+    []
+  ],
+  "SoftPackageReferenceList": null,
+  "AssetRegistryData": "AAAAAA==",
+  "BulkData": "wYMqng==",
+  "ValorantGarbageData": null,
+  "SeaOfThievesGarbageData": null,
+  "Generations": [
+    {
+      "$type": "UAssetAPI.FGenerationInfo, UAssetAPI",
+      "ExportCount": 1,
+      "NameCount": 11
+    }
+  ],
+  "PackageGuid": "{00000000-0000-0000-0000-000000000000}",
+  "PersistentGuid": "{00000000-0000-0000-0000-000000000000}",
+  "RecordedEngineVersion": {
+    "$type": "UAssetAPI.FEngineVersion, UAssetAPI",
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0,
+    "Changelist": 0,
+    "Branch": null
+  },
+  "RecordedCompatibleWithEngineVersion": {
+    "$type": "UAssetAPI.FEngineVersion, UAssetAPI",
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0,
+    "Changelist": 0,
+    "Branch": null
+  },
+  "ChunkIDs": [],
+  "PackageSource": 0,
+  "FolderName": "/Game/Tech/Data/StringTables/Interactables",
+  "LocalizationId": null,
+  "SoftObjectPathsCount": 0,
+  "SoftObjectPathsOffset": 0,
+  "SearchableNamesOffset": 0,
+  "ThumbnailTableOffset": 0,
+  "CompressionFlags": 0,
+  "AdditionalPackagesToCook": [],
+  "NamesReferencedFromExportDataCount": 11,
+  "PayloadTocOffset": -1,
+  "DataResourceOffset": -1,
+  "doWeHaveAssetRegistryData": true,
+  "doWeHaveWorldTileInfo": false,
+  "PackageFlags": "PKG_FilterEditorOnly",
+  "HasUnversionedProperties": false,
+  "IsFilterEditorOnly": true
+}

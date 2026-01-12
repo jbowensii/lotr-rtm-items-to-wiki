@@ -1,0 +1,998 @@
+{
+  "$type": "UAssetAPI.UAsset, UAssetAPI",
+  "Info": "Serialized with UAssetAPI 1.0.2.0 (39a20ea)",
+  "NameMap": [
+    "/Game/Tech/Data/StringTables/ST_Effects",
+    "/Script/CoreUObject",
+    "/Script/Engine",
+    "Class",
+    "Context",
+    "Default__StringTable",
+    "None",
+    "Package",
+    "ST_Effects",
+    "Status",
+    "StringTable"
+  ],
+  "CustomSerializationFlags": "None",
+  "UseSeparateBulkDataFiles": true,
+  "IsUnversioned": true,
+  "FileVersionLicenseeUE": 0,
+  "ObjectVersion": "VER_UE4_CORRECT_LICENSEE_FLAG",
+  "ObjectVersionUE5": "UNKNOWN",
+  "CustomVersionContainer": [
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{375EC13C-06E4-48FB-B500-84F0262A717E}",
+      "FriendlyName": "FCoreObjectVersion",
+      "Version": 4,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{E4B068ED-F494-42E9-A231-DA0B2E46BB41}",
+      "FriendlyName": "FEditorObjectVersion",
+      "Version": 40,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{CFFC743F-43B0-4480-9391-14DF171D2073}",
+      "FriendlyName": "FFrameworkObjectVersion",
+      "Version": 37,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{7B5AE74C-D270-4C10-A958-57980B212A5A}",
+      "FriendlyName": "FSequencerObjectVersion",
+      "Version": 13,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{29E575DD-E0A3-4627-9D10-D276232CDCEA}",
+      "FriendlyName": "FAnimPhysObjectVersion",
+      "Version": 17,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{601D1886-AC64-4F84-AA16-D3DE0DEAC7D6}",
+      "FriendlyName": "FFortniteMainBranchObjectVersion",
+      "Version": 47,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC}",
+      "FriendlyName": "FNiagaraObjectVersion",
+      "Version": 1,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{717F9EE7-E9B0-493A-88B3-91321B388107}",
+      "FriendlyName": "FAssetRegistryVersion",
+      "Version": 17,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{9C54D522-A826-4FBE-9421-074661B482D0}",
+      "FriendlyName": "FReleaseObjectVersion",
+      "Version": 43,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{E7086368-6B23-4C58-8439-1B7016265E91}",
+      "FriendlyName": "FFortniteReleaseBranchCustomObjectVersion",
+      "Version": 1,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{D89B5E42-24BD-4D46-8412-ACA8DF641779}",
+      "FriendlyName": "FUE5ReleaseStreamObjectVersion",
+      "Version": 0,
+      "IsSerialized": false
+    },
+    {
+      "$type": "UAssetAPI.CustomVersion, UAssetAPI",
+      "Name": null,
+      "Key": "{FCF57AFA-5076-4283-B9A9-E658FFA02D32}",
+      "FriendlyName": "FNiagaraCustomVersion",
+      "Version": 68,
+      "IsSerialized": false
+    }
+  ],
+  "SoftObjectPathList": null,
+  "GatherableTextData": null,
+  "Exports": [
+    {
+      "$type": "UAssetAPI.ExportTypes.StringTableExport, UAssetAPI",
+      "Table": {
+        "TableNamespace": "ST_Effects",
+        "Value": [
+          [
+            "Survival.Debuff.Starving.Name",
+            "Starving"
+          ],
+          [
+            "Survival.Debuff.Starving.Description",
+            "Too hungry. Health drains slowly. Eat to recover."
+          ],
+          [
+            "Survival.Buff.Full.Name",
+            "Strengthened"
+          ],
+          [
+            "Survival.Buff.Full.Description",
+            "All actions cost less Energy for a short time."
+          ],
+          [
+            "Survival.Buff.Full_Lv2.Name",
+            "Full"
+          ],
+          [
+            "Survival.Buff.Full_Lv2.Description",
+            "All actions cost less Energy for a while."
+          ],
+          [
+            "Survival.Buff.Full_Lv3.Name",
+            "Stuffed"
+          ],
+          [
+            "Survival.Buff.Full_Lv3.Description",
+            "All actions cost less Energy for a long time."
+          ],
+          [
+            "Gameplay.Debuff.LowEnergy_Moderate.Name",
+            "Weary"
+          ],
+          [
+            "Gameplay.Debuff.LowEnergy_Moderate.Description",
+            "Growing tired, total stamina reduced. Rest to restore Energy."
+          ],
+          [
+            "Gameplay.Debuff.LowEnergy_Severe.Name",
+            "Tired"
+          ],
+          [
+            "Gameplay.Debuff.LowEnergy_Severe.Description",
+            "Very tired, total stamina greatly reduced. Rest to restore Energy."
+          ],
+          [
+            "Gameplay.Debuff.NoEnergy.Name",
+            "Exhausted"
+          ],
+          [
+            "Gameplay.Debuff.NoEnergy.Description",
+            "No Energy left. Stamina regens very slowly. Rest to restore Energy."
+          ],
+          [
+            "Survival.Debuff.Tired.Name",
+            "Recovering"
+          ],
+          [
+            "Survival.Debuff.Tired.Description",
+            "No Stamina left. Will begin recovering in a few moments."
+          ],
+          [
+            "Gameplay.Debuff.Despair.Name",
+            "Despair"
+          ],
+          [
+            "Gameplay.Debuff.Despair.Description",
+            "In Darkness for too long, draining health. Find light to recover. "
+          ],
+          [
+            "Survival.Debuff.InDarkness",
+            "In Darkness"
+          ],
+          [
+            "Survival.Debuff.InDarkness.Description",
+            "The Darkness oppresses hope. Without light, Despair will come."
+          ],
+          [
+            "Survival.Debuff.ShadowTracker.Name",
+            "In Shadow"
+          ],
+          [
+            "Survival.Debuff.ShadowTracker.Description",
+            "The Shadow is a dark force. Staying near will bring a curse."
+          ],
+          [
+            "Survival.Debuff.ShadowPoison.Name",
+            "Shadow-cursed"
+          ],
+          [
+            "Survival.Debuff.ShadowPoison.Description",
+            "The Shadow’s curse leaves a deeper Despair that only time or craft can heal."
+          ],
+          [
+            "Gameplay.Buff.Rested.Name",
+            "Rested"
+          ],
+          [
+            "Gameplay.Buff.Rested.Description",
+            "A good rest restored Energy and cured any negative effects."
+          ],
+          [
+            "Gameplay.Buff.WellRested.Name",
+            "Well Rested"
+          ],
+          [
+            "Gameplay.Buff.WellRested.Description",
+            "A very good rest restored Energy, cured any negative effects and gives bonus Stamina."
+          ],
+          [
+            "Challenge.Buff.CompleteChallenge.Name",
+            "Hero-spirit"
+          ],
+          [
+            "Challenge.Buff.CompleteChallenge.Description",
+            "Restoring and honoring Khazad-dûm gives a bonus to Energy for a short time."
+          ],
+          [
+            "Survival.Debuff.PoisonTracker.Name",
+            "Poison"
+          ],
+          [
+            "Survival.Debuff.PoisonTracker.Description",
+            "In or near Poison. Without leaving, will become Poisoned."
+          ],
+          [
+            "Survival.Debuff.Poison.Name",
+            "Poisoned"
+          ],
+          [
+            "Survival.Debuff.Poison.Description",
+            "The Poison drains health. Only time or craft can heal."
+          ],
+          [
+            "Gameplay.Debuff.Corrosion.Name",
+            "Corrosion"
+          ],
+          [
+            "Gameplay.Debuff.Corrosion.Description",
+            "A Corrosive effect that damages armor but can drain health as well."
+          ],
+          [
+            "Gameplay.Debuff.ColdTracker.Name",
+            "Cold"
+          ],
+          [
+            "Gameplay.Debuff.ColdTracker.Description",
+            "In or near the Cold. Without leaving, will become Bone-cold."
+          ],
+          [
+            "Gameplay.Debuff.Cold.Name",
+            "Bone-cold"
+          ],
+          [
+            "Gameplay.Debuff.Cold.Description",
+            "Too cold to effectively adventure or sleep. Must find warmth."
+          ],
+          [
+            "Gameplay.Buff.Motivated.Name",
+            "Ore-frenzy"
+          ],
+          [
+            "Gameplay.Buff.Motivated.Description",
+            "A lively song gives a frenzy for mining. No Stamina cost for using a Pickaxe while it lasts."
+          ],
+          [
+            "Gameplay.Buff.HighSpirits.Name",
+            "High Spirits"
+          ],
+          [
+            "Gameplay.Buff.HighSpirits.Description",
+            "A raucous song raises spirits. Sleep now and gain a positive effect upon waking."
+          ],
+          [
+            "Gameplay.Buff.Courage.Name",
+            "Undaunted"
+          ],
+          [
+            "Gameplay.Buff.Courage.Description",
+            "The power of Durin flows through Khazad-dûm. Bonus to Stamina, Health, Energy. Cures Despair."
+          ],
+          [
+            "Survival.Buff.EveningAleTracker.Name",
+            "Evening Ale"
+          ],
+          [
+            "Survival.Buff.EveningAleTracker.Description",
+            "Sipping on Evening Ale. Finish a mug to feel Determined."
+          ],
+          [
+            "Survival.Buff.EveningAle.Name",
+            "Determined"
+          ],
+          [
+            "Survival.Buff.EveningAle.Description",
+            "A brew boosted Energy for a short time."
+          ],
+          [
+            "Survival.Buff.StaminaBrewTracker.Name",
+            "Hopgoblet Lager"
+          ],
+          [
+            "Survival.Buff.StaminaBrewTracker.Description",
+            "Sipping on Hobgoblet Lager. Finish a mug to feel a Glory-thirst."
+          ],
+          [
+            "Survival.Buff.StaminaBrew.Name",
+            "Hero-thirst"
+          ],
+          [
+            "Survival.Buff.StaminaBrew.Description",
+            "A brew boosted Stamina for a short time."
+          ],
+          [
+            "Survival.Buff.AntidoteTracker.Name",
+            "Scour Pilsner"
+          ],
+          [
+            "Survival.Buff.AntidoteTracker.Description",
+            "Sipping on Scour Pilsner. Finish a mug to feel Fortified."
+          ],
+          [
+            "Survival.Buff.Antidote.Name",
+            "Fortified"
+          ],
+          [
+            "Survival.Buff.Antidote.Description",
+            "A brew cleans any Poison and prevents further effects of Poison for a short time."
+          ],
+          [
+            "Survival.Buff.OrcMedicineBrewTrackerTracker.Name",
+            "Orc Medicine"
+          ],
+          [
+            "Survival.Buff.OrcMedicineBrewTrackerTracker.Description",
+            "Sipping Orc Medicine. Finish a dose to gain a Fell-temper."
+          ],
+          [
+            "Survival.Buff.OrcMedicineBrewTracker.Name",
+            "Fell-temper"
+          ],
+          [
+            "Survival.Buff.OrcMedicineBrewTracker.Description",
+            "A fierce, burning feeling that boosts Attack and Stamina but leaves the patient with low Energy."
+          ],
+          [
+            "Survival.Buff.DefensiveBrewTracker.Name",
+            "Ironheart Stout"
+          ],
+          [
+            "Survival.Buff.DefensiveBrewTracker.Description",
+            "Sipping on Ironheart Stout. Finish the brew to decrease incoming damage."
+          ],
+          [
+            "Survival.Buff.DefensiveBrew.Name",
+            "Stout"
+          ],
+          [
+            "Survival.Buff.DefensiveBrew.Description",
+            "A brew decreased incoming damage."
+          ],
+          [
+            "Survival.Buff.HealthBrewTracker.Name",
+            "Miruvor"
+          ],
+          [
+            "Survival.Buff.HealthBrewTracker.Description",
+            "Sipping on Miruvor. Finish the cordial to feel Revitalized."
+          ],
+          [
+            "Survival.Buff.HealthBrew.Name",
+            "Revitalized"
+          ],
+          [
+            "Survival.Buff.HealthBrew.Description",
+            "A crisp tasting cordial regenerates health for a short time."
+          ],
+          [
+            "Survival.Buff.AntiDarknessBrewTracker.Name",
+            "Daylight Pale Ale"
+          ],
+          [
+            "Survival.Buff.AntiDarknessBrewTracker.Description",
+            "Sipping Daylight Pale Ale. Finish a mug to feel a Bright Hope."
+          ],
+          [
+            "Survival.Buff.AntiDarknessBrew.Name",
+            "Bright Hope"
+          ],
+          [
+            "Survival.Buff.AntiDarknessBrew.Description",
+            "A brew cured Shadow-curse and prevents the effects of Darkness and Shadow for a short time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Vengeful.Name",
+            "Orc-hunter"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Vengeful.Description",
+            "Woke up with a bonus to damage against Orcs for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Stalker.Name",
+            "Monster-hunter"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Stalker.Description",
+            "Woke up with a bonus to damage against fell creatures for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.DragonHunter.Name",
+            "Drake-hunter"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.DragonHunter.Description",
+            "Woke up with a bonus to damage against Drakes and Dragons for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Brisk.Name",
+            "Sprinter"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Brisk.Description",
+            "Woke up with reduction to the Stamina cost of Sprinting for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Miner.Name",
+            "Ore-focus"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Miner.Description",
+            "Woke up with a focus that reduces stamina cost of mining to zero for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Traveler.Name",
+            "Traveler"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Traveler.Description",
+            "Woke up ready for an adventure. No cost to fast travelling for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.NoEnergyCost.Name",
+            "Tireless"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.NoEnergyCost.Description",
+            "Woke up ready for anything. Actions do not drain Energy for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.EnergyRegen.Name",
+            "Hero-ready"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.EnergyRegen.Description",
+            "Woke up ready for heroics. Bonus to Stamina for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Defensive.Name",
+            "Steel-skin"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.Defensive.Description",
+            "Woke up feeling invincible. Incoming damage from attacks reduced for a long time."
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.DespairResist.Name",
+            "Pale Hope"
+          ],
+          [
+            "Survival.Buff.HightSpiritsBrew.DespairResist.Description",
+            "Woke up hopeful. Slows the effect of Darkness."
+          ],
+          [
+            "Gameplay.Buff.Fierce.Name",
+            "Hoard-fierce"
+          ],
+          [
+            "Gameplay.Buff.Fierce.Description",
+            "Admired some Dwarven treasure. Small bonus to damage against Orcs."
+          ],
+          [
+            "Gameplay.Buff.Ardent.Name",
+            "Hoard-furious"
+          ],
+          [
+            "Gameplay.Buff.Ardent.Description",
+            "Admired Dwarven treasure. Bonus to damage against Orcs."
+          ],
+          [
+            "Gameplay.Buff.Zealous.Name",
+            "Hoard-wrathful"
+          ],
+          [
+            "Gameplay.Buff.Zealous.Description",
+            "Admired countless Dwarven treasure. Large bonus to damage against Orcs. "
+          ],
+          [
+            "Survival.Buff.NoEpicPack.Name",
+            "Unburdened"
+          ],
+          [
+            "Survival.Buff.NoEpicPack.Description",
+            "With no Pack, a Bonus to Stamina."
+          ],
+          [
+            "Effects.MiningSong.General.Name",
+            "Mining Song"
+          ],
+          [
+            "Effects.MiningSong.General.Description",
+            "Mining Song"
+          ],
+          [
+            "Gameplay.Buff.Respawn.Name",
+            "Unyielding"
+          ],
+          [
+            "Gameplay.Buff.Respawn.Description",
+            "One defeat is not enough. Immune from damage for a short time."
+          ],
+          [
+            "Survival.Buff.Full.Breakfast.Description",
+            "A simple breakfast reduces Energy costs for a short time."
+          ],
+          [
+            "Survival.Buff.Full.Breakfast.Name",
+            "Early-bird"
+          ],
+          [
+            "Survival.Buff.Full.Breakfast_Lv2.Description",
+            "A reasonable breakfast reduces Energy costs."
+          ],
+          [
+            "Survival.Buff.Full.Breakfast_Lv2.Name",
+            "Early-bird"
+          ],
+          [
+            "Survival.Buff.Full.Breakfast_Lv3.Description",
+            "A complex breakfast reduces Energy costs for a long time."
+          ],
+          [
+            "Survival.Buff.Full.Breakfast_Lv3.Name",
+            "Early-bird"
+          ],
+          [
+            "Survival.Buff.Full.Lunch.Description",
+            "A simple lunch regenerates Health for a short time."
+          ],
+          [
+            "Survival.Buff.Full.Lunch.Name",
+            "Renewed"
+          ],
+          [
+            "Survival.Buff.Full.Lunch_Lv2.Description",
+            "A reasonable lunch regenerates Health."
+          ],
+          [
+            "Survival.Buff.Full.Lunch_Lv2.Name",
+            "Renewed"
+          ],
+          [
+            "Survival.Buff.Full.Lunch_Lv3.Description",
+            "A complex lunch regenerates Health for a long time."
+          ],
+          [
+            "Survival.Buff.Full.Lunch_Lv3.Name",
+            "Renewed"
+          ],
+          [
+            "Survival.Buff.Full.Dinner.Description",
+            "A simple dinner increases Restoration strength and reduces its Energy cost for a short time."
+          ],
+          [
+            "Survival.Buff.Full.Dinner.Name",
+            "Productive"
+          ],
+          [
+            "Survival.Buff.Full.Dinner_Lv2.Description",
+            "A reasonable dinner increases Restoration strength and reduces its Energy cost."
+          ],
+          [
+            "Survival.Buff.Full.Dinner_Lv2.Name",
+            "Productive"
+          ],
+          [
+            "Survival.Buff.Full.Dinner_Lv3.Description",
+            "A complex dinner increases Restoration strength and reduces its Energy cost for a long time."
+          ],
+          [
+            "Survival.Buff.Full.Dinner_Lv3.Name",
+            "Productive"
+          ],
+          [
+            "Survival.Buff.Full.SecondBreakfast.Name",
+            "Second Breakfast"
+          ],
+          [
+            "Survival.Buff.Full.SecondBreakfast.Description",
+            "Honoring a Hobbit tradition. "
+          ],
+          [
+            "Survival.Buff.Full.AfternoonTea.Name",
+            "*Afternoon Tea"
+          ],
+          [
+            "Survival.Buff.Full.AfternoonTea.Description",
+            "*If more of us valued food and cheer and song above hoarded gold, it would be a merrier world."
+          ],
+          [
+            "Survival.Buff.Full.Supper.Name",
+            "*Supper!?"
+          ],
+          [
+            "Survival.Buff.Full.Supper.Description",
+            "*That's what bilbo baggins hates!"
+          ],
+          [
+            "Gameplay.Buff.AntiPoison.Name",
+            "Cleansed"
+          ],
+          [
+            "Gameplay.Buff.AntiPoison.Description",
+            "Increases Poison Recovery Rate and slows Poison Buildup Rate."
+          ],
+          [
+            "Gameplay.Buff.AntiShadowPoison.Name",
+            "Resolved"
+          ],
+          [
+            "Gameplay.Buff.AntiShadowPoison.Description",
+            "Increases Shadow Recovery Rate and slows Shadow Buildup Rate."
+          ],
+          [
+            "Gameplay.Buff.AttackBoost.Name",
+            "Empowered"
+          ],
+          [
+            "Gameplay.Buff.AttackBoost.Description",
+            "Increases Attack Power."
+          ],
+          [
+            "Gameplay.Buff.DefenseBoost.Name",
+            "Warded"
+          ],
+          [
+            "Gameplay.Buff.DefenseBoost.Description",
+            "Increases Armor Effectiveness."
+          ],
+          [
+            "Gameplay.Buff.FreeDodge.Name",
+            "Reflexive"
+          ],
+          [
+            "Gameplay.Buff.FreeDodge.Description",
+            "Dodging does not cost Stamina."
+          ],
+          [
+            "Gameplay.Buff.FreeSprint.Name",
+            "Swift"
+          ],
+          [
+            "Gameplay.Buff.FreeSprint.Description",
+            "Sprinting does not cost Stamina."
+          ],
+          [
+            "Gameplay.Buff.OrcTemper.Name",
+            "Fury"
+          ],
+          [
+            "Gameplay.Buff.OrcTemper.Description",
+            "Increases Armor Effectiveness, Attack Power and Stamina but damages Health over time."
+          ],
+          [
+            "Gameplay.Buff.StaminaBoost.Name",
+            "Boosted"
+          ],
+          [
+            "Gameplay.Buff.StaminaBoost.Description",
+            "Increases max stamina for a short duration"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Name",
+            "Build-lore Scholar"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Description",
+            "Studied ancient build-lore. Small chance building costs no ingredients."
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv1.Name",
+            "Build-lore Apprentice"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv1.Description",
+            "Studied ancient build-lore. Tiny chance building costs no ingredients."
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv2.Name",
+            "Build-lore Journeyman"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv2.Description",
+            "Studied ancient build-lore. Small chance building costs no ingredients."
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv4.Name",
+            "Build-lore Artisan"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv3.Name",
+            "Build-lore Master"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv5.Name",
+            "Build-lore Scholar"
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv3.Description",
+            "Studied ancient build-lore. Fair chance building costs no ingredients."
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv4.Description",
+            "Studied ancient build-lore. Good chance building costs no ingredients."
+          ],
+          [
+            "Gameplay.Buff.MasterBuilder.Lv5.Description",
+            "Studied ancient build-lore. High chance building costs no ingredients."
+          ],
+          [
+            "RohanPack.Survival.Buff.RohanBrewTracker.Name",
+            "Smoked Mead"
+          ],
+          [
+            "RohanPack.Survival.Buff.RohanBrewTracker.Description",
+            "Sipping Smoked Mead. Finish a mug to feel strong and invincible."
+          ],
+          [
+            "Gameplay.Buff.Fierce.Lv4.Name",
+            "Hoard-ferocious"
+          ],
+          [
+            "Gameplay.Buff.Fierce.Lv4.Description",
+            "Admired overflowing Dwarven treasure. Extra large bonus to damage against Orcs."
+          ],
+          [
+            "RohanPack.Survival.Buff.RohanBrew.Name",
+            "Bold"
+          ],
+          [
+            "RohanPack.Survival.Buff.RohanBrew.Description",
+            "A brew boosted Stamina and Damage Resistence."
+          ],
+          [
+            "Yule.Survival.Buff.HolidayBrew.Name",
+            "Festive"
+          ],
+          [
+            "Yule.Survival.Buff.HolidayBrew.Description",
+            "A brew increased Cold Resistance and lowered Energy costs."
+          ],
+          [
+            "Yule.Survival.Buff.HolidayBrewTracker.Name",
+            "Mulled Cider"
+          ],
+          [
+            "Yule.Survival.Buff.HolidayBrewTracker.Description",
+            "Sipping on Mulled Cider. Finish to feel warm and lower Energy cost."
+          ],
+          [
+            "BeornPack.Survival.Buff.BeornBrew.Description",
+            "A brew boosted Stamina, Stamina Recharge and Damage Resistence."
+          ],
+          [
+            "BeornPack.Survival.Buff.BeornBrew.Name",
+            "Fearsome"
+          ],
+          [
+            "BeornPack.Survival.Buff.BeornBrewTracker.Description",
+            "Sipping Anduin Tea. Finish a mug to feel Fearsome."
+          ],
+          [
+            "BeornPack.Survival.Buff.BeornBrewTracker.Name",
+            "Anduin Tea"
+          ],
+          [
+            "OrcHunterPack.Survival.Buff.Brew.Name",
+            "Darkeye"
+          ],
+          [
+            "OrcHunterPack.Survival.Buff.Brew.Description",
+            "A brew enhanced vision in poor light."
+          ],
+          [
+            "OrcHunterPack.Survival.Buff.BrewTracker.Name",
+            "Darkeye Stout"
+          ],
+          [
+            "OrcHunterPack.Survival.Buff.BrewTracker.Description",
+            "Sipping Darkeye Stout. Finish a dose to enhance vision in dark places."
+          ],
+          [
+            "EntPack.Survival.Buff.EntBrew.Name",
+            "Barkhide"
+          ],
+          [
+            "EntPack.Survival.Buff.EntBrew.Description",
+            "A brew increases damage reduction."
+          ],
+          [
+            "EntPack.Survival.Buff.EntBrewTracker.Name",
+            "Fangorn Draught"
+          ],
+          [
+            "EntPack.Survival.Buff.EntBrewTracker.Description",
+            "Sipping on Fangorn Draught. Finished the brew to increase damage reduction."
+          ],
+          [
+            "Gameplay.Debuff.Feared.Name",
+            "Frightened."
+          ],
+          [
+            "Gameplay.Debuff.Feared.Description",
+            "A beastly howl prevents Stamina Regeneration."
+          ],
+          [
+            "Gameplay.Debuff.ArmorCorrosion.Name",
+            "Corroding"
+          ],
+          [
+            "Gameplay.Debuff.ArmorCorrosion.Description",
+            "Armor corroding from Orc arrow. Repair armor at a smithy."
+          ],
+          [
+            "Wanderer.Buff.EnergyRestore.Name",
+            "Mountain-lore"
+          ],
+          [
+            "Wanderer.Buff.EnergyRestore.Description",
+            "Increases Stamina and Attack Power."
+          ]
+        ]
+      },
+      "Data": [],
+      "ObjectGuid": null,
+      "SerializationControl": "NoExtension",
+      "Operation": "None",
+      "ObjectName": "ST_Effects",
+      "OuterIndex": 0,
+      "ClassIndex": -1,
+      "SuperIndex": 0,
+      "TemplateIndex": -3,
+      "ObjectFlags": "RF_Public, RF_Standalone, RF_Transactional",
+      "SerialSize": 39375,
+      "SerialOffset": 673,
+      "ScriptSerializationStartOffset": 0,
+      "ScriptSerializationEndOffset": 0,
+      "bForcedExport": false,
+      "bNotForClient": false,
+      "bNotForServer": false,
+      "PackageGuid": "{00000000-0000-0000-0000-000000000000}",
+      "IsInheritedInstance": false,
+      "PackageFlags": "PKG_None",
+      "bNotAlwaysLoadedForEditorGame": false,
+      "bIsAsset": true,
+      "GeneratePublicHash": false,
+      "SerializationBeforeSerializationDependencies": [],
+      "CreateBeforeSerializationDependencies": [],
+      "SerializationBeforeCreateDependencies": [
+        -1,
+        -3
+      ],
+      "CreateBeforeCreateDependencies": [],
+      "Extras": "ugAAAB4AAABTdXJ2aXZhbC5EZWJ1ZmYuU3RhcnZpbmcuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAMAAAARGVidWZmIG5hbWUAJQAAAFN1cnZpdmFsLkRlYnVmZi5TdGFydmluZy5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABuAAAAVHJpZ2dlcjogU3RvbWFjaCBtZXRlciBhdCB6ZXJvCkNsZWFyOyBTdG9tYWNoIG1ldGVyIGFib3ZlIHplcm8KRWZmZWN0OiBTZW1pIGFnZ3Jlc3NpdmUgaGVhbHRoIGRyYWluIG92ZXIgdGltZQAYAAAAU3Vydml2YWwuQnVmZi5GdWxsLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAASQAAAEJ1ZmYgbmFtZSBmcm9tIGVhdGluZyBMZW1iYXMgKHdhcyB3ZWxsLWZlZCBhbmQgZ2VuZXJpYyBidXQgbm93IHNwZWNpZmljKQAfAAAAU3Vydml2YWwuQnVmZi5GdWxsLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAH4AAABUcmlnZ2VyOiBFYXQgYSBoZWFydGggbWVhbApDbGVhcjogU2hvcnQgdGltZXIKRWZmZWN0OiBUaGUgaHVuZ2VyIG1ldGVyIHdpbGwgbm90IGZhbGwgYW5kIGVuZXJneSBjb3N0cyBmb3IgYWN0aW9ucyBhcmUgcmVkdWNlZAAcAAAAU3Vydml2YWwuQnVmZi5GdWxsX0x2Mi5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAGwAAABOYW1lIG9mIGJ1ZmYgLiBKdXN0IGEgbG9uZ2VyIHZlcnNpb24gb2YgZnVsbCwgZGVhbGVycyBjaG9pY2UgdG8gY2FsbCBpdCBzdHVmZmVkIG9yIGdpdmUgaXQgYSBkaWZmZXJlbnQgbmFtZQAjAAAAU3Vydml2YWwuQnVmZi5GdWxsX0x2Mi5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAB/AAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IE1lZGl1bSB0aW1lcgpFZmZlY3Q6IFRoZSBodW5nZXIgbWV0ZXIgd2lsbCBub3QgZmFsbCBhbmQgZW5lcmd5IGNvc3RzIGZvciBhY3Rpb25zIGFyZSByZWR1Y2VkABwAAABTdXJ2aXZhbC5CdWZmLkZ1bGxfTHYzLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAbAAAAE5hbWUgb2YgYnVmZiAuIEp1c3QgYSBsb25nZXIgdmVyc2lvbiBvZiBmdWxsLCBkZWFsZXJzIGNob2ljZSB0byBjYWxsIGl0IHN0dWZmZWQgb3IgZ2l2ZSBpdCBhIGRpZmZlcmVudCBuYW1lACMAAABTdXJ2aXZhbC5CdWZmLkZ1bGxfTHYzLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAH0AAABUcmlnZ2VyOiBFYXQgYSBoZWFydGggbWVhbApDbGVhcjogTG9uZyB0aW1lcgpFZmZlY3Q6IFRoZSBodW5nZXIgbWV0ZXIgd2lsbCBub3QgZmFsbCBhbmQgZW5lcmd5IGNvc3RzIGZvciBhY3Rpb25zIGFyZSByZWR1Y2VkACgAAABHYW1lcGxheS5EZWJ1ZmYuTG93RW5lcmd5X01vZGVyYXRlLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAADAAAAERlYnVmZiBuYW1lAC8AAABHYW1lcGxheS5EZWJ1ZmYuTG93RW5lcmd5X01vZGVyYXRlLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAFsAAABUcmlnZ2VyOiAyMCUtNDAlIG9mIGVuZXJneSBkZXBsZXRlZApDbGVhcjogSW5jcmVhc2UgRW5lcmd5CkVmZmVjdDogTG9zZSBzdGFtaW5hIHBpcHMgMSAmIDIAJgAAAEdhbWVwbGF5LkRlYnVmZi5Mb3dFbmVyZ3lfU2V2ZXJlLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAADAAAAERlYnVmZiBuYW1lAC0AAABHYW1lcGxheS5EZWJ1ZmYuTG93RW5lcmd5X1NldmVyZS5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABmAAAAVHJpZ2dlcjogNDAlLTk5JSBvZiBlbmVyZ3kgZGVwbGV0ZWQKQ2xlYXI6IEluY3JlYXNlIEVuZXJneQpFZmZlY3Q6IExvc2UgYWRkaXRpb25hbCBzdGFtaW5hIHBpcHMgMyAmIDQAHgAAAEdhbWVwbGF5LkRlYnVmZi5Ob0VuZXJneS5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAwAAABEZWJ1ZmYgbmFtZQAlAAAAR2FtZXBsYXkuRGVidWZmLk5vRW5lcmd5LkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAFEAAABUcmlnZ2VyOiBFbmVyZ3kgYmFyIHJlYWNoZXMgMApDbGVhcjogSW5jcmVhc2UgRW5lcmd5CkVmZmVjdDogU2xvd3MgU3RhbWluYSByZWdlbgAbAAAAU3Vydml2YWwuRGVidWZmLlRpcmVkLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAADAAAAERlYnVmZiBuYW1lACIAAABTdXJ2aXZhbC5EZWJ1ZmYuVGlyZWQuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAaQAAAFRyaWdnZXI6IFVzZSBhbGwgc3RhbWluYSBwaXBzCkNsZWFyOiAzLTUgc2Vjb25kIHRpbWVyCkVmZmVjdDogU2hvcnQgZGVsYXkgYmVmb3JlIHN0YW1pbmEgYmVnaW5zIHJlZ2VuaW5nAB0AAABHYW1lcGxheS5EZWJ1ZmYuRGVzcGFpci5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAwAAABEZWJ1ZmYgbmFtZQAkAAAAR2FtZXBsYXkuRGVidWZmLkRlc3BhaXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAogAAAFRyaWdnZXI6IE1vcmFsZSBiYXIgYXQgMApDbGVhcjogTW9yYWxlIGJhciA+MCAoZmluZCBsaWdodCB0byBnZXQgbGlnaHQgbWV0ZXIgPj01MCUpCkVmZmVjdDogQWdncmVzc2l2ZSBoZWFsdGggbG9zcyBvdmVyIHRpbWUgYW5kIGluY3JlYXNlcyBlbmVyZ3kgY29zdCBvZiBhY3Rpb25zABsAAABTdXJ2aXZhbC5EZWJ1ZmYuSW5EYXJrbmVzcwACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAMAAAARGVidWZmIG5hbWUAJwAAAFN1cnZpdmFsLkRlYnVmZi5JbkRhcmtuZXNzLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHcAAABUcmlnZ2VyOiBJbiBkYXJrIGVub3VnaCBhcmVhIHRvIG1ha2UgbGlnaHQgbWV0ZXIgPCA1MCUKQ2xlYXI6IExpZ2h0IG1ldGVyID49NTAlIChmaW5kIGxpZ2h0KQpFZmZlY3Q6IERyYWlucyBtb3JhbGUgYmFyACMAAABTdXJ2aXZhbC5EZWJ1ZmYuU2hhZG93VHJhY2tlci5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAABEAAABTdGF0dXMvQnVmZiBuYW1lACoAAABTdXJ2aXZhbC5EZWJ1ZmYuU2hhZG93VHJhY2tlci5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACZAAAAVHJpZ2dlcjogVG91Y2ggU2hhZG93LCBiZSBoaXQgYnkgYSBzaGFkb3cgd2VhcG9uCkNsZWFyOiBUaW1lciBvciBBbnRpLURhcmtuZXNzIEJyZXcKRWZmZWN0OiBUaGlzIGlzIGEgdHJhY2tpbmcgYmFyLiBPbmNlIGZpbGxlZCBTaGFkb3cgUG9pc29uIGlzIGltcG9zZWQAIgAAAFN1cnZpdmFsLkRlYnVmZi5TaGFkb3dQb2lzb24uTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACkAAABTdXJ2aXZhbC5EZWJ1ZmYuU2hhZG93UG9pc29uLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAALEAAABUcmlnZ2VyOiBTaGFkb3cgbWV0ZXIgZmlsbHMgKGJlIGluIHNoYWRvdyBmb3IgYSBmZXcgbW9tZW50cykKQ2xlYXI6IFRpbWVyIG9yIEFudGktRGFya25lc3MgQnJldwpFZmZlY3Q6IExvY2tzIGxpZ2h0IG1ldGVyIGFuZCBtb3JhbGUgYmFyIHRvIHplcm8gd2hpbGUgYWN0aXZlLCBlbmZvcmNpbmcgRGVzcGFpcgAaAAAAR2FtZXBsYXkuQnVmZi5SZXN0ZWQuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACEAAABHYW1lcGxheS5CdWZmLlJlc3RlZC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAB0AAAAVHJpZ2dlcjogU2xlZXAgaW4gYSBCZWRyb2xsCkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFJlc3RvcmVzIGVuZXJneSwgY2xlYXJzIG5lZ2F0aXZlIGJ1ZmZzLCB0ZW1wb3JhcmlseSBoYWx0cyBzdGFydmluZwAeAAAAR2FtZXBsYXkuQnVmZi5XZWxsUmVzdGVkLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAlAAAAR2FtZXBsYXkuQnVmZi5XZWxsUmVzdGVkLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAKMAAABUcmlnZ2VyOiBTbGVlcCBpbiBhIEJlZApDbGVhcjogTG9uZ2VyIFRpbWVyIHRoYW4gcmVzdGVkCkVmZmVjdDogR2l2ZXMgYm9udXMgc3RhbWluYSAsIFJlc3RvcmVzIGVuZXJneSwgY2xlYXJzIG5lZ2F0aXZlIGJ1ZmZzLCBwcm9sb25nZWQgcGVyaW9kIG9mIGhhbHRpbmcgc3RhcnZpbmcAJgAAAENoYWxsZW5nZS5CdWZmLkNvbXBsZXRlQ2hhbGxlbmdlLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAtAAAAQ2hhbGxlbmdlLkJ1ZmYuQ29tcGxldGVDaGFsbGVuZ2UuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAlQAAAFRyaWdnZXI6IENvbXBsZXRlIGFuIGFwcGxpY2FibGUgY2hhbGxlbmdlIChjdXJyZW50bHkganVzdCBkd2FyZiByZW1haW5zLCBidXQgY2FuIGJlIGFwcGxpZWQgd2hlcmUgYXBwcm9wcmlhdGUpCkNsZWFyOiBUaW1lcgpFZmZlY3Q6IEJvbnVzIEVuZXJneSBQaXAAIwAAAFN1cnZpdmFsLkRlYnVmZi5Qb2lzb25UcmFja2VyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAEQAAAFN0YXR1cy9CdWZmIG5hbWUAKgAAAFN1cnZpdmFsLkRlYnVmZi5Qb2lzb25UcmFja2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAJ0AAABUcmlnZ2VyOiBUb3VjaCBwb2lzb24gbXVzaHJvb20gY2xvdWRzLCBiZSBoaXQgYnkgYSBwb2lzb24gd2VhcG9uCkNsZWFyOiBUaW1lciBvciBBbnRpZG90ZSBCcmV3CkVmZmVjdDogVGhpcyBpcyBhIHRyYWNraW5nIGJhci4gT25jZSBmaWxsZWQgUG9pc29uIGlzIGltcG9zZWQAHAAAAFN1cnZpdmFsLkRlYnVmZi5Qb2lzb24uTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACMAAABTdXJ2aXZhbC5EZWJ1ZmYuUG9pc29uLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAJkAAABUcmlnZ2VyOiBQb2lzb24gbWV0ZXIgZmlsbHMgKGJlIGluIHBvaXNvbiBjbG91ZCBmb3IgYSBmZXcgbW9tZW50cyBvciB0YWtlIHRvbyBtdWNoIHBvaXNvbiBkYW1hZ2UpCkNsZWFyOiBUaW1lciBvciBBbnRpZG90ZSBCcmV3CkVmZmVjdDogRGFtYWdlIG92ZXIgVGltZQAfAAAAR2FtZXBsYXkuRGVidWZmLkNvcnJvc2lvbi5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAwAAABEZWJ1ZmYgbmFtZQAmAAAAR2FtZXBsYXkuRGVidWZmLkNvcnJvc2lvbi5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACMAAAAVHJpZ2dlcjogU3RhbmQgaW4gc3RlYW0gdmVudCBjbG91ZA0KQ2xlYXI6IFRpbWVyDQpFZmZlY3Q6IFJhcGlkLCBidXQgc2hvcnQgbGl2ZWQgRGFtYWdlIG92ZXIgdGltZS4gSGl0cyBhcm1vciB0aGVuIGhlYWx0aCBpZiBhcm1vciBpcyBlbXB0eQAhAAAAR2FtZXBsYXkuRGVidWZmLkNvbGRUcmFja2VyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAADAAAAERlYnVmZiBuYW1lACgAAABHYW1lcGxheS5EZWJ1ZmYuQ29sZFRyYWNrZXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAhwAAAFRyaWdnZXI6IEJlIGluIGFuIGFyZWEgd2l0aCBsb3cgdGVtcGVyYXR1cmUKQ2xlYXI6IEdldCB0byBhIHdhcm0gYXJlYS9maXJlCkVmZmVjdDogVGhpcyBpcyBhIHRyYWNraW5nIGJhci4gT25jZSBmaWxsZWQgQ29sZCBpcyBpbXBvc2VkABoAAABHYW1lcGxheS5EZWJ1ZmYuQ29sZC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAwAAABEZWJ1ZmYgbmFtZQAhAAAAR2FtZXBsYXkuRGVidWZmLkNvbGQuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAggAAAFRyaWdnZXI6IENvbGQgbWV0ZXIgZmlsbHMgKGJlIGluIGNvbGQgYXJlYSBmb3IgdG9vIGxvbmcpCkNsZWFyOiBHZXQgdG8gYSB3YXJtIGFyZWEvZmlyZQpFZmZlY3Q6IEVuZXJneSBjb3N0IGZvciBhY3Rpb25zIGluY3JlYXNlcwAdAAAAR2FtZXBsYXkuQnVmZi5Nb3RpdmF0ZWQuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACQAAABHYW1lcGxheS5CdWZmLk1vdGl2YXRlZC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABeAAAAVHJpZ2dlcjogQ29tcGxldGUgYSBtaW5pbmcgU29uZwpDbGVhcjogVGltZXIKRWZmZWN0OiBSZW1vdmVzIHN0YW1pbmEgcmVxdWlyZW1lbnQgZm9yIG1pbmluZy4gAB8AAABHYW1lcGxheS5CdWZmLkhpZ2hTcGlyaXRzLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAmAAAAR2FtZXBsYXkuQnVmZi5IaWdoU3Bpcml0cy5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABoAAAAVHJpZ2dlcjogQ29tcGxldGUgYSB0YXZlcm4gU29uZwpDbGVhcjogVGltZXIKRWZmZWN0OiBTbGVlcGluZyB3aXRoIGhpZ2ggc3Bpcml0cyBnaXZlcyB5b3UgYSByYW5kb20gYnVmZgAbAAAAR2FtZXBsYXkuQnVmZi5Db3VyYWdlLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAiAAAAR2FtZXBsYXkuQnVmZi5Db3VyYWdlLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAJcAAABUcmlnZ2VyOiBDb21wbGV0ZSBhIHZlbmVyYXRpb24gU29uZwpDbGVhcjogVGltZXIKRWZmZWN0OiBHaXZlcyBCb251cyBzdGFtaW5hIHBpcCwgaGVhbHRoIHJlc3RvcmF0aW9uLCBlbmVyZ3kgcmVzdG9yYXRpb24sIENsZWFycyBkZXNwYWlyIHdoaWxlIGFjdGl2ZS4AJQAAAFN1cnZpdmFsLkJ1ZmYuRXZlbmluZ0FsZVRyYWNrZXIuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACwAAABTdXJ2aXZhbC5CdWZmLkV2ZW5pbmdBbGVUcmFja2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHMAAABUcmlnZ2VyOiBTaXAgb24gRXZlbmluZyBBbGUKQ2xlYXI6IFRpbWVyCkVmZmVjdDogVGhpcyBpcyBhIHRyYWNraW5nIGJhci4gT25jZSBmaWxsZWQgRXZlbmluZyBBbGUgQnVmZiBpcyB0cmlnZ2VyZWQAHgAAAFN1cnZpdmFsLkJ1ZmYuRXZlbmluZ0FsZS5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIE5hbWUAJQAAAFN1cnZpdmFsLkJ1ZmYuRXZlbmluZ0FsZS5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABzAAAAVHJpZ2dlcjogRHJpbmsgYSBtdWcgb2YgRXZlbmluZyBBbGUgKGZpbGwgdHJhY2tpbmcgYmFyKQpDbGVhcjogU2hvcnQgVGltZXIKRWZmZWN0OiBSZWdlbnMgYSBzbWFsbCBhbW91bnQgb2YgZW5lcmd5ACYAAABTdXJ2aXZhbC5CdWZmLlN0YW1pbmFCcmV3VHJhY2tlci5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUALQAAAFN1cnZpdmFsLkJ1ZmYuU3RhbWluYUJyZXdUcmFja2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHUAAABUcmlnZ2VyOiBTaXAgb24gU3RhbWluYSBCcmV3CkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFRoaXMgaXMgYSB0cmFja2luZyBiYXIuIE9uY2UgZmlsbGVkIFN0YW1pbmEgQnJldyBCdWZmIGlzIHRyaWdnZXJlZAAfAAAAU3Vydml2YWwuQnVmZi5TdGFtaW5hQnJldy5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAJgAAAFN1cnZpdmFsLkJ1ZmYuU3RhbWluYUJyZXcuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAhgAAAFRyaWdnZXI6IERyaW5rIGEgbXVnIG9mIFN0YW1pbmEgQnJldyAoZmlsbCB0cmFja2luZyBiYXIpCkNsZWFyOiBTaG9ydCBUaW1lcgpFZmZlY3Q6IEluY3JlYXNlIFN0YW1pbmEgcmVnZW4gc3BlZWQuIEdpdmVzIEJvbnVzIFN0YW1pbmEAIwAAAFN1cnZpdmFsLkJ1ZmYuQW50aWRvdGVUcmFja2VyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAqAAAAU3Vydml2YWwuQnVmZi5BbnRpZG90ZVRyYWNrZXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAcgAAAFRyaWdnZXI6IFNpcCBvbiBBbnRpZG90ZSBCcmV3CkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFRoaXMgaXMgYSB0cmFja2luZyBiYXIuIE9uY2UgZmlsbGVkIEFudGlkb3RlIEJ1ZmYgaXMgdHJpZ2dlcmVkABwAAABTdXJ2aXZhbC5CdWZmLkFudGlkb3RlLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAjAAAAU3Vydml2YWwuQnVmZi5BbnRpZG90ZS5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACZAAAAVHJpZ2dlcjogRHJpbmsgYSBtdWcgb2YgQW50aWRvdGUgQnJldyAoZmlsbCB0cmFja2luZyBiYXIpCkNsZWFyOiBTaG9ydCBUaW1lcgpFZmZlY3Q6IENsZWFycyBwb2lzb24uIFByZXZlbnRzIHBvaW5zb24gYnVpbGQgdXAgZm9yIGEgYnJpZWYgYW1vdW50IG9mIHRpbWUAMQAAAFN1cnZpdmFsLkJ1ZmYuT3JjTWVkaWNpbmVCcmV3VHJhY2tlclRyYWNrZXIuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lADgAAABTdXJ2aXZhbC5CdWZmLk9yY01lZGljaW5lQnJld1RyYWNrZXJUcmFja2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHoAAABUcmlnZ2VyOiBTaXAgb24gT3JjIE1lZGljaW5lIEJyZXcKQ2xlYXI6IFRpbWVyCkVmZmVjdDogVGhpcyBpcyBhIHRyYWNraW5nIGJhci4gT25jZSBmaWxsZWQgT3JjIE1lZGljaW5lIEJ1ZmYgaXMgdHJpZ2dlcmVkACoAAABTdXJ2aXZhbC5CdWZmLk9yY01lZGljaW5lQnJld1RyYWNrZXIuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lADEAAABTdXJ2aXZhbC5CdWZmLk9yY01lZGljaW5lQnJld1RyYWNrZXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAA5QAAAFRyaWdnZXI6IERyaW5rIGEgbXVnIG9mIE9yYyBNZWRpY2luZSAgKGZpbGwgdHJhY2tpbmcgYmFyKQpDbGVhcjogU2hvcnQgVGltZXIKRWZmZWN0OiBCaWcgYWNyb3NzIHRoZSBib2FyZCBib251c2VzIChzdGFtaW5hIGJvb3N0LCBhdHRhY2sgYm9vc3QsIGRlZmVuc2UgYm9vc3Q/KSBidXQgZGVhbHMgZGFtYWdlIG92ZXIgdGltZSBhbmQgbGVhdmVzIHRoZSBwbGF5ZXIgd2l0aCBtaW5pbWFsIGVuZXJneQAoAAAAU3Vydml2YWwuQnVmZi5EZWZlbnNpdmVCcmV3VHJhY2tlci5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUALwAAAFN1cnZpdmFsLkJ1ZmYuRGVmZW5zaXZlQnJld1RyYWNrZXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAdAAAAFRyaWdnZXI6IFNpcCBvbiBEZWZlbnNpdmUgQnJldwpDbGVhcjogVGltZXIKRWZmZWN0OiBUaGlzIGlzIGEgdHJhY2tpbmcgYmFyLiBPbmNlIGZpbGxlZCBEZWZlbnNpdmUgQnVmZiBpcyB0cmlnZ2VyZWQAIQAAAFN1cnZpdmFsLkJ1ZmYuRGVmZW5zaXZlQnJldy5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAKAAAAFN1cnZpdmFsLkJ1ZmYuRGVmZW5zaXZlQnJldy5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABqAAAAVHJpZ2dlcjogRHJpbmsgYSBtdWcgb2YgZGVmZW5zaXZlIGJyZXcgKGZpbGwgdHJhY2tpbmcgYmFyKQpDbGVhcjogVGltZXIKRWZmZWN0OiBEZWNyZWFzZXMgaW5jb21pbmcgZGFtYWdlACUAAABTdXJ2aXZhbC5CdWZmLkhlYWx0aEJyZXdUcmFja2VyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAsAAAAU3Vydml2YWwuQnVmZi5IZWFsdGhCcmV3VHJhY2tlci5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABzAAAAVHJpZ2dlcjogU2lwIG9uIEhlYWx0aCBCcmV3CkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFRoaXMgaXMgYSB0cmFja2luZyBiYXIuIE9uY2UgZmlsbGVkIEhlYWx0aCBCcmV3IEJ1ZmYgaXMgdHJpZ2dlcmVkAB4AAABTdXJ2aXZhbC5CdWZmLkhlYWx0aEJyZXcuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACUAAABTdXJ2aXZhbC5CdWZmLkhlYWx0aEJyZXcuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAdwAAAFRyaWdnZXI6IERyaW5rIGEgbXVnIG9mIGhlYWx0aCBicmV3IChmaWxsIHRyYWNraW5nIGJhcikKQ2xlYXI6IFRpbWVyCkVmZmVjdDogSGVhbHRoIHJlZ2VuIGVuYWJsZXMgZm9yIGEgcGVyaW9kIG9mIHRpbWUAKwAAAFN1cnZpdmFsLkJ1ZmYuQW50aURhcmtuZXNzQnJld1RyYWNrZXIuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lADIAAABTdXJ2aXZhbC5CdWZmLkFudGlEYXJrbmVzc0JyZXdUcmFja2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHwAAABUcmlnZ2VyOiBTaXAgb24gQW50aSBEYXJrbmVzcyBCcmV3CkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFRoaXMgaXMgYSB0cmFja2luZyBiYXIuIE9uY2UgZmlsbGVkIEFudGkgRGFya25lc3MgQnVmZiBpcyB0cmlnZ2VyZWQAJAAAAFN1cnZpdmFsLkJ1ZmYuQW50aURhcmtuZXNzQnJldy5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAKwAAAFN1cnZpdmFsLkJ1ZmYuQW50aURhcmtuZXNzQnJldy5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAADAAAAAVHJpZ2dlcjogRHJpbmsgYSBtdWcgb2YgQW50aSBEYXJrbmVzcyBCcmV3IChmaWxsIHRyYWNraW5nIGJhcikKQ2xlYXI6IFNob3J0IFRpbWVyCkVmZmVjdDogQ2xlYXJzIHNoYWRvdyBwb2lzb24gYW5kIGRpc3BhaXIuIFJlZmlsbHMgTW9yYWxlLiBQcmV2ZW50cyBzaGFkb3cgYnVpbGQgdXAgZm9yIGEgYnJpZWYgYW1vdW50IG9mIHRpbWUALQAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5WZW5nZWZ1bC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUANAAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5WZW5nZWZ1bC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABSAAAAVHJpZ2dlcjpIaWdoIFNwaXJpdHMgUm91bGxldHRlCkNsZWFyOiBMb25nIFRpbWVyCkVmZmVjdDogMS41WCBkYW1hZ2UgYWdhaW5zdCBvcmNzACwAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuU3RhbGtlci5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAMwAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5TdGFsa2VyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAHQAAABUcmlnZ2VyOkhpZ2ggU3Bpcml0cyBSb3VsbGV0dGUKQ2xlYXI6IExvbmcgVGltZXIKRWZmZWN0OiAxLjVYIGRhbWFnZSBhZ2FpbnN0IG1vbnN0ZXJzIChzcGlkZXJzLCBiYXRzLCB0cm9sbHMsIGV0Yy4pADEAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuRHJhZ29uSHVudGVyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQA4AAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3LkRyYWdvbkh1bnRlci5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABaAAAAVHJpZ2dlcjpIaWdoIFNwaXJpdHMgUm91bGxldHRlCkNsZWFyOiBMb25nIFRpbWVyCkVmZmVjdDogMS41WCBkYW1hZ2UgYWdhaW5zdCBkcmFnb24tbGlrZXMAKgAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5Ccmlzay5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAMQAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5Ccmlzay5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABcAAAAVHJpZ2dlcjpIaWdoIFNwaXJpdHMgUm91bGxldHRlCkNsZWFyOiBMb25nIFRpbWVyCkVmZmVjdDogUmVkdWNlZCBTdGFtaW5hIGNvc3QgZm9yIFNwcmludGluZwAqAAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3Lk1pbmVyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQAxAAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3Lk1pbmVyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAFQAAABUcmlnZ2VyOkhpZ2ggU3Bpcml0cyBSb3VsbGV0dGUKQ2xlYXI6IExvbmcgVGltZXIKRWZmZWN0OiBObyBTdGFtaW5hIGNvc3QgZm9yIE1pbmluZwAtAAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3LlRyYXZlbGVyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQA0AAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3LlRyYXZlbGVyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAF8AAABUcmlnZ2VyOkhpZ2ggU3Bpcml0cyBSb3VsbGV0dGUKQ2xlYXI6IExvbmcgVGltZXIKRWZmZWN0OiBObyBIdW5nZXIvRW5lcmd5IENvc3QgZm9yIEZhc3QgVHJhdmVsADEAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuTm9FbmVyZ3lDb3N0Lk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACgAAAEJ1ZmYgbmFtZQA4AAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3Lk5vRW5lcmd5Q29zdC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABVAAAAVHJpZ2dlcjpIaWdoIFNwaXJpdHMgUm91bGxldHRlCkNsZWFyOiBMb25nIFRpbWVyCkVmZmVjdDogQWN0aW9ucyBkbyBub3QgZHJhaW4gRW5lcmd5ADAAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuRW5lcmd5UmVnZW4uTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lADcAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuRW5lcmd5UmVnZW4uRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAATAAAAFRyaWdnZXI6SGlnaCBTcGlyaXRzIFJvdWxsZXR0ZQpDbGVhcjogTG9uZyBUaW1lcgpFZmZlY3Q6IEJvbnVzIFN0YW1pbmEgUGlwcwAuAAAAU3Vydml2YWwuQnVmZi5IaWdodFNwaXJpdHNCcmV3LkRlZmVuc2l2ZS5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUANQAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5EZWZlbnNpdmUuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAXQAAAFRyaWdnZXI6SGlnaCBTcGlyaXRzIFJvdWxsZXR0ZQpDbGVhcjogTG9uZyBUaW1lcgpFZmZlY3Q6IFJlZHVjZSBpbmNvbWluZyBkYW1hZ2UgZnJvbSBhdHRhY2tzADIAAABTdXJ2aXZhbC5CdWZmLkhpZ2h0U3Bpcml0c0JyZXcuRGVzcGFpclJlc2lzdC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAOQAAAFN1cnZpdmFsLkJ1ZmYuSGlnaHRTcGlyaXRzQnJldy5EZXNwYWlyUmVzaXN0LkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAFoAAABUcmlnZ2VyOkhpZ2ggU3Bpcml0cyBSb3VsbGV0dGUKQ2xlYXI6IExvbmcgVGltZXIKRWZmZWN0OiBTbG93ZWQgYnVpbGR1cCBvZiBkZXNwYWlyIGRlYnVmZgAaAAAAR2FtZXBsYXkuQnVmZi5GaWVyY2UuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACEAAABHYW1lcGxheS5CdWZmLkZpZXJjZS5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAChAAAAVHJpZ2dlcjogQWRtaXJlIGEgdHJlYXN1cmUgcGlsZSB3aXRoIGEgbG93IHRyZWFzdXJlIHNjb3JlCkNsZWFyOiBUaW1lcgpFZmZlY3Q6IDEuMjUgZGFtYWdlIGFnYWluc3Qgb3Jjcy4gTWVhbnQgdG8gbW90aXZhdGlvbiB0byBwcm90Y2V0IHlvdXIgdHJlYXN1cmUgaW4gYSBzaWVnZQAaAAAAR2FtZXBsYXkuQnVmZi5BcmRlbnQuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACEAAABHYW1lcGxheS5CdWZmLkFyZGVudC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAC1AAAAVHJpZ2dlcjogQWRtaXJlIGEgdHJlYXN1cmUgcGlsZSB3aXRoIGEgbWlkIHRyZWFzdXJlIHNjb3JlCkNsZWFyOiBUaW1lciAobG9uZ2VyIHRoYW4gZmllcmNlKQpFZmZlY3Q6IDEuNSBkYW1hZ2UgYWdhaW5zdCBvcmNzLiBNZWFudCB0byBtb3RpdmF0aW9uIHRvIHByb3RjZXQgeW91ciB0cmVhc3VyZSBpbiBhIHNpZWdlABsAAABHYW1lcGxheS5CdWZmLlplYWxvdXMuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAKAAAAQnVmZiBuYW1lACIAAABHYW1lcGxheS5CdWZmLlplYWxvdXMuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAtgAAAFRyaWdnZXI6IEFkbWlyZSBhIHRyZWFzdXJlIHBpbGUgd2l0aCBhIGhpZ2ggdHJlYXN1cmUgc2NvcmUKQ2xlYXI6IFRpbWVyIChsb25nZXIgdGhhbiBhcmRlbnQpIApFZmZlY3Q6IDJ4IGRhbWFnZSBhZ2FpbnN0IG9yY3MuIE1lYW50IHRvIG1vdGl2YXRpb24gdG8gcHJvdGNldCB5b3VyIHRyZWFzdXJlIGluIGEgc2llZ2UAHgAAAFN1cnZpdmFsLkJ1ZmYuTm9FcGljUGFjay5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAJQAAAFN1cnZpdmFsLkJ1ZmYuTm9FcGljUGFjay5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAABKAAAAVHJpZ2dlcjogUmVtb3ZlIHlvdXIgcGFjawpDbGVhcjogUHV0IG9uIGEgcGFjawpFZmZlY3Q6IEJvbnVzIHN0YW1pbmEgcGlwcwAgAAAARWZmZWN0cy5NaW5pbmdTb25nLkdlbmVyYWwuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAyAAAAQnVmZiB0ZXh0IHRoYXQgZGlzcGxheXMgd2hlbiBzaW5naW5nIHdoaWxlIG1pbmluZwAnAAAARWZmZWN0cy5NaW5pbmdTb25nLkdlbmVyYWwuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkABsAAABHYW1lcGxheS5CdWZmLlJlc3Bhd24uTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAqAAAASW52dWxuZXJhYmlsaXR5IFBsYXllciBnZXRzIGFmdGVyIHJlc3Bhd24AIgAAAEdhbWVwbGF5LkJ1ZmYuUmVzcGF3bi5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAdAAAARGVzY3JpcHRpb24gZm9yIHJlc3Bhd24gYnVmZgApAAAAU3Vydml2YWwuQnVmZi5GdWxsLkJyZWFrZmFzdC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAB+AAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IFNob3J0IHRpbWVyCkVmZmVjdDogVGhlIGh1bmdlciBtZXRlciB3aWxsIG5vdCBmYWxsIGFuZCBlbmVyZ3kgY29zdHMgZm9yIGFjdGlvbnMgYXJlIHJlZHVjZWQAIgAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5CcmVha2Zhc3QuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAJAAAAQnVmZk5hbWUALQAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5CcmVha2Zhc3RfTHYyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAH8AAABUcmlnZ2VyOiBFYXQgYSBoZWFydGggbWVhbApDbGVhcjogTWVkaXVtIHRpbWVyCkVmZmVjdDogVGhlIGh1bmdlciBtZXRlciB3aWxsIG5vdCBmYWxsIGFuZCBlbmVyZ3kgY29zdHMgZm9yIGFjdGlvbnMgYXJlIHJlZHVjZWQAJgAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5CcmVha2Zhc3RfTHYyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACQAAAEJ1ZmZOYW1lAC0AAABTdXJ2aXZhbC5CdWZmLkZ1bGwuQnJlYWtmYXN0X0x2My5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAB9AAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IExvbmcgdGltZXIKRWZmZWN0OiBUaGUgaHVuZ2VyIG1ldGVyIHdpbGwgbm90IGZhbGwgYW5kIGVuZXJneSBjb3N0cyBmb3IgYWN0aW9ucyBhcmUgcmVkdWNlZAAmAAAAU3Vydml2YWwuQnVmZi5GdWxsLkJyZWFrZmFzdF9MdjMuTmFtZQACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAJAAAAQnVmZk5hbWUAJQAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5MdW5jaC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACfAAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IFNob3J0IHRpbWVyCkVmZmVjdDogVGhlIGh1bmdlciBtZXRlciB3aWxsIG5vdCBmYWxsIGFuZCBlbmVyZ3kgY29zdHMgZm9yIGFjdGlvbnMgYXJlIHJlZHVjZWQgYW5kIGhlYWx0aCBpcyByZWdlbmVyYXRlZCBzbG93bHkAHgAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5MdW5jaC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAkAAABCdWZmTmFtZQApAAAAU3Vydml2YWwuQnVmZi5GdWxsLkx1bmNoX0x2Mi5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACgAAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IE1lZGl1bSB0aW1lcgpFZmZlY3Q6IFRoZSBodW5nZXIgbWV0ZXIgd2lsbCBub3QgZmFsbCBhbmQgZW5lcmd5IGNvc3RzIGZvciBhY3Rpb25zIGFyZSByZWR1Y2VkIGFuZCBoZWFsdGggaXMgcmVnZW5lcmF0ZWQgc2xvd2x5ACIAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuTHVuY2hfTHYyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACQAAAEJ1ZmZOYW1lACkAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuTHVuY2hfTHYzLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAJ4AAABUcmlnZ2VyOiBFYXQgYSBoZWFydGggbWVhbApDbGVhcjogTG9uZyB0aW1lcgpFZmZlY3Q6IFRoZSBodW5nZXIgbWV0ZXIgd2lsbCBub3QgZmFsbCBhbmQgZW5lcmd5IGNvc3RzIGZvciBhY3Rpb25zIGFyZSByZWR1Y2VkIGFuZCBoZWFsdGggaXMgcmVnZW5lcmF0ZWQgc2xvd2x5ACIAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuTHVuY2hfTHYzLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACQAAAEJ1ZmZOYW1lACYAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuRGlubmVyLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAALAAAABUcmlnZ2VyOiBFYXQgYSBoZWFydGggbWVhbApDbGVhcjogU2hvcnQgdGltZXIKRWZmZWN0OiBUaGUgaHVuZ2VyIG1ldGVyIHdpbGwgbm90IGZhbGwgYW5kIGVuZXJneSBjb3N0cyBmb3IgYWN0aW9ucyBhcmUgcmVkdWNlZCBhbmQgcmVwYWlyIHN0cmVuZ3RoIGFuZCBzdGFtaW5hIGNvc3QgYXJlIGltcHJvdmVkAB8AAABTdXJ2aXZhbC5CdWZmLkZ1bGwuRGlubmVyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACQAAAEJ1ZmZOYW1lACoAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuRGlubmVyX0x2Mi5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACxAAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IE1lZGl1bSB0aW1lcgpFZmZlY3Q6IFRoZSBodW5nZXIgbWV0ZXIgd2lsbCBub3QgZmFsbCBhbmQgZW5lcmd5IGNvc3RzIGZvciBhY3Rpb25zIGFyZSByZWR1Y2VkIGFuZCByZXBhaXIgc3RyZW5ndGggYW5kIHN0YW1pbmEgY29zdCBhcmUgaW1wcm92ZWQAIwAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5EaW5uZXJfTHYyLk5hbWUAAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAACQAAAEJ1ZmZOYW1lACoAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuRGlubmVyX0x2My5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAACvAAAAVHJpZ2dlcjogRWF0IGEgaGVhcnRoIG1lYWwKQ2xlYXI6IExvbmcgdGltZXIKRWZmZWN0OiBUaGUgaHVuZ2VyIG1ldGVyIHdpbGwgbm90IGZhbGwgYW5kIGVuZXJneSBjb3N0cyBmb3IgYWN0aW9ucyBhcmUgcmVkdWNlZCBhbmQgcmVwYWlyIHN0cmVuZ3RoIGFuZCBzdGFtaW5hIGNvc3QgYXJlIGltcHJvdmVkACMAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuRGlubmVyX0x2My5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAkAAABCdWZmTmFtZQAoAAAAU3Vydml2YWwuQnVmZi5GdWxsLlNlY29uZEJyZWFrZmFzdC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAkAAABCdWZmTmFtZQAvAAAAU3Vydml2YWwuQnVmZi5GdWxsLlNlY29uZEJyZWFrZmFzdC5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQABAAAAAAAAAAPAAAAV2hhdCBhYm91dCBpdD8AJQAAAFN1cnZpdmFsLkJ1ZmYuRnVsbC5BZnRlcm5vb25UZWEuTmFtZQACAAAACQAAAAAAAAAEAAAAQ3V0AAQAAAAAAAAACQAAAEJ1ZmZOYW1lACwAAABTdXJ2aXZhbC5CdWZmLkZ1bGwuQWZ0ZXJub29uVGVhLkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAQAAABDdXQABAAAAAAAAABeAAAASWYgbW9yZSBvZiB1cyB2YWx1ZWQgZm9vZCBhbmQgY2hlZXIgYW5kIHNvbmcgYWJvdmUgaG9hcmRlZCBnb2xkLCBpdCB3b3VsZCBiZSBhIG1lcnJpZXIgd29ybGQuAB8AAABTdXJ2aXZhbC5CdWZmLkZ1bGwuU3VwcGVyLk5hbWUAAgAAAAkAAAAAAAAABAAAAEN1dAAEAAAAAAAAAAkAAABCdWZmTmFtZQAmAAAAU3Vydml2YWwuQnVmZi5GdWxsLlN1cHBlci5EZXNjcmlwdGlvbgACAAAACQAAAAAAAAAEAAAAQ3V0AAQAAAAAAAAAIQAAAFRoYXQncyB3aGF0IGJpbGJvIGJhZ2dpbnMgaGF0ZXMhAB4AAABHYW1lcGxheS5CdWZmLkFudGlQb2lzb24uTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEdhbWVwbGF5LkJ1ZmYuQW50aVBvaXNvbi5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEdhbWVwbGF5LkJ1ZmYuQW50aVNoYWRvd1BvaXNvbi5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAArAAAAR2FtZXBsYXkuQnVmZi5BbnRpU2hhZG93UG9pc29uLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAfAAAAR2FtZXBsYXkuQnVmZi5BdHRhY2tCb29zdC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAAR2FtZXBsYXkuQnVmZi5BdHRhY2tCb29zdC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAIAAAAEdhbWVwbGF5LkJ1ZmYuRGVmZW5zZUJvb3N0Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACcAAABHYW1lcGxheS5CdWZmLkRlZmVuc2VCb29zdC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHQAAAEdhbWVwbGF5LkJ1ZmYuRnJlZURvZGdlLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACQAAABHYW1lcGxheS5CdWZmLkZyZWVEb2RnZS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHgAAAEdhbWVwbGF5LkJ1ZmYuRnJlZVNwcmludC5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAAR2FtZXBsYXkuQnVmZi5GcmVlU3ByaW50LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAdAAAAR2FtZXBsYXkuQnVmZi5PcmNUZW1wZXIuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJAAAAEdhbWVwbGF5LkJ1ZmYuT3JjVGVtcGVyLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAgAAAAR2FtZXBsYXkuQnVmZi5TdGFtaW5hQm9vc3QuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAEdhbWVwbGF5LkJ1ZmYuU3RhbWluYUJvb3N0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAR2FtZXBsYXkuQnVmZi5NYXN0ZXJCdWlsZGVyLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABHYW1lcGxheS5CdWZmLk1hc3RlckJ1aWxkZXIuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACUAAABHYW1lcGxheS5CdWZmLk1hc3RlckJ1aWxkZXIuTHYxLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACwAAABHYW1lcGxheS5CdWZmLk1hc3RlckJ1aWxkZXIuTHYxLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAlAAAAR2FtZXBsYXkuQnVmZi5NYXN0ZXJCdWlsZGVyLkx2Mi5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAsAAAAR2FtZXBsYXkuQnVmZi5NYXN0ZXJCdWlsZGVyLkx2Mi5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEdhbWVwbGF5LkJ1ZmYuTWFzdGVyQnVpbGRlci5MdjQuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEdhbWVwbGF5LkJ1ZmYuTWFzdGVyQnVpbGRlci5MdjMuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJQAAAEdhbWVwbGF5LkJ1ZmYuTWFzdGVyQnVpbGRlci5MdjUuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALAAAAEdhbWVwbGF5LkJ1ZmYuTWFzdGVyQnVpbGRlci5MdjMuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACwAAABHYW1lcGxheS5CdWZmLk1hc3RlckJ1aWxkZXIuTHY0LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAsAAAAR2FtZXBsYXkuQnVmZi5NYXN0ZXJCdWlsZGVyLkx2NS5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALgAAAFJvaGFuUGFjay5TdXJ2aXZhbC5CdWZmLlJvaGFuQnJld1RyYWNrZXIuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQANQAAAFJvaGFuUGFjay5TdXJ2aXZhbC5CdWZmLlJvaGFuQnJld1RyYWNrZXIuRGVzY3JpcHRpb24AAgAAAAkAAAAAAAAACQAAAEFwcHJvdmVkAAQAAAAAAAAAcQAAAFRyaWdnZXI6IFNpcCBvbiBSb2hhbiBCcmV3CkNsZWFyOiBUaW1lcgpFZmZlY3Q6IFRoaXMgaXMgYSB0cmFja2luZyBiYXIuIE9uY2UgZmlsbGVkIFJvaGFuIEJyZXcgQnVmZiBpcyB0cmlnZ2VyZWQAHgAAAEdhbWVwbGF5LkJ1ZmYuRmllcmNlLkx2NC5OYW1lAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAoAAABCdWZmIG5hbWUAJQAAAEdhbWVwbGF5LkJ1ZmYuRmllcmNlLkx2NC5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAJwAAAFJvaGFuUGFjay5TdXJ2aXZhbC5CdWZmLlJvaGFuQnJldy5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAAUm9oYW5QYWNrLlN1cnZpdmFsLkJ1ZmYuUm9oYW5CcmV3LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAAWXVsZS5TdXJ2aXZhbC5CdWZmLkhvbGlkYXlCcmV3Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABZdWxlLlN1cnZpdmFsLkJ1ZmYuSG9saWRheUJyZXcuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABZdWxlLlN1cnZpdmFsLkJ1ZmYuSG9saWRheUJyZXdUcmFja2VyLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADIAAABZdWxlLlN1cnZpdmFsLkJ1ZmYuSG9saWRheUJyZXdUcmFja2VyLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAAQmVvcm5QYWNrLlN1cnZpdmFsLkJ1ZmYuQmVvcm5CcmV3LkRlc2NyaXB0aW9uAAIAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAEAAAAAAAAAAAAAAAnAAAAQmVvcm5QYWNrLlN1cnZpdmFsLkJ1ZmYuQmVvcm5CcmV3Lk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADUAAABCZW9yblBhY2suU3Vydml2YWwuQnVmZi5CZW9ybkJyZXdUcmFja2VyLkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAuAAAAQmVvcm5QYWNrLlN1cnZpdmFsLkJ1ZmYuQmVvcm5CcmV3VHJhY2tlci5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAmAAAAT3JjSHVudGVyUGFjay5TdXJ2aXZhbC5CdWZmLkJyZXcuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQALQAAAE9yY0h1bnRlclBhY2suU3Vydml2YWwuQnVmZi5CcmV3LkRlc2NyaXB0aW9uAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAtAAAAT3JjSHVudGVyUGFjay5TdXJ2aXZhbC5CdWZmLkJyZXdUcmFja2VyLk5hbWUAAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkADQAAABPcmNIdW50ZXJQYWNrLlN1cnZpdmFsLkJ1ZmYuQnJld1RyYWNrZXIuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACMAAABFbnRQYWNrLlN1cnZpdmFsLkJ1ZmYuRW50QnJldy5OYW1lAAEAAAAJAAAAAAAAAAkAAABBcHByb3ZlZAAqAAAARW50UGFjay5TdXJ2aXZhbC5CdWZmLkVudEJyZXcuRGVzY3JpcHRpb24AAQAAAAkAAAAAAAAACQAAAEFwcHJvdmVkACoAAABFbnRQYWNrLlN1cnZpdmFsLkJ1ZmYuRW50QnJld1RyYWNrZXIuTmFtZQABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAMQAAAEVudFBhY2suU3Vydml2YWwuQnVmZi5FbnRCcmV3VHJhY2tlci5EZXNjcmlwdGlvbgABAAAACQAAAAAAAAAJAAAAQXBwcm92ZWQAHAAAAEdhbWVwbGF5LkRlYnVmZi5GZWFyZWQuTmFtZQACAAAABAAAAAAAAAApAAAARGVidWZmIG5hbWU7IEZyb20gR3JlbmRlbCdzIERlYXRobHkgSG93bAAJAAAAAAAAAAkAAABBcHByb3ZlZAAjAAAAR2FtZXBsYXkuRGVidWZmLkZlYXJlZC5EZXNjcmlwdGlvbgACAAAABAAAAAAAAABQAAAAVHJpZ2dlcjogR3JlbmRlbCdzIERlYXRobHkgSG93bA0KQ2xlYXI6IFRpbWVyDQpFZmZlY3Q6IFN0YW1pbmEgcmVnZW4gaXMgYmxvY2tlZAAJAAAAAAAAAAkAAABBcHByb3ZlZAAkAAAAR2FtZXBsYXkuRGVidWZmLkFybW9yQ29ycm9zaW9uLk5hbWUAAgAAAAQAAAAAAAAADAAAAERlYnVmZiBuYW1lAAkAAAAAAAAACQAAAEFwcHJvdmVkACsAAABHYW1lcGxheS5EZWJ1ZmYuQXJtb3JDb3Jyb3Npb24uRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAkQAAAFRyaWdnZXI6IEFycm93IGhpdCBmcm9tIFJpbmcgSHVudGVycyBPcmMNCkNsZWFyOiBUaW1lcg0KRWZmZWN0OiBSYXBpZCwgYnV0IHNob3J0IGxpdmVkIERhbWFnZSBvdmVyIHRpbWUuIEhpdHMgYXJtb3IgYW5kIG9ubHkgYWN0aXZlIGlmIGhhcyBhcm1vcgAJAAAAAAAAAAkAAABBcHByb3ZlZAAhAAAAV2FuZGVyZXIuQnVmZi5FbmVyZ3lSZXN0b3JlLk5hbWUAAgAAAAQAAAAAAAAAUQAAAFdhbmRlcmVyIGJ1ZmYgdGhhdCByZXN0b3JlcyBwbGF5ZXIgRW5lcmd5IHdoZW4gdGhleSBhcHByb2FjaCwgb25seSBpbiBFeHBlZGl0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkACgAAABXYW5kZXJlci5CdWZmLkVuZXJneVJlc3RvcmUuRGVzY3JpcHRpb24AAgAAAAQAAAAAAAAAUQAAAFdhbmRlcmVyIGJ1ZmYgdGhhdCByZXN0b3JlcyBwbGF5ZXIgRW5lcmd5IHdoZW4gdGhleSBhcHByb2FjaCwgb25seSBpbiBFeHBlZGl0aW9uAAkAAAAAAAAACQAAAEFwcHJvdmVkAA=="
+    }
+  ],
+  "SearchableNames": null,
+  "Thumbnails": null,
+  "WorldTileInfo": null,
+  "AppendedNullBytes": 0,
+  "OtherAssetsFailedToAccess": [],
+  "LegacyFileVersion": -7,
+  "DataResourceVersion": "Invalid",
+  "DataResources": null,
+  "UsesEventDrivenLoader": true,
+  "WillSerializeNameHashes": true,
+  "Imports": [
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "StringTable",
+      "OuterIndex": -2,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Class",
+      "PackageName": null,
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "/Script/Engine",
+      "OuterIndex": 0,
+      "ClassPackage": "/Script/CoreUObject",
+      "ClassName": "Package",
+      "PackageName": null,
+      "bImportOptional": false
+    },
+    {
+      "$type": "UAssetAPI.Import, UAssetAPI",
+      "ObjectName": "Default__StringTable",
+      "OuterIndex": -2,
+      "ClassPackage": "/Script/Engine",
+      "ClassName": "StringTable",
+      "PackageName": null,
+      "bImportOptional": false
+    }
+  ],
+  "DependsMap": [
+    []
+  ],
+  "SoftPackageReferenceList": null,
+  "AssetRegistryData": "AAAAAA==",
+  "BulkData": "wYMqng==",
+  "ValorantGarbageData": null,
+  "SeaOfThievesGarbageData": null,
+  "Generations": [
+    {
+      "$type": "UAssetAPI.FGenerationInfo, UAssetAPI",
+      "ExportCount": 1,
+      "NameCount": 11
+    }
+  ],
+  "PackageGuid": "{00000000-0000-0000-0000-000000000000}",
+  "PersistentGuid": "{00000000-0000-0000-0000-000000000000}",
+  "RecordedEngineVersion": {
+    "$type": "UAssetAPI.FEngineVersion, UAssetAPI",
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0,
+    "Changelist": 0,
+    "Branch": null
+  },
+  "RecordedCompatibleWithEngineVersion": {
+    "$type": "UAssetAPI.FEngineVersion, UAssetAPI",
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0,
+    "Changelist": 0,
+    "Branch": null
+  },
+  "ChunkIDs": [],
+  "PackageSource": 0,
+  "FolderName": "/Game/Tech/Data/StringTables/ST_Effects",
+  "LocalizationId": null,
+  "SoftObjectPathsCount": 0,
+  "SoftObjectPathsOffset": 0,
+  "SearchableNamesOffset": 0,
+  "ThumbnailTableOffset": 0,
+  "CompressionFlags": 0,
+  "AdditionalPackagesToCook": [],
+  "NamesReferencedFromExportDataCount": 11,
+  "PayloadTocOffset": -1,
+  "DataResourceOffset": -1,
+  "doWeHaveAssetRegistryData": true,
+  "doWeHaveWorldTileInfo": false,
+  "PackageFlags": "PKG_FilterEditorOnly",
+  "HasUnversionedProperties": false,
+  "IsFilterEditorOnly": true
+}
