@@ -9,6 +9,20 @@ ARMOR_FILE = os.path.join(SOURCE_DIR, "DT_Armor.json")
 RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
 OUTPUT_DIR = os.path.join("output", "armor")
 
+# Mapping from DLC path names to DLC titles
+DLC_TITLE_MAP = {
+    "BeornPack": "The Beorn's Lodge Pack",
+    "DurinsFolk": "Durin's Folk Expansion",
+    "Elven": "Durin's Folk Expansion",
+    "EntPack": "The Ent-craft Pack",
+    "Holiday2025": "The Yule-tide Pack",
+    "HolidayPack": "The Yule-tide Pack",
+    "LordOfMoria": "End Game Award",
+    "OrcHunterPack": "The Orc Hunter Pack",
+    "OriginCosmetics": "The Yule-tide Pack",
+    "RohanPack": "The Rohan Pack",
+}
+
 # Mapping from CraftingStation keys to Constructions string keys
 # This handles inconsistent naming between recipe data and string tables
 STATION_KEY_MAP = {
@@ -271,6 +285,9 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
         "SubType": "",
         "Tier": "",
         "Icon": "",
+        "ActorPath": "",
+        "DLC": "",
+        "DLCTitle": "",
         "MaxRepairCost": 0,
         "RepairMaterialKey": "",
         "RepairMaterial": "",
@@ -281,7 +298,8 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
         "CampaignUnlockType": "",
         "CampaignUnlockFragments": 0,
         "SandboxUnlockType": "",
-        "SandboxUnlockFragments": 0
+        "SandboxUnlockFragments": 0,
+        "Cosmetic": False
     }
 
     for prop in properties:
@@ -362,6 +380,25 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
                 asset_path = prop_value.get("AssetPath", {})
                 model["Icon"] = asset_path.get("AssetName", "")
 
+        elif prop_name == "Actor":
+            # Extract actor path (used to identify DLC content)
+            if isinstance(prop_value, dict):
+                asset_path = prop_value.get("AssetPath", {})
+                actor_path = asset_path.get("AssetName", "")
+                model["ActorPath"] = actor_path
+                # Extract DLC name if path contains /DLC/
+                # e.g., /Game/DLC/RohanPack/Armor/... -> RohanPack
+                if "/DLC/" in actor_path:
+                    parts = actor_path.split("/")
+                    try:
+                        dlc_index = parts.index("DLC")
+                        if dlc_index + 1 < len(parts):
+                            model["DLC"] = parts[dlc_index + 1]
+                            # Look up the DLC title from the map
+                            model["DLCTitle"] = DLC_TITLE_MAP.get(model["DLC"], "")
+                    except ValueError:
+                        pass
+
         elif prop_name == "InitialRepairCost":
             # Extract Count and MaterialHandle from the nested structure
             if isinstance(prop_value, list):
@@ -391,6 +428,11 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
         model["SandboxUnlockType"] = recipe.get("SandboxUnlockType", "")
         model["SandboxUnlockFragments"] = recipe.get("SandboxUnlockFragments", 0)
 
+        # If SandboxUnlockType is Unknown but CampaignUnlockType is known, copy from Campaign
+        if model["SandboxUnlockType"] == "Unknown" and model["CampaignUnlockType"] != "Unknown":
+            model["SandboxUnlockType"] = model["CampaignUnlockType"]
+            model["SandboxUnlockFragments"] = model["CampaignUnlockFragments"]
+
         # Convert crafting station keys to display names
         stations = []
         for station_key in recipe.get("CraftingStations", []):
@@ -404,6 +446,9 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
             display_name = get_material_display_name(mat["Item"], string_map)
             materials.append({"Name": display_name, "Count": mat["Count"]})
         model["Materials"] = materials
+    else:
+        # No recipe found - this is a cosmetic item
+        model["Cosmetic"] = True
 
     return model
 
@@ -441,12 +486,18 @@ def generate_wiki_template(model):
     campaign_unlock = "???"
     if model["CampaignUnlockType"] == "CollectFragments":
         campaign_unlock = f"Collect {model['CampaignUnlockFragments']} fragments"
+    elif model["CampaignUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
+        # DLC items with Unknown or empty unlock type require purchasing the DLC
+        campaign_unlock = f"Purchase {model['DLCTitle']}"
     elif model["CampaignUnlockType"]:
         campaign_unlock = model["CampaignUnlockType"]
 
     sandbox_unlock = "???"
     if model["SandboxUnlockType"] == "CollectFragments":
         sandbox_unlock = f"Collect {model['SandboxUnlockFragments']} fragments"
+    elif model["SandboxUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
+        # DLC items with Unknown or empty unlock type require purchasing the DLC
+        sandbox_unlock = f"Purchase {model['DLCTitle']}"
     elif model["SandboxUnlockType"]:
         sandbox_unlock = model["SandboxUnlockType"]
 
