@@ -23,6 +23,29 @@ DLC_TITLE_MAP = {
     "RohanPack": "The Rohan Pack",
 }
 
+# Mapping for items with "Manual" unlock type - these are purchased from traders
+# Maps DisplayName to the unlock text
+MANUAL_UNLOCK_MAP = {
+    "Innkeeper's Garb": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "Keeper's Vest": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}",
+    "Metalworker's Slouch": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}",
+    "Mason's Hat": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}",
+    "Stonemason's Garb": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}",
+    "Cook's Toque": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}",
+    "Salvager's Ghillie": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothlorien Trader}}",
+    "Smith's Apron": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "Advanced Miner's Helm": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "Merchant's Attire": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "Builder's Kettle": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "Artisan's Topper": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "Blacksmith's Caul": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}",
+    "Expeditioner's Armor": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}",
+    "Guard's Helm": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}",
+    "Brewmaster's Casque": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "Kitchen Apron": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "Meat Hat": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+}
+
 # Mapping from CraftingStation keys to Constructions string keys
 # This handles inconsistent naming between recipe data and string tables
 STATION_KEY_MAP = {
@@ -486,6 +509,9 @@ def generate_wiki_template(model):
     campaign_unlock = "???"
     if model["CampaignUnlockType"] == "CollectFragments":
         campaign_unlock = f"Collect {model['CampaignUnlockFragments']} fragments"
+    elif model["CampaignUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
+        # Manual unlock items are purchased from traders
+        campaign_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
     elif model["CampaignUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         campaign_unlock = f"Purchase {model['DLCTitle']}"
@@ -495,6 +521,9 @@ def generate_wiki_template(model):
     sandbox_unlock = "???"
     if model["SandboxUnlockType"] == "CollectFragments":
         sandbox_unlock = f"Collect {model['SandboxUnlockFragments']} fragments"
+    elif model["SandboxUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
+        # Manual unlock items are purchased from traders
+        sandbox_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
     elif model["SandboxUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         sandbox_unlock = f"Purchase {model['DLCTitle']}"
