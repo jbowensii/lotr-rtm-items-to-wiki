@@ -620,25 +620,57 @@ def generate_wiki_template(model):
     elif model["SandboxUnlockType"]:
         sandbox_unlock = model["SandboxUnlockType"]
 
-    # Build craft time
-    craft_time = model.get("CraftTime", 0)
-    craft_time_str = f"{int(craft_time)}" if craft_time else "???"
+    # Build stats and crafting/cosmetic sections based on Cosmetic flag
+    if model["Cosmetic"]:
+        # Cosmetic items don't have stats or crafting info
+        stats_section = ""
+        crafting_or_cosmetic_section = """== Cosmetic ==
 
-    # Build stations list (already resolved to display names)
-    stations_lines = ""
-    if model["CraftingStations"]:
-        for station_name in model["CraftingStations"]:
-            stations_lines += f"* {{{{LI|{station_name}}}}}\n"
+This is a cosmetic piece of armor and does not effect the stats of the armor you are wearing only the look.
+"""
     else:
-        stations_lines = "* {{LI|???}}\n"
+        # Build stats section
+        stats_section = f"""== Stats ==
 
-    # Build materials list
-    materials_lines = ""
-    if model["Materials"]:
-        for mat in model["Materials"]:
-            materials_lines += f"* ({mat['Count']}) {{{{LI|{mat['Name']}}}}}\n"
-    else:
-        materials_lines = "* {{LI|???}}\n"
+Durability: {model['Durability']}
+
+Armor Protection: {model['DamageProtection']}
+
+Armor Effectiveness: {model['DamageReduction']}
+{damage_modifiers_line}
+Max Repair Cost: {model['MaxRepairCost']} {{{{LI|{model['RepairMaterial']}}}}}
+
+"""
+        # Build craft time
+        craft_time = model.get("CraftTime", 0)
+        craft_time_str = f"{int(craft_time)}" if craft_time else "???"
+
+        # Build stations list (already resolved to display names)
+        stations_lines = ""
+        if model["CraftingStations"]:
+            for station_name in model["CraftingStations"]:
+                stations_lines += f"* {{{{LI|{station_name}}}}}\n"
+        else:
+            stations_lines = "* {{LI|???}}\n"
+
+        # Build materials list
+        materials_lines = ""
+        if model["Materials"]:
+            for mat in model["Materials"]:
+                materials_lines += f"* ({mat['Count']}) {{{{LI|{mat['Name']}}}}}\n"
+        else:
+            materials_lines = "* {{LI|???}}\n"
+
+        crafting_or_cosmetic_section = f"""== Crafting ==
+
+Time: {craft_time_str} seconds
+
+Station:
+
+{stations_lines}
+Materials:
+
+{materials_lines}"""
 
     template = f"""{{{{Item
  | title         = {{{{PAGENAME}}}}
@@ -659,26 +691,7 @@ In-game: ''{description}''
 * Campaign {{{{spoiler|{campaign_unlock}}}}}
 * Sandbox  {{{{spoiler|{sandbox_unlock}}}}}
 
-== Stats ==
-
-Durability: {model['Durability']}
-
-Armor Protection: {model['DamageProtection']}
-
-Armor Effectiveness: {model['DamageReduction']}
-{damage_modifiers_line}
-Max Repair Cost: {model['MaxRepairCost']} {{{{LI|{model['RepairMaterial']}}}}}
-
-== Crafting ==
-
-Time: {craft_time_str} seconds
-
-Station:
-
-{stations_lines}
-Materials:
-
-{materials_lines}
+{stats_section}{crafting_or_cosmetic_section}
 {{{{Navbox items}}}}
 [[Category:Tier {tier} Items]]
 [[Category:{model['SubType']}s]]
