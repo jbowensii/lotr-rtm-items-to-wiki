@@ -27,6 +27,26 @@ DLC_TITLE_MAP = {
 TINTED_ARMOR_SUFFIXES = ["Amzul", "Masharuz", "Shayar"]
 TINTED_ARMOR_UNLOCK_TEXT = "This cosmetic varient unlocks when a complete set of the original armor is crafted"
 
+# Fragment location hints by tier for Campaign mode
+CAMPAIGN_FRAGMENT_LOCATION = {
+    1: ", Repair [[Damaged Statues]] in [[Westgate]]",
+    2: ", Repair [[Damaged Statues]] in the [[Mines of Moria]]",
+    3: ", Repair [[Damaged Statues]] in the [[Lower Deeps]]",
+    4: ", Repair [[Damaged Statues]] in the [[Desolation]]",
+    5: ", Unlock the [[Great Nogrod Forge]]",
+    6: ", Speak with [[Aric]] after the end-game credits",
+}
+
+# Fragment location hints by tier for Sandbox mode
+SANDBOX_FRAGMENT_LOCATION = {
+    1: ", Repair [[Damaged Statues]] in the [[Gate]] or [[Elven]] areas",
+    2: ", Repair [[Damaged Statues]] in the [[Mines]] areas",
+    3: ", Repair [[Damaged Statues]] in the [[Mines]] or [[Deeps]] areas",
+    4: ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas",
+    5: ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas",
+    6: ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas",
+}
+
 # Mapping for items with "Manual" unlock type - these are purchased from traders
 # Maps DisplayName to the unlock text
 MANUAL_UNLOCK_MAP = {
@@ -448,7 +468,12 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
                             if len(parts) >= 2:
                                 model["SubType"] = parts[1]
                             if len(parts) >= 3:
-                                model["Tier"] = parts[2]
+                                # Extract just the numeric tier, stripping "Tier" prefix
+                                tier_raw = parts[2]
+                                if tier_raw.startswith("Tier"):
+                                    model["Tier"] = tier_raw[4:].strip()
+                                else:
+                                    model["Tier"] = tier_raw.strip()
 
         elif prop_name == "Icon":
             # Extract asset path
@@ -537,31 +562,34 @@ def strip_rich_text(text):
     return result
 
 
-def format_tier(tier):
-    """Convert Tier3 to 3, etc."""
-    if tier.startswith("Tier"):
-        return tier[4:]
-    return tier
-
-
 def generate_wiki_template(model):
     """Generate MediaWiki template from the data model."""
 
     # Clean up description
     description = strip_rich_text(model["Description"])
 
-    # Format tier
-    tier = format_tier(model["Tier"])
+    # Tier is already just the number (e.g., "3" not "Tier3")
+    tier = model["Tier"]
 
     # Build damage modifiers line if present
     damage_modifiers_line = ""
     if model["DamageModifiers"]:
         damage_modifiers_line = f"\nDamage Modifiers: {model['DamageModifiers']}\n"
 
+    # Get tier as integer for fragment location lookup
+    tier_int = 0
+    try:
+        tier_int = int(tier)
+    except (ValueError, TypeError):
+        pass
+
     # Build unlock lines
     campaign_unlock = "???"
     if model["CampaignUnlockType"] == "CollectFragments":
         campaign_unlock = f"Collect {model['CampaignUnlockFragments']} fragments"
+        # Append tier-based location hint
+        if tier_int in CAMPAIGN_FRAGMENT_LOCATION:
+            campaign_unlock += CAMPAIGN_FRAGMENT_LOCATION[tier_int]
     elif model["CampaignUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
         # Manual unlock items are purchased from traders
         campaign_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
@@ -577,6 +605,9 @@ def generate_wiki_template(model):
     sandbox_unlock = "???"
     if model["SandboxUnlockType"] == "CollectFragments":
         sandbox_unlock = f"Collect {model['SandboxUnlockFragments']} fragments"
+        # Append tier-based location hint
+        if tier_int in SANDBOX_FRAGMENT_LOCATION:
+            sandbox_unlock += SANDBOX_FRAGMENT_LOCATION[tier_int]
     elif model["SandboxUnlockType"] == "Manual" and model["DisplayName"] in MANUAL_UNLOCK_MAP:
         # Manual unlock items are purchased from traders
         sandbox_unlock = MANUAL_UNLOCK_MAP[model["DisplayName"]]
