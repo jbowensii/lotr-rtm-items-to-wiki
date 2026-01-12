@@ -11,16 +11,16 @@ OUTPUT_DIR = os.path.join("output", "armor")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
-    "BeornPack": "The Beorn's Lodge Pack",
-    "DurinsFolk": "Durin's Folk Expansion",
-    "Elven": "Durin's Folk Expansion",
-    "EntPack": "The Ent-craft Pack",
-    "Holiday2025": "The Yule-tide Pack",
-    "HolidayPack": "The Yule-tide Pack",
-    "LordOfMoria": "End Game Award",
-    "OrcHunterPack": "The Orc Hunter Pack",
-    "OriginCosmetics": "The Yule-tide Pack",
-    "RohanPack": "The Rohan Pack",
+    "BeornPack": "{{LI|The Beorn's Lodge Pack}}",
+    "DurinsFolk": "{{LI|Durin's Folk Expansion}}",
+    "Elven": "{{LI|Durin's Folk Expansion}}",
+    "EntPack": "{{LI|The Ent-craft Pack}}",
+    "Holiday2025": "{{LI|The Yule-tide Pack}}",
+    "HolidayPack": "{{LI|The Yule-tide Pack}}",
+    "LordOfMoria": "{{LI|End Game Award}}",
+    "OrcHunterPack": "{{LI|The Orc Hunter Pack}}",
+    "OriginCosmetics": "{{LI|Return to Moria}}",
+    "RohanPack": "{{LI|The Rohan Pack}}",
 }
 
 # Tinted armor variant suffixes - these unlock when a complete set of original armor is crafted
@@ -479,7 +479,18 @@ def extract_armor_model(armor_entry, string_map, recipe_map):
             # Extract asset path
             if isinstance(prop_value, dict):
                 asset_path = prop_value.get("AssetPath", {})
-                model["Icon"] = asset_path.get("AssetName", "")
+                icon_path = asset_path.get("AssetName", "")
+                model["Icon"] = icon_path
+                # Fallback: Extract DLC name from Icon path if not already set
+                if not model["DLC"] and "/DLC/" in icon_path:
+                    parts = icon_path.split("/")
+                    try:
+                        dlc_index = parts.index("DLC")
+                        if dlc_index + 1 < len(parts):
+                            model["DLC"] = parts[dlc_index + 1]
+                            model["DLCTitle"] = DLC_TITLE_MAP.get(model["DLC"], "")
+                    except ValueError:
+                        pass
 
         elif prop_name == "Actor":
             # Extract actor path (used to identify DLC content)
@@ -596,6 +607,9 @@ def generate_wiki_template(model):
     elif model["CampaignUnlockType"] == "Manual" and is_tinted_armor_variant(model["DisplayName"]):
         # Tinted armor variants unlock when a complete set of original armor is crafted
         campaign_unlock = TINTED_ARMOR_UNLOCK_TEXT
+    elif model["CampaignUnlockType"] == "Manual" and model["SandboxUnlockType"] != "Manual":
+        # Manual in one mode but not the other means unavailable in this mode
+        campaign_unlock = "Unavailable"
     elif model["CampaignUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         campaign_unlock = f"Purchase {model['DLCTitle']}"
@@ -614,6 +628,9 @@ def generate_wiki_template(model):
     elif model["SandboxUnlockType"] == "Manual" and is_tinted_armor_variant(model["DisplayName"]):
         # Tinted armor variants unlock when a complete set of original armor is crafted
         sandbox_unlock = TINTED_ARMOR_UNLOCK_TEXT
+    elif model["SandboxUnlockType"] == "Manual" and model["CampaignUnlockType"] != "Manual":
+        # Manual in one mode but not the other means unavailable in this mode
+        sandbox_unlock = "Unavailable"
     elif model["SandboxUnlockType"] in ("Unknown", "") and model["DLCTitle"]:
         # DLC items with Unknown or empty unlock type require purchasing the DLC
         sandbox_unlock = f"Purchase {model['DLCTitle']}"
