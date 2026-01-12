@@ -70,6 +70,13 @@ MANUAL_UNLOCK_MAP = {
     "Meat Hat": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
 }
 
+# Special campaign unlock overrides for items with unique unlock methods
+# These take priority over all other unlock logic
+# Maps DisplayName to campaign unlock text
+CAMPAIGN_UNLOCK_OVERRIDE = {
+    "Dimrill Helmet": "Looting the [[Craft Plans]] from the [[Muznakan of Telchar's Line]] in The [[Desolation]]",
+}
+
 # Mapping from CraftingStation keys to Constructions string keys
 # This handles inconsistent naming between recipe data and string tables
 STATION_KEY_MAP = {
@@ -596,7 +603,10 @@ def generate_wiki_template(model):
 
     # Build unlock lines
     campaign_unlock = "???"
-    if model["CampaignUnlockType"] == "CollectFragments":
+    # Check for special campaign unlock override first
+    if model["DisplayName"] in CAMPAIGN_UNLOCK_OVERRIDE:
+        campaign_unlock = CAMPAIGN_UNLOCK_OVERRIDE[model["DisplayName"]]
+    elif model["CampaignUnlockType"] == "CollectFragments":
         campaign_unlock = f"Collect {model['CampaignUnlockFragments']} fragments"
         # Append tier-based location hint
         if tier_int in CAMPAIGN_FRAGMENT_LOCATION:
@@ -743,6 +753,10 @@ def should_exclude(model):
     # Name doesn't start with a letter
     if not display_name[0].isalpha():
         return True, f"Name begins with non-letter: '{display_name[0]}'"
+
+    # DEV items are internal/test items
+    if display_name.startswith("DEV - "):
+        return True, "DEV item"
 
     return False, ""
 
