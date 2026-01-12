@@ -49,19 +49,35 @@ MANUAL_UNLOCK_MAP = {
 # Mapping from CraftingStation keys to Constructions string keys
 # This handles inconsistent naming between recipe data and string tables
 STATION_KEY_MAP = {
-    "CraftingStation_FloodedForge": "Constructions.FloodedForge",
-    "CraftingStation_AdvancedForge": "Constructions.ForgeAdvanced",
+    # Forges
     "CraftingStation_BasicForge": "Constructions.BasicForge",
+    "CraftingStation_AdvancedForge": "Constructions.ForgeAdvanced",
+    "CraftingStation_FloodedForge": "Constructions.FloodedForge",
     "CraftingStation_DurinForge": "Constructions.DurinForge",
     "CraftingStation_MithrilForge": "Constructions.MithrilForge",
     "CraftingStation_NogrodForge": "Constructions.NogrodForge",
-    "CraftingStation_ElvishForge": "Constructions.LegendayElvishForge",
+    "CraftingStation_LegendayElvishForge": "Constructions.LegendayElvishForge",
+    "CraftingStation_ForgeUpgrade": "Constructions.ForgeUpgrade",
+    # Furnaces
     "CraftingStation_BasicFurnace": "Constructions.BasicFurnace",
     "CraftingStation_AdvancedFurnace": "Constructions.FurnaceAdvanced",
     "CraftingStation_FloodedFurnace": "Constructions.FloodedFurnace.Name",
+    "CraftingStation_LegendaryDurinsFurnace": "Constructions.LegendayElvishFurnace",
+    "CraftingStation_LegendaryFloodedFurnace": "Constructions.FloodedFurnace.Name",
+    "CraftingStation_LegendaryMithrilFurnace": "Constructions.LegendayElvishFurnace",
+    "CraftingStation_LegendaryNogrodFurnace": "Constructions.LegendayElvishFurnace",
+    "CraftingStation_LegendayElvishFurnace": "Constructions.LegendayElvishFurnace",
+    "CraftingStation_FurnaceUpgrade": "Constructions.ForgeUpgrade",
+    # Other stations
     "CraftingStation_Workbench": "Constructions.Workbench",
     "CraftingStation_Campfire": "Constructions.Campfire",
     "CraftingStation_MealTable": "Constructions.MealTable",
+    "CraftingStation_FabricStation": "Constructions.FabricStation.Name",
+    "CraftingStation_Hearth": "Constructions.Hearth_Small.name",
+    "CraftingStation_Kitchen": "Constructions.Kitchen_Stove.Name",
+    "CraftingStation_Mill": "Constructions.Mill.Name",
+    "CraftingStation_PurificationStation": "Constructions.PurificationStation.Name",
+    "CraftingStation_TintingStation": "Constructions.TintingStation.Name",
 }
 
 
@@ -231,20 +247,40 @@ def extract_recipe(recipe_entry):
 
 def get_material_display_name(item_key, string_map):
     """Convert item key like 'Item.GunMetalIngot' to display name via string lookup."""
-    # Item.GunMetalIngot -> Items.Items.GunMetalIngot.Name
+    # Item.GunMetalIngot -> try Items.Items.GunMetalIngot.Name, then Items.GunMetalIngot.Name
     if item_key.startswith("Item."):
         item_name = item_key[5:]  # Remove "Item." prefix
+        # Try Items.Items.X.Name first
         string_key = f"Items.Items.{item_name}.Name"
-        return string_map.get(string_key, item_name)
+        result = string_map.get(string_key)
+        if result:
+            return result
+        # Fallback: try Items.X.Name
+        string_key = f"Items.{item_name}.Name"
+        result = string_map.get(string_key)
+        if result:
+            return result
+        return item_name
     # Ore.MoonStone -> Items.Ores.MoonStone.Name
     if item_key.startswith("Ore."):
         ore_name = item_key[4:]  # Remove "Ore." prefix
         string_key = f"Items.Ores.{ore_name}.Name"
         return string_map.get(string_key, ore_name)
-    # Consumable.EveningAle -> Consumable.EveningAle.Name
+    # Consumable.Meat -> Items.Consumables.Meat.Name
     if item_key.startswith("Consumable."):
+        consumable_name = item_key[11:]  # Remove "Consumable." prefix
+        string_key = f"Items.Consumables.{consumable_name}.Name"
+        result = string_map.get(string_key)
+        if result:
+            return result
+        # Fallback: try Consumable.X.Name pattern
         string_key = f"{item_key}.Name"
-        return string_map.get(string_key, item_key)
+        return string_map.get(string_key, consumable_name)
+    # No prefix - try Items.X.Name pattern (e.g., TrackingDevice -> Items.TrackingDevice.Name)
+    string_key = f"Items.{item_key}.Name"
+    result = string_map.get(string_key)
+    if result:
+        return result
     return item_key
 
 
