@@ -74,7 +74,30 @@ MANUAL_UNLOCK_MAP = {
 # These take priority over all other unlock logic
 # Maps DisplayName to campaign unlock text
 CAMPAIGN_UNLOCK_OVERRIDE = {
+    "Crested Helmet": "The Recipe is found in [[Muznakan of Gimol's Line]]",
     "Dimrill Helmet": "Looting the [[Craft Plans]] from the [[Muznakan of Telchar's Line]] in The [[Desolation]]",
+    "Durin's Guard Armor": "Craft {{LI|Durin's Axe}}",
+    "Durin's Guard Boots": "Craft {{LI|Durin's Axe}}",
+    "Durin's Guard Helmet": "Craft {{LI|Durin's Axe}}",
+    "Durin's Gloves": "Craft {{LI|Durin's Axe}}",
+    "Khazâd Army Helmet": "Build a {{LI|Khuzdul Forge}}",
+    "Last Alliance Helmet": "The Recipe is found in [[Muznakan of Fundin's Line]]",
+    "Longbottom Hat": "The Recipe is found in [[Muznakan of Narvi's Line]]",
+    "Trapper Hat": "The Recipe is found in [[Muznakan of Ori's Line]]",
+}
+
+# Special sandbox unlock overrides for items with unique unlock methods
+# Maps DisplayName to sandbox unlock text
+SANDBOX_UNLOCK_OVERRIDE = {
+    "Crested Helmet": "The Recipe is found in [[Muznakan of Gimol's Line]]",
+    "Dimrill Helmet": "Looting the [[Craft Plans]] from the [[Muznakan of Telchar's Line]] in The [[Desolation]]",
+    "Durin's Guard Armor": "Repairing the [[Great Forge of Durin]]",
+    "Durin's Guard Boots": "Repairing the [[Great Forge of Durin]]",
+    "Durin's Guard Helmet": "Repairing the [[Great Forge of Durin]]",
+    "Durin's Gloves": "Repairing the [[Great Forge of Durin]]",
+    "Last Alliance Helmet": "The Recipe is found in [[Muznakan of Fundin's Line]]",
+    "Longbottom Hat": "The Recipe is found in [[Muznakan of Narvi's Line]]",
+    "Trapper Hat": "The Recipe is found in [[Muznakan of Ori's Line]]",
 }
 
 # Mapping from CraftingStation keys to Constructions string keys
@@ -205,7 +228,8 @@ def extract_recipe(recipe_entry):
         "CampaignUnlockType": "",
         "CampaignUnlockFragments": 0,
         "SandboxUnlockType": "",
-        "SandboxUnlockFragments": 0
+        "SandboxUnlockFragments": 0,
+        "HasSandboxUnlockOverride": False
     }
 
     for prop in properties:
@@ -269,6 +293,9 @@ def extract_recipe(recipe_entry):
                     elif inner.get("Name") == "NumFragments":
                         recipe["CampaignUnlockFragments"] = inner.get("Value", 0)
 
+        elif prop_name == "bHasSandboxUnlockOverride":
+            recipe["HasSandboxUnlockOverride"] = prop_value
+
         elif prop_name == "SandboxUnlocks":
             # Extract sandbox unlock info
             if isinstance(prop_value, list):
@@ -280,6 +307,11 @@ def extract_recipe(recipe_entry):
                         recipe["SandboxUnlockType"] = unlock_type
                     elif inner.get("Name") == "NumFragments":
                         recipe["SandboxUnlockFragments"] = inner.get("Value", 0)
+
+    # If no sandbox override, use campaign unlock for sandbox
+    if not recipe["HasSandboxUnlockOverride"] and recipe["CampaignUnlockType"]:
+        recipe["SandboxUnlockType"] = recipe["CampaignUnlockType"]
+        recipe["SandboxUnlockFragments"] = recipe["CampaignUnlockFragments"]
 
     return recipe
 
@@ -627,7 +659,10 @@ def generate_wiki_template(model):
         campaign_unlock = model["CampaignUnlockType"]
 
     sandbox_unlock = "???"
-    if model["SandboxUnlockType"] == "CollectFragments":
+    # Check for special sandbox unlock override first
+    if model["DisplayName"] in SANDBOX_UNLOCK_OVERRIDE:
+        sandbox_unlock = SANDBOX_UNLOCK_OVERRIDE[model["DisplayName"]]
+    elif model["SandboxUnlockType"] == "CollectFragments":
         sandbox_unlock = f"Collect {model['SandboxUnlockFragments']} fragments"
         # Append tier-based location hint
         if tier_int in SANDBOX_FRAGMENT_LOCATION:
