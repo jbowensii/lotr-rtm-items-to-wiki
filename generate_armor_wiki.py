@@ -83,6 +83,7 @@ CAMPAIGN_UNLOCK_OVERRIDE = {
     "Khazâd Army Helmet": "Build a {{LI|Khuzdul Forge}}",
     "Last Alliance Helmet": "The Recipe is found in [[Muznakan of Fundin's Line]]",
     "Longbottom Hat": "The Recipe is found in [[Muznakan of Narvi's Line]]",
+    "Miner’s Helmet": "Obtain [[Cave Honey]]",
     "Trapper Hat": "The Recipe is found in [[Muznakan of Ori's Line]]",
 }
 
