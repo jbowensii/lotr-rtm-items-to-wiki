@@ -317,57 +317,49 @@ def extract_recipe(recipe_entry):
     return recipe
 
 
+def find_string_by_suffix(item_key, string_map, suffix=".Name"):
+    """Search string table for any key ending with .{item_key}{suffix}."""
+    # Look for any key that ends with .{item_key}.Name (case-insensitive match on item_key)
+    search_suffix = f".{item_key}{suffix}"
+    search_suffix_lower = search_suffix.lower()
+
+    for key in string_map:
+        if key.lower().endswith(search_suffix_lower):
+            return string_map[key]
+
+    return None
+
+
+# Special mapping for materials with non-standard naming (item handle -> string table key)
+MATERIAL_KEY_MAP = {
+    "Item.Scrap": "ScrapMetal",  # Item.Scrap maps to ScrapMetal in string tables
+}
+
+
 def get_material_display_name(item_key, string_map):
     """Convert item key like 'Item.GunMetalIngot' to display name via string lookup."""
-    # Item.GunMetalIngot -> try Items.Items.GunMetalIngot.Name, then Items.GunMetalIngot.Name
-    if item_key.startswith("Item."):
-        item_name = item_key[5:]  # Remove "Item." prefix
-        # Try Items.Items.X.Name first
-        string_key = f"Items.Items.{item_name}.Name"
-        result = string_map.get(string_key)
-        if result:
-            return result
-        # Fallback: try Items.X.Name
-        string_key = f"Items.{item_name}.Name"
-        result = string_map.get(string_key)
-        if result:
-            return result
-        # Fallback: try Item.X.Name (original key format, e.g., Item.Wool.Name)
-        string_key = f"{item_key}.Name"
-        result = string_map.get(string_key)
-        if result:
-            return result
-        return item_name
-    # Ore.MoonStone -> Items.Ores.MoonStone.Name
-    if item_key.startswith("Ore."):
-        ore_name = item_key[4:]  # Remove "Ore." prefix
-        string_key = f"Items.Ores.{ore_name}.Name"
-        return string_map.get(string_key, ore_name)
-    # Consumable.Meat -> Items.Consumables.Meat.Name
-    if item_key.startswith("Consumable."):
-        consumable_name = item_key[11:]  # Remove "Consumable." prefix
-        string_key = f"Items.Consumables.{consumable_name}.Name"
-        result = string_map.get(string_key)
-        if result:
-            return result
-        # Fallback: try Consumable.X.Name pattern
-        string_key = f"{item_key}.Name"
-        return string_map.get(string_key, consumable_name)
-    # No prefix - try Items.X.Name pattern (e.g., TrackingDevice -> Items.TrackingDevice.Name)
-    string_key = f"Items.{item_key}.Name"
-    result = string_map.get(string_key)
+    # Check special mapping first
+    if item_key in MATERIAL_KEY_MAP:
+        base_key = MATERIAL_KEY_MAP[item_key]
+    elif "." in item_key:
+        base_key = item_key.split(".")[-1]
+    else:
+        base_key = item_key
+
+    # Use flexible string table lookup
+    result = find_string_by_suffix(base_key, string_map, ".Name")
     if result:
         return result
-    return item_key
+
+    # Fallback: clean up the key
+    name = re.sub(r'([a-z])([A-Z])', r'\1 \2', base_key)
+    return name
 
 
 def get_repair_material_display_name(item_key, string_map):
-    """Convert repair material key like 'Item.Scrap' to display name via Category lookup."""
-    # Item.Scrap -> Category.Item.Scrap
-    if item_key.startswith("Item."):
-        string_key = f"Category.{item_key}"
-        return string_map.get(string_key, item_key)
-    return item_key
+    """Convert repair material key like 'Item.Scrap' to display name."""
+    # Use the same logic as get_material_display_name
+    return get_material_display_name(item_key, string_map)
 
 
 def get_damage_modifier_display_name(modifier_key, string_map):
