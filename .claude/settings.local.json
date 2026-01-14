@@ -9,7 +9,17 @@
       "Bash(findstr:*)",
       "Bash(powershell -Command \"Get-Content ''Blue Mountains Hunter''''s Armor.wiki''\")",
       "Bash(cat:*)",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "Bash(gh release create v0.1 --title \"v0.1 - Armor Wiki Generator\" --notes \"$\\(cat <<''EOF''\n## Initial Release - Armor Wiki Generator\n\nThis release includes the `generate_armor_wiki.py` script that converts Lord of the Rings: Return to Moria armor data \\(UAsset JSON exports\\) into MediaWiki templates.\n\n### Features\n\n- Parses DT_Armor.json and DT_ItemRecipes.json from UAssetAPI exports\n- Generates wiki templates with:\n  - Item infobox \\(type, subtype, tier\\)\n  - In-game descriptions\n  - Unlock requirements for Campaign and Sandbox modes\n  - Stats \\(durability, protection, effectiveness, damage modifiers\\)\n  - Crafting information \\(time, stations, materials\\)\n- Handles special cases:\n  - DLC detection from asset paths\n  - Tinted armor variants \\(Amzul, Masharuz, Shayar\\)\n  - Cosmetic-only items\n  - Manual unlock overrides for unique items\n  - Fragment collection with tier-based location hints\n- Excludes DEV/test items automatically\n\n### Output\n\nGenerates 153 armor wiki templates in `output/armor/`\nEOF\n\\)\")",
+      "Bash(where:*)",
+      "Bash(xargs:*)",
+      "Bash(del \"c:\\\\Users\\\\johnb\\\\OneDrive\\\\Documents\\\\Projects\\\\lotr-rtm-items-to-wiki\\\\output\\\\weapons\\\\TEST Magical Axe.wiki\")",
+      "Bash(gh release create v0.2 --title \"Release 0.2 - Weapons Wiki Generator\" --notes \"$\\(cat <<''EOF''\n## New Features\n\n### Weapons Wiki Generator\nAdded `generate_weapons_wiki.py` to generate MediaWiki templates for weapon items.\n\n**Features:**\n- Damage, durability, speed, energy cost, block damage reduction, and armor penetration stats\n- Damage type mapping \\(Piercing, Slashing, Bludgeoning with weapon subtypes\\)\n- One-handed/Two-handed weapon classification\n- Campaign and Sandbox unlock overrides for 42+ weapons with unique unlock methods\n- Proper a/an grammar handling for article selection\n- Zero-value stat suppression \\(stats with 0 are not displayed\\)\n- Durability -1 displayed as \"Expended on use\" for ammunition\n- Exclusions for TEST, DEV, Broken variants, disabled items, and unresolved string references\n\n**Output:**\n- Generates 76 weapon wiki templates\n\n## Data Files\n- Added `source/DT_Weapons.json` weapon data export\nEOF\n\\)\")",
+      "Bash(git tag:*)",
+      "Bash(cd:*)",
+      "Bash(gh release create:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)"
     ]
   }
 }
