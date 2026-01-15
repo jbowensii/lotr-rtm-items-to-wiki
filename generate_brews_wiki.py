@@ -6,6 +6,7 @@ SOURCE_DIR = "source"
 STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
 BREWS_FILE = os.path.join(SOURCE_DIR, "DT_Brews.json")
 RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
+THRESHOLD_EFFECTS_FILE = os.path.join(SOURCE_DIR, "DT_ThresholdEffects.json")
 OUTPUT_DIR = os.path.join("output", "brews")
 
 # DLC detection patterns
@@ -28,6 +29,21 @@ CAMPAIGN_UNLOCK_OVERRIDE = {
 
 # Special sandbox unlock overrides for items with unique unlock methods
 SANDBOX_UNLOCK_OVERRIDE = {
+}
+
+# Effect name overrides for brews that don't have discoverable effect names
+EFFECT_NAME_OVERRIDE = {
+    "Scour Pilsner": "Fortified",
+    "Ironheart Stout": "Stout",
+    "Darkeye Stout": "Darkeye",
+}
+
+# Effect name to threshold suffix mapping for overridden effects
+# Used to look up effect descriptions when effect name is overridden
+EFFECT_SUFFIX_OVERRIDE = {
+    "Fortified": "Antidote",
+    "Stout": "DefensiveBrew",
+    "Darkeye": "AntiDarknessBrew",
 }
 
 
@@ -146,6 +162,34 @@ def load_recipes_data(filepath):
                     }
 
     return recipes_dict
+
+
+def load_threshold_effects_data(filepath):
+    """Load DT_ThresholdEffects.json and return a dict of effect durations."""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    effects_dict = {}
+    exports = data.get("Exports", [])
+    for export in exports:
+        table = export.get("Table", {})
+        if table:
+            effect_entries = table.get("Data", [])
+            for effect_entry in effect_entries:
+                effect_name = effect_entry.get("Name", "")
+
+                # Only process Brew_XXX entries (these contain duration)
+                if effect_name.startswith("Brew_"):
+                    properties = effect_entry.get("Value", [])
+
+                    # Find ThresholdTime property
+                    for prop in properties:
+                        if prop.get("Name") == "ThresholdTime":
+                            duration = prop.get("Value", 0)
+                            effects_dict[effect_name] = duration
+                            break
+
+    return effects_dict
 
 
 def get_property_value(properties, prop_name):
@@ -415,6 +459,114 @@ def format_brew_time(seconds):
     return f"{int(seconds):,} seconds<br>({minutes} minutes)"
 
 
+def get_brew_effect_info(properties, imports, threshold_effects, string_map):
+    """Extract brew effect name and duration from UseEffects property.
+
+    Returns a tuple: (effect_name, effect_duration_formatted, threshold_suffix)
+    """
+    # Find UseEffects property
+    use_effects = None
+    for prop in properties:
+        if prop.get("Name") == "UseEffects":
+            use_effects = prop.get("Value", [])
+            break
+
+    if not use_effects or not isinstance(use_effects, list) or len(use_effects) == 0:
+        return None, None, None
+
+    # Get the first effect reference
+    effect_ref = use_effects[0].get("Value", 0)
+
+    # Negative values reference imports
+    if effect_ref >= 0:
+        return None, None, None
+
+    # Look up the import
+    import_idx = abs(effect_ref) - 1
+    if import_idx >= len(imports):
+        return None, None, None
+
+    effect_class = imports[import_idx].get("ObjectName", "")
+
+    # Map effect class to threshold effect name
+    # Pattern: GE_XXXSip_C -> Brew_XXX
+    # Examples:
+    #   GE_EveningAleSip_C -> Brew_EveningAle
+    #   GE_StaminaBrewSip_C -> Brew_StaminaBrew
+    #   GE_HealthBrewSip_C -> Brew_HealthBrew
+
+    threshold_name = None
+    duration = None
+
+    # Try to match effect class to a threshold effect
+    if effect_class.startswith("GE_") and "Sip" in effect_class:
+        # Remove GE_ prefix and _C suffix
+        base = effect_class.replace("GE_", "").replace("Sip_C", "")
+
+        # Try to find matching threshold effect
+        for thresh_name, thresh_duration in threshold_effects.items():
+            # Check if the base matches the threshold name
+            thresh_base = thresh_name.replace("Brew_", "")
+
+            # Direct match or base match (accounting for "Brew" suffix)
+            if base == thresh_base or base.replace("Brew", "") == thresh_base:
+                threshold_name = thresh_name
+                duration = thresh_duration
+                break
+
+    if not threshold_name or duration is None:
+        return None, None, None
+
+    # Format duration
+    minutes = int(duration / 60)
+    duration_str = f"{int(duration)} seconds ({minutes} minutes)"
+
+    # Try to find effect name in string tables
+    # Pattern: Survival.Buff.XXX.Name
+    threshold_suffix = threshold_name.replace("Brew_", "")
+
+    # Try multiple string key patterns
+    effect_name = None
+    for key_pattern in [
+        f"Survival.Buff.{threshold_suffix}.Name",
+        f"Survival.Buff.{threshold_suffix}Brew.Name",
+    ]:
+        if key_pattern in string_map:
+            effect_name = string_map[key_pattern]
+            break
+
+    # If we couldn't find the effect name, return just the duration
+    if not effect_name:
+        return None, duration_str, threshold_suffix
+
+    return effect_name, duration_str, threshold_suffix
+
+
+def get_effect_description(effect_name, threshold_suffix, string_map):
+    """Get effect description from string tables.
+
+    Returns the effect description or None if not found.
+    """
+    if not effect_name and not threshold_suffix:
+        return None
+
+    # Try to find effect description in string tables
+    # Pattern: Survival.Buff.XXX.Description
+    desc_patterns = []
+
+    if threshold_suffix:
+        desc_patterns.extend([
+            f"Survival.Buff.{threshold_suffix}.Description",
+            f"Survival.Buff.{threshold_suffix}Brew.Description",
+        ])
+
+    for key_pattern in desc_patterns:
+        if key_pattern in string_map:
+            return string_map[key_pattern]
+
+    return None
+
+
 def generate_wiki_template(brew_model, string_map):
     """Generate MediaWiki template text for a brew."""
     lines = []
@@ -461,11 +613,17 @@ def generate_wiki_template(brew_model, string_map):
         if time_str:
             lines.append(f" | time          = {time_str}")
 
-    # Effect (placeholder for now)
-    lines.append(" | effect = ")
+    # Effect
+    if brew_model.get("EffectName"):
+        lines.append(f" | effect = [[{brew_model['EffectName']}]]")
+    else:
+        lines.append(" | effect = ")
 
-    # Effect duration (placeholder for now)
-    lines.append(" | effect duration = ")
+    # Effect duration
+    if brew_model.get("EffectDuration"):
+        lines.append(f" | effect duration = {brew_model['EffectDuration']}")
+    else:
+        lines.append(" | effect duration = ")
 
     lines.append("}}")
     lines.append("")
@@ -476,6 +634,12 @@ def generate_wiki_template(brew_model, string_map):
         lines.append("")
         lines.append("==Description==")
         lines.append(f"In-game: {brew_model['Description']}")
+
+        # Add effect description if available
+        if brew_model.get("EffectDescription"):
+            lines.append("")
+            effect_name = brew_model.get("EffectName", "Effect")
+            lines.append(f"'''{effect_name}''' - {brew_model['EffectDescription']}")
 
     # Unlocks section (only if unlock overrides exist)
     if brew_model.get("CampaignUnlock") or brew_model.get("SandboxUnlock"):
@@ -496,7 +660,7 @@ def generate_wiki_template(brew_model, string_map):
     return "\n".join(lines)
 
 
-def process_brews(brews_data, string_map, recipes_dict):
+def process_brews(brews_data, string_map, recipes_dict, threshold_effects, imports):
     """Process all brews and generate wiki models."""
     print("\nProcessing brews...")
     brew_models = []
@@ -577,6 +741,28 @@ def process_brews(brews_data, string_map, recipes_dict):
         if recipe_data:
             brew_model["RecipeData"] = recipe_data
 
+        # Extract effect information
+        effect_name, effect_duration, threshold_suffix = get_brew_effect_info(
+            properties, imports, threshold_effects, string_map
+        )
+
+        # Apply effect name override if available
+        if display_name in EFFECT_NAME_OVERRIDE:
+            effect_name = EFFECT_NAME_OVERRIDE[display_name]
+            # Use the suffix override for looking up descriptions
+            if effect_name in EFFECT_SUFFIX_OVERRIDE:
+                threshold_suffix = EFFECT_SUFFIX_OVERRIDE[effect_name]
+
+        if effect_name:
+            brew_model["EffectName"] = effect_name
+        if effect_duration:
+            brew_model["EffectDuration"] = effect_duration
+
+        # Get effect description
+        effect_desc = get_effect_description(effect_name, threshold_suffix, string_map)
+        if effect_desc:
+            brew_model["EffectDescription"] = effect_desc
+
         brew_models.append(brew_model)
 
     print(f"  Processed {len(brew_models)} brews")
@@ -637,13 +823,25 @@ def main():
     recipes_dict = load_recipes_data(RECIPES_FILE)
     print(f"  Total recipes: {len(recipes_dict)}")
 
+    # Load threshold effects data
+    print("Loading threshold effects data...")
+    threshold_effects = load_threshold_effects_data(THRESHOLD_EFFECTS_FILE)
+    print(f"  Total threshold effects: {len(threshold_effects)}")
+
     # Load brews data
     print("Loading brews data...")
+    with open(BREWS_FILE, 'r', encoding='utf-8') as f:
+        brews_json = json.load(f)
+
+    # Extract imports for effect lookups
+    imports = brews_json.get("Imports", [])
+    print(f"  Total imports: {len(imports)}")
+
     brews_data = load_brews_data(BREWS_FILE)
     print(f"  Total brews: {len(brews_data)}")
 
     # Process brews
-    brew_models, excluded_brews = process_brews(brews_data, string_map, recipes_dict)
+    brew_models, excluded_brews = process_brews(brews_data, string_map, recipes_dict, threshold_effects, imports)
 
     # Write wiki files
     write_wiki_files(brew_models, OUTPUT_DIR, string_map)

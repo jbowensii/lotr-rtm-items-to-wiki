@@ -61,6 +61,15 @@ CAMPAIGN_UNLOCK_OVERRIDE = {
     "Adamant Hammer": "Talking to {{LI|Aric}} after defeating [[Narag-Shazon]]",
     "Wood Flare": "Build or repair a {{LI|Stone Hearth}}",
     "Crystal Flare": "Obtaining {{LI|True-quartz}}",
+    # NPC Tools (all from Durin's Folk Expansion)
+    "Metalworker's Stoking Rod": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Brewmaster's Paddle": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Artisan's Adze": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Blacksmith's Mallet": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Builder's Mallet": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Cook's Frying Pan": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Salvager's Creel": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Grocer's Staff": "Purchase the {{LI|Durin's Folk}} Expansion",
 }
 
 # Special sandbox unlock overrides for items with unique unlock methods
@@ -80,6 +89,15 @@ SANDBOX_UNLOCK_OVERRIDE = {
     "Adamant Hammer": "Repair the {{LI|Great Mithril Forge}}",
     "Wood Flare": "Build or repair a {{LI|Stone Hearth}}",
     "Crystal Flare": "Obtaining {{LI|True-quartz}}",
+    # NPC Tools (all from Durin's Folk Expansion)
+    "Metalworker's Stoking Rod": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Brewmaster's Paddle": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Artisan's Adze": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Blacksmith's Mallet": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Builder's Mallet": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Cook's Frying Pan": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Salvager's Creel": "Purchase the {{LI|Durin's Folk}} Expansion",
+    "Grocer's Staff": "Purchase the {{LI|Durin's Folk}} Expansion",
 }
 
 # Mapping from CraftingStation keys to Constructions string keys
@@ -917,10 +935,6 @@ def should_exclude(model):
     # Broken tools (these are repair states, not separate items)
     if "Broken" in game_name:
         return True, "Broken tool variant"
-
-    # NPC tools (not player usable)
-    if "NPCTool" in game_name:
-        return True, "NPC tool (not player usable)"
 
     # Wanderer test items
     if "Wanderer" in game_name or "TestSequence" in game_name:

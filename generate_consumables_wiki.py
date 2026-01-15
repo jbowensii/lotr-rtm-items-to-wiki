@@ -22,6 +22,24 @@ DLC_TITLE_MAP = {
     "RohanPack": "{{LI|The Rohan Pack}}",
 }
 
+# Special campaign unlock overrides for items with unique unlock methods
+CAMPAIGN_UNLOCK_OVERRIDE = {
+    "Salt-cured Fish": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Arnor Trader}} OR {{LI|Blue Mountains Trader}}",
+    "Saffron": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
+    "Southern Oil": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
+    "Whale Tallow": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
+    "Thanazutsam": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Rivendell Trader}}",
+}
+
+# Special sandbox unlock overrides for items with unique unlock methods
+SANDBOX_UNLOCK_OVERRIDE = {
+    "Salt-cured Fish": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Arnor Trader}} OR {{LI|Blue Mountains Trader}}",
+    "Saffron": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
+    "Southern Oil": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
+    "Whale Tallow": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
+    "Thanazutsam": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Rivendell Trader}}",
+}
+
 # Mapping from CraftingStation keys to Constructions string keys
 STATION_KEY_MAP = {
     # Forges
@@ -485,6 +503,16 @@ def generate_wiki_template(consumable_model):
         lines.append("==Description==")
         lines.append(f"In-game: {consumable_model['Description']}")
 
+    # Unlocks section (only if unlock overrides exist)
+    if consumable_model.get("CampaignUnlock") or consumable_model.get("SandboxUnlock"):
+        lines.append("")
+        lines.append("== Unlocks ==")
+        lines.append("")
+        if consumable_model.get("CampaignUnlock"):
+            lines.append(f"* Campaign {{{{spoiler|{consumable_model['CampaignUnlock']}}}}}")
+        if consumable_model.get("SandboxUnlock"):
+            lines.append(f"* Sandbox  {{{{spoiler|{consumable_model['SandboxUnlock']}}}}}")
+
     # Stats section
     has_stats = (
         (consumable_model.get("HungerRestore") and consumable_model["HungerRestore"] > 0) or
@@ -645,6 +673,12 @@ def process_consumables(consumables_data, recipes_data, string_map, imports):
             consumable_model["CraftTime"] = parse_crafting_time(recipe)
         else:
             consumable_model["HasRecipe"] = False
+
+        # Check for unlock overrides
+        if display_name in CAMPAIGN_UNLOCK_OVERRIDE:
+            consumable_model["CampaignUnlock"] = CAMPAIGN_UNLOCK_OVERRIDE[display_name]
+        if display_name in SANDBOX_UNLOCK_OVERRIDE:
+            consumable_model["SandboxUnlock"] = SANDBOX_UNLOCK_OVERRIDE[display_name]
 
         consumable_models.append(consumable_model)
 
