@@ -1,0 +1,238 @@
+{
+  "Build-lore Case": {
+    "campaign": "Obtain {{LI|Build-lore Tome}}",
+    "sandbox": "Obtain {{LI|Build-lore Tome}}"
+  },
+  "Build-lore Shelves": {
+    "campaign": "Obtain {{LI|Build-lore Scroll}}",
+    "sandbox": "Obtain {{LI|Build-lore Scroll}}"
+  },
+  "Chest": {
+    "campaign": "Rebuild a {{LI|Stone Hearth}}",
+    "sandbox": "Build a {{LI|Small Hearth}}"
+  },
+  "Column Base": {
+    "campaign": "Obtain {{LI|Ihraz Granite}}",
+    "sandbox": "Build a {{LI|Tiled Hearth}}"
+  },
+  "Column Crown": {
+    "campaign": "Obtain {{LI|Ihraz Granite}}",
+    "sandbox": "Build a {{LI|Tiled Hearth}}"
+  },
+  "Column Shaft": {
+    "campaign": "Obtain {{LI|Ihraz Granite}}",
+    "sandbox": "Build a {{LI|Tiled Hearth}}"
+  },
+  "Corner Wall Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Decorative Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Double Braced Column": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Expedition Map": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}}"
+  },
+  "Geode Display": {
+    "campaign": "Purchase the Geode Display blueprint from the {{LI|Blue Mountains Trader}}",
+    "sandbox": "Purchase the Geode Display blueprint from the {{LI|Blue Mountains Trader}}"
+  },
+  "Granite Floor": {
+    "campaign": "Obtain {{LI|Ihraz Granite}}",
+    "sandbox": "Build a {{LI|Tiled Hearth}}"
+  },
+  "Hanging Cookware": {
+    "campaign": "Purchase the Hanging Cookware blueprint from the {{LI|Shire Trader}}",
+    "sandbox": "Purchase the Hanging Cookware blueprint from the {{LI|Shire Trader}}"
+  },
+  "Inlaid Board": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Large Archway Base": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Large Archway Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Large Slate Roof": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Lord of Moria Banner": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}}"
+  },
+  "Lord of Moria Flag": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}}"
+  },
+  "Narrow Platform": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Narrow Unadorned Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Patterned Board": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Plain Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Plain Wall Base": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Platform": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Quick Platform": {
+    "campaign": "Obtain {{LI|Wood Scraps}}",
+    "sandbox": "Obtain {{LI|Wood Scraps}}"
+  },
+  "Rope Ladder": {
+    "campaign": "Obtain {{LI|Natural Fiber}}",
+    "sandbox": "Obtain {{LI|Natural Fiber}}"
+  },
+  "Short Bannister": {
+    "campaign": "Obtain {{LI|Ihraz Granite}}",
+    "sandbox": "Build a {{LI|Tiled Hearth}}"
+  },
+  "Short Corner Wall": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Short Stone Column": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Short Wood Column": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Archway Corner": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Decorative Wood Paneling": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Granite Floor": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Narrow Archway": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Narrow Plain Wall": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Narrow Unadorned Wall": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Ornate Double Window": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Ornate Wide Window": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Ornate Window": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Simple Wall": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Stone Foundation": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Wainscotted Wall": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Wide Archway": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Small Wood Paneling": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Square Frame": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Stone Floor": {
+    "campaign": "Rebuild a {{LI|Stone Hearth}}",
+    "sandbox": "Build a {{LI|Small Hearth}}"
+  },
+  "Stone Foundation": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Stone Post": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Tailor's Fabric Hutch": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Timber Board": {
+    "campaign": "Unavailable",
+    "sandbox": "Unavailable"
+  },
+  "Unadorned Wall Base": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "White Tree Replica": {
+    "campaign": "Purchase the White Tree Replica blueprint from the {{LI|Gondor Trader}}",
+    "sandbox": "Purchase the White Tree Replica blueprint from the {{LI|Gondor Trader}}"
+  },
+  "Wood Braced Column": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Wood Floor": {
+    "campaign": "Rebuild a {{LI|Stone Hearth}}",
+    "sandbox": "Build a {{LI|Small Hearth}}"
+  },
+  "Wood Pallet": {
+    "campaign": "Rebuild a {{LI|Stone Hearth}}",
+    "sandbox": "Obtain {{LI|Wood Scraps}}"
+  },
+  "Wood Railing and Post": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "Wood Trimmed Crown": {
+    "campaign": "Craft a {{LI|Star-metal Hammer}}",
+    "sandbox": "Unavailable"
+  },
+  "King’s Brew Tank": {
+    "campaign": "Speak with [[Aric]] after the end-game credits.",
+    "sandbox": "Speak with [[Aric]] after the end-game credits."
+  }
+}

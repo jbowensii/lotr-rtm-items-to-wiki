@@ -167,7 +167,7 @@ def load_consumables_data(filepath):
 
 
 def load_recipe_data(filepath):
-    """Load DT_ItemRecipes.json and return a dictionary keyed by item name."""
+    """Load DT_ItemRecipes.json and return a dictionary keyed by item name (lowercase for case-insensitive lookup)."""
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -180,7 +180,8 @@ def load_recipe_data(filepath):
             for recipe in recipe_entries:
                 name = recipe.get("Name")
                 if name:
-                    recipes[name] = recipe
+                    # Store with lowercase key for case-insensitive lookup
+                    recipes[name.lower()] = recipe
 
     return recipes
 
@@ -664,8 +665,8 @@ def process_consumables(consumables_data, recipes_data, string_map, imports):
         else:
             consumable_model["DLC"] = False
 
-        # Parse recipe data if available
-        recipe = recipes_data.get(consumable_name)
+        # Parse recipe data if available (case-insensitive lookup)
+        recipe = recipes_data.get(consumable_name.lower())
         if recipe:
             consumable_model["HasRecipe"] = True
             consumable_model["CraftingMaterials"] = parse_recipe_materials(recipe, string_map)

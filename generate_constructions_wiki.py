@@ -7,6 +7,7 @@ STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
 CONSTRUCTIONS_FILE = os.path.join(SOURCE_DIR, "DT_Constructions.json")
 RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ConstructionRecipes.json")
 ENTITLEMENTS_FILE = os.path.join(SOURCE_DIR, "DT_Entitlements.json")
+UNLOCK_OVERRIDES_FILE = "construction_unlock_overrides.json"
 OUTPUT_DIR = os.path.join("output", "constructions")
 
 # DLC display name mappings
@@ -31,14 +32,28 @@ DLC_PATH_PATTERNS = {
     "RohanPack": "The Rohirrim Pack",
 }
 
+# Map path patterns to short DLC names (for unlock detection)
+PATH_TO_SHORT_DLC = {
+    "BeornPack": "Beorn",
+    "DurinsFolk": "DurinsFolk",
+    "Elven": "DurinsFolk",
+    "EntPack": "Ent",
+    "HobbitPack": "Hobbit",
+    "OrcHunterPack": "OrcHunter",
+    "HolidayPack": "Holiday",
+    "RohanPack": "Rohan",
+}
+
 # Set detection rules
 SET_RULES = [
-    # Ancient Set - contains "Fortress" in name
-    {"name": "Ancient Set", "pattern": "Fortress", "exclude_patterns": []},
-    # Coastal Marble Set - contains "Fair" in display name
+    # Coastal Marble Set - contains "Fair" in display name (check first, higher priority)
     {"name": "Coastal Marble Set", "pattern": "Fair", "exclude_patterns": []},
-    # Red Sandstone Set - contains "Crimson" in display name
+    # Red Sandstone Set - contains "Crimson" in display name (check first, higher priority)
     {"name": "Red Sandstone Set", "pattern": "Crimson", "exclude_patterns": []},
+    # Ancient Set - contains "Ancient" in display name but NOT Fair/Crimson (which are variants)
+    {"name": "Ancient Set", "pattern": "Ancient", "exclude_patterns": ["Fair", "Crimson"]},
+    # Imladris Furnishings Set - contains "Imladris" in display name
+    {"name": "Imladris Furnishings Set", "pattern": "Imladris", "exclude_patterns": []},
     # Lodge Set - Beorn DLC items
     {"name": "Lodge Set", "dlc": "Beorn", "exclude_patterns": []},
     # Ent-craft Set - Ent DLC items
@@ -50,6 +65,19 @@ SET_RULES = [
     # Yule-tide Set - Holiday DLC items
     {"name": "Yule-tide Set", "dlc": "Holiday", "exclude_patterns": []},
 ]
+
+
+def load_unlock_overrides(filepath):
+    """Load construction unlock overrides from JSON file.
+
+    Returns:
+        dict: Maps display name -> {"campaign": text, "sandbox": text}
+    """
+    if not os.path.exists(filepath):
+        return {}
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
 
 def load_entitlements(filepath):
@@ -417,8 +445,10 @@ def analyze_construction(construction, recipe, string_map, dlc_map):
 
     # Fallback to old path-based detection if not in entitlements
     if not dlc_short_name:
-        dlc_key, dlc_name = detect_dlc_from_path(actor_path)
+        dlc_path_pattern, dlc_name = detect_dlc_from_path(actor_path)
         dlc_display_name = dlc_name
+        # Normalize path pattern to short DLC name for unlock detection
+        dlc_key = PATH_TO_SHORT_DLC.get(dlc_path_pattern) if dlc_path_pattern else None
     else:
         dlc_key = dlc_short_name
 
@@ -778,7 +808,7 @@ def format_unlock_requirements(required_constructions, required_items, required_
         return f"Discover {all_but_last}, and {all_requirements[-1]}"
 
 
-def generate_wiki_template(construction_model, items_map, constructions_map, string_map):
+def generate_wiki_template(construction_model, items_map, constructions_map, string_map, unlock_overrides):
     """Generate MediaWiki template text for a construction."""
     lines = []
 
@@ -822,41 +852,93 @@ def generate_wiki_template(construction_model, items_map, constructions_map, str
     has_campaign_unlock = construction_model.get("DefaultUnlockType") not in [None, "EMorRecipeUnlockType::Manual"]
     has_sandbox_unlock = construction_model.get("SandboxUnlockType") not in [None, "EMorRecipeUnlockType::Manual"]
 
-    if has_recipe and (has_campaign_unlock or has_sandbox_unlock or construction_model.get("bHasSandboxUnlockOverride")):
+    # Check for individual unlock overrides (highest priority)
+    display_name = construction_model.get("DisplayName")
+    unlock_override = unlock_overrides.get(display_name)
+    has_unlock_override = unlock_override is not None
+
+    # Check for special DLC unlocks (these have Manual type but need custom unlock text)
+    dlc_name = construction_model.get("DLC")
+    is_special_unlock = False
+    special_unlock_text = None
+
+    # DLC unlocks (highest priority)
+    if dlc_name == "Beorn":
+        is_special_unlock = True
+        special_unlock_text = "Purchase the [[The Beorn's Lodge Pack]] DLC"
+    elif dlc_name == "Ent":
+        is_special_unlock = True
+        special_unlock_text = "Purchase the [[The Ent-craft Pack]] DLC"
+    elif dlc_name == "OrcHunter":
+        is_special_unlock = True
+        special_unlock_text = "Purchase the [[The Orc Hunter Pack]] DLC"
+    elif dlc_name == "Holiday":
+        is_special_unlock = True
+        special_unlock_text = "Purchase the [[Yule-tide Pack]] DLC"
+    elif dlc_name == "DurinsFolk":
+        is_special_unlock = True
+        special_unlock_text = "Purchase the {{LI|Durin's Folk Expansion}}"
+    else:
+        # Check for building set unlocks (lower priority than DLC)
+        set_name = construction_model.get("Set")
+        if set_name == "Coastal Marble Set":
+            is_special_unlock = True
+            special_unlock_text = "Purchase the Coastal Marble Building Set blueprints from the {{LI|Blue Mountains Trader}}"
+        elif set_name == "Red Sandstone Set":
+            is_special_unlock = True
+            special_unlock_text = "Purchase the Red Sandstone Building Set blueprints from the {{LI|Red Mountains Trader}}"
+        elif set_name == "Ancient Set":
+            is_special_unlock = True
+            special_unlock_text = "Purchase the Ancient Building Set blueprints from the {{LI|Gondor Trader}}"
+        elif set_name == "Imladris Furnishings Set":
+            is_special_unlock = True
+            special_unlock_text = "Purchase the Imladris Furnishing Plans blueprints from the {{LI|Rivendell Trader}}"
+
+    if has_recipe and (has_campaign_unlock or has_sandbox_unlock or construction_model.get("bHasSandboxUnlockOverride") or is_special_unlock or has_unlock_override):
         lines.append("")
         lines.append("== Unlock ==")
 
-        # Campaign unlock
-        campaign_req = format_unlock_requirements(
-            construction_model.get("DefaultRequiredConstructions", []),
-            construction_model.get("DefaultRequiredItems", []),
-            construction_model.get("DefaultRequiredFragments", []),
-            constructions_map,
-            string_map
-        )
-        lines.append(f"'''Campaign:''' {campaign_req}")
-
-        # Sandbox unlock - check if it has meaningful data
-        sandbox_has_data = (
-            construction_model.get("SandboxRequiredConstructions") or
-            construction_model.get("SandboxRequiredItems") or
-            construction_model.get("SandboxRequiredFragments") or
-            has_sandbox_unlock
-        )
-
-        if sandbox_has_data:
-            # Generate separate sandbox unlock text
-            sandbox_req = format_unlock_requirements(
-                construction_model.get("SandboxRequiredConstructions", []),
-                construction_model.get("SandboxRequiredItems", []),
-                construction_model.get("SandboxRequiredFragments", []),
+        if has_unlock_override:
+            # Use individual unlock override (highest priority)
+            lines.append(f"'''Campaign:''' {unlock_override['campaign']}")
+            lines.append(f"'''Sandbox:''' {unlock_override['sandbox']}")
+        elif is_special_unlock:
+            # Use special unlock text (DLC or building set) for both Campaign and Sandbox
+            lines.append(f"'''Campaign:''' {special_unlock_text}")
+            lines.append(f"'''Sandbox:''' {special_unlock_text}")
+        else:
+            # Normal unlock processing
+            # Campaign unlock
+            campaign_req = format_unlock_requirements(
+                construction_model.get("DefaultRequiredConstructions", []),
+                construction_model.get("DefaultRequiredItems", []),
+                construction_model.get("DefaultRequiredFragments", []),
                 constructions_map,
                 string_map
             )
-            lines.append(f"'''Sandbox:''' {sandbox_req}")
-        else:
-            # Use campaign unlock for sandbox if no meaningful override
-            lines.append(f"'''Sandbox:''' {campaign_req}")
+            lines.append(f"'''Campaign:''' {campaign_req}")
+
+            # Sandbox unlock - check if it has meaningful data
+            sandbox_has_data = (
+                construction_model.get("SandboxRequiredConstructions") or
+                construction_model.get("SandboxRequiredItems") or
+                construction_model.get("SandboxRequiredFragments") or
+                has_sandbox_unlock
+            )
+
+            if sandbox_has_data:
+                # Generate separate sandbox unlock text
+                sandbox_req = format_unlock_requirements(
+                    construction_model.get("SandboxRequiredConstructions", []),
+                    construction_model.get("SandboxRequiredItems", []),
+                    construction_model.get("SandboxRequiredFragments", []),
+                    constructions_map,
+                    string_map
+                )
+                lines.append(f"'''Sandbox:''' {sandbox_req}")
+            else:
+                # Use campaign unlock for sandbox if no meaningful override
+                lines.append(f"'''Sandbox:''' {campaign_req}")
 
     # DLC and Set information
     has_dlc = construction_model.get("DLCDisplayName") is not None
@@ -892,7 +974,7 @@ def sanitize_filename(filename):
     return filename
 
 
-def write_wiki_files(construction_models, output_dir, items_map, string_map, all_constructions_map=None):
+def write_wiki_files(construction_models, output_dir, items_map, string_map, unlock_overrides, all_constructions_map=None):
     """Write wiki files for all constructions."""
     # Create output directory
     os.makedirs(output_dir, exist_ok=True)
@@ -908,7 +990,7 @@ def write_wiki_files(construction_models, output_dir, items_map, string_map, all
             continue
 
         # Generate wiki content using complete constructions map
-        wiki_content = generate_wiki_template(model, items_map, all_constructions_map, string_map)
+        wiki_content = generate_wiki_template(model, items_map, all_constructions_map, string_map, unlock_overrides)
 
         # Write to file
         filename = sanitize_filename(display_name) + ".wiki"
@@ -1097,13 +1179,18 @@ def main():
     dlc_map = load_entitlements(ENTITLEMENTS_FILE)
     print(f"  Total DLC constructions: {len(dlc_map)}")
 
+    # Load unlock overrides
+    print("Loading unlock overrides...")
+    unlock_overrides = load_unlock_overrides(UNLOCK_OVERRIDES_FILE)
+    print(f"  Total unlock overrides: {len(unlock_overrides)}")
+
     # Process constructions
     construction_models, excluded_constructions, all_constructions_map = process_constructions(
         constructions, recipes, string_map, dlc_map
     )
 
     # Write wiki files using the complete constructions map for cross-references
-    write_wiki_files(construction_models, OUTPUT_DIR, items_map, string_map, all_constructions_map)
+    write_wiki_files(construction_models, OUTPUT_DIR, items_map, string_map, unlock_overrides, all_constructions_map)
 
     # Write exclusion log
     if excluded_constructions:

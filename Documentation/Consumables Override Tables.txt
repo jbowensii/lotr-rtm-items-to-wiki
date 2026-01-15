@@ -1,0 +1,33 @@
+Food Categories:
+
+Item.BrewIngredient : add to ==Stats== Brewing Ingredient
+Item.Food : infobox Type = Food 
+Item.Food.Cheese :  infobox Type = Food Subtype = Cheese
+Item.Food.Eggs :  infobox Type = Food Subtype = Eggs
+Item.Food.Fruit :  infobox Type = Food Subtype = Fruit, add to ==notes== Farming: Need Light
+Item.Food.Honey :  infobox Type = Food Subtype = Honey
+Item.Food.Meat :  infobox Type = Food Subtype = Meat
+Item.Food.Spice :  infobox Type = Food Subtype = Spices
+Item.Food.Veg :  infobox Type = Food Subtype = Vegetables, add to ==notes== Farming: Need Light
+Item.Food.Veg.Flower :  infobox Type = Food Subtype = Flower , add to ==notes== Farming: Need Light
+Item.Food.Veg.Grain :  infobox Type = Food Subtype = Grain, add to ==notes== Farming: Need Light
+Item.Food.Veg.Herb :  infobox Type = Food Subtype = Herbs, add to ==notes== Farming: Need Light
+Item.Food.Veg.Mushroom:  infobox Type = Food Subtype = Mushrooms, add to ==notes== Farming: Need Darkness
+Item.Mineral.Ore : infobox Type= Ore
+UI.BreakfastMeal.Complex:  add to ==notes== Complexity: Complex  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Breakfast 
+UI.BreakfastMeal.Reasonable:  add to ==notes== Complexity: Reasonable  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Breakfast
+UI.BreakfastMeal.Simple:  add to ==notes== Complexity: Simple  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Breakfast
+UI.LunchMeal.Complex:  add to ==notes== Complexity: Complex  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Lunch
+UI.LunchMeal.Reasonable:  add to ==notes== Complexity: Reasonable  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Lunch
+UI.LunchMeal.Simple:  add to ==notes== Complexity: Simple  Meal Time: Breakfast, add to ==infobox== type = Meal, subtype = Lunch
+UI.DinnerMeal.Complex:  add to ==notes== Complexity: Complex  Meal Time: Dinner, add to ==infobox== type = Meal, subtype = Dinner
+UI.DinnerMeal.Reasonable:  add to ==notes== Complexity: Reasonable  Meal Time: Dinner, add to ==infobox== type = Meal, subtype = Dinner
+UI.DinnerMeal.Simple:  add to ==notes== Complexity: Simple  Meal Time: Dinner, add to ==infobox== type = Meal, subtype = Dinner
+UI.Ration.Complex:  add to ==notes== Complexity: Complex  Meal Time: Dinner, add to ==infobox== type = Ration
+UI.Ration.Reasonable:  add to ==notes== Complexity: Reasonable  Meal Time: Dinner, add to ==infobox== type = Ration
+UI.Ration.Simple:  add to ==notes== Complexity: Simple  Meal Time: Dinner, add to ==infobox== type = Ration
+UI.Abahk : infobox Type= Âbakh
+UI.Lore.Consumables: ignore
+UI.Premium: ignore
+UI.Processed:  add to ==infobox== subtype = Crafted
+UI.Tinted: ignore

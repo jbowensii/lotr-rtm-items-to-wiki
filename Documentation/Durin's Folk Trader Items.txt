@@ -1,0 +1,148 @@
+Durin's Folk Expansion - Trader Purchase Items
+===============================================
+
+These items are purchased from traders added in the Durin's Folk Expansion.
+They require unlock overrides or availability notes in their respective wiki generators.
+
+CONSUMABLES (generate_consumables_wiki.py)
+-------------------------------------------
+Note: Consumables don't have Unlocks sections. Consider adding to Description or Notes.
+
+1. Salt-cured Fish
+   - Trader: Arnor Trader OR Blue Mountains Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Arnor Trader OR Blue Mountains Trader
+
+2. Saffron
+   - Trader: Red Mountains Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Red Mountains Trader
+
+3. Southern Oil
+   - Trader: Gondor Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Gondor Trader
+
+4. Whale Tallow
+   - Trader: Gondor Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Gondor Trader
+
+5. Thanazutsam
+   - Trader: Rivendell Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Rivendell Trader
+
+
+ORES (generate_ore_wiki.py)
+----------------------------
+Note: Ores don't have Unlocks sections. These are mined resources, but trader variants exist.
+
+1. Coastal Marble
+   - Trader: Blue Mountains Trader
+   - Note: Variant purchased from Blue Mountains Trader with Durin's Folk Expansion
+
+2. Red Sandstone
+   - Trader: Red Mountains Trader
+   - Note: Variant purchased from Red Mountains Trader with Durin's Folk Expansion
+
+3. Pumice
+   - Trader: Red Mountains Trader
+   - Note: Variant purchased from Red Mountains Trader with Durin's Folk Expansion
+
+4. Volcanic Glass
+   - Trader: Red Mountains Trader
+   - Note: Variant purchased from Red Mountains Trader with Durin's Folk Expansion
+
+
+WEAPONS (generate_weapons_wiki.py)
+-----------------------------------
+1. Drakhbarzin
+   - Trader: Lothloorien Trader
+   - Unlock: Already has unlock override in generate_weapons_wiki.py
+
+
+ITEMS - NEEDS GENERATOR (DT_Items.json)
+----------------------------------------
+These items require a new generate_items_wiki.py script to be created.
+
+1. Northern Wool
+   - Trader: Arnor Trader OR Shire Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Arnor Trader (or Shire Trader)
+
+2. Elven Silk
+   - Trader: Lothloorien Trader OR Rivendell Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Lothloorien Trader Or Rivendell Trader
+
+3. Elanor Seed
+   - Trader: Lothloorien Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Lothloorien Trader
+
+4. Niphredil Seed
+   - Trader: Lothloorien Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Lothloorien Trader
+
+5. Fireclay Brick
+   - Trader: Red Mountains Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Red Mountains Trader
+
+6. Sea Wax
+   - Trader: Gundabad Quartermaster
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Gundabad Quartermaster
+
+7. Ithildin Ingot
+   - Trader: Rivendell Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Rivendell Trader
+
+8. Pumpkin Seed
+   - Trader: Shire Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Shire Trader
+
+9. Sweetroot Seed
+   - Trader: Shire Trader
+   - Unlock: Purchase the Durin's Folk Expansion, Purchased from Shire Trader
+
+
+CONSTRUCTION/STORAGE - NEEDS GENERATOR
+---------------------------------------
+These items require generators for DT_Storage.json and/or DT_ContainerItems.json
+
+1. Shell
+   - Trader: Blue Mountains Trader
+   - Type: Unknown (Storage or ContainerItem)
+
+2. Geode Display
+   - Trader: Blue Mountains Trader
+   - Type: ContainerItem or Construction
+
+3. Coastal Marble Building Set
+   - Trader: Blue Mountains Trader
+   - Type: Storage/Construction
+
+4. Crimson Brazier
+   - Trader: Red Mountains Trader
+   - Type: ContainerItem or Construction
+
+5. Red Sandstone Building Set
+   - Trader: Red Mountains Trader
+   - Type: Storage/Construction
+
+6. White Tree Replica
+   - Trader: Gondor Trader
+   - Type: ContainerItem or Construction
+
+7. Ancient Building Set
+   - Trader: Gondor Trader
+   - Type: Storage/Construction
+
+8. Imladris Furnishing Plans
+   - Trader: Rivendell Trader
+   - Type: Storage/Construction
+
+9. Cookware Display
+   - Trader: Shire Trader
+   - Type: ContainerItem or Construction
+
+
+SUMMARY
+-------
+- Consumables (5): Can add to wiki but no Unlocks section
+- Ores (4): Can add to wiki but no Unlocks section
+- Weapons (1): Already handled
+- Items/Materials (9): Need generate_items_wiki.py
+- Construction/Display (9): Need additional generators
