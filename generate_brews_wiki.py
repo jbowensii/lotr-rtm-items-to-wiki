@@ -80,7 +80,7 @@ def load_brews_data(filepath):
 
 
 def load_recipes_data(filepath):
-    """Load DT_ItemRecipes.json and return a dict of recipe materials by item name."""
+    """Load DT_ItemRecipes.json and return a dict of recipe data by item name."""
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -94,10 +94,33 @@ def load_recipes_data(filepath):
                 recipe_name = recipe_entry.get("Name", "")
                 properties = recipe_entry.get("Value", [])
 
-                # Extract materials
+                # Extract recipe data
                 materials = []
+                station = None
+                craft_time = None
+                result_item = None
+
                 for prop in properties:
-                    if prop.get("Name") == "DefaultRequiredMaterials":
+                    # Get crafting station
+                    if prop.get("Name") == "CraftingStations":
+                        stations = prop.get("Value", [])
+                        if stations:
+                            for st in stations[0].get("Value", []):
+                                if st.get("Name") == "RowName":
+                                    station = st.get("Value")
+
+                    # Get craft time
+                    elif prop.get("Name") == "CraftTimeSeconds":
+                        craft_time = prop.get("Value")
+
+                    # Get result item
+                    elif prop.get("Name") == "ResultItemHandle":
+                        for handle_prop in prop.get("Value", []):
+                            if handle_prop.get("Name") == "RowName":
+                                result_item = handle_prop.get("Value")
+
+                    # Get materials
+                    elif prop.get("Name") == "DefaultRequiredMaterials":
                         material_list = prop.get("Value", [])
                         for mat_struct in material_list:
                             mat_props = mat_struct.get("Value", [])
@@ -114,8 +137,13 @@ def load_recipes_data(filepath):
                             if mat_name:
                                 materials.append((mat_name, mat_count))
 
-                if materials:
-                    recipes_dict[recipe_name] = materials
+                if result_item:
+                    recipes_dict[recipe_name] = {
+                        'materials': materials,
+                        'station': station,
+                        'craft_time': craft_time,
+                        'result_item': result_item
+                    }
 
     return recipes_dict
 
@@ -202,32 +230,189 @@ def detect_dlc(actor_path, icon_path):
 
 def get_material_display_name(material_key, string_map):
     """Get display name for a crafting material using string table lookup patterns."""
-    # Try multiple lookup patterns (similar to storage_wiki.py)
+    # Handle different prefixes
     if material_key.startswith("Item."):
-        item_suffix = material_key.replace("Item.", "")
-        # Try Items.Items.XXX.Name first
-        lookup_key1 = f"Items.Items.{item_suffix}.Name"
-        display_name = string_map.get(lookup_key1)
+        suffix = material_key.replace("Item.", "")
+    elif material_key.startswith("Consumable."):
+        suffix = material_key.replace("Consumable.", "")
+    elif '.' in material_key:
+        suffix = material_key.split('.')[-1]
+    else:
+        suffix = material_key
 
-        # Try Items.XXX.Name as fallback
-        if not display_name:
-            lookup_key2 = f"Items.{item_suffix}.Name"
-            display_name = string_map.get(lookup_key2)
+    # For pack-specific items like "EntPack_EntMoss", try removing the pack prefix
+    if "_" in suffix and any(pack in suffix for pack in ["EntPack", "BeornPack", "RohanPack", "OrcHunterPack", "HolidayPack"]):
+        # Extract the actual item name after the pack prefix
+        parts = suffix.split("_", 1)
+        if len(parts) > 1:
+            suffix = parts[1]
 
-        if display_name:
-            return display_name
+    # Try Items.Items.XXX.Name first
+    lookup_key1 = f"Items.Items.{suffix}.Name"
+    display_name = string_map.get(lookup_key1)
+
+    # Try Items.XXX.Name as fallback
+    if not display_name:
+        lookup_key2 = f"Items.{suffix}.Name"
+        display_name = string_map.get(lookup_key2)
 
     # If still not found, try suffix matching
-    suffix = material_key.split('.')[-1] if '.' in material_key else material_key
-    for key, val in string_map.items():
-        if key.endswith(f".{suffix}.Name"):
-            return val
+    if not display_name:
+        for key, val in string_map.items():
+            if key.endswith(f".{suffix}.Name"):
+                return val
 
-    # Fall back to removing "Item." prefix if still not found
-    if material_key.startswith("Item."):
-        return material_key.replace("Item.", "")
+    # Fall back to the suffix if still not found
+    if not display_name:
+        return suffix
 
-    return material_key
+    return display_name
+
+
+def find_brew_recipes(brew_name, recipes_dict):
+    """Find all three size recipes (Small, Medium, Massive) for a brew.
+
+    Returns a dict with combined recipe information or None if not found.
+    """
+    # Map recipe name patterns - brew items in DT_Brews use format like "Night_Brew"
+    # but recipes can vary:
+    # - Night_Brew -> Night_Brew_Small, Night_Brew_Medium, Night_Brew_Massive
+    # - AntiDarkness_Brew -> AntiDarknessBrew_Brew_Small, AntiDarknessBrew_Brew_Medium, AntiDarknessBrew_Brew_Massive
+    # - BeornPack_Brew -> BeornPack_BeornBrew_Small, BeornPack_BeornBrew_Medium, BeornPack_BeornBrew_Massive
+
+    # Try multiple naming patterns
+    base_name = brew_name
+
+    # First, try exact match pattern
+    recipes = {
+        'Small': recipes_dict.get(f"{base_name}_Small"),
+        'Medium': recipes_dict.get(f"{base_name}_Medium"),
+        'Massive': recipes_dict.get(f"{base_name}_Massive")
+    }
+
+    # If not found, try without underscores and with _Brew suffix
+    if not any(recipes.values()):
+        # Remove underscores and add _Brew suffix
+        alt_name = brew_name.replace("_", "") + "_Brew"
+        recipes = {
+            'Small': recipes_dict.get(f"{alt_name}_Small"),
+            'Medium': recipes_dict.get(f"{alt_name}_Medium"),
+            'Massive': recipes_dict.get(f"{alt_name}_Massive")
+        }
+
+    # If still not found, try pack-specific naming (e.g., BeornPack_Brew -> BeornPack_BeornBrew)
+    if not any(recipes.values()):
+        if "_" in brew_name:
+            parts = brew_name.split("_")
+            if len(parts) == 2:
+                pack_name = parts[0]
+                brew_suffix = parts[1]
+                # Extract just the pack prefix (e.g., "BeornPack" -> "Beorn")
+                pack_prefix = pack_name.replace("Pack", "")
+                # Try PackName_PackPrefixBrew pattern (e.g., BeornPack_BeornBrew)
+                alt_name = f"{pack_name}_{pack_prefix}{brew_suffix}"
+                recipes = {
+                    'Small': recipes_dict.get(f"{alt_name}_Small"),
+                    'Medium': recipes_dict.get(f"{alt_name}_Medium"),
+                    'Massive': recipes_dict.get(f"{alt_name}_Massive")
+                }
+
+    # If still not found, try fuzzy match by searching for similar names
+    if not any(recipes.values()):
+        brew_search = brew_name.replace("_", "").lower()
+        for recipe_name in recipes_dict.keys():
+            recipe_search = recipe_name.replace("_", "").lower()
+            if brew_search in recipe_search and ("small" in recipe_search.lower()):
+                # Found a potential match, extract base name
+                base_match = recipe_name.replace("_Small", "").replace("_small", "")
+                recipes = {
+                    'Small': recipes_dict.get(f"{base_match}_Small"),
+                    'Medium': recipes_dict.get(f"{base_match}_Medium"),
+                    'Massive': recipes_dict.get(f"{base_match}_Massive")
+                }
+                break
+
+    # Check if we have at least one recipe
+    if not any(recipes.values()):
+        return None
+
+    # Combine materials from all three sizes
+    combined_materials = {}
+    stations = []
+    craft_time = None
+
+    for size, recipe in recipes.items():
+        if recipe:
+            # Store station
+            if recipe.get('station'):
+                stations.append(recipe['station'])
+
+            # Get craft time (should be same for all sizes)
+            if not craft_time and recipe.get('craft_time'):
+                craft_time = recipe['craft_time']
+
+            # Combine materials
+            for mat_name, mat_count in recipe.get('materials', []):
+                if mat_name not in combined_materials:
+                    combined_materials[mat_name] = {}
+                combined_materials[mat_name][size] = mat_count
+
+    # Build result
+    result = {
+        'stations': stations,
+        'craft_time': craft_time,
+        'materials': combined_materials
+    }
+
+    return result
+
+
+def format_brew_station(stations):
+    """Format brewing stations for wiki template."""
+    station_map = {
+        'Brewery_Small': '[[Brew Kettle]]',
+        'Brewery_Base': '[[Brew Tank]]',
+        'Brewery_Massive': '[[King\'s Brew Tank]]'
+    }
+
+    # Map stations and add Alchemical Still requirement
+    formatted = []
+    for station in stations:
+        if station in station_map:
+            formatted.append(station_map[station])
+
+    if formatted:
+        return '<br>'.join(formatted) + '<br>with [[Alchemical Still]]'
+
+    return ''
+
+
+def format_brew_materials(materials_dict, string_map):
+    """Format brewing materials in small-medium-massive format."""
+    lines = []
+
+    for mat_name, counts in materials_dict.items():
+        # Get display name
+        display_name = get_material_display_name(mat_name, string_map)
+
+        # Build count string in small-medium-massive format
+        small = counts.get('Small', 0)
+        medium = counts.get('Medium', 0)
+        massive = counts.get('Massive', 0)
+
+        count_str = f"{small}-{medium}-{massive}"
+        lines.append(f"{count_str} [[{display_name}]]")
+
+    return '<br> '.join(lines)
+
+
+def format_brew_time(seconds):
+    """Format brew time as seconds and minutes."""
+    if not seconds:
+        return ''
+
+    minutes = int(seconds / 60)
+    return f"{int(seconds):,} seconds<br>({minutes} minutes)"
 
 
 def generate_wiki_template(brew_model, string_map):
@@ -238,7 +423,7 @@ def generate_wiki_template(brew_model, string_map):
     lines.append("{{Item")
     lines.append(" | title         = {{PAGENAME}}")
     lines.append(" | image         = {{PAGENAME}}.webp")
-    lines.append(f" | name          = {brew_model['DisplayName']}")
+    lines.append(" | imagecaption  = ")
 
     # Type
     lines.append(" | type          = Brew")
@@ -249,13 +434,38 @@ def generate_wiki_template(brew_model, string_map):
     else:
         lines.append(" | subtype       = ")
 
-    # Stack size
-    if brew_model.get("MaxStackSize"):
-        lines.append(f" | stack         = {brew_model['MaxStackSize']}")
+    # Grip (empty for brews)
+    lines.append(" | grip          = ")
 
-    # Tags
-    if brew_model.get("Tags"):
-        lines.append(f" | tags          = {', '.join(brew_model['Tags'])}")
+    # Tier (empty for brews)
+    lines.append(" | tier          = ")
+
+    # Damage type (empty for brews)
+    lines.append(" | damage_type   = ")
+
+    # Station (from recipes)
+    if brew_model.get("RecipeData"):
+        station_str = format_brew_station(brew_model["RecipeData"].get("stations", []))
+        if station_str:
+            lines.append(f" | station       = {station_str}")
+
+    # Requirements (materials in small-medium-massive format)
+    if brew_model.get("RecipeData") and brew_model["RecipeData"].get("materials"):
+        reqs_str = format_brew_materials(brew_model["RecipeData"]["materials"], string_map)
+        if reqs_str:
+            lines.append(f" | reqs          = {reqs_str}")
+
+    # Time (craft time)
+    if brew_model.get("RecipeData") and brew_model["RecipeData"].get("craft_time"):
+        time_str = format_brew_time(brew_model["RecipeData"]["craft_time"])
+        if time_str:
+            lines.append(f" | time          = {time_str}")
+
+    # Effect (placeholder for now)
+    lines.append(" | effect = ")
+
+    # Effect duration (placeholder for now)
+    lines.append(" | effect duration = ")
 
     lines.append("}}")
     lines.append("")
@@ -276,37 +486,6 @@ def generate_wiki_template(brew_model, string_map):
             lines.append(f"* Campaign {{{{spoiler|{brew_model['CampaignUnlock']}}}}}")
         if brew_model.get("SandboxUnlock"):
             lines.append(f"* Sandbox  {{{{spoiler|{brew_model['SandboxUnlock']}}}}}")
-
-    # Stats section (only if has any positive stats)
-    has_stats = (
-        (brew_model.get("HungerRestore") and brew_model["HungerRestore"] > 0) or
-        (brew_model.get("HealthRestore") and brew_model["HealthRestore"] > 0) or
-        (brew_model.get("EnergyRestore") and brew_model["EnergyRestore"] > 0)
-    )
-
-    if has_stats:
-        lines.append("")
-        lines.append("==Stats==")
-
-        if brew_model.get("HungerRestore") and brew_model["HungerRestore"] > 0:
-            lines.append(f"* '''Hunger:''' {brew_model['HungerRestore']}")
-
-        if brew_model.get("HealthRestore") and brew_model["HealthRestore"] > 0:
-            lines.append(f"* '''Health:''' {brew_model['HealthRestore']}")
-
-        if brew_model.get("EnergyRestore") and brew_model["EnergyRestore"] > 0:
-            lines.append(f"* '''Energy:''' {brew_model['EnergyRestore']}")
-
-    # Crafting section (only if materials exist)
-    if brew_model.get("CraftingMaterials"):
-        lines.append("")
-        lines.append("==Crafting==")
-        lines.append("Materials:")
-        lines.append("")
-        for mat_name, mat_count in brew_model["CraftingMaterials"]:
-            # Look up display name in string tables
-            display_name = get_material_display_name(mat_name, string_map)
-            lines.append(f"* ({mat_count}) {{{{LI|{display_name}}}}}")
 
     # DLC section (if applicable)
     if brew_model.get("DLC"):
@@ -393,9 +572,10 @@ def process_brews(brews_data, string_map, recipes_dict):
         if display_name in SANDBOX_UNLOCK_OVERRIDE:
             brew_model["SandboxUnlock"] = SANDBOX_UNLOCK_OVERRIDE[display_name]
 
-        # Check for crafting recipe
-        if brew_name in recipes_dict:
-            brew_model["CraftingMaterials"] = recipes_dict[brew_name]
+        # Find brew recipes (all three sizes)
+        recipe_data = find_brew_recipes(brew_name, recipes_dict)
+        if recipe_data:
+            brew_model["RecipeData"] = recipe_data
 
         brew_models.append(brew_model)
 
