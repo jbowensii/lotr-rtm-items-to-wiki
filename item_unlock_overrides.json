@@ -1,0 +1,66 @@
+{
+  "Northern Wool": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}"
+  },
+  "Shell ": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+  },
+  "Coastal Marble": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+  },
+  "Elven Silk": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader Or Rivendell Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader Or Rivendell Trader}}"
+  },
+  "Drakhbarzin": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+  },
+  "Elanor Seed": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+  },
+  "Niphredil Seed": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+  },
+  "Fireclay Brick": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
+  "Red Sandstone": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
+  "Pumice": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
+  "Volcanic Glass": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
+  "Sea Wax": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}"
+  },
+  "Ithildin Ingot": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}"
+  },
+  "Cookware Display": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+  },
+  "Pumpkin Seed": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+  },
+  "Sweetroot Seed": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+  }
+}

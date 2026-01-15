@@ -21,21 +21,25 @@ DLC_PATH_PATTERNS = {
     "RohanPack": "The Rohan Pack",
 }
 
-# Special campaign unlock overrides for items with unique unlock methods
-CAMPAIGN_UNLOCK_OVERRIDE = {
-    "Coastal Marble": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Blue Mountains Trader}}",
-    "Red Sandstone": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-    "Pumice": "Harvested from boulders in {{spoiler|[[Redhorn Lode]]}}",
-    "Volcanic Glass": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-}
+# Load unlock overrides from JSON file
+def load_unlock_overrides():
+    """Load unlock overrides from ore_unlock_overrides.json"""
+    override_file = "ore_unlock_overrides.json"
+    if os.path.exists(override_file):
+        with open(override_file, 'r', encoding='utf-8') as f:
+            overrides = json.load(f)
+            campaign_overrides = {}
+            sandbox_overrides = {}
+            for item_name, unlock_data in overrides.items():
+                if "campaign" in unlock_data:
+                    campaign_overrides[item_name] = unlock_data["campaign"]
+                if "sandbox" in unlock_data:
+                    sandbox_overrides[item_name] = unlock_data["sandbox"]
+            return campaign_overrides, sandbox_overrides
+    return {}, {}
 
-# Special sandbox unlock overrides for items with unique unlock methods
-SANDBOX_UNLOCK_OVERRIDE = {
-    "Coastal Marble": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Blue Mountains Trader}}",
-    "Red Sandstone": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-    "Pumice": "Harvested from boulders in {{spoiler|[[Lode|Lode Biome Zones]]}}",
-    "Volcanic Glass": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-}
+# Load overrides at module level
+CAMPAIGN_UNLOCK_OVERRIDE, SANDBOX_UNLOCK_OVERRIDE = load_unlock_overrides()
 
 
 def load_all_string_tables(strings_dir):
@@ -249,12 +253,11 @@ def generate_wiki_template(ore_model):
     # Unlocks section (only if unlock overrides exist)
     if ore_model.get("CampaignUnlock") or ore_model.get("SandboxUnlock"):
         lines.append("")
-        lines.append("== Unlocks ==")
-        lines.append("")
+        lines.append("== Unlock ==")
         if ore_model.get("CampaignUnlock"):
-            lines.append(f"* Campaign {{{{spoiler|{ore_model['CampaignUnlock']}}}}}")
+            lines.append(f"'''Campaign:''' {ore_model['CampaignUnlock']}")
         if ore_model.get("SandboxUnlock"):
-            lines.append(f"* Sandbox  {{{{spoiler|{ore_model['SandboxUnlock']}}}}}")
+            lines.append(f"'''Sandbox:''' {ore_model['SandboxUnlock']}")
 
     # DLC section (if applicable)
     if ore_model.get("DLC"):

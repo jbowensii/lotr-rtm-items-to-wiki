@@ -48,8 +48,8 @@
     "sandbox": "Build a {{LI|Tiled Hearth}}"
   },
   "Hanging Cookware": {
-    "campaign": "Purchase the Hanging Cookware blueprint from the {{LI|Shire Trader}}",
-    "sandbox": "Purchase the Hanging Cookware blueprint from the {{LI|Shire Trader}}"
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
   },
   "Inlaid Board": {
     "campaign": "Unavailable",
@@ -207,9 +207,13 @@
     "campaign": "Craft a {{LI|Star-metal Hammer}}",
     "sandbox": "Unavailable"
   },
+  "Crimson Fire Brazier": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
   "White Tree Replica": {
-    "campaign": "Purchase the White Tree Replica blueprint from the {{LI|Gondor Trader}}",
-    "sandbox": "Purchase the White Tree Replica blueprint from the {{LI|Gondor Trader}}"
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
   },
   "Wood Braced Column": {
     "campaign": "Craft a {{LI|Star-metal Hammer}}",

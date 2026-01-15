@@ -22,23 +22,25 @@ DLC_TITLE_MAP = {
     "RohanPack": "{{LI|The Rohan Pack}}",
 }
 
-# Special campaign unlock overrides for items with unique unlock methods
-CAMPAIGN_UNLOCK_OVERRIDE = {
-    "Salt-cured Fish": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Arnor Trader}} OR {{LI|Blue Mountains Trader}}",
-    "Saffron": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-    "Southern Oil": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
-    "Whale Tallow": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
-    "Thanazutsam": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Rivendell Trader}}",
-}
+# Load unlock overrides from JSON file
+def load_unlock_overrides():
+    """Load unlock overrides from consumable_unlock_overrides.json"""
+    override_file = "consumable_unlock_overrides.json"
+    if os.path.exists(override_file):
+        with open(override_file, 'r', encoding='utf-8') as f:
+            overrides = json.load(f)
+            campaign_overrides = {}
+            sandbox_overrides = {}
+            for item_name, unlock_data in overrides.items():
+                if "campaign" in unlock_data:
+                    campaign_overrides[item_name] = unlock_data["campaign"]
+                if "sandbox" in unlock_data:
+                    sandbox_overrides[item_name] = unlock_data["sandbox"]
+            return campaign_overrides, sandbox_overrides
+    return {}, {}
 
-# Special sandbox unlock overrides for items with unique unlock methods
-SANDBOX_UNLOCK_OVERRIDE = {
-    "Salt-cured Fish": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Arnor Trader}} OR {{LI|Blue Mountains Trader}}",
-    "Saffron": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Red Mountains Trader}}",
-    "Southern Oil": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
-    "Whale Tallow": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Gondor Trader}}",
-    "Thanazutsam": "Purchase the {{LI|Durin's Folk}} Expansion, Purchased from the {{LI|Rivendell Trader}}",
-}
+# Load overrides at module level
+CAMPAIGN_UNLOCK_OVERRIDE, SANDBOX_UNLOCK_OVERRIDE = load_unlock_overrides()
 
 # Mapping from CraftingStation keys to Constructions string keys
 STATION_KEY_MAP = {
@@ -504,15 +506,14 @@ def generate_wiki_template(consumable_model):
         lines.append("==Description==")
         lines.append(f"In-game: {consumable_model['Description']}")
 
-    # Unlocks section (only if unlock overrides exist)
+    # Unlock section (only if unlock overrides exist)
     if consumable_model.get("CampaignUnlock") or consumable_model.get("SandboxUnlock"):
         lines.append("")
-        lines.append("== Unlocks ==")
-        lines.append("")
+        lines.append("== Unlock ==")
         if consumable_model.get("CampaignUnlock"):
-            lines.append(f"* Campaign {{{{spoiler|{consumable_model['CampaignUnlock']}}}}}")
+            lines.append(f"'''Campaign:''' {consumable_model['CampaignUnlock']}")
         if consumable_model.get("SandboxUnlock"):
-            lines.append(f"* Sandbox  {{{{spoiler|{consumable_model['SandboxUnlock']}}}}}")
+            lines.append(f"'''Sandbox:''' {consumable_model['SandboxUnlock']}")
 
     # Stats section
     has_stats = (

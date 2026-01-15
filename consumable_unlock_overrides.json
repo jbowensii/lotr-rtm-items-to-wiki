@@ -1,0 +1,22 @@
+{
+  "Salt-cured Fish": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader OR Blue Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader OR Blue Mountains Trader}}"
+  },
+  "Saffron": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+  },
+  "Southern Oil": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+  },
+  "Whale Tallow": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+  },
+  "Thanazutsam": {
+    "campaign": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}",
+    "sandbox": "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}"
+  }
+}

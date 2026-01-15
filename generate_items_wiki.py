@@ -43,15 +43,25 @@ SANDBOX_FRAGMENT_LOCATION = {
     6: ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas",
 }
 
-# Special campaign unlock overrides for items with unique unlock methods
-CAMPAIGN_UNLOCK_OVERRIDE = {
-    # Add specific overrides here as needed
-}
+# Load unlock overrides from JSON file
+def load_unlock_overrides():
+    """Load unlock overrides from item_unlock_overrides.json"""
+    override_file = "item_unlock_overrides.json"
+    if os.path.exists(override_file):
+        with open(override_file, 'r', encoding='utf-8') as f:
+            overrides = json.load(f)
+            campaign_overrides = {}
+            sandbox_overrides = {}
+            for item_name, unlock_data in overrides.items():
+                if "campaign" in unlock_data:
+                    campaign_overrides[item_name] = unlock_data["campaign"]
+                if "sandbox" in unlock_data:
+                    sandbox_overrides[item_name] = unlock_data["sandbox"]
+            return campaign_overrides, sandbox_overrides
+    return {}, {}
 
-# Special sandbox unlock overrides for items with unique unlock methods
-SANDBOX_UNLOCK_OVERRIDE = {
-    # Add specific overrides here as needed
-}
+# Load overrides at module level
+CAMPAIGN_UNLOCK_OVERRIDE, SANDBOX_UNLOCK_OVERRIDE = load_unlock_overrides()
 
 # Mapping from CraftingStation keys to Constructions string keys
 STATION_KEY_MAP = {
@@ -768,8 +778,8 @@ def generate_wiki_template(item_model):
         if craft_time and isinstance(craft_time, (int, float)) and craft_time > 0:
             lines.append(f"'''Time:''' {craft_time:.1f}s")
 
-    # Unlock section - only show if there's recipe unlock info
-    if item_model.get("HasRecipe"):
+    # Unlock section - show if there's recipe unlock info OR unlock overrides
+    if item_model.get("HasRecipe") or item_model.get("CampaignUnlock") or item_model.get("SandboxUnlock"):
         lines.append("")
         lines.append("== Unlock ==")
 
@@ -912,11 +922,19 @@ def process_items(items_data, recipes_data, string_map):
         else:
             item_model["HasRecipe"] = False
             # Items without recipes - likely found/gathered items
-            if is_dlc:
+            # Check for unlock overrides first
+            if display_name in CAMPAIGN_UNLOCK_OVERRIDE:
+                item_model["CampaignUnlock"] = CAMPAIGN_UNLOCK_OVERRIDE[display_name]
+            elif is_dlc:
                 item_model["CampaignUnlock"] = f"Purchase {dlc_title}"
-                item_model["SandboxUnlock"] = f"Purchase {dlc_title}"
             else:
                 item_model["CampaignUnlock"] = "{{LI|Return to Moria}}"
+
+            if display_name in SANDBOX_UNLOCK_OVERRIDE:
+                item_model["SandboxUnlock"] = SANDBOX_UNLOCK_OVERRIDE[display_name]
+            elif is_dlc:
+                item_model["SandboxUnlock"] = f"Purchase {dlc_title}"
+            else:
                 item_model["SandboxUnlock"] = "{{LI|Return to Moria}}"
 
         item_models.append(item_model)

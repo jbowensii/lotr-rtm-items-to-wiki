@@ -43,8 +43,11 @@ SANDBOX_FRAGMENT_LOCATION = {
     6: ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas",
 }
 
-# Special campaign unlock overrides for items with unique unlock methods
-CAMPAIGN_UNLOCK_OVERRIDE = {
+# Load unlock overrides from JSON file and merge with defaults
+def load_unlock_overrides():
+    """Load unlock overrides from weapon_unlock_overrides.json and merge with defaults"""
+    # Default overrides
+    campaign_defaults = {
     "Arrows": "Build a {{LI|Workbench}}",
     "Barôkamlut": "Unavailable",
     "Belegost Halberd": "Repair the {{LI|Great Belegost Forge}}",
@@ -86,10 +89,9 @@ CAMPAIGN_UNLOCK_OVERRIDE = {
     "Steel Battleaxe": "Collect 3 fragments, Repair [[Damaged Statues]] in the [[Mines of Moria]]",
     "Steel Sword": "Collect 2 fragments, Repair [[Damaged Statues]] in the [[Mines of Moria]]",
     "Thanazbad": "Speak with {{LI|Aric}} after the end-game credits.",
-}
+    }
 
-# Special sandbox unlock overrides for items with unique unlock methods
-SANDBOX_UNLOCK_OVERRIDE = {
+    sandbox_defaults = {
     "Arrows": "Build a {{LI|Workbench}}",
     "Barôkamlut": "Repair the {{LI|Great Mithril Forge}}",
     "Belegost Halberd": "Repair the {{LI|Great Belegost Forge}}",
@@ -132,7 +134,23 @@ SANDBOX_UNLOCK_OVERRIDE = {
     "Steel Battleaxe": "Build a {{LI|Bellows}}",
     "Steel Sword": "Build a {{LI|Bellows}}",
     "Thanazbad": "Repair the {{LI|Great Mithril Forge}}",
-}
+    }
+
+    # Load overrides from JSON file
+    override_file = "weapon_unlock_overrides.json"
+    if os.path.exists(override_file):
+        with open(override_file, 'r', encoding='utf-8') as f:
+            overrides = json.load(f)
+            for item_name, unlock_data in overrides.items():
+                if "campaign" in unlock_data:
+                    campaign_defaults[item_name] = unlock_data["campaign"]
+                if "sandbox" in unlock_data:
+                    sandbox_defaults[item_name] = unlock_data["sandbox"]
+
+    return campaign_defaults, sandbox_defaults
+
+# Load overrides at module level
+CAMPAIGN_UNLOCK_OVERRIDE, SANDBOX_UNLOCK_OVERRIDE = load_unlock_overrides()
 
 # Mapping from CraftingStation keys to Constructions string keys
 STATION_KEY_MAP = {
@@ -825,10 +843,9 @@ This weapon cannot be crafted and must be obtained through other means.
 
 In-game: ''{description}''
 
-== Unlocks ==
-
-* Campaign {{{{spoiler|{campaign_unlock}}}}}
-* Sandbox  {{{{spoiler|{sandbox_unlock}}}}}
+== Unlock ==
+'''Campaign:''' {campaign_unlock}
+'''Sandbox:''' {sandbox_unlock}
 
 {stats_section}{crafting_section}
 {{{{Navbox items}}}}
