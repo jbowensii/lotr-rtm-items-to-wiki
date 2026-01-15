@@ -166,20 +166,23 @@ def load_items_data(filepath):
 
 
 def load_recipe_data(filepath):
-    """Load DT_ItemRecipes.json and return a dictionary keyed by item name."""
+    """Load DT_ItemRecipes.json and return a dictionary keyed by item name (lowercase, no underscores)."""
     with open(filepath, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     recipes = {}
     exports = data.get("Exports", [])
     for export in exports:
-        if export.get("$type") == "UAssetAPI.ExportTypes.DataTableExport, UAssetAPI":
-            table = export.get("Table", {})
+        # Check if export has a Table with Data (some exports don't have $type field)
+        table = export.get("Table", {})
+        if isinstance(table, dict) and "Data" in table:
             recipe_entries = table.get("Data", [])
             for recipe in recipe_entries:
                 name = recipe.get("Name")
                 if name:
-                    recipes[name] = recipe
+                    # Store with normalized key: lowercase, no underscores/spaces
+                    normalized_key = name.lower().replace("_", "").replace(" ", "").replace("-", "")
+                    recipes[normalized_key] = recipe
 
     return recipes
 
@@ -328,6 +331,23 @@ def get_material_display_name(material_key, string_map):
     if material_key in MATERIAL_KEY_MAP:
         return MATERIAL_KEY_MAP[material_key]
 
+    # Handle special case: "Ore.Iron" -> "IronOre"
+    # Convert "Prefix.Suffix" format to "SuffixPrefix" format
+    if '.' in material_key:
+        parts = material_key.split('.')
+        if len(parts) == 2:
+            reversed_key = parts[1] + parts[0]  # e.g., "Ore.Iron" -> "IronOre"
+            # Try with reversed key
+            reversed_patterns = [
+                f"Items.Ores.{reversed_key}.Name",
+                f"Items.Items.{reversed_key}.Name",
+                f"{parts[0]}s.{reversed_key}.Name",  # "Ore.Iron" -> "Ores.IronOre.Name"
+            ]
+            for pattern in reversed_patterns:
+                display_name = string_map.get(pattern)
+                if display_name:
+                    return display_name
+
     # Try multiple lookup patterns
     lookup_patterns = [
         f"Items.Items.{material_key}.Name",
@@ -343,10 +363,10 @@ def get_material_display_name(material_key, string_map):
         if display_name:
             return display_name
 
-    # Try suffix matching
+    # Try suffix matching (only for patterns with 3+ parts to avoid false matches)
     for pattern in lookup_patterns:
         parts = pattern.split('.')
-        if len(parts) >= 2:
+        if len(parts) >= 3:  # Require at least 3 parts to avoid "Iron.Name" matching wrong items
             suffix = '.'.join(parts[-2:])
             display_name = find_string_by_suffix(string_map, suffix)
             if display_name:
@@ -363,18 +383,47 @@ def get_station_display_name(station_key, string_map):
     return station_name
 
 
+def convert_item_key_to_display_name(item_key, string_map):
+    """
+    Convert item key format to display name.
+    Handles "Ore.ItemName" -> "Item Name Ore" conversion.
+    E.g., "Ore.Copper" -> "Copper Ore", "Ore.Tin" -> "Tin Ore"
+    """
+    # Try to get display name using material lookup first
+    display_name = get_material_display_name(item_key, string_map)
+
+    # If it's still the raw key (no match found), try to parse and format it
+    if display_name == item_key and '.' in item_key:
+        parts = item_key.split('.')
+        if len(parts) == 2:
+            prefix, suffix = parts
+            # Convert "Ore.Copper" to "Copper Ore"
+            display_name = f"{suffix} {prefix}"
+
+    return display_name
+
+
 def parse_recipe_materials(recipe_data, string_map):
     """Extract crafting materials from recipe data."""
     materials = []
     for prop in recipe_data.get("Value", []):
-        if prop.get("Name") == "CraftingMaterials":
+        # Try both old and new property names (prioritize Default over Sandbox)
+        prop_name = prop.get("Name")
+        if prop_name in ["CraftingMaterials", "DefaultRequiredMaterials", "SandboxRequiredMaterials"]:
             for mat_struct in prop.get("Value", []):
                 if mat_struct.get("$type") == "UAssetAPI.PropertyTypes.Structs.StructPropertyData, UAssetAPI":
                     mat_key = None
                     mat_count = 1
                     for mat_prop in mat_struct.get("Value", []):
+                        # Old format: "Row" property
                         if mat_prop.get("Name") == "Row":
                             mat_key = mat_prop.get("Value", "")
+                        # New format: "MaterialHandle" with nested "RowName"
+                        elif mat_prop.get("Name") == "MaterialHandle":
+                            for handle_prop in mat_prop.get("Value", []):
+                                if handle_prop.get("Name") == "RowName":
+                                    mat_key = handle_prop.get("Value", "")
+                        # Count is the same in both formats
                         elif mat_prop.get("Name") == "Count":
                             mat_count = mat_prop.get("Value", 1)
                     if mat_key:
@@ -387,12 +436,17 @@ def parse_crafting_stations(recipe_data, string_map):
     """Extract crafting stations from recipe data."""
     stations = []
     for prop in recipe_data.get("Value", []):
-        if prop.get("Name") == "CraftingStations":
+        # Try both old and new property names
+        if prop.get("Name") in ["CraftingStations", "DefaultRequiredConstructions"]:
             for station_struct in prop.get("Value", []):
                 if station_struct.get("$type") == "UAssetAPI.PropertyTypes.Structs.StructPropertyData, UAssetAPI":
                     station_key = None
                     for station_prop in station_struct.get("Value", []):
+                        # Old format: "Row" property
                         if station_prop.get("Name") == "Row":
+                            station_key = station_prop.get("Value", "")
+                        # New format: "RowName" property directly in Value
+                        elif station_prop.get("Name") == "RowName":
                             station_key = station_prop.get("Value", "")
                     if station_key:
                         display_name = get_station_display_name(station_key, string_map)
@@ -403,26 +457,90 @@ def parse_crafting_stations(recipe_data, string_map):
 def parse_crafting_time(recipe_data):
     """Extract crafting time from recipe data."""
     for prop in recipe_data.get("Value", []):
-        if prop.get("Name") == "CraftTime":
+        # Try both old and new property names
+        if prop.get("Name") in ["CraftTime", "CraftTimeSeconds"]:
             return prop.get("Value", 0.0)
     return 0.0
 
 
-def parse_unlock_type(recipe_data):
-    """Extract unlock type from recipe data."""
+def parse_unlock_type(recipe_data, is_campaign_mode=True):
+    """Extract unlock type from recipe data (from DefaultUnlocks or SandboxUnlocks)."""
+    unlock_property_name = "DefaultUnlocks" if is_campaign_mode else "SandboxUnlocks"
+
     for prop in recipe_data.get("Value", []):
-        if prop.get("Name") == "UnlockType":
+        if prop.get("Name") == unlock_property_name:
+            # New format: UnlockType is nested inside DefaultUnlocks/SandboxUnlocks struct
+            unlock_struct_values = prop.get("Value", [])
+            for unlock_prop in unlock_struct_values:
+                if unlock_prop.get("Name") == "UnlockType":
+                    enum_value = unlock_prop.get("Value", "")
+                    if "::" in enum_value:
+                        return enum_value.split("::")[-1]
+        # Old format fallback: UnlockType directly in Value array
+        elif prop.get("Name") == "UnlockType":
             enum_value = prop.get("Value", "")
             if "::" in enum_value:
                 return enum_value.split("::")[-1]
+
     return "Unknown"
 
 
-def parse_fragments_required(recipe_data):
-    """Extract number of fragments required from recipe data."""
+def parse_unlock_required_items(recipe_data, string_map, is_campaign_mode=True):
+    """Extract required items and constructions from unlock data (from DefaultUnlocks or SandboxUnlocks)."""
+    unlock_property_name = "DefaultUnlocks" if is_campaign_mode else "SandboxUnlocks"
+    required_items = []
+
     for prop in recipe_data.get("Value", []):
-        if prop.get("Name") == "FragmentsRequired":
+        if prop.get("Name") == unlock_property_name:
+            # New format: UnlockRequiredItems/Constructions are nested inside DefaultUnlocks/SandboxUnlocks struct
+            unlock_struct_values = prop.get("Value", [])
+            for unlock_prop in unlock_struct_values:
+                # Parse UnlockRequiredItems
+                if unlock_prop.get("Name") == "UnlockRequiredItems":
+                    items_array = unlock_prop.get("Value", [])
+                    for item_struct in items_array:
+                        if item_struct.get("$type") == "UAssetAPI.PropertyTypes.Structs.StructPropertyData, UAssetAPI":
+                            for item_prop in item_struct.get("Value", []):
+                                if item_prop.get("Name") == "RowName":
+                                    item_key = item_prop.get("Value", "")
+                                    if item_key:
+                                        # Convert item key to display name
+                                        display_name = convert_item_key_to_display_name(item_key, string_map)
+                                        if display_name:
+                                            required_items.append(display_name)
+
+                # Parse UnlockRequiredConstructions (buildings/crafting stations)
+                elif unlock_prop.get("Name") == "UnlockRequiredConstructions":
+                    constructions_array = unlock_prop.get("Value", [])
+                    for construction_struct in constructions_array:
+                        if construction_struct.get("$type") == "UAssetAPI.PropertyTypes.Structs.StructPropertyData, UAssetAPI":
+                            for construction_prop in construction_struct.get("Value", []):
+                                if construction_prop.get("Name") == "RowName":
+                                    construction_key = construction_prop.get("Value", "")
+                                    if construction_key:
+                                        # Convert construction key to display name
+                                        display_name = get_station_display_name(construction_key, string_map)
+                                        if display_name:
+                                            required_items.append(display_name)
+
+    return required_items
+
+
+def parse_fragments_required(recipe_data, is_campaign_mode=True):
+    """Extract number of fragments required from recipe data (from DefaultUnlocks or SandboxUnlocks)."""
+    unlock_property_name = "DefaultUnlocks" if is_campaign_mode else "SandboxUnlocks"
+
+    for prop in recipe_data.get("Value", []):
+        if prop.get("Name") == unlock_property_name:
+            # New format: NumFragments is nested inside DefaultUnlocks/SandboxUnlocks struct
+            unlock_struct_values = prop.get("Value", [])
+            for unlock_prop in unlock_struct_values:
+                if unlock_prop.get("Name") == "NumFragments":
+                    return unlock_prop.get("Value", 0)
+        # Old format fallback: FragmentsRequired directly in Value array
+        elif prop.get("Name") == "FragmentsRequired":
             return prop.get("Value", 0)
+
     return 0
 
 
@@ -446,7 +564,8 @@ def parse_tier(recipe_data):
     return 0
 
 
-def format_unlock_text(display_name, unlock_type, fragments_required, tier, is_dlc, dlc_title, has_sandbox_unlock_override, is_campaign_mode):
+def format_unlock_text(display_name, unlock_type, fragments_required, tier, is_dlc, dlc_title,
+                        has_sandbox_unlock_override, is_campaign_mode, required_items, string_map):
     """Format the unlock text based on unlock type and other parameters."""
     # Check for override first
     override_map = CAMPAIGN_UNLOCK_OVERRIDE if is_campaign_mode else SANDBOX_UNLOCK_OVERRIDE
@@ -455,7 +574,8 @@ def format_unlock_text(display_name, unlock_type, fragments_required, tier, is_d
 
     # Fragment collection unlock
     if unlock_type == "FragmentCollection" and fragments_required > 0:
-        fragment_text = f"Collect {fragments_required} fragment" + ("s" if fragments_required > 1 else "")
+        fragment_text = f"Collect {fragments_required} fragment"
+        fragment_text += ("s" if fragments_required > 1 else "")
         location_map = CAMPAIGN_FRAGMENT_LOCATION if is_campaign_mode else SANDBOX_FRAGMENT_LOCATION
         if tier and tier in location_map:
             fragment_text += location_map[tier]
@@ -467,9 +587,26 @@ def format_unlock_text(display_name, unlock_type, fragments_required, tier, is_d
             return f"Purchase {dlc_title}"
         return "???"
 
-    # Discover dependencies
+    # Discover dependencies - show actual item names
     if unlock_type == "DiscoverDependencies":
-        return "Unlocked by discovering dependencies"
+        if required_items:
+            # Convert item keys to display names
+            item_names = []
+            for item_key in required_items:
+                item_display_name = convert_item_key_to_display_name(item_key, string_map)
+                item_names.append(f"{{{{LI|{item_display_name}}}}}")
+
+            # Format as "Discover X and Y" or "Discover X, Y, and Z"
+            if len(item_names) == 1:
+                return f"Discover {item_names[0]}"
+            elif len(item_names) == 2:
+                return f"Discover {item_names[0]} and {item_names[1]}"
+            else:
+                # Oxford comma for 3+ items
+                all_but_last = ", ".join(item_names[:-1])
+                return f"Discover {all_but_last}, and {item_names[-1]}"
+        else:
+            return "Unlocked by discovering dependencies"
 
     # DLC unlock
     if is_dlc and dlc_title:
@@ -627,15 +764,22 @@ def generate_wiki_template(item_model):
             for count, material in item_model["CraftingMaterials"]:
                 lines.append(f"* ({count}) {{{{LI|{material}}}}}")
 
-        if item_model.get("CraftTime") and item_model["CraftTime"] > 0:
-            lines.append(f"'''Time:''' {item_model['CraftTime']:.1f}s")
+        craft_time = item_model.get("CraftTime", 0)
+        if craft_time and isinstance(craft_time, (int, float)) and craft_time > 0:
+            lines.append(f"'''Time:''' {craft_time:.1f}s")
 
-    # Removed: Unlock section
-    # lines.append("== Unlock ==")
-    # if item_model.get("CampaignUnlock"):
-    #     lines.append(f"| campaign = {item_model['CampaignUnlock']}")
-    # if item_model.get("SandboxUnlock"):
-    #     lines.append(f"| sandbox = {item_model['SandboxUnlock']}")
+    # Unlock section - only show if there's recipe unlock info
+    if item_model.get("HasRecipe"):
+        lines.append("")
+        lines.append("== Unlock ==")
+
+        # Campaign unlock
+        if item_model.get("CampaignUnlock"):
+            lines.append(f"'''Campaign:''' {item_model['CampaignUnlock']}")
+
+        # Sandbox unlock (always show)
+        if item_model.get("SandboxUnlock"):
+            lines.append(f"'''Sandbox:''' {item_model['SandboxUnlock']}")
 
     return "\n".join(lines)
 
@@ -651,6 +795,7 @@ def process_items(items_data, recipes_data, string_map):
 
         # Get basic properties
         display_name = get_display_name(item_entry, string_map)
+
 
         # Check exclusions
         if should_exclude_item(item_name, display_name):
@@ -693,32 +838,76 @@ def process_items(items_data, recipes_data, string_map):
         else:
             item_model["DLC"] = False
 
-        # Parse recipe data if available
-        recipe = recipes_data.get(item_name)
+        # Parse recipe data if available (normalized lookup: lowercase, no underscores/spaces/hyphens)
+        normalized_item_name = item_name.lower().replace("_", "").replace(" ", "").replace("-", "")
+        recipe = recipes_data.get(normalized_item_name)
+
+        # Try alternative lookups if not found
+        if not recipe:
+            # Try without "steel" suffix (e.g., "NogrodSteelIngot" -> "nogrodingot")
+            if "steel" in normalized_item_name and "ingot" in normalized_item_name:
+                alt_name = normalized_item_name.replace("steel", "")
+                recipe = recipes_data.get(alt_name)
+
+        if not recipe:
+            # Try replacing "alloy" with "metal" (e.g., "StarAlloyIngot" -> "starmetalingot")
+            if "alloy" in normalized_item_name and "ingot" in normalized_item_name:
+                alt_name = normalized_item_name.replace("alloy", "metal")
+                recipe = recipes_data.get(alt_name)
         if recipe:
             item_model["HasRecipe"] = True
-            item_model["CraftingMaterials"] = parse_recipe_materials(recipe, string_map)
-            item_model["CraftingStations"] = parse_crafting_stations(recipe, string_map)
+            crafting_materials = parse_recipe_materials(recipe, string_map)
+            crafting_stations = parse_crafting_stations(recipe, string_map)
+
+            item_model["CraftingMaterials"] = crafting_materials
+            item_model["CraftingStations"] = crafting_stations
             item_model["CraftTime"] = parse_crafting_time(recipe)
-            item_model["UnlockType"] = parse_unlock_type(recipe)
-            item_model["FragmentsRequired"] = parse_fragments_required(recipe)
             item_model["Tier"] = parse_tier(recipe)
             item_model["HasSandboxUnlockOverride"] = parse_has_sandbox_unlock_override(recipe)
 
-            # Generate unlock text
+            # Parse unlock data for Campaign mode
+            campaign_unlock_type = parse_unlock_type(recipe, is_campaign_mode=True)
+            campaign_fragments_required = parse_fragments_required(recipe, is_campaign_mode=True)
+            campaign_required_items = parse_unlock_required_items(recipe, string_map, is_campaign_mode=True)
+
+            item_model["UnlockType"] = campaign_unlock_type
+            item_model["FragmentsRequired"] = campaign_fragments_required
+
+            # Generate campaign unlock text
             item_model["CampaignUnlock"] = format_unlock_text(
-                display_name, item_model["UnlockType"], item_model["FragmentsRequired"],
-                item_model["Tier"], is_dlc, dlc_title, item_model["HasSandboxUnlockOverride"], True
+                display_name, campaign_unlock_type, campaign_fragments_required,
+                item_model["Tier"], is_dlc, dlc_title,
+                item_model["HasSandboxUnlockOverride"], True,
+                campaign_required_items, string_map
             )
 
             # Sandbox unlock
+            # Always parse sandbox unlock data to check if it has meaningful content
+            sandbox_unlock_type = parse_unlock_type(recipe, is_campaign_mode=False)
+            sandbox_fragments_required = parse_fragments_required(recipe, is_campaign_mode=False)
+            sandbox_required_items = parse_unlock_required_items(recipe, string_map, is_campaign_mode=False)
+
+            # Check if sandbox unlock has meaningful data
+            has_meaningful_sandbox_unlock = False
             if item_model["HasSandboxUnlockOverride"]:
+                # Check if there's actual unlock content
+                if sandbox_unlock_type == "DiscoverDependencies" and sandbox_required_items:
+                    has_meaningful_sandbox_unlock = True
+                elif sandbox_unlock_type == "FragmentCollection" and sandbox_fragments_required > 0:
+                    has_meaningful_sandbox_unlock = True
+                elif sandbox_unlock_type not in ["Manual", "Unknown"]:
+                    has_meaningful_sandbox_unlock = True
+
+            if has_meaningful_sandbox_unlock:
+                # Generate separate sandbox unlock text
                 item_model["SandboxUnlock"] = format_unlock_text(
-                    display_name, item_model["UnlockType"], item_model["FragmentsRequired"],
-                    item_model["Tier"], is_dlc, dlc_title, item_model["HasSandboxUnlockOverride"], False
+                    display_name, sandbox_unlock_type, sandbox_fragments_required,
+                    item_model["Tier"], is_dlc, dlc_title,
+                    item_model["HasSandboxUnlockOverride"], False,
+                    sandbox_required_items, string_map
                 )
             else:
-                # Use campaign unlock for sandbox if no override
+                # Use campaign unlock for sandbox if no meaningful override
                 item_model["SandboxUnlock"] = item_model["CampaignUnlock"]
         else:
             item_model["HasRecipe"] = False
@@ -748,6 +937,7 @@ def write_wiki_files(item_models, output_dir):
         filename = f"{item['DisplayName']}.wiki"
         filepath = os.path.join(output_dir, filename)
 
+        # Write new content (==Used In== section will be added by cross-reference script)
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(wiki_content)
 
