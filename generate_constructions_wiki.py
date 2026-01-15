@@ -521,6 +521,17 @@ def analyze_construction(construction, recipe, string_map, dlc_map):
             unlock_type = get_property_value(sandbox_unlocks, "UnlockType")
             model["SandboxUnlockType"] = unlock_type
 
+            # Required items for unlock
+            required_items = get_property_value(sandbox_unlocks, "UnlockRequiredItems")
+            if required_items and isinstance(required_items, list):
+                req_item_names = []
+                for req in required_items:
+                    req_props = req.get("Value", [])
+                    for rp in req_props:
+                        if rp.get("Name") == "RowName":
+                            req_item_names.append(rp.get("Value"))
+                model["SandboxRequiredItems"] = req_item_names
+
             # Required constructions for unlock
             required_constructions = get_property_value(sandbox_unlocks, "UnlockRequiredConstructions")
             if required_constructions and isinstance(required_constructions, list):
@@ -548,6 +559,17 @@ def analyze_construction(construction, recipe, string_map, dlc_map):
         if default_unlocks and isinstance(default_unlocks, list):
             unlock_type = get_property_value(default_unlocks, "UnlockType")
             model["DefaultUnlockType"] = unlock_type
+
+            # Required items for unlock
+            required_items = get_property_value(default_unlocks, "UnlockRequiredItems")
+            if required_items and isinstance(required_items, list):
+                req_item_names = []
+                for req in required_items:
+                    req_props = req.get("Value", [])
+                    for rp in req_props:
+                        if rp.get("Name") == "RowName":
+                            req_item_names.append(rp.get("Value"))
+                model["DefaultRequiredItems"] = req_item_names
 
             # Required constructions for unlock
             required_constructions = get_property_value(default_unlocks, "UnlockRequiredConstructions")
@@ -654,47 +676,106 @@ def format_materials(materials, items_map, string_map):
     return "<br>".join(mat_parts)
 
 
-def format_unlock_requirements(required_constructions, required_fragments, constructions_map, string_map):
-    """Format unlock requirements as descriptive text."""
+def convert_item_key_to_display_name(item_key, string_map):
+    """
+    Convert item key format to display name for constructions.
+    Handles "Ore.ItemName" -> "Item Name Ore" conversion.
+    E.g., "Ore.Copper" -> "Copper Ore", "Item.QualityWood" -> "Elven Wood"
+    """
+    # Handle "Prefix.Suffix" format first (e.g., "Item.QualityWood", "Ore.Copper")
+    if '.' in item_key:
+        parts = item_key.split('.')
+        if len(parts) == 2:
+            prefix, suffix = parts
+
+            # Try looking up just the suffix part
+            for pattern in [
+                f"Items.Items.{suffix}.Name",
+                f"Items.Ores.{suffix}.Name",
+                f"{suffix}.Name"
+            ]:
+                display_name = string_map.get(pattern)
+                if display_name:
+                    return display_name
+
+            # Try reversed format (for cases like "Ore.Copper" -> "CopperOre")
+            reversed_key = suffix + prefix
+            for pattern in [f"Items.Items.{reversed_key}.Name", f"Items.Ores.{reversed_key}.Name"]:
+                display_name = string_map.get(pattern)
+                if display_name:
+                    return display_name
+
+            # Fallback: format as "Suffix Prefix"
+            import re
+            suffix_formatted = re.sub(r'([a-z])([A-Z])', r'\1 \2', suffix)
+            return f"{suffix_formatted} {prefix}"
+
+    # Try direct lookups for keys without dots
+    for pattern in [
+        f"Items.Items.{item_key}.Name",
+        f"Items.Ores.{item_key}.Name",
+        f"{item_key}.Name"
+    ]:
+        display_name = string_map.get(pattern)
+        if display_name:
+            return display_name
+
+    # Fallback: return cleaned up key
     import re
-    parts = []
+    cleaned = item_key.replace("Item.", "").replace("Ore.", "").replace("_", " ")
+    return re.sub(r'([a-z])([A-Z])', r'\1 \2', cleaned)
 
-    if required_fragments:
-        # Fragments represent discovery/knowledge
-        if len(required_fragments) == 1:
-            fragment_name = required_fragments[0].replace("_Fragment", "").replace("_", " ")
-            # Add spaces before capital letters for camelCase
-            fragment_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', fragment_name)
-            parts.append(f"Discover the {fragment_name}")
-        else:
-            parts.append(f"Discover {len(required_fragments)} recipe fragments")
 
+def format_unlock_requirements(required_constructions, required_items, required_fragments, constructions_map, string_map):
+    """Format unlock requirements as 'Discover X' text matching items format."""
+    import re
+
+    # Collect all required things
+    all_requirements = []
+
+    # Add required items
+    if required_items:
+        for item_key in required_items:
+            display_name = convert_item_key_to_display_name(item_key, string_map)
+            all_requirements.append(f"{{{{LI|{display_name}}}}}")
+
+    # Add required constructions
     if required_constructions:
-        # Look up construction display names
-        const_names = []
         for const_name in required_constructions:
             # Look up in constructions map
             if const_name in constructions_map:
                 const_model = constructions_map[const_name]
                 if const_model.get("DisplayName"):
-                    const_names.append(f"{{{{LI|{const_model['DisplayName']}}}}}")
+                    all_requirements.append(f"{{{{LI|{const_model['DisplayName']}}}}}")
                 else:
                     # Clean up the name
                     cleaned = const_name.replace("_", " ")
                     cleaned = re.sub(r'([a-z])([A-Z])', r'\1 \2', cleaned)
-                    const_names.append(cleaned)
+                    all_requirements.append(cleaned)
             else:
                 # Clean up the name
                 cleaned = const_name.replace("_", " ")
                 cleaned = re.sub(r'([a-z])([A-Z])', r'\1 \2', cleaned)
-                const_names.append(cleaned)
+                all_requirements.append(cleaned)
 
-        if len(const_names) == 1:
-            parts.append(f"Build a {const_names[0]}")
-        else:
-            parts.append(f"Build: {', '.join(const_names)}")
+    # Add required fragments (less common)
+    if required_fragments:
+        for fragment_key in required_fragments:
+            fragment_name = fragment_key.replace("_Fragment", "").replace("_", " ")
+            fragment_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', fragment_name)
+            all_requirements.append(fragment_name)
 
-    return " and ".join(parts) if parts else "Available from start"
+    # Format as "Discover X and Y" or "Discover X, Y, and Z"
+    if not all_requirements:
+        return "Unlocked by discovering dependencies"
+    elif len(all_requirements) == 1:
+        return f"Discover {all_requirements[0]}"
+    elif len(all_requirements) == 2:
+        return f"Discover {all_requirements[0]} and {all_requirements[1]}"
+    else:
+        # Oxford comma for 3+ items
+        all_but_last = ", ".join(all_requirements[:-1])
+        return f"Discover {all_but_last}, and {all_requirements[-1]}"
 
 
 def generate_wiki_template(construction_model, items_map, constructions_map, string_map):
@@ -736,33 +817,46 @@ def generate_wiki_template(construction_model, items_map, constructions_map, str
         lines.append("==Description==")
         lines.append(construction_model["Description"])
 
-    # Unlocks section
-    has_campaign_unlock = construction_model.get("DefaultUnlockType") != "EMorRecipeUnlockType::Manual"
-    has_sandbox_unlock = construction_model.get("SandboxUnlockType") != "EMorRecipeUnlockType::Manual"
+    # Unlock section - matching items format
+    has_recipe = construction_model.get("Materials") is not None  # If it has materials, it has a recipe
+    has_campaign_unlock = construction_model.get("DefaultUnlockType") not in [None, "EMorRecipeUnlockType::Manual"]
+    has_sandbox_unlock = construction_model.get("SandboxUnlockType") not in [None, "EMorRecipeUnlockType::Manual"]
 
-    if has_campaign_unlock or has_sandbox_unlock or construction_model.get("bHasSandboxUnlockOverride"):
+    if has_recipe and (has_campaign_unlock or has_sandbox_unlock or construction_model.get("bHasSandboxUnlockOverride")):
         lines.append("")
-        lines.append("==Unlocks==")
+        lines.append("== Unlock ==")
 
         # Campaign unlock
-        if has_campaign_unlock:
-            campaign_req = format_unlock_requirements(
-                construction_model.get("DefaultRequiredConstructions", []),
-                construction_model.get("DefaultRequiredFragments", []),
-                constructions_map,
-                string_map
-            )
-            lines.append(f"*Campaign: {{{{spoiler | {campaign_req}}}}}")
+        campaign_req = format_unlock_requirements(
+            construction_model.get("DefaultRequiredConstructions", []),
+            construction_model.get("DefaultRequiredItems", []),
+            construction_model.get("DefaultRequiredFragments", []),
+            constructions_map,
+            string_map
+        )
+        lines.append(f"'''Campaign:''' {campaign_req}")
 
-        # Sandbox unlock
-        if has_sandbox_unlock or construction_model.get("bHasSandboxUnlockOverride"):
+        # Sandbox unlock - check if it has meaningful data
+        sandbox_has_data = (
+            construction_model.get("SandboxRequiredConstructions") or
+            construction_model.get("SandboxRequiredItems") or
+            construction_model.get("SandboxRequiredFragments") or
+            has_sandbox_unlock
+        )
+
+        if sandbox_has_data:
+            # Generate separate sandbox unlock text
             sandbox_req = format_unlock_requirements(
                 construction_model.get("SandboxRequiredConstructions", []),
+                construction_model.get("SandboxRequiredItems", []),
                 construction_model.get("SandboxRequiredFragments", []),
                 constructions_map,
                 string_map
             )
-            lines.append(f"*Sandbox: {{{{spoiler | {sandbox_req}}}}}")
+            lines.append(f"'''Sandbox:''' {sandbox_req}")
+        else:
+            # Use campaign unlock for sandbox if no meaningful override
+            lines.append(f"'''Sandbox:''' {campaign_req}")
 
     # DLC and Set information
     has_dlc = construction_model.get("DLCDisplayName") is not None
