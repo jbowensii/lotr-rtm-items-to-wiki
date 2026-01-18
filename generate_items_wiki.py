@@ -2,12 +2,13 @@ import json
 import os
 import re
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-ITEMS_FILE = os.path.join(SOURCE_DIR, "DT_Items.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "items")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+ITEMS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Items.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "items")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
@@ -672,25 +673,6 @@ def process_tags_for_properties(tags):
     return result
 
 
-def should_exclude_item(item_name, display_name):
-    """Check if item should be excluded from wiki generation."""
-    exclusions = [
-        "TEST",
-        "Test",
-        "DEV_",
-        "BROKEN",
-        "Broken",
-        "DISABLED",
-        "_Backup",
-    ]
-
-    for exclusion in exclusions:
-        if exclusion in item_name or exclusion in display_name:
-            return True
-
-    return False
-
-
 def generate_wiki_template(item_model):
     """Generate MediaWiki template for an item."""
     lines = []
@@ -798,7 +780,6 @@ def process_items(items_data, recipes_data, string_map):
     """Process all items and generate wiki models."""
     print("\nProcessing items...")
     item_models = []
-    excluded_items = []
 
     for item_entry in items_data:
         item_name = item_entry.get("Name", "")
@@ -806,10 +787,8 @@ def process_items(items_data, recipes_data, string_map):
         # Get basic properties
         display_name = get_display_name(item_entry, string_map)
 
-
-        # Check exclusions
-        if should_exclude_item(item_name, display_name):
-            excluded_items.append((item_name, display_name))
+        # Skip if no display name
+        if not display_name:
             continue
 
         # Get tags
@@ -940,8 +919,7 @@ def process_items(items_data, recipes_data, string_map):
         item_models.append(item_model)
 
     print(f"  Processed {len(item_models)} items")
-    print(f"  Excluded {len(excluded_items)} items")
-    return item_models, excluded_items
+    return item_models
 
 
 def write_wiki_files(item_models, output_dir):
@@ -962,21 +940,6 @@ def write_wiki_files(item_models, output_dir):
     print(f"  Wrote {len(item_models)} wiki files")
 
 
-def write_excluded_log(excluded_items, output_dir):
-    """Write log file of excluded items."""
-    log_path = os.path.join(output_dir, "excluded_items.log")
-
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write("Excluded Items Log\n")
-        f.write("=" * 60 + "\n")
-        f.write(f"Total excluded: {len(excluded_items)}\n\n")
-
-        for item_name, display_name in excluded_items:
-            f.write(f"{item_name}\n")
-            f.write(f"  Display Name: {display_name}\n")
-            f.write("\n")
-
-    print(f"  Wrote exclusion log: {log_path}")
 
 
 def main():
@@ -998,14 +961,10 @@ def main():
     print(f"  Total recipes: {len(recipes_data)}")
 
     # Process items
-    item_models, excluded_items = process_items(items_data, recipes_data, string_map)
+    item_models = process_items(items_data, recipes_data, string_map)
 
     # Write wiki files
     write_wiki_files(item_models, OUTPUT_DIR)
-
-    # Write exclusion log to output root directory
-    if excluded_items:
-        write_excluded_log(excluded_items, "output")
 
     print("\nDone!")
 

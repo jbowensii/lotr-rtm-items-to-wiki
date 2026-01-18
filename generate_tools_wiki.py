@@ -2,13 +2,14 @@ import json
 import os
 import re
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-TOOLS_FILE = os.path.join(SOURCE_DIR, "DT_Tools.json")
-THROWLIGHTS_FILE = os.path.join(SOURCE_DIR, "DT_ThrowLights.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "tools")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+TOOLS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Tools.json")
+THROWLIGHTS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ThrowLights.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "tools")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
@@ -907,44 +908,6 @@ def sanitize_filename(name):
     return name
 
 
-def should_exclude(model):
-    """Check if an item should be excluded. Returns (exclude: bool, reason: str)."""
-    display_name = model.get("DisplayName", "")
-    game_name = model.get("GameName", "")
-
-    # No display name
-    if not display_name:
-        return True, "No display name"
-
-    # Name doesn't start with a letter
-    if not display_name[0].isalpha():
-        return True, f"Name begins with non-letter: '{display_name[0]}'"
-
-    # DEV items are internal/test items
-    if display_name.startswith("DEV") or "DEV_" in game_name:
-        return True, "DEV item"
-
-    # TEST items are internal/test items
-    if display_name.startswith("TEST"):
-        return True, "TEST item"
-
-    # Unresolved string table references
-    if display_name.startswith("Tools.") or display_name.startswith("DT_Tools."):
-        return True, "Unresolved string table reference"
-
-    # Broken tools (these are repair states, not separate items)
-    if "Broken" in game_name:
-        return True, "Broken tool variant"
-
-    # Wanderer test items
-    if "Wanderer" in game_name or "TestSequence" in game_name:
-        return True, "Test sequence item"
-
-    # Disabled items
-    if model.get("EnabledState") == "Disabled":
-        return True, "Disabled item"
-
-    return False, ""
 
 
 def main():
@@ -970,19 +933,12 @@ def main():
 
     # Process each tool entry
     generated = 0
-    excluded = []
 
     for tool_entry in tools_list:
         model = extract_tool_model(tool_entry, string_map, recipe_map)
 
-        exclude, reason = should_exclude(model)
-        if exclude:
-            excluded.append({
-                "GameName": model["GameName"],
-                "DisplayName": model["DisplayName"],
-                "Reason": reason
-            })
-            print(f"Excluding {model['GameName']} - {reason}")
+        # Skip if no display name
+        if not model.get("DisplayName"):
             continue
 
         # Generate wiki template
@@ -1001,14 +957,8 @@ def main():
     for throwlight_entry in throwlights_list:
         model = extract_throwlight_model(throwlight_entry, string_map, recipe_map)
 
-        exclude, reason = should_exclude(model)
-        if exclude:
-            excluded.append({
-                "GameName": model["GameName"],
-                "DisplayName": model["DisplayName"],
-                "Reason": reason
-            })
-            print(f"Excluding {model['GameName']} - {reason}")
+        # Skip if no display name
+        if not model.get("DisplayName"):
             continue
 
         # Generate wiki template
@@ -1023,20 +973,7 @@ def main():
         print(f"Generated: {filename}")
         generated += 1
 
-    # Write exclusion log
-    if excluded:
-        log_path = os.path.join("output", "excluded_tools.log")
-        with open(log_path, 'w', encoding='utf-8') as f:
-            f.write(f"Excluded Tool Items ({len(excluded)} total)\n")
-            f.write("=" * 50 + "\n\n")
-            for item in excluded:
-                f.write(f"GameName: {item['GameName']}\n")
-                f.write(f"DisplayName: {item['DisplayName']}\n")
-                f.write(f"Reason: {item['Reason']}\n\n")
-        print(f"\nExclusion log written to {log_path}")
-
     print(f"\nDone! Generated {generated} wiki templates in {OUTPUT_DIR}")
-    print(f"Excluded {len(excluded)} items")
 
 
 if __name__ == "__main__":

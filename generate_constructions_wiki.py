@@ -1,14 +1,15 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-CONSTRUCTIONS_FILE = os.path.join(SOURCE_DIR, "DT_Constructions.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ConstructionRecipes.json")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+CONSTRUCTIONS_FILE = os.path.join(SOURCE_DIR, "Building", "DT_Constructions.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Building", "DT_ConstructionRecipes.json")
 ENTITLEMENTS_FILE = os.path.join(SOURCE_DIR, "DT_Entitlements.json")
 UNLOCK_OVERRIDES_FILE = "construction_unlock_overrides.json"
-OUTPUT_DIR = os.path.join("output", "constructions")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "constructions")
 
 # DLC display name mappings
 DLC_DISPLAY_NAMES = {
@@ -314,29 +315,6 @@ def load_recipes_data(filepath):
     return recipes_dict
 
 
-def should_exclude_construction(name, display_name):
-    """Determine if a construction should be excluded based on naming rules."""
-    # Exclude internal names starting with [
-    if name.startswith("["):
-        return True, "Internal name starts with ["
-
-    # Exclude display names starting with [
-    if display_name and display_name.startswith("["):
-        return True, "Display name starts with ["
-
-    # Exclude internal names starting with _Beorn
-    if name.startswith("_Beorn"):
-        return True, "Internal name starts with _Beorn"
-
-    # Exclude display names starting with _ or *
-    if display_name and (display_name.startswith("_") or display_name.startswith("*")):
-        return True, "Display name starts with _ or *"
-
-    # Exclude anything with "Broken" in internal or display name
-    if "Broken" in name or (display_name and "Broken" in display_name):
-        return True, "Contains 'Broken'"
-
-    return False, None
 
 
 def get_material_variant(internal_name):
@@ -399,8 +377,7 @@ def resolve_construction_display_name(name, properties, string_map):
                 break
 
     # Apply material variant prefix if applicable
-    # Skip material prefix for items starting with [ or _ (these will be excluded anyway)
-    if display_name and not name.startswith("[") and not name.startswith("_"):
+    if display_name:
         material_variant = get_material_variant(name)
         display_name = apply_material_prefix(display_name, material_variant)
 
@@ -1002,22 +979,6 @@ def write_wiki_files(construction_models, output_dir, items_map, string_map, unl
     print(f"  Wrote {len(construction_models)} wiki files")
 
 
-def write_excluded_log(excluded_constructions, output_dir):
-    """Write a log of excluded constructions."""
-    log_path = os.path.join(output_dir, "excluded_constructions.txt")
-
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write("Excluded Constructions\n")
-        f.write("=" * 80 + "\n\n")
-        f.write(f"Total excluded: {len(excluded_constructions)}\n\n")
-
-        for construction in excluded_constructions:
-            f.write(f"- {construction['InternalName']}")
-            if construction.get('DisplayName'):
-                f.write(f" ({construction['DisplayName']})")
-            f.write(f" - Reason: {construction.get('ExclusionReason', 'Unknown')}\n")
-
-    print(f"  Wrote exclusion log: {log_path}")
 
 
 def process_constructions(constructions, recipes, string_map, dlc_map):
@@ -1030,14 +991,13 @@ def process_constructions(constructions, recipes, string_map, dlc_map):
         dlc_map: Dict mapping construction names to DLC short names
 
     Returns:
-        tuple: (construction_models, excluded_constructions, all_constructions_map)
+        tuple: (construction_models, all_constructions_map)
     """
     from collections import defaultdict
 
     print("\nProcessing constructions...")
     all_constructions_map = {}  # Map of ALL constructions for cross-references
     construction_models = []  # Only constructions to generate wiki files for
-    excluded_constructions = []
 
     # First pass: Build complete map of all constructions
     for construction in constructions:
@@ -1045,13 +1005,6 @@ def process_constructions(constructions, recipes, string_map, dlc_map):
         # Try exact case first, then lowercase for case-insensitive match
         recipe = recipes.get(name) or recipes.get(name.lower())
         model = analyze_construction(construction, recipe, string_map, dlc_map)
-
-        # Check exclusion rules first
-        should_exclude, exclusion_reason = should_exclude_construction(name, model.get("DisplayName"))
-        if should_exclude:
-            model["ExclusionReason"] = exclusion_reason
-            excluded_constructions.append(model)
-            continue
 
         # Add to map if it has a display name (for cross-references)
         if model.get("DisplayName"):
@@ -1069,17 +1022,10 @@ def process_constructions(constructions, recipes, string_map, dlc_map):
         if len(items) == 1:
             # No conflict, include it
             name, model = items[0]
-
-            # Skip constructions without recipes (can't be built by player)
-            if not (recipes.get(name) or recipes.get(name.lower())):
-                model["ExclusionReason"] = "No recipe data"
-                excluded_constructions.append(model)
-                continue
-
             construction_models.append(model)
         else:
             # Multiple items with same display name
-            # Prefer V2 version if exists, otherwise take first with recipe
+            # Prefer V2 version if exists, otherwise take all
             v2_item = None
             non_v2_items = []
 
@@ -1091,28 +1037,15 @@ def process_constructions(constructions, recipes, string_map, dlc_map):
 
             # Choose which to include
             if v2_item:
-                # Use V2 version
+                # Use V2 version only
                 name, model = v2_item
-                if recipes.get(name) or recipes.get(name.lower()):
-                    construction_models.append(model)
-                else:
-                    model["ExclusionReason"] = "No recipe data"
-                    excluded_constructions.append(model)
-
-                # Exclude non-V2 versions
-                for name, model in non_v2_items:
-                    model["ExclusionReason"] = "Superseded by V2 version"
-                    excluded_constructions.append(model)
+                construction_models.append(model)
             else:
-                # No V2 version
-                # If multiple items with recipes, disambiguate with suffix
-                items_with_recipes = [(n, m) for n, m in items if (recipes.get(n) or recipes.get(n.lower()))]
-                items_without_recipes = [(n, m) for n, m in items if not (recipes.get(n) or recipes.get(n.lower()))]
-
-                if len(items_with_recipes) > 1:
+                # No V2 version - include all with disambiguation
+                if len(items) > 1:
                     # Multiple buildable items with same display name
                     # Add disambiguation suffix based on internal name prefix
-                    for name, model in items_with_recipes:
+                    for name, model in items:
                         # Determine suffix from internal name pattern
                         suffix = None
                         if name.startswith("Advanced_Column"):
@@ -1135,20 +1068,14 @@ def process_constructions(constructions, recipes, string_map, dlc_map):
                             model["DisambiguationSuffix"] = suffix
 
                         construction_models.append(model)
-                elif len(items_with_recipes) == 1:
-                    # Only one has a recipe, include it
-                    construction_models.append(items_with_recipes[0][1])
-
-                # Exclude items without recipes
-                for name, model in items_without_recipes:
-                    model["ExclusionReason"] = "No recipe data"
-                    excluded_constructions.append(model)
+                else:
+                    # Only one item
+                    construction_models.append(items[0][1])
 
     print(f"  Processed {len(construction_models)} constructions for wiki generation")
-    print(f"  Excluded {len(excluded_constructions)} constructions")
     print(f"  Total in reference map: {len(all_constructions_map)} constructions")
 
-    return construction_models, excluded_constructions, all_constructions_map
+    return construction_models, all_constructions_map
 
 
 def main():
@@ -1160,7 +1087,7 @@ def main():
 
     # Load items data for material lookups
     print("Loading items data...")
-    items_file = os.path.join(SOURCE_DIR, "DT_Items.json")
+    items_file = os.path.join(SOURCE_DIR, "Items", "DT_Items.json")
     items_map = load_items_data(items_file)
     print(f"  Total items: {len(items_map)}")
 
@@ -1185,16 +1112,12 @@ def main():
     print(f"  Total unlock overrides: {len(unlock_overrides)}")
 
     # Process constructions
-    construction_models, excluded_constructions, all_constructions_map = process_constructions(
+    construction_models, all_constructions_map = process_constructions(
         constructions, recipes, string_map, dlc_map
     )
 
     # Write wiki files using the complete constructions map for cross-references
     write_wiki_files(construction_models, OUTPUT_DIR, items_map, string_map, unlock_overrides, all_constructions_map)
-
-    # Write exclusion log
-    if excluded_constructions:
-        write_excluded_log(excluded_constructions, "output")
 
     print("\nDone!")
 

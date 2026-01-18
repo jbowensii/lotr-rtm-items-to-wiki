@@ -1,11 +1,12 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-RUNES_FILE = os.path.join(SOURCE_DIR, "DT_Runes.json")
-OUTPUT_DIR = os.path.join("output", "runes")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+RUNES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Runes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "runes")
 
 # DLC detection patterns
 DLC_PATH_PATTERNS = {
@@ -317,18 +318,9 @@ def process_runes(runes_data, string_map):
     """Process all runes and generate wiki models."""
     print("\nProcessing runes...")
     rune_models = []
-    excluded_runes = []
 
     for rune_entry in runes_data:
         rune_name = rune_entry.get("Name", "")
-
-        # Skip UNSHIPPABLE items
-        if "UNSHIPPABLE" in rune_name:
-            excluded_runes.append({
-                "name": rune_name,
-                "reason": "UNSHIPPABLE item"
-            })
-            continue
 
         # Get properties
         properties = rune_entry.get("Value", [])
@@ -341,18 +333,6 @@ def process_runes(runes_data, string_map):
 
         # Skip if no display name
         if not display_name:
-            excluded_runes.append({
-                "name": rune_name,
-                "reason": "No display name"
-            })
-            continue
-
-        # Skip items with template placeholders in name
-        if "{" in display_name or "}" in display_name:
-            excluded_runes.append({
-                "name": rune_name,
-                "reason": "Template placeholder in name"
-            })
             continue
 
         # Extract tags
@@ -395,8 +375,7 @@ def process_runes(runes_data, string_map):
         rune_models.append(rune_model)
 
     print(f"  Processed {len(rune_models)} runes")
-    print(f"  Excluded {len(excluded_runes)} runes")
-    return rune_models, excluded_runes
+    return rune_models
 
 
 def sanitize_filename(filename):
@@ -426,17 +405,6 @@ def write_wiki_files(rune_models, output_dir, string_map):
     print(f"  Wrote {len(rune_models)} wiki files")
 
 
-def write_excluded_log(excluded_runes, output_root):
-    """Write a log of excluded runes."""
-    if not excluded_runes:
-        return
-
-    log_path = os.path.join(output_root, "excluded_runes.txt")
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write(f"Excluded {len(excluded_runes)} runes:\n\n")
-        for item in excluded_runes:
-            f.write(f"{item['name']}: {item['reason']}\n")
-    print(f"\nWrote exclusion log to {log_path}")
 
 
 def main():
@@ -453,14 +421,10 @@ def main():
     print(f"  Total runes: {len(runes_data)}")
 
     # Process runes
-    rune_models, excluded_runes = process_runes(runes_data, string_map)
+    rune_models = process_runes(runes_data, string_map)
 
     # Write wiki files
     write_wiki_files(rune_models, OUTPUT_DIR, string_map)
-
-    # Write exclusion log to output root directory
-    if excluded_runes:
-        write_excluded_log(excluded_runes, "output")
 
     print("\nDone!")
 

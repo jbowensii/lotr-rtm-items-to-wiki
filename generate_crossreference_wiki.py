@@ -9,22 +9,26 @@ import re
 from collections import defaultdict
 
 
+# Base path for wiki output files in %APPDATA%
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+WIKI_DIR = os.path.join(OUTPUT_BASE, "wiki")
+
 # Directories to search for recipe usage
 SEARCH_DIRS = [
-    "output/weapons",
-    "output/tools",
-    "output/constructions",
-    "output/brews",
-    "output/armor",
-    "output/tradegoods",
-    "output/consumables",  # Consumables can craft other consumables
+    os.path.join(WIKI_DIR, "weapons"),
+    os.path.join(WIKI_DIR, "tools"),
+    os.path.join(WIKI_DIR, "constructions"),
+    os.path.join(WIKI_DIR, "brews"),
+    os.path.join(WIKI_DIR, "armor"),
+    os.path.join(WIKI_DIR, "tradegoods"),
+    os.path.join(WIKI_DIR, "consumables"),  # Consumables can craft other consumables
 ]
 
 # Directories containing items to add cross-references to
 TARGET_DIRS = [
-    "output/consumables",
-    "output/items",
-    "output/ores",
+    os.path.join(WIKI_DIR, "consumables"),
+    os.path.join(WIKI_DIR, "items"),
+    os.path.join(WIKI_DIR, "ores"),
 ]
 
 
@@ -73,8 +77,8 @@ def parse_wiki_file(filepath):
     # Extract display name from title or PAGENAME
     display_name = os.path.splitext(os.path.basename(filepath))[0]
 
-    # Determine if this is a brew
-    is_brew = 'output/brews' in filepath or 'type          = Brew' in content
+    # Determine if this is a brew (check for brews directory or Brew type)
+    is_brew = os.path.join('wiki', 'brews') in filepath or 'brews' in filepath.replace('\\', '/').lower() or 'type          = Brew' in content
 
     # Extract crafting station(s)
     stations = []

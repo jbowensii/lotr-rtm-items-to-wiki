@@ -1,12 +1,13 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-TRADEGOODS_FILE = os.path.join(SOURCE_DIR, "DT_TradeGoods.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "tradegoods")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+TRADEGOODS_FILE = os.path.join(SOURCE_DIR, "Economy", "DT_TradeGoods.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "tradegoods")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
@@ -389,23 +390,6 @@ def process_tags_for_properties(tags):
     return result
 
 
-def should_exclude_tradegood(tradegood_name, display_name):
-    """Check if trade good should be excluded from wiki generation."""
-    exclusions = [
-        "TEST",
-        "Test",
-        "DEV_",
-        "BROKEN",
-        "Broken",
-        "DISABLED",
-        "_Backup",
-    ]
-
-    for exclusion in exclusions:
-        if exclusion in tradegood_name or exclusion in display_name:
-            return True
-
-    return False
 
 
 def generate_wiki_template(tradegood_model):
@@ -496,7 +480,6 @@ def process_tradegoods(tradegoods_data, recipes_data, string_map):
     """Process all trade goods and generate wiki models."""
     print("\nProcessing trade goods...")
     tradegood_models = []
-    excluded_tradegoods = []
 
     for tradegood_entry in tradegoods_data:
         tradegood_name = tradegood_entry.get("Name", "")
@@ -504,9 +487,8 @@ def process_tradegoods(tradegoods_data, recipes_data, string_map):
         # Get basic properties
         display_name = get_display_name(tradegood_entry, string_map)
 
-        # Check exclusions
-        if should_exclude_tradegood(tradegood_name, display_name):
-            excluded_tradegoods.append((tradegood_name, display_name))
+        # Skip if no display name
+        if not display_name or display_name == "Unknown Trade Good":
             continue
 
         # Get tags
@@ -552,8 +534,7 @@ def process_tradegoods(tradegoods_data, recipes_data, string_map):
         tradegood_models.append(tradegood_model)
 
     print(f"  Processed {len(tradegood_models)} trade goods")
-    print(f"  Excluded {len(excluded_tradegoods)} trade goods")
-    return tradegood_models, excluded_tradegoods
+    return tradegood_models
 
 
 def write_wiki_files(tradegood_models, output_dir):
@@ -573,21 +554,6 @@ def write_wiki_files(tradegood_models, output_dir):
     print(f"  Wrote {len(tradegood_models)} wiki files")
 
 
-def write_excluded_log(excluded_tradegoods, output_dir):
-    """Write log file of excluded trade goods."""
-    log_path = os.path.join(output_dir, "excluded_tradegoods.log")
-
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write("Excluded Trade Goods Log\n")
-        f.write("=" * 60 + "\n")
-        f.write(f"Total excluded: {len(excluded_tradegoods)}\n\n")
-
-        for tradegood_name, display_name in excluded_tradegoods:
-            f.write(f"{tradegood_name}\n")
-            f.write(f"  Display Name: {display_name}\n")
-            f.write("\n")
-
-    print(f"  Wrote exclusion log: {log_path}")
 
 
 def main():
@@ -609,14 +575,10 @@ def main():
     print(f"  Total recipes: {len(recipes_data)}")
 
     # Process trade goods
-    tradegood_models, excluded_tradegoods = process_tradegoods(tradegoods_data, recipes_data, string_map)
+    tradegood_models = process_tradegoods(tradegoods_data, recipes_data, string_map)
 
     # Write wiki files
     write_wiki_files(tradegood_models, OUTPUT_DIR)
-
-    # Write exclusion log to output root directory
-    if excluded_tradegoods:
-        write_excluded_log(excluded_tradegoods, "output")
 
     print("\nDone!")
 

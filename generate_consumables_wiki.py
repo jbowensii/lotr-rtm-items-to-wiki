@@ -1,12 +1,13 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-CONSUMABLES_FILE = os.path.join(SOURCE_DIR, "DT_Consumables.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "consumables")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+CONSUMABLES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Consumables.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "consumables")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
@@ -598,18 +599,9 @@ def process_consumables(consumables_data, recipes_data, string_map, imports):
     """Process all consumables and generate wiki models."""
     print("\nProcessing consumables...")
     consumable_models = []
-    excluded_consumables = []
 
     for consumable_entry in consumables_data:
         consumable_name = consumable_entry.get("Name", "")
-
-        # Skip UNSHIPPABLE items
-        if "UNSHIPPABLE" in consumable_name:
-            excluded_consumables.append({
-                "name": consumable_name,
-                "reason": "UNSHIPPABLE item"
-            })
-            continue
 
         # Get properties
         properties = consumable_entry.get("Value", [])
@@ -622,10 +614,6 @@ def process_consumables(consumables_data, recipes_data, string_map, imports):
 
         # Skip if no display name
         if not display_name:
-            excluded_consumables.append({
-                "name": consumable_name,
-                "reason": "No display name"
-            })
             continue
 
         # Extract tags
@@ -685,8 +673,7 @@ def process_consumables(consumables_data, recipes_data, string_map, imports):
         consumable_models.append(consumable_model)
 
     print(f"  Processed {len(consumable_models)} consumables")
-    print(f"  Excluded {len(excluded_consumables)} consumables")
-    return consumable_models, excluded_consumables
+    return consumable_models
 
 
 def write_wiki_files(consumable_models, output_dir):
@@ -704,19 +691,6 @@ def write_wiki_files(consumable_models, output_dir):
             f.write(wiki_content)
 
     print(f"  Wrote {len(consumable_models)} wiki files")
-
-
-def write_excluded_log(excluded_consumables, output_root):
-    """Write a log of excluded consumables."""
-    if not excluded_consumables:
-        return
-
-    log_path = os.path.join(output_root, "excluded_consumables.txt")
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write(f"Excluded {len(excluded_consumables)} consumables:\n\n")
-        for item in excluded_consumables:
-            f.write(f"{item['name']}: {item['reason']}\n")
-    print(f"\nWrote exclusion log to {log_path}")
 
 
 def main():
@@ -738,14 +712,10 @@ def main():
     print(f"  Total recipes: {len(recipes_data)}")
 
     # Process consumables
-    consumable_models, excluded_consumables = process_consumables(consumables_data, recipes_data, string_map, imports)
+    consumable_models = process_consumables(consumables_data, recipes_data, string_map, imports)
 
     # Write wiki files
     write_wiki_files(consumable_models, OUTPUT_DIR)
-
-    # Write exclusion log to output root directory
-    if excluded_consumables:
-        write_excluded_log(excluded_consumables, "output")
 
     print("\nDone!")
 

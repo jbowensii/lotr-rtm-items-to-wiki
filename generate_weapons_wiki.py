@@ -2,12 +2,13 @@ import json
 import os
 import re
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-WEAPONS_FILE = os.path.join(SOURCE_DIR, "DT_Weapons.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "weapons")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+WEAPONS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Weapons.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "weapons")
 
 # Mapping from DLC path names to DLC titles
 DLC_TITLE_MAP = {
@@ -865,39 +866,6 @@ def sanitize_filename(name):
     return name
 
 
-def should_exclude(model):
-    """Check if an item should be excluded. Returns (exclude: bool, reason: str)."""
-    display_name = model.get("DisplayName", "")
-
-    # No display name
-    if not display_name:
-        return True, "No display name"
-
-    # Name doesn't start with a letter
-    if not display_name[0].isalpha():
-        return True, f"Name begins with non-letter: '{display_name[0]}'"
-
-    # DEV items are internal/test items
-    if display_name.startswith("DEV - "):
-        return True, "DEV item"
-
-    # TEST items are internal/test items
-    if display_name.startswith("TEST"):
-        return True, "TEST item"
-
-    # Unresolved string table references (display name still shows key)
-    if display_name.startswith("Weapons."):
-        return True, "Unresolved string table reference"
-
-    # Broken weapons (these are repair states, not separate items)
-    if "Broken" in model.get("GameName", ""):
-        return True, "Broken weapon variant"
-
-    # Disabled items
-    if model.get("EnabledState") == "Disabled":
-        return True, "Disabled item"
-
-    return False, ""
 
 
 def main():
@@ -919,20 +887,12 @@ def main():
 
     # Process each weapon entry
     count = 0
-    excluded = []
 
     for weapon_entry in weapons_list:
         model = extract_weapon_model(weapon_entry, string_map, recipe_map)
 
-        # Check exclusion rules
-        exclude, reason = should_exclude(model)
-        if exclude:
-            excluded.append({
-                "GameName": model["GameName"],
-                "DisplayName": model.get("DisplayName", ""),
-                "Reason": reason
-            })
-            print(f"Excluding {model['GameName']} - {reason}")
+        # Skip if no display name
+        if not model.get("DisplayName"):
             continue
 
         # Generate wiki template
@@ -948,21 +908,7 @@ def main():
         count += 1
         print(f"Generated: {filename}")
 
-    # Write exclusion log
-    if excluded:
-        log_path = os.path.join("output", "excluded_weapons.log")
-        with open(log_path, 'w', encoding='utf-8') as f:
-            f.write(f"Excluded Weapon Items ({len(excluded)} total)\n")
-            f.write("=" * 50 + "\n\n")
-            for item in excluded:
-                f.write(f"GameName: {item['GameName']}\n")
-                f.write(f"DisplayName: {item['DisplayName']}\n")
-                f.write(f"Reason: {item['Reason']}\n")
-                f.write("-" * 30 + "\n")
-        print(f"\nExclusion log written to {log_path}")
-
     print(f"\nDone! Generated {count} wiki templates in {OUTPUT_DIR}")
-    print(f"Excluded {len(excluded)} items")
 
 
 if __name__ == "__main__":

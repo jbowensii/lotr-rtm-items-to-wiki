@@ -4,15 +4,37 @@ __pycache__/
 *$py.class
 .Python
 *.so
+*.egg
+*.egg-info/
+dist/
+build/
 
 # Virtual environments
 venv/
 env/
 .env
+.venv/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
 # Output files (generated)
 output/
+
+# Logs
+*.log
+
+# Temporary files
+_ul*
+nul
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/

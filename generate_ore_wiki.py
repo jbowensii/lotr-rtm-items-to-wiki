@@ -1,11 +1,12 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-ORES_FILE = os.path.join(SOURCE_DIR, "DT_Ores.json")
-OUTPUT_DIR = os.path.join("output", "ores")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+ORES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Ores.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "ores")
 
 # DLC detection patterns
 DLC_PATH_PATTERNS = {

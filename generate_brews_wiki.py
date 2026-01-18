@@ -1,13 +1,14 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-BREWS_FILE = os.path.join(SOURCE_DIR, "DT_Brews.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-THRESHOLD_EFFECTS_FILE = os.path.join(SOURCE_DIR, "DT_ThresholdEffects.json")
-OUTPUT_DIR = os.path.join("output", "brews")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+BREWS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Brews.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+THRESHOLD_EFFECTS_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ThresholdEffects.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "brews")
 
 # DLC detection patterns
 DLC_PATH_PATTERNS = {
@@ -664,18 +665,9 @@ def process_brews(brews_data, string_map, recipes_dict, threshold_effects, impor
     """Process all brews and generate wiki models."""
     print("\nProcessing brews...")
     brew_models = []
-    excluded_brews = []
 
     for brew_entry in brews_data:
         brew_name = brew_entry.get("Name", "")
-
-        # Skip UNSHIPPABLE items
-        if "UNSHIPPABLE" in brew_name:
-            excluded_brews.append({
-                "name": brew_name,
-                "reason": "UNSHIPPABLE item"
-            })
-            continue
 
         # Get properties
         properties = brew_entry.get("Value", [])
@@ -688,18 +680,6 @@ def process_brews(brews_data, string_map, recipes_dict, threshold_effects, impor
 
         # Skip if no display name
         if not display_name:
-            excluded_brews.append({
-                "name": brew_name,
-                "reason": "No display name"
-            })
-            continue
-
-        # Skip items with template placeholders in name
-        if "{" in display_name or "}" in display_name:
-            excluded_brews.append({
-                "name": brew_name,
-                "reason": "Template placeholder in name"
-            })
             continue
 
         # Extract tags
@@ -766,8 +746,7 @@ def process_brews(brews_data, string_map, recipes_dict, threshold_effects, impor
         brew_models.append(brew_model)
 
     print(f"  Processed {len(brew_models)} brews")
-    print(f"  Excluded {len(excluded_brews)} brews")
-    return brew_models, excluded_brews
+    return brew_models
 
 
 def sanitize_filename(filename):
@@ -795,19 +774,6 @@ def write_wiki_files(brew_models, output_dir, string_map):
             f.write(wiki_content)
 
     print(f"  Wrote {len(brew_models)} wiki files")
-
-
-def write_excluded_log(excluded_brews, output_root):
-    """Write a log of excluded brews."""
-    if not excluded_brews:
-        return
-
-    log_path = os.path.join(output_root, "excluded_brews.txt")
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write(f"Excluded {len(excluded_brews)} brews:\n\n")
-        for item in excluded_brews:
-            f.write(f"{item['name']}: {item['reason']}\n")
-    print(f"\nWrote exclusion log to {log_path}")
 
 
 def main():
@@ -841,14 +807,10 @@ def main():
     print(f"  Total brews: {len(brews_data)}")
 
     # Process brews
-    brew_models, excluded_brews = process_brews(brews_data, string_map, recipes_dict, threshold_effects, imports)
+    brew_models = process_brews(brews_data, string_map, recipes_dict, threshold_effects, imports)
 
     # Write wiki files
     write_wiki_files(brew_models, OUTPUT_DIR, string_map)
-
-    # Write exclusion log to output root directory
-    if excluded_brews:
-        write_excluded_log(excluded_brews, "output")
 
     print("\nDone!")
 

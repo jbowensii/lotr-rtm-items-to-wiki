@@ -1,12 +1,13 @@
 import json
 import os
 
-# Paths
-SOURCE_DIR = "source"
-STRINGS_DIR = os.path.join(SOURCE_DIR, "strings")
-STORAGE_FILE = os.path.join(SOURCE_DIR, "DT_Storage.json")
-RECIPES_FILE = os.path.join(SOURCE_DIR, "DT_ItemRecipes.json")
-OUTPUT_DIR = os.path.join("output", "storage")
+# Paths - Updated for new datajson structure
+OUTPUT_BASE = os.path.join(os.environ.get("APPDATA", ""), "MoriaWikiGenerator", "output")
+SOURCE_DIR = os.path.join(OUTPUT_BASE, "datajson", "Moria", "Content", "Tech", "Data")
+STRINGS_DIR = os.path.join(SOURCE_DIR, "StringTables")
+STORAGE_FILE = os.path.join(SOURCE_DIR, "Items", "DT_Storage.json")
+RECIPES_FILE = os.path.join(SOURCE_DIR, "Items", "DT_ItemRecipes.json")
+OUTPUT_DIR = os.path.join(OUTPUT_BASE, "wiki", "storage")
 
 # DLC detection patterns
 DLC_PATH_PATTERNS = {
@@ -291,26 +292,9 @@ def process_storage(storage_data, string_map, recipes_dict):
     """Process all storage items and generate wiki models."""
     print("\nProcessing storage items...")
     storage_models = []
-    excluded_storage = []
 
     for storage_entry in storage_data:
         storage_name = storage_entry.get("Name", "")
-
-        # Skip system/internal entries (Dwarf inventory, body inventory, etc.)
-        if "Dwarf." in storage_name or "DeathContainer" in storage_name:
-            excluded_storage.append({
-                "name": storage_name,
-                "reason": "System/internal storage"
-            })
-            continue
-
-        # Skip UNSHIPPABLE items
-        if "UNSHIPPABLE" in storage_name:
-            excluded_storage.append({
-                "name": storage_name,
-                "reason": "UNSHIPPABLE item"
-            })
-            continue
 
         # Get properties
         properties = storage_entry.get("Value", [])
@@ -321,18 +305,6 @@ def process_storage(storage_data, string_map, recipes_dict):
 
         # Skip if no display name
         if not display_name:
-            excluded_storage.append({
-                "name": storage_name,
-                "reason": "No display name"
-            })
-            continue
-
-        # Skip items with template placeholders in name
-        if "{" in display_name or "}" in display_name:
-            excluded_storage.append({
-                "name": storage_name,
-                "reason": "Template placeholder in name"
-            })
             continue
 
         # Extract storage-specific properties
@@ -373,8 +345,7 @@ def process_storage(storage_data, string_map, recipes_dict):
         storage_models.append(storage_model)
 
     print(f"  Processed {len(storage_models)} storage items")
-    print(f"  Excluded {len(excluded_storage)} storage items")
-    return storage_models, excluded_storage
+    return storage_models
 
 
 def write_wiki_files(storage_models, output_dir, string_map):
@@ -394,17 +365,6 @@ def write_wiki_files(storage_models, output_dir, string_map):
     print(f"  Wrote {len(storage_models)} wiki files")
 
 
-def write_excluded_log(excluded_storage, output_root):
-    """Write a log of excluded storage items."""
-    if not excluded_storage:
-        return
-
-    log_path = os.path.join(output_root, "excluded_storage.txt")
-    with open(log_path, 'w', encoding='utf-8') as f:
-        f.write(f"Excluded {len(excluded_storage)} storage items:\n\n")
-        for item in excluded_storage:
-            f.write(f"{item['name']}: {item['reason']}\n")
-    print(f"\nWrote exclusion log to {log_path}")
 
 
 def main():
@@ -426,14 +386,10 @@ def main():
     print(f"  Total storage items: {len(storage_data)}")
 
     # Process storage
-    storage_models, excluded_storage = process_storage(storage_data, string_map, recipes_dict)
+    storage_models = process_storage(storage_data, string_map, recipes_dict)
 
     # Write wiki files
     write_wiki_files(storage_models, OUTPUT_DIR, string_map)
-
-    # Write exclusion log to output root directory
-    if excluded_storage:
-        write_excluded_log(excluded_storage, "output")
 
     print("\nDone!")
 

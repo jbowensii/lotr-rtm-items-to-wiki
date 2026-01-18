@@ -1,0 +1,128 @@
+Constructions with Unknown Unlocks
+======================================================================
+
+
+Crude_Floor_Wood_Thin -> Narrow Wood Floor
+Crude_Platform -> Wood Platform
+Scaffolding_Stairs_1m -> Small Stairs
+Advanced_Floor_Stone_1m_V2 -> Small Granite Floor
+Advanced_Floor_Stone_V2 -> Granite Floor
+Advanced_Stairs_Railing_1m_V2 -> Short Bannister
+Advanced_Bannister_Post_Stone -> Stone Post
+Fortress_Column_4m -> Full Height Column
+Fortress_Column_8m -> Double Height Column
+Elder_Wall_C_Crown -> Unadorned Crown
+Pallet_Ingot_Sterling -> Sterling Ingot Pallet
+JunkPile -> Tinker's Junk Pile
+
+Total with unknown unlocks: 30
+
+
+
+QuickPlatform -> Quick Platform unlocks with Obtain Wood Scraps
+KnowledgePile_Shelf_Books -> Build-lore Case unlocks with Obtain Build-lore Tome
+KnowledgePile_Shelf_Scrolls -> Build-lore Shelves unlocks with Obtain Build-lore Scroll
+Beorn_Roof_Slope1_300x300x300_A -> Large Slate Roof unlocks when you Obtain The Beorn's Lodge Pack DLC
+Beorn_Floor_1x3_A -> Patterned Board unlocks when you Obtain The Beorn's Lodge Pack DLC
+Beorn_Floor_1x3_B -> Inlaid Board unlocks when you Obtain The Beorn's Lodge Pack DLC
+Beorn_Floor_1x3_C -> Timber Board unlocks when you Obtain The Beorn's Lodge Pack DLC
+Beorn_Cave_Honey_Hive -> Makeshift Bee Hive unlocks when you Obtain The Beorn's Lodge Pack DLC
+Settlement_Stone -> Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+MiningMarker -> Vein Marker Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+1st_Monument -> Zagal of Wealth Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+2nd_Monument -> Flame of Dashûn Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+3rd_Monument -> Pillar of Unukh-âhîn Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+4th_Monument -> Archive of Umrad-ukhfur Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+5th_Monument -> Vault of Khafrûn-unshi Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+DurinsFolk_RavenConstruction -> Aric's Perch Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+Settlement_Stone_Small -> Rallystone Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+Decoration__Gondor -> White Tree Replica Delvestone unlocks when you Obtain The Durin's Folk Expansion DLC
+
+
+"BeornPack" to "The Beorn's Lodge Pack"
+"DurinsFolk" to "Durin's Folk Expansion"
+"Elven" to "Durin's Folk Expansion"
+"EntPack" to "The Ent-craft Pack"
+"Holiday2025" to "The Yule-tide Pack"
+"HolidayPack" to "The Yule-tide Pack"
+"LordOfMoria" to "End Game Award"
+"OrcHunterPack" to "The Orc Hunter Pack"
+"OriginCosmetics" to "The Yule-tide Pack"
+"RohanPack" to "The Rhohan Pack"
+
+
+"Inn Keeper's Vest" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}"
+"Metalworker's Slouch" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}"
+"Mason's Hat" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+"Stonemason's Garb" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+"Cook's Torque" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+"Salvager's Ghillie" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+"Smith's Apron" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Advanced Miner's Helm" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Merchant's Attire" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"Builders Kettle" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"Artisan's Topper" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"Blacksmith's Caul" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}"
+"Expeditioner's Armor" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}"
+"Guard's Helm" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}"
+"Innkeepr's Garb" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Brewmaster's Casque" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Kitchen Apron" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Meat Hat" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+
+
+
+
+
+"Salt-cured Fish" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader OR Blue Mountains Trader}}"
+"Northern Wool" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Arnor Trader}}"
+"Shell" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+"Coastal Marble" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Blue Mountains Trader}}"
+"Elven Silk" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader Or Rivendell Trader}}"
+"Drakhbarzin" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+"Elanor Seed" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+"Niphredil Seed" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Lothloorien Trader}}"
+"Saffron" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Fireclay Brick" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Red Sandstone" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Pumice" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Crimson Fire Brazier" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Volcanic Glass" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Red Mountains Trader}}"
+"Southern Oil" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"Whale Tallow" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"White Tree Replica" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gondor Trader}}"
+"Sea Wax" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Gundabad Quartermaster}}"
+"Thanazutsam" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}"
+"Ithildin Ingot" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Rivendell Trader}}"
+"Northern Wool" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Cookware Display" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Pumpkin Seed" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+"Sweetroot Seed" maps to "Purchase the {{LI|Durin's Folk Expansion}} Purchased from the {{LI|Shire Trader}}"
+
+Shell, Geode Display, Coastal Marble Building Set, Crimson Brazier, Red Sandstone Building Set, White Tree Replica, Ancient Building Set, Imladris Furnishing Plans, Cookware Display
+
+
+
+
+
+Campaign:
+
+tier 1 - ", Repair [[Damaged Statues]] in [[Westgate]]"
+tier 2 - ", Repair [[Damaged Statues]] in the [[Mines of Moria]]"
+tier 3 - ", Repair [[Damaged Statues]] in the [[Lower Deeps]]"
+tier 4 - ", Repair [[Damaged Statues]] in the [[Desolation]]"
+tier 5 - ", Unlock the [[Great Nogrod Forge]]"
+tier 6 - ", Speak with [[Aric]] after the end-game credits"
+
+Sandbox
+tier 1 - ", Repair [[Damaged Statues]] in the [[Gate]] or [[Elven]] areas"
+tier 2 - ", Repair [[Damaged Statues]] in the [[Mines]] areas"
+tier 3 - ", Repair [[Damaged Statues]] in the [[Mines]] or [[Deeps]] areas"
+tier 4 - ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas"
+tier 5 - ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas"
+tier 6 - ", Repair [[Damaged Statues]] in the [[Halls]], [[Ruins]] or [[Lode]] areas"
+
+"Longbottom Hat": "The Recipe is found in [[Muznakan of Narvi's Line]]"
+"Crested Helmet": "The Recipe is found in [[Muznakan of Gimol's Line]]"
+"Last Alliance Helmet": "The Recipe is found in [[Muznakan of Fundin's Line]]"
+"Trapper Hat": "The Recipe is found in [[Muznakan of Ori's Line]]"
