@@ -1,3 +1,5 @@
+<img width="3153" height="1786" alt="image" src="https://github.com/user-attachments/assets/e9643abf-7e66-48cf-a17b-1324b18692ad" />
+
 **Moria Wiki Generator**
 A desktop application for generating MediaWiki content from LOTR: Return to Moria game data files.
 
