@@ -6,6 +6,11 @@ A desktop application for generating MediaWiki content from LOTR: Return to Mori
 **Purpose**
 Extracts item, recipe, and unlock data from the game's data files and generates wiki-formatted templates ready for import into a MediaWiki site.
 
+**Download Utilities**
+Retoc can be downloaded here: https://github.com/trumank/retoc
+UassetGUI can be downloaded here: https://github.com/atenfyr/UAssetGUI
+Please put these utilities in: %APPDATA%\Roaming\MoriaWikiGenerator\utilities after the application is run the first time.  
+
 **Key Capabilities**
 Data Import
 Imports game data via UAssetGUI JSON export files
